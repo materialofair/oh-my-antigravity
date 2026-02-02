@@ -2,7 +2,7 @@
 
 **Google Gemini Antigravity 的终极 AI 代理工具包**
 
-*基于 [oh-my-claudcode ](https://github.com/yeachan-heo/oh-my-claudcode ) 移植 ❤️*
+*基于 [oh-my-claudecode ](https://github.com/yeachan-heo/oh-my-claudecode ) 移植 ❤️*
 
 > 为你的 Antigravity 代理注入 "Oh My" 生态系统的集体智慧 — **72 个专业技能** 和 **32 个自动化工作流**。
 
