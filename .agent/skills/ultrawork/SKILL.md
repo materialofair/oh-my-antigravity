@@ -53,19 +53,19 @@ This skill enhances Claude's capabilities by:
 
 ```
 // Simple question → LOW tier (saves tokens!)
-Task(subagent_type="oh-my-claudecode:architect-low", model="haiku", prompt="What does this function return?")
+Task(subagent_type="oh-my-antigravity :architect-low", model="haiku", prompt="What does this function return?")
 
 // Standard implementation → MEDIUM tier
-Task(subagent_type="oh-my-claudecode:executor", model="sonnet", prompt="Add error handling to login")
+Task(subagent_type="oh-my-antigravity :executor", model="sonnet", prompt="Add error handling to login")
 
 // Complex refactoring → HIGH tier
-Task(subagent_type="oh-my-claudecode:executor-high", model="opus", prompt="Refactor auth module using JWT across 5 files")
+Task(subagent_type="oh-my-antigravity :executor-high", model="opus", prompt="Refactor auth module using JWT across 5 files")
 
 // Quick file lookup → LOW tier
-Task(subagent_type="oh-my-claudecode:explore", model="haiku", prompt="Find where UserService is defined")
+Task(subagent_type="oh-my-antigravity :explore", model="haiku", prompt="Find where UserService is defined")
 
 // Thorough search → MEDIUM tier
-Task(subagent_type="oh-my-claudecode:explore-medium", model="sonnet", prompt="Find all authentication patterns in the codebase")
+Task(subagent_type="oh-my-antigravity :explore-medium", model="sonnet", prompt="Find all authentication patterns in the codebase")
 ```
 
 ## Background Execution Rules

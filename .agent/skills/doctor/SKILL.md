@@ -1,6 +1,6 @@
 ---
 name: doctor
-description: Diagnose and fix oh-my-claudecode installation issues
+description: Diagnose and fix oh-my-antigravity  installation issues
 ---
 
 # Doctor Skill
@@ -13,7 +13,7 @@ You are the OMC Doctor - diagnose and fix installation issues.
 
 ```bash
 # Get installed version
-INSTALLED=$(ls ~/.claude/plugins/cache/omc/oh-my-claudecode/ 2>/dev/null | sort -V | tail -1)
+INSTALLED=$(ls ~/.claude/plugins/cache/omc/oh-my-antigravity / 2>/dev/null | sort -V | tail -1)
 echo "Installed: $INSTALLED"
 
 # Get latest from npm
@@ -52,7 +52,7 @@ ls -la ~/.claude/hooks/*.sh 2>/dev/null
 ls -la ~/.claude/CLAUDE.md 2>/dev/null
 
 # Check for OMC marker
-grep -q "oh-my-claudecode Multi-Agent System" ~/.claude/CLAUDE.md 2>/dev/null && echo "Has OMC config" || echo "Missing OMC config"
+grep -q "oh-my-antigravity  Multi-Agent System" ~/.claude/CLAUDE.md 2>/dev/null && echo "Has OMC config" || echo "Missing OMC config"
 ```
 
 **Diagnosis**:
@@ -63,7 +63,7 @@ grep -q "oh-my-claudecode Multi-Agent System" ~/.claude/CLAUDE.md 2>/dev/null &&
 
 ```bash
 # Count versions in cache
-ls ~/.claude/plugins/cache/omc/oh-my-claudecode/ 2>/dev/null | wc -l
+ls ~/.claude/plugins/cache/omc/oh-my-antigravity / 2>/dev/null | wc -l
 ```
 
 **Diagnosis**:
@@ -85,14 +85,14 @@ ls -la ~/.claude/skills/ 2>/dev/null
 ```
 
 **Diagnosis**:
-- If `~/.claude/agents/` exists with oh-my-claudecode-related files: WARN - legacy agents (now provided by plugin)
-- If `~/.claude/commands/` exists with oh-my-claudecode-related files: WARN - legacy commands (now provided by plugin)
-- If `~/.claude/skills/` exists with oh-my-claudecode-related files: WARN - legacy skills (now provided by plugin)
+- If `~/.claude/agents/` exists with oh-my-antigravity -related files: WARN - legacy agents (now provided by plugin)
+- If `~/.claude/commands/` exists with oh-my-antigravity -related files: WARN - legacy commands (now provided by plugin)
+- If `~/.claude/skills/` exists with oh-my-antigravity -related files: WARN - legacy skills (now provided by plugin)
 
 Look for files like:
 - `architect.md`, `researcher.md`, `explore.md`, `executor.md`, etc. in agents/
 - `ultrawork.md`, `deepsearch.md`, etc. in commands/
-- Any oh-my-claudecode-related `.md` files in skills/
+- Any oh-my-antigravity -related `.md` files in skills/
 
 ---
 
@@ -148,21 +148,21 @@ rm -f ~/.claude/hooks/stop-continuation.sh
 
 ### Fix: Outdated Plugin
 ```bash
-rm -rf ~/.claude/plugins/cache/oh-my-claudecode
+rm -rf ~/.claude/plugins/cache/oh-my-antigravity 
 echo "Plugin cache cleared. Restart Claude Code to fetch latest version."
 ```
 
 ### Fix: Stale Cache (multiple versions)
 ```bash
 # Keep only latest version
-cd ~/.claude/plugins/cache/omc/oh-my-claudecode/
+cd ~/.claude/plugins/cache/omc/oh-my-antigravity /
 ls | sort -V | head -n -1 | xargs rm -rf
 ```
 
 ### Fix: Missing/Outdated CLAUDE.md
 Fetch latest from GitHub and write to `~/.claude/CLAUDE.md`:
 ```
-WebFetch(url: "https://raw.githubusercontent.com/Yeachan-Heo/oh-my-claudecode/main/docs/CLAUDE.md", prompt: "Return the complete raw markdown content exactly as-is")
+WebFetch(url: "https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/docs/CLAUDE.md", prompt: "Return the complete raw markdown content exactly as-is")
 ```
 
 ### Fix: Legacy Curl-Installed Content
@@ -181,7 +181,7 @@ rm -rf ~/.claude/commands
 rm -rf ~/.claude/skills
 ```
 
-**Note**: Only remove if these contain oh-my-claudecode-related files. If user has custom agents/commands/skills, warn them and ask before removing.
+**Note**: Only remove if these contain oh-my-antigravity -related files. If user has custom agents/commands/skills, warn them and ask before removing.
 
 ---
 

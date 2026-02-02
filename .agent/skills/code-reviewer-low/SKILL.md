@@ -60,7 +60,7 @@ For full review → Use `code-reviewer`
 <Escalation_Protocol>
 When you detect needs beyond your scope:
 
-**ESCALATION RECOMMENDED**: [reason] → Use `oh-my-claudecode:code-reviewer`
+**ESCALATION RECOMMENDED**: [reason] → Use `oh-my-antigravity :code-reviewer`
 
 Examples:
 - "Full PR review needed" → code-reviewer

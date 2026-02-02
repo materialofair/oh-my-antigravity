@@ -2,7 +2,7 @@
 
 ## Overview
 
-Automatic token tracking and cost estimation for Claude API usage in oh-my-claudecode.
+Automatic token tracking and cost estimation for Claude API usage in oh-my-antigravity .
 
 ## Features
 

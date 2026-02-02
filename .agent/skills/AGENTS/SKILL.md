@@ -3,7 +3,7 @@
 
 # agents (Prompt Templates)
 
-Markdown prompt templates for all 32 agents in oh-my-claudecode.
+Markdown prompt templates for all 32 agents in oh-my-antigravity .
 
 ## Purpose
 

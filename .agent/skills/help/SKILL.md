@@ -1,6 +1,6 @@
 ---
 name: help
-description: Guide on using oh-my-claudecode plugin
+description: Guide on using oh-my-antigravity  plugin
 ---
 
 # How OMC Works
@@ -44,7 +44,7 @@ I'll figure out what to stop based on context.
 If you haven't configured OMC yet:
 
 ```
-/oh-my-claudecode:omc-setup
+/oh-my-antigravity :omc-setup
 ```
 
 This is the **only command** you need to know. It downloads the configuration and you're done.
@@ -57,8 +57,8 @@ But now you don't NEED them - everything is automatic.
 
 ## Need More Help?
 
-- **README**: https://github.com/Yeachan-Heo/oh-my-claudecode
-- **Issues**: https://github.com/Yeachan-Heo/oh-my-claudecode/issues
+- **README**: https://github.com/Yeachan-Heo/oh-my-antigravity 
+- **Issues**: https://github.com/Yeachan-Heo/oh-my-antigravity /issues
 
 ---
 

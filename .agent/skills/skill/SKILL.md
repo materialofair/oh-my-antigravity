@@ -6,7 +6,7 @@ argument-hint: "<command> [args]"
 
 # Skill Management CLI
 
-Meta-skill for managing oh-my-claudecode skills via CLI-like commands.
+Meta-skill for managing oh-my-antigravity  skills via CLI-like commands.
 
 ## Subcommands
 
@@ -84,7 +84,7 @@ argument-hint: "<args>"
 ## Examples
 
 ```
-/oh-my-claudecode:<name> example-arg
+/oh-my-antigravity :<name> example-arg
 ```
 
 ## Notes

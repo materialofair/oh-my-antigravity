@@ -1,6 +1,6 @@
 # Migration Guide
 
-This guide covers all migration paths for oh-my-claudecode. Find your current version below.
+This guide covers all migration paths for oh-my-antigravity . Find your current version below.
 
 ---
 
@@ -56,29 +56,29 @@ The following skills have been **completely removed** in v3.5.3:
 
 | Removed Skill | Replacement |
 |---------------|-------------|
-| `cancel-autopilot` | `/oh-my-claudecode:cancel` |
-| `cancel-ralph` | `/oh-my-claudecode:cancel` |
-| `cancel-ultrawork` | `/oh-my-claudecode:cancel` |
-| `cancel-ultraqa` | `/oh-my-claudecode:cancel` |
-| `cancel-ecomode` | `/oh-my-claudecode:cancel` |
-| `omc-default` | `/oh-my-claudecode:omc-setup --local` |
-| `omc-default-global` | `/oh-my-claudecode:omc-setup --global` |
-| `planner` | `/oh-my-claudecode:plan` |
+| `cancel-autopilot` | `/oh-my-antigravity :cancel` |
+| `cancel-ralph` | `/oh-my-antigravity :cancel` |
+| `cancel-ultrawork` | `/oh-my-antigravity :cancel` |
+| `cancel-ultraqa` | `/oh-my-antigravity :cancel` |
+| `cancel-ecomode` | `/oh-my-antigravity :cancel` |
+| `omc-default` | `/oh-my-antigravity :omc-setup --local` |
+| `omc-default-global` | `/oh-my-antigravity :omc-setup --global` |
+| `planner` | `/oh-my-antigravity :plan` |
 
 ### What Changed
 
 **Before v3.5.3:**
 ```bash
-/oh-my-claudecode:cancel-ralph      # Cancel ralph specifically
-/oh-my-claudecode:omc-default       # Configure local project
-/oh-my-claudecode:planner "task"    # Start planning
+/oh-my-antigravity :cancel-ralph      # Cancel ralph specifically
+/oh-my-antigravity :omc-default       # Configure local project
+/oh-my-antigravity :planner "task"    # Start planning
 ```
 
 **After v3.5.3:**
 ```bash
-/oh-my-claudecode:cancel            # Auto-detects and cancels any active mode
-/oh-my-claudecode:omc-setup --local # Configure local project
-/oh-my-claudecode:plan "task"       # Start planning (includes interview mode)
+/oh-my-antigravity :cancel            # Auto-detects and cancels any active mode
+/oh-my-antigravity :omc-setup --local # Configure local project
+/oh-my-antigravity :plan "task"       # Start planning (includes interview mode)
 ```
 
 ### New Features
@@ -90,8 +90,8 @@ The following skills have been **completely removed** in v3.5.3:
 
 **Plan skill now supports consensus mode:**
 ```bash
-/oh-my-claudecode:plan --consensus "task"  # Iterative planning with Critic review
-/oh-my-claudecode:ralplan "task"           # Alias for plan --consensus
+/oh-my-antigravity :plan --consensus "task"  # Iterative planning with Critic review
+/oh-my-antigravity :ralplan "task"           # Alias for plan --consensus
 ```
 
 ### Migration Steps
@@ -113,7 +113,7 @@ The following skills have been **completely removed** in v3.5.3:
 
 Your old commands still work! But now you don't need them.
 
-**Before 3.0:** Explicitly invoke 25+ commands like `/oh-my-claudecode:ralph "task"`, `/oh-my-claudecode:ultrawork "task"`
+**Before 3.0:** Explicitly invoke 25+ commands like `/oh-my-antigravity :ralph "task"`, `/oh-my-antigravity :ultrawork "task"`
 
 **After 3.0:** Just work naturally - Claude auto-activates the right behaviors. One-time setup: just say "setup omc"
 
@@ -122,7 +122,7 @@ Your old commands still work! But now you don't need them.
 The package has been renamed to better reflect its purpose and improve discoverability.
 
 - **Old**: `oh-my-claude-sisyphus`
-- **New**: `oh-my-claudecode`
+- **New**: `oh-my-antigravity `
 
 #### NPM Commands
 
@@ -142,13 +142,13 @@ You had to remember and explicitly invoke specific commands for each mode:
 
 ```bash
 # 2.x workflow: Multiple commands, lots to remember
-/oh-my-claudecode:ralph "implement user authentication"       # Persistence mode
-/oh-my-claudecode:ultrawork "refactor the API layer"          # Maximum parallelism
-/oh-my-claudecode:planner "plan the new dashboard"            # Planning interview
-/oh-my-claudecode:deepsearch "find database schema files"     # Deep search
-/oh-my-claudecode:git-master "commit these changes"           # Git expertise
-/oh-my-claudecode:deepinit ./src                              # Index codebase
-/oh-my-claudecode:analyze "why is this test failing?"         # Deep analysis
+/oh-my-antigravity :ralph "implement user authentication"       # Persistence mode
+/oh-my-antigravity :ultrawork "refactor the API layer"          # Maximum parallelism
+/oh-my-antigravity :planner "plan the new dashboard"            # Planning interview
+/oh-my-antigravity :deepsearch "find database schema files"     # Deep search
+/oh-my-antigravity :git-master "commit these changes"           # Git expertise
+/oh-my-antigravity :deepinit ./src                              # Index codebase
+/oh-my-antigravity :analyze "why is this test failing?"         # Deep analysis
 ```
 
 #### After (3.0): Auto-Activation + Keywords
@@ -227,20 +227,20 @@ All 2.x commands continue to work. Here's what changed:
 
 | 2.x Command | 3.0 Equivalent | Works? |
 |-------------|----------------|--------|
-| `/oh-my-claudecode:ralph "task"` | Say "don't stop until done" OR use `ralph` keyword | ✅ YES (both ways) |
-| `/oh-my-claudecode:ultrawork "task"` | Say "fast" or "parallel" OR use `ulw` keyword | ✅ YES (both ways) |
-| `/oh-my-claudecode:ultrawork-ralph` | Say "ralph ulw:" prefix | ✅ YES (keyword combo) |
-| `/oh-my-claudecode:planner "task"` | Say "plan this" OR use `plan` keyword | ✅ YES (both ways) |
-| `/oh-my-claudecode:plan "description"` | Start planning naturally | ✅ YES |
-| `/oh-my-claudecode:review [path]` | Invoke normally | ✅ YES (unchanged) |
-| `/oh-my-claudecode:deepsearch "query"` | Say "find" or "search" | ✅ YES (auto-detect) |
-| `/oh-my-claudecode:analyze "target"` | Say "analyze" or "investigate" | ✅ YES (auto-detect) |
-| `/oh-my-claudecode:deepinit [path]` | Invoke normally | ✅ YES (unchanged) |
-| `/oh-my-claudecode:git-master` | Say "git", "commit", "atomic commit" | ✅ YES (auto-detect) |
-| `/oh-my-claudecode:frontend-ui-ux` | Say "UI", "styling", "component", "design" | ✅ YES (auto-detect) |
-| `/oh-my-claudecode:note "content"` | Say "remember this" or "save this" | ✅ YES (auto-detect) |
-| `/oh-my-claudecode:cancel-ralph` | Say "stop", "cancel", or "abort" | ✅ YES (auto-detect) |
-| `/oh-my-claudecode:doctor` | Invoke normally | ✅ YES (unchanged) |
+| `/oh-my-antigravity :ralph "task"` | Say "don't stop until done" OR use `ralph` keyword | ✅ YES (both ways) |
+| `/oh-my-antigravity :ultrawork "task"` | Say "fast" or "parallel" OR use `ulw` keyword | ✅ YES (both ways) |
+| `/oh-my-antigravity :ultrawork-ralph` | Say "ralph ulw:" prefix | ✅ YES (keyword combo) |
+| `/oh-my-antigravity :planner "task"` | Say "plan this" OR use `plan` keyword | ✅ YES (both ways) |
+| `/oh-my-antigravity :plan "description"` | Start planning naturally | ✅ YES |
+| `/oh-my-antigravity :review [path]` | Invoke normally | ✅ YES (unchanged) |
+| `/oh-my-antigravity :deepsearch "query"` | Say "find" or "search" | ✅ YES (auto-detect) |
+| `/oh-my-antigravity :analyze "target"` | Say "analyze" or "investigate" | ✅ YES (auto-detect) |
+| `/oh-my-antigravity :deepinit [path]` | Invoke normally | ✅ YES (unchanged) |
+| `/oh-my-antigravity :git-master` | Say "git", "commit", "atomic commit" | ✅ YES (auto-detect) |
+| `/oh-my-antigravity :frontend-ui-ux` | Say "UI", "styling", "component", "design" | ✅ YES (auto-detect) |
+| `/oh-my-antigravity :note "content"` | Say "remember this" or "save this" | ✅ YES (auto-detect) |
+| `/oh-my-antigravity :cancel-ralph` | Say "stop", "cancel", or "abort" | ✅ YES (auto-detect) |
+| `/oh-my-antigravity :doctor` | Invoke normally | ✅ YES (unchanged) |
 | All other commands | Work exactly as before | ✅ YES |
 
 ### Magic Keywords
@@ -287,7 +287,7 @@ If in planning       → End planning interview
 If multiple active   → Stop the most recent
 ```
 
-No more `/oh-my-claudecode:cancel-ralph` - just say "cancel"!
+No more `/oh-my-antigravity :cancel-ralph` - just say "cancel"!
 
 ### Migration Steps
 
@@ -303,8 +303,8 @@ npm uninstall -g oh-my-claude-sisyphus
 
 ```bash
 # In Claude Code:
-/plugin marketplace add https://github.com/Yeachan-Heo/oh-my-claudecode
-/plugin install oh-my-claudecode
+/plugin marketplace add https://github.com/Yeachan-Heo/oh-my-antigravity 
+/plugin install oh-my-antigravity 
 ```
 
 > **Note**: npm/bun global installs are no longer supported. Use the plugin system.
@@ -345,7 +345,7 @@ Update your shell configuration files (`.bashrc`, `.zshrc`, etc.):
 #### 6. Update Scripts and Configurations
 
 Search for and update any references to:
-- Package name: `oh-my-claude-sisyphus` → `oh-my-claudecode`
+- Package name: `oh-my-claude-sisyphus` → `oh-my-antigravity `
 - Agent names: Use the mapping table above
 - Commands: Use the new slash commands
 - Directory paths: Update `.sisyphus` → `.omc`
@@ -377,7 +377,7 @@ After migration, verify your setup:
    ```
 
 3. **Test a simple command**:
-   Run `/oh-my-claudecode:help` in Claude Code to ensure the plugin is loaded correctly.
+   Run `/oh-my-antigravity :help` in Claude Code to ensure the plugin is loaded correctly.
 
 ### New Features in 3.0
 
@@ -386,7 +386,7 @@ After migration, verify your setup:
 **No commands to memorize.** Work naturally:
 
 ```
-Before: "OK, I need to use /oh-my-claudecode:ultrawork for speed..."
+Before: "OK, I need to use /oh-my-antigravity :ultrawork for speed..."
 After:  "I'm in a hurry, go fast!"
         ↓
         Claude: "I'm activating ultrawork mode..."
@@ -408,7 +408,7 @@ Your request              Claude's action
 
 You don't ask for delegation - it happens automatically.
 
-#### 3. Learned Skills (`/oh-my-claudecode:learner`)
+#### 3. Learned Skills (`/oh-my-antigravity :learner`)
 
 Extract reusable insights from problem-solving:
 
@@ -433,7 +433,7 @@ See what Claude is doing in the status bar:
 [OMC] ralph:3/10 | US-002 | ultrawork skill:planner | ctx:67% | agents:2 | todos:2/5
 ```
 
-Run `/oh-my-claudecode:hud setup` to install. Presets: minimal, focused, full.
+Run `/oh-my-antigravity :hud setup` to install. Presets: minimal, focused, full.
 
 #### 5. Three-Tier Memory System
 
@@ -447,10 +447,10 @@ Permanently loaded on session start
 Never lost through compaction
 ```
 
-Or use `/oh-my-claudecode:note` to save discoveries manually:
+Or use `/oh-my-antigravity :note` to save discoveries manually:
 
 ```bash
-/oh-my-claudecode:note Project uses PostgreSQL with Prisma ORM
+/oh-my-antigravity :note Project uses PostgreSQL with Prisma ORM
 ```
 
 #### 6. Structured Task Tracking (PRD Support)
@@ -458,7 +458,7 @@ Or use `/oh-my-claudecode:note` to save discoveries manually:
 **Ralph Loop now uses Product Requirements Documents:**
 
 ```bash
-/oh-my-claudecode:ralph-init "implement OAuth with multiple providers"
+/oh-my-antigravity :ralph-init "implement OAuth with multiple providers"
     ↓
 Auto-creates PRD with user stories
     ↓
@@ -579,7 +579,7 @@ Version 3.4.0 introduces powerful parallel execution modes and advanced workflow
 Execute complex tasks with up to 5 concurrent workers for 3-5x speedup:
 
 ```bash
-/oh-my-claudecode:ultrapilot "build a fullstack todo app"
+/oh-my-antigravity :ultrapilot "build a fullstack todo app"
 ```
 
 **Key Features:**
@@ -595,7 +595,7 @@ Execute complex tasks with up to 5 concurrent workers for 3-5x speedup:
 N coordinated agents with atomic task claiming:
 
 ```bash
-/oh-my-claudecode:swarm 5:executor "fix all TypeScript errors"
+/oh-my-antigravity :swarm 5:executor "fix all TypeScript errors"
 ```
 
 **Key Features:**
@@ -609,7 +609,7 @@ N coordinated agents with atomic task claiming:
 Chain agents with data passing between stages:
 
 ```bash
-/oh-my-claudecode:pipeline explore:haiku -> architect:opus -> executor:sonnet
+/oh-my-antigravity :pipeline explore:haiku -> architect:opus -> executor:sonnet
 ```
 
 **Built-in Presets:**
@@ -625,7 +625,7 @@ Chain agents with data passing between stages:
 Maximum parallelism with 30-50% token savings:
 
 ```bash
-/oh-my-claudecode:ecomode "refactor the authentication system"
+/oh-my-antigravity :ecomode "refactor the authentication system"
 ```
 
 **Smart model routing:**
@@ -638,7 +638,7 @@ Maximum parallelism with 30-50% token savings:
 Smart cancellation that auto-detects active mode:
 
 ```bash
-/oh-my-claudecode:cancel
+/oh-my-antigravity :cancel
 # Or just say: "stop", "cancel", "abort"
 ```
 
@@ -646,20 +646,20 @@ Smart cancellation that auto-detects active mode:
 
 **Deprecation Notice:**
 Individual cancel commands are deprecated but still work:
-- `/oh-my-claudecode:cancel-ralph` (deprecated)
-- `/oh-my-claudecode:cancel-ultraqa` (deprecated)
-- `/oh-my-claudecode:cancel-ultrawork` (deprecated)
-- `/oh-my-claudecode:cancel-ecomode` (deprecated)
-- `/oh-my-claudecode:cancel-autopilot` (deprecated)
+- `/oh-my-antigravity :cancel-ralph` (deprecated)
+- `/oh-my-antigravity :cancel-ultraqa` (deprecated)
+- `/oh-my-antigravity :cancel-ultrawork` (deprecated)
+- `/oh-my-antigravity :cancel-ecomode` (deprecated)
+- `/oh-my-antigravity :cancel-autopilot` (deprecated)
 
-Use `/oh-my-claudecode:cancel` instead.
+Use `/oh-my-antigravity :cancel` instead.
 
 #### 6. Explore-High Agent
 
 Opus-powered architectural search for complex codebase exploration:
 
 ```typescript
-Task(subagent_type="oh-my-claudecode:explore-high",
+Task(subagent_type="oh-my-antigravity :explore-high",
      model="opus",
      prompt="Find all authentication-related code patterns...")
 ```
@@ -691,7 +691,7 @@ When multiple execution mode keywords are present:
 **Explicit mode keywords:** `ulw`, `ultrawork`, `eco`, `ecomode`
 **Generic keywords:** `fast`, `parallel`
 
-Users set their default mode preference via `/oh-my-claudecode:omc-setup`.
+Users set their default mode preference via `/oh-my-antigravity :omc-setup`.
 
 ### Migration Steps
 
@@ -772,12 +772,12 @@ After upgrading, verify new features:
 
 2. **Test ultrapilot**:
    ```bash
-   /oh-my-claudecode:ultrapilot "create a simple React component"
+   /oh-my-antigravity :ultrapilot "create a simple React component"
    ```
 
 3. **Test unified cancel**:
    ```bash
-   /oh-my-claudecode:cancel
+   /oh-my-antigravity :cancel
    ```
 
 4. **Check state directory**:
@@ -838,7 +838,7 @@ Expected timeline: Q1 2026
 
 **2.x Workflow:**
 ```
-/oh-my-claudecode:ultrawork "implement the todo list feature"
+/oh-my-antigravity :ultrawork "implement the todo list feature"
 ```
 
 **3.0+ Workflow:**
@@ -854,7 +854,7 @@ Claude: "I'm activating ultrawork for maximum parallelism"
 
 **2.x Workflow:**
 ```
-/oh-my-claudecode:ralph "debug the memory leak"
+/oh-my-antigravity :ralph "debug the memory leak"
 ```
 
 **3.0+ Workflow:**
@@ -870,7 +870,7 @@ Claude: "I'm activating ralph-loop to ensure completion"
 
 **2.x Workflow:**
 ```
-/oh-my-claudecode:planner "design the new authentication system"
+/oh-my-antigravity :planner "design the new authentication system"
 ```
 
 **3.0+ Workflow:**
@@ -888,7 +888,7 @@ Interview begins automatically
 
 **2.x Workflow:**
 ```
-/oh-my-claudecode:cancel-ralph
+/oh-my-antigravity :cancel-ralph
 ```
 
 **3.0+ Workflow:**
@@ -904,10 +904,10 @@ Interview begins automatically
 
 ### Project-Scoped Configuration (Recommended)
 
-Apply oh-my-claudecode to current project only:
+Apply oh-my-antigravity  to current project only:
 
 ```
-/oh-my-claudecode:omc-default
+/oh-my-antigravity :omc-default
 ```
 
 Creates: `./.claude/CLAUDE.md`
@@ -917,7 +917,7 @@ Creates: `./.claude/CLAUDE.md`
 Apply to all Claude Code sessions:
 
 ```
-/oh-my-claudecode:omc-default-global
+/oh-my-antigravity :omc-default-global
 ```
 
 Creates: `~/.claude/CLAUDE.md`
@@ -935,10 +935,10 @@ A: No. Keywords are optional shortcuts. Claude auto-detects intent without them.
 A: No. All commands continue to work across minor versions (3.0 → 3.1). Major version changes (3.x → 4.0) will provide migration paths.
 
 **Q: What if I like explicit commands?**
-A: Keep using them! `/oh-my-claudecode:ralph`, `/oh-my-claudecode:ultrawork`, and `/oh-my-claudecode:plan` work. Note: `/oh-my-claudecode:planner` now redirects to `/oh-my-claudecode:plan`.
+A: Keep using them! `/oh-my-antigravity :ralph`, `/oh-my-antigravity :ultrawork`, and `/oh-my-antigravity :plan` work. Note: `/oh-my-antigravity :planner` now redirects to `/oh-my-antigravity :plan`.
 
 **Q: How do I know what Claude is doing?**
-A: Claude announces major behaviors: "I'm activating ralph-loop..." or set up `/oh-my-claudecode:hud` for real-time status.
+A: Claude announces major behaviors: "I'm activating ralph-loop..." or set up `/oh-my-antigravity :hud` for real-time status.
 
 **Q: Where's the full command list?**
 A: See [README.md](../README.md) for full command reference. All commands still work.
@@ -950,9 +950,9 @@ A: Keywords are explicit shortcuts. Natural language triggers auto-detection. Bo
 
 ## Need Help?
 
-- **Diagnose issues**: Run `/oh-my-claudecode:doctor`
-- **See all commands**: Run `/oh-my-claudecode:help`
-- **View real-time status**: Run `/oh-my-claudecode:hud setup`
+- **Diagnose issues**: Run `/oh-my-antigravity :doctor`
+- **See all commands**: Run `/oh-my-antigravity :help`
+- **View real-time status**: Run `/oh-my-antigravity :hud setup`
 - **Review detailed changelog**: See [CHANGELOG.md](../CHANGELOG.md)
 - **Report bugs**: [GitHub Issues](https://github.com/Yeachan-Heo/oh-my-claude-sisyphus/issues)
 
@@ -967,4 +967,4 @@ Now that you understand the migration:
 3. **For advanced usage**: Check [docs/ARCHITECTURE.md](ARCHITECTURE.md) for deep dives
 4. **For team onboarding**: Share this guide with teammates
 
-Welcome to oh-my-claudecode!
+Welcome to oh-my-antigravity !

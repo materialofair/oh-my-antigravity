@@ -21,9 +21,9 @@ Autopilot is the ultimate hands-off mode. Give it a brief product idea (2-3 line
 ## Usage
 
 ```
-/oh-my-claudecode:autopilot <your idea>
-/oh-my-claudecode:ap "A CLI tool that tracks daily habits"
-/oh-my-claudecode:autopilot Add dark mode to the app
+/oh-my-antigravity :autopilot <your idea>
+/oh-my-antigravity :ap "A CLI tool that tracks daily habits"
+/oh-my-antigravity :autopilot Add dark mode to the app
 ```
 
 ## Magic Keywords
@@ -114,7 +114,7 @@ Optional settings in `.claude/settings.json`:
 ## Cancellation
 
 ```
-/oh-my-claudecode:cancel
+/oh-my-antigravity :cancel
 ```
 
 Or say: "stop", "cancel", "abort"
@@ -123,23 +123,23 @@ Progress is preserved for resume.
 
 ## Resume
 
-If autopilot was cancelled or failed, just run `/oh-my-claudecode:autopilot` again to resume from where it stopped.
+If autopilot was cancelled or failed, just run `/oh-my-antigravity :autopilot` again to resume from where it stopped.
 
 ## Examples
 
 **New Project:**
 ```
-/oh-my-claudecode:autopilot A REST API for a bookstore inventory with CRUD operations
+/oh-my-antigravity :autopilot A REST API for a bookstore inventory with CRUD operations
 ```
 
 **Feature Addition:**
 ```
-/oh-my-claudecode:autopilot Add user authentication with JWT tokens
+/oh-my-antigravity :autopilot Add user authentication with JWT tokens
 ```
 
 **Enhancement:**
 ```
-/oh-my-claudecode:ap Add dark mode support with system preference detection
+/oh-my-antigravity :ap Add dark mode support with system preference detection
 ```
 
 ## Best Practices

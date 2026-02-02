@@ -25,13 +25,13 @@ The skill checks state files to determine what's active and cancels in order of 
 
 Basic cancellation (auto-detects mode):
 ```
-/oh-my-claudecode:cancel
+/oh-my-antigravity :cancel
 ```
 
 Force clear ALL state files:
 ```
-/oh-my-claudecode:cancel --force
-/oh-my-claudecode:cancel --all
+/oh-my-antigravity :cancel --force
+/oh-my-antigravity :cancel --all
 ```
 
 ## User Arguments
@@ -53,7 +53,7 @@ Force clear ALL state files:
 
 | Mode | Progress Preserved | Resume |
 |------|-------------------|--------|
-| Autopilot | Yes (phase, spec, plan) | `/oh-my-claudecode:autopilot` |
+| Autopilot | Yes (phase, spec, plan) | `/oh-my-antigravity :autopilot` |
 | All Others | No | N/A |
 
 ## Dependency-Aware Cleanup

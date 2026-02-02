@@ -24,12 +24,12 @@ Execute a pipeline of agents where each stage receives context from previous sta
 Use predefined pipelines for common workflows:
 
 ```
-/oh-my-claudecode:pipeline review <task>
-/oh-my-claudecode:pipeline implement <task>
-/oh-my-claudecode:pipeline debug <issue>
-/oh-my-claudecode:pipeline research <topic>
-/oh-my-claudecode:pipeline refactor <target>
-/oh-my-claudecode:pipeline security <scope>
+/oh-my-antigravity :pipeline review <task>
+/oh-my-antigravity :pipeline implement <task>
+/oh-my-antigravity :pipeline debug <issue>
+/oh-my-antigravity :pipeline research <topic>
+/oh-my-antigravity :pipeline refactor <target>
+/oh-my-antigravity :pipeline security <scope>
 ```
 
 ### Custom Pipelines
@@ -37,8 +37,8 @@ Use predefined pipelines for common workflows:
 Define your own agent sequence:
 
 ```
-/oh-my-claudecode:pipeline explore -> architect -> executor "add authentication"
-/oh-my-claudecode:pipeline explore:haiku -> architect:opus -> executor:sonnet "optimize performance"
+/oh-my-antigravity :pipeline explore -> architect -> executor "add authentication"
+/oh-my-antigravity :pipeline explore:haiku -> architect:opus -> executor:sonnet "optimize performance"
 ```
 
 ### With Parallel Stages
@@ -46,7 +46,7 @@ Define your own agent sequence:
 Run agents in parallel then merge:
 
 ```
-/oh-my-claudecode:pipeline [explore, researcher] -> architect -> executor "implement OAuth"
+/oh-my-antigravity :pipeline [explore, researcher] -> architect -> executor "implement OAuth"
 ```
 
 ## Built-in Pipeline Definitions
@@ -182,7 +182,7 @@ Configuration:
 
 Stop active pipeline:
 ```
-/oh-my-claudecode:cancel
+/oh-my-antigravity :cancel
 ```
 
 The unified cancel command auto-detects active pipeline and cleans up state.
@@ -191,24 +191,24 @@ The unified cancel command auto-detects active pipeline and cleans up state.
 
 ### Example 1: Feature Implementation
 ```
-/oh-my-claudecode:pipeline review "add rate limiting to API"
+/oh-my-antigravity :pipeline review "add rate limiting to API"
 ```
 Triggers: explore → architect → critic → executor
 
 ### Example 2: Bug Fix
 ```
-/oh-my-claudecode:pipeline debug "login fails with OAuth"
+/oh-my-antigravity :pipeline debug "login fails with OAuth"
 ```
 Triggers: explore → architect → build-fixer
 
 ### Example 3: Custom Chain
 ```
-/oh-my-claudecode:pipeline explore:haiku -> architect:opus -> executor:sonnet -> tdd-guide:sonnet "refactor auth module"
+/oh-my-antigravity :pipeline explore:haiku -> architect:opus -> executor:sonnet -> tdd-guide:sonnet "refactor auth module"
 ```
 
 ### Example 4: Research-Driven Implementation
 ```
-/oh-my-claudecode:pipeline research "implement GraphQL subscriptions"
+/oh-my-antigravity :pipeline research "implement GraphQL subscriptions"
 ```
 Triggers: parallel(researcher, explore) → architect → writer
 

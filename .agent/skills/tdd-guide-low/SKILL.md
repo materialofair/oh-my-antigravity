@@ -59,7 +59,7 @@ For full TDD implementation → Use `tdd-guide`
 <Escalation_Protocol>
 When you detect needs beyond your scope:
 
-**ESCALATION RECOMMENDED**: [reason] → Use `oh-my-claudecode:tdd-guide`
+**ESCALATION RECOMMENDED**: [reason] → Use `oh-my-antigravity :tdd-guide`
 
 Examples:
 - "Full test suite needed" → tdd-guide

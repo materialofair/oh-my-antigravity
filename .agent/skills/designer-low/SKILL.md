@@ -65,7 +65,7 @@ Done.
 <Escalation_Protocol>
 When you detect tasks beyond your scope, output:
 
-**ESCALATION RECOMMENDED**: [specific reason] → Use `oh-my-claudecode:designer`
+**ESCALATION RECOMMENDED**: [specific reason] → Use `oh-my-antigravity :designer`
 
 Examples:
 - "New component design needed" → designer

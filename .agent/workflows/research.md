@@ -11,12 +11,12 @@ Orchestrate parallel scientist agents for comprehensive research workflows with 
 ## Usage Examples
 
 ```
-/oh-my-claudecode:research <goal>                    # Standard research with user checkpoints
-/oh-my-claudecode:research AUTO: <goal>              # Fully autonomous until complete
-/oh-my-claudecode:research status                    # Check current research session status
-/oh-my-claudecode:research resume                    # Resume interrupted research session
-/oh-my-claudecode:research list                      # List all research sessions
-/oh-my-claudecode:research report <session-id>       # Generate report for session
+/oh-my-antigravity :research <goal>                    # Standard research with user checkpoints
+/oh-my-antigravity :research AUTO: <goal>              # Fully autonomous until complete
+/oh-my-antigravity :research status                    # Check current research session status
+/oh-my-antigravity :research resume                    # Resume interrupted research session
+/oh-my-antigravity :research list                      # List all research sessions
+/oh-my-antigravity :research report <session-id>       # Generate report for session
 ```
 
 ## Research Protocol
@@ -36,13 +36,13 @@ Fire independent stages in parallel via Task tool:
 
 ```
 // Stage 1 - Simple data gathering
-Task(subagent_type="oh-my-claudecode:scientist-low", model="haiku", prompt="[RESEARCH_STAGE:1] Investigate...")
+Task(subagent_type="oh-my-antigravity :scientist-low", model="haiku", prompt="[RESEARCH_STAGE:1] Investigate...")
 
 // Stage 2 - Standard analysis
-Task(subagent_type="oh-my-claudecode:scientist", model="sonnet", prompt="[RESEARCH_STAGE:2] Analyze...")
+Task(subagent_type="oh-my-antigravity :scientist", model="sonnet", prompt="[RESEARCH_STAGE:2] Analyze...")
 
 // Stage 3 - Complex reasoning
-Task(subagent_type="oh-my-claudecode:scientist-high", model="opus", prompt="[RESEARCH_STAGE:3] Deep analysis of...")
+Task(subagent_type="oh-my-antigravity :scientist-high", model="opus", prompt="[RESEARCH_STAGE:3] Deep analysis of...")
 ```
 
 ### Smart Model Routing
@@ -73,7 +73,7 @@ AUTO mode runs the complete research workflow autonomously with loop control.
 1. **Max Iterations:** 10
 2. **Continue until:** Promise tag emitted OR max iterations
 3. **State tracking:** Persist after each stage completion
-4. **Cancellation:** `/oh-my-claudecode:cancel` or "stop", "cancel"
+4. **Cancellation:** `/oh-my-antigravity :cancel` or "stop", "cancel"
 
 ## Session Management
 
@@ -86,7 +86,7 @@ Sessions are stored at `.omc/research/{session-id}/` with:
 ## Cancellation
 
 ```
-/oh-my-claudecode:cancel
+/oh-my-antigravity :cancel
 ```
 
 Or say: "stop research", "cancel research", "abort"

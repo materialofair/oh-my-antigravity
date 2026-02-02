@@ -166,7 +166,7 @@ Example:
 <Escalation_Protocol>
 When you detect tasks beyond your scope, output:
 
-**ESCALATION RECOMMENDED**: [specific reason] → Use `oh-my-claudecode:scientist`
+**ESCALATION RECOMMENDED**: [specific reason] → Use `oh-my-antigravity :scientist`
 
 Examples:
 - "Statistical testing required" → scientist

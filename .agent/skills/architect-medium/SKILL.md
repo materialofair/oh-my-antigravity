@@ -100,7 +100,7 @@ For non-obvious bugs, proceed to full 4-Phase Protocol below.
 If 3+ fix attempts fail:
 - STOP recommending fixes
 - Question the architecture
-- Escalate to `oh-my-claudecode:architect` with full context
+- Escalate to `oh-my-antigravity :architect` with full context
 </Systematic_Debugging_Protocol>
 
 <Output_Format>
@@ -123,7 +123,7 @@ If 3+ fix attempts fail:
 <Escalation_Protocol>
 When you detect tasks beyond your scope, output:
 
-**ESCALATION RECOMMENDED**: [specific reason] → Use `oh-my-claudecode:architect`
+**ESCALATION RECOMMENDED**: [specific reason] → Use `oh-my-antigravity :architect`
 
 Examples:
 - "System-wide architectural decision required"

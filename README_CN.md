@@ -2,7 +2,7 @@
 
 **Google Gemini Antigravity 的终极 AI 代理工具包**
 
-*基于 [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) 移植 ❤️*
+*基于 [oh-my-antigravity ](https://github.com/yeachan-heo/oh-my-antigravity ) 移植 ❤️*
 
 > 为你的 Antigravity 代理注入 "Oh My" 生态系统的集体智慧 — **72 个专业技能** 和 **32 个自动化工作流**。
 
@@ -154,7 +154,7 @@ MIT 许可证 - 详见 [LICENSE](LICENSE)
 
 特别感谢以下项目：
 
-- [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) - 本项目的灵感来源和基础
+- [oh-my-antigravity ](https://github.com/yeachan-heo/oh-my-antigravity ) - 本项目的灵感来源和基础
 - [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) - OpenAI Codex 适配版本
 - [everything-claude-code](https://github.com/affaan-m/everything-claude-code) - 全面的 Claude Code 资源集合
 

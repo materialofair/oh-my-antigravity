@@ -113,9 +113,9 @@ Ralph automatically activates Ultrawork for maximum parallel execution. You MUST
 
 **CRITICAL: Always pass `model` parameter explicitly!**
 ```
-Task(subagent_type="oh-my-claudecode:architect-low", model="haiku", prompt="...")
-Task(subagent_type="oh-my-claudecode:executor", model="sonnet", prompt="...")
-Task(subagent_type="oh-my-claudecode:architect", model="opus", prompt="...")
+Task(subagent_type="oh-my-antigravity :architect-low", model="haiku", prompt="...")
+Task(subagent_type="oh-my-antigravity :executor", model="sonnet", prompt="...")
+Task(subagent_type="oh-my-antigravity :architect", model="opus", prompt="...")
 ```
 
 ### Background Execution Rules
@@ -171,7 +171,7 @@ Before outputting the completion promise:
 When you believe the task is complete:
 1. **First**, spawn Architect to verify your work (ALWAYS pass model explicitly!):
    ```
-   Task(subagent_type="oh-my-claudecode:architect", model="opus", prompt="Verify this implementation is complete: [describe what you did]")
+   Task(subagent_type="oh-my-antigravity :architect", model="opus", prompt="Verify this implementation is complete: [describe what you did]")
    ```
 
 2. **Wait for Architect's assessment**

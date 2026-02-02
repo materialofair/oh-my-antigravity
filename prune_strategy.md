@@ -4,7 +4,7 @@ You are absolutely right. Instead of "porting" (moving file by file to a new fol
 
 ## The Logic
 
-`oh-my-claudecode` = `Prompt Assets` (Skills/Agents) + `Execution Logic` (JS/CLI).
+`oh-my-antigravity ` = `Prompt Assets` (Skills/Agents) + `Execution Logic` (JS/CLI).
 
 Antigravity already handles `Execution Logic`. We just need to keep the `Prompt Assets`.
 
@@ -26,7 +26,7 @@ Antigravity already handles `Execution Logic`. We just need to keep the `Prompt 
 
 ## Outcome
 
-You get **100%** of the prompts from `oh-my-claudecode`, but organized in a way Antigravity understands. No "missing features" because we start with *everything* and only remove what is technically incompatible (like JS code).
+You get **100%** of the prompts from `oh-my-antigravity `, but organized in a way Antigravity understands. No "missing features" because we start with *everything* and only remove what is technically incompatible (like JS code).
 
 ## Execution Steps
 

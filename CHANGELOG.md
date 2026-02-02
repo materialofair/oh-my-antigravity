@@ -415,7 +415,7 @@ Configurable enforcement for orchestrator delegation behavior.
 
 ### Fixed
 
-- Fix npm package references (`oh-my-claudecode` → `oh-my-claude-sisyphus`) in docs/MIGRATION.md, commands/doctor.md, skills/doctor/SKILL.md
+- Fix npm package references (`oh-my-antigravity ` → `oh-my-claude-sisyphus`) in docs/MIGRATION.md, commands/doctor.md, skills/doctor/SKILL.md
 
 ## [3.6.2] - 2026-01-27
 
@@ -425,11 +425,11 @@ Configurable enforcement for orchestrator delegation behavior.
 New skill for managing isolated project sessions with automatic context injection.
 
 - **PSM Skill** (`skills/psm/`)
-  - `/oh-my-claudecode:psm` command for project session management
+  - `/oh-my-antigravity :psm` command for project session management
   - Automatic CLAUDE.md and AGENTS.md injection on session start
   - Project isolation with dedicated session contexts
   - Session persistence and resume support
-  - Integration with existing oh-my-claudecode workflows
+  - Integration with existing oh-my-antigravity  workflows
 
 ### Changed
 
@@ -685,7 +685,7 @@ After:  Assistant entries → correctly attributed to "(main session)"
   - Updated counts: 32 agents, 31+ skills → 40 skills
 
 - **Website Repository**:
-  - Updated oh-my-claudecode-website to v3.4.0
+  - Updated oh-my-antigravity -website to v3.4.0
   - Added ultrapilot, swarm, pipeline, ecomode features
   - Updated agent count from 28 to 32
 
@@ -874,7 +874,7 @@ After:  Assistant entries → correctly attributed to "(main session)"
 ## [3.3.7] - 2026-01-22
 
 ### Added
-- MCP server configuration skill (`/oh-my-claudecode:mcp-setup`) for Context7, Exa, Filesystem, GitHub (#74)
+- MCP server configuration skill (`/oh-my-antigravity :mcp-setup`) for Context7, Exa, Filesystem, GitHub (#74)
 - MCP setup integrated into omc-setup wizard
 
 ### Fixed
@@ -910,7 +910,7 @@ After:  Assistant entries → correctly attributed to "(main session)"
   - Session locking with PID verification for safe concurrent access
   - Security: Socket mode 0600, path validation, symlink protection, signal escalation
 
-- **Research Command** (`/oh-my-claudecode:research`): Orchestrate parallel scientist agents for complex research
+- **Research Command** (`/oh-my-antigravity :research`): Orchestrate parallel scientist agents for complex research
   - Multi-stage decomposition (3-7 independent stages)
   - Smart model routing: LOW (Haiku) / MEDIUM (Sonnet) / HIGH (Opus)
   - Parallel execution with 5 agent concurrency limit
@@ -974,12 +974,12 @@ python_repl(action="execute", researchSessionID="analysis",
 ## [3.2.0] - 2026-01-21
 
 ### Added
-- **Autopilot Command** (`/oh-my-claudecode:autopilot`): Full autonomous execution from idea to working code
+- **Autopilot Command** (`/oh-my-antigravity :autopilot`): Full autonomous execution from idea to working code
   - 5-phase workflow: Expansion → Planning → Execution → QA → Validation
   - Magic keywords: "autopilot", "build me", "create me", "I want a/an"
   - Parallel validation with 3 architects (functional, security, quality)
   - Resume support with progress preservation
-- **Cancel-autopilot Skill** (`/oh-my-claudecode:cancel-autopilot`): Graceful cancellation with state preservation
+- **Cancel-autopilot Skill** (`/oh-my-antigravity :cancel-autopilot`): Graceful cancellation with state preservation
 - **8 new specialized agents registered**: security-reviewer, security-reviewer-low, build-fixer, build-fixer-low, tdd-guide, tdd-guide-low, code-reviewer, code-reviewer-low
 - **Autopilot HUD element**: Real-time phase progress display
 
@@ -1035,12 +1035,12 @@ python_repl(action="execute", researchSessionID="analysis",
 
 ### Changed
 
-- **Fully-qualified command names**: Documentation now uses `/oh-my-claudecode:omc-setup` and `/oh-my-claudecode:help` for namespace consistency
+- **Fully-qualified command names**: Documentation now uses `/oh-my-antigravity :omc-setup` and `/oh-my-antigravity :help` for namespace consistency
 - **Commands folder populated**: All user-facing commands now have full content (copied from skills)
 - **Separated commands vs skills**:
   - 20 commands (user-facing): analyze, cancel-ralph, cancel-ultraqa, cancel-ultrawork, deepinit, deepsearch, doctor, help, hud, learner, note, omc-setup, plan, ralph, ralph-init, ralplan, release, review, ultraqa, ultrawork
   - 6 skills-only (internal): orchestrate, frontend-ui-ux, git-master, omc-default, omc-default-global, planner
-- **Consolidated planner into plan**: `planner` is now skill-only; users invoke via `/oh-my-claudecode:plan`
+- **Consolidated planner into plan**: `planner` is now skill-only; users invoke via `/oh-my-antigravity :plan`
 
 ---
 
@@ -1052,9 +1052,9 @@ This is a **breaking release** that renames the entire project and all agent nam
 
 ### Breaking Changes
 
-- **Project Renamed**: Project renamed to `oh-my-claudecode`
+- **Project Renamed**: Project renamed to `oh-my-antigravity `
   - npm package remains `oh-my-claude-sisyphus`: `npx oh-my-claude-sisyphus install`
-  - Plugin name is `oh-my-claudecode` for Claude Code integration
+  - Plugin name is `oh-my-antigravity ` for Claude Code integration
 
 - **Agent Names Changed**: Greek mythology → Intuitive names
   - `prometheus` → `planner` (strategic planning)
@@ -1069,7 +1069,7 @@ This is a **breaking release** that renames the entire project and all agent nam
   - `multimodal-looker` → `vision` (visual analysis)
   - `orchestrator-sisyphus` → `orchestrator` (task coordination)
 
-- **Directory Structure**: `.sisyphus/` → `.omc/` (oh-my-claudecode)
+- **Directory Structure**: `.sisyphus/` → `.omc/` (oh-my-antigravity )
   - State files now in `~/.claude/.omc/`
   - Runtime plans in `.omc/plans/`
   - Session notes in `.omc/notepads/`
@@ -1078,9 +1078,9 @@ This is a **breaking release** that renames the entire project and all agent nam
   - All environment variable prefixes updated for consistency
 
 - **Slash Commands Updated**: Agent-referencing commands now use new names
-  - `/oh-my-claudecode:plan` now uses `planner` agent (was `prometheus`)
-  - `/oh-my-claudecode:review` now uses `critic` agent (was `momus`)
-  - `/oh-my-claudecode:mnemosyne` → `/oh-my-claudecode:learner` for skill extraction
+  - `/oh-my-antigravity :plan` now uses `planner` agent (was `prometheus`)
+  - `/oh-my-antigravity :review` now uses `critic` agent (was `momus`)
+  - `/oh-my-antigravity :mnemosyne` → `/oh-my-antigravity :learner` for skill extraction
 
 ### Migration Guide
 
@@ -1119,7 +1119,7 @@ Real-time visualization of the Sisyphus orchestration system via Claude Code's s
 ### Added
 
 - **Mnemosyne - Learned Skills** (`src/hooks/mnemosyne/`)
-  - `/oh-my-claudecode:mnemosyne` command to extract reusable skills from conversations
+  - `/oh-my-antigravity :mnemosyne` command to extract reusable skills from conversations
   - Automatic skill injection based on trigger keywords in user messages
   - **Hybrid storage**: User-level (`~/.claude/skills/sisyphus-learned/`) + Project-level (`.sisyphus/skills/`)
   - YAML frontmatter format for skill metadata (triggers, tags, quality scores)
@@ -1134,14 +1134,14 @@ Real-time visualization of the Sisyphus orchestration system via Claude Code's s
   - **Display presets**: minimal, focused (default), full
   - **Elements**: ralph loop progress, PRD story, ultrawork status, context usage, agents, background tasks, todos
   - **Color coding**: Green (healthy), Yellow (warning), Red (critical)
-  - `/oh-my-claudecode:hud` command to configure display options
+  - `/oh-my-antigravity :hud` command to configure display options
   - Auto-refresh every ~300ms during active sessions
   - Type-coded agent visualization with model tier colors
 
 - **New Commands**
-  - `/oh-my-claudecode:mnemosyne` - Extract learned skills from current conversation
-  - `/oh-my-claudecode:hud [preset]` - Configure HUD display (minimal/focused/full)
-  - `/oh-my-claudecode:hud status` - Show detailed HUD status
+  - `/oh-my-antigravity :mnemosyne` - Extract learned skills from current conversation
+  - `/oh-my-antigravity :hud [preset]` - Configure HUD display (minimal/focused/full)
+  - `/oh-my-antigravity :hud status` - Show detailed HUD status
 
 - **New Test Suites**
   - `src/__tests__/mnemosyne/` - 41 tests for learned skills system
@@ -1158,7 +1158,7 @@ Real-time visualization of the Sisyphus orchestration system via Claude Code's s
 
 ### Breaking Changes
 
-- Renamed `/oh-my-claudecode:claudeception` to `/oh-my-claudecode:mnemosyne`
+- Renamed `/oh-my-antigravity :claudeception` to `/oh-my-antigravity :mnemosyne`
 - Renamed config from `claudeception.json` to `mnemosyne.json`
 - Module path changed from `hooks/learned-skills` to `hooks/mnemosyne`
 
@@ -1169,7 +1169,7 @@ Real-time visualization of the Sisyphus orchestration system via Claude Code's s
 ### Added
 
 - **Help Command** (`commands/help.md`)
-  - Comprehensive `/oh-my-claudecode:help` command to guide users on plugin usage
+  - Comprehensive `/oh-my-antigravity :help` command to guide users on plugin usage
   - Quick reference for all 19 commands and 19 agents
   - Example workflows for common tasks
   - Tips for effective usage and best practices
@@ -1225,12 +1225,12 @@ Implements structured task tracking inspired by the original [Ralph](https://git
   - Pattern extraction and learning retrieval for context injection
 
 - **New Commands**
-  - `/oh-my-claudecode:ralph-init <task>` - Scaffold a PRD from task description with auto-generated user stories
-  - `/oh-my-claudecode:ultrawork-ralph <task>` - Maximum intensity mode with completion guarantee (ultrawork + ralph loop)
-  - `/oh-my-claudecode:ultraqa <goal>` - Autonomous QA cycling workflow (test → verify → fix → repeat)
-  - `/oh-my-claudecode:sisyphus-default` - Configure Sisyphus in local project `.claude/CLAUDE.md`
-  - `/oh-my-claudecode:sisyphus-default-global` - Configure Sisyphus globally in `~/.claude/CLAUDE.md`
-  - `/oh-my-claudecode:note <content>` - Save notes to notepad.md for compaction resilience
+  - `/oh-my-antigravity :ralph-init <task>` - Scaffold a PRD from task description with auto-generated user stories
+  - `/oh-my-antigravity :ultrawork-ralph <task>` - Maximum intensity mode with completion guarantee (ultrawork + ralph loop)
+  - `/oh-my-antigravity :ultraqa <goal>` - Autonomous QA cycling workflow (test → verify → fix → repeat)
+  - `/oh-my-antigravity :sisyphus-default` - Configure Sisyphus in local project `.claude/CLAUDE.md`
+  - `/oh-my-antigravity :sisyphus-default-global` - Configure Sisyphus globally in `~/.claude/CLAUDE.md`
+  - `/oh-my-antigravity :note <content>` - Save notes to notepad.md for compaction resilience
 
 - **New Agent Tiers**
   - `qa-tester-high` (Opus) - Complex integration testing
@@ -1249,7 +1249,7 @@ Implements structured task tracking inspired by the original [Ralph](https://git
 ### Changed
 
 - **Ralph Loop Enhanced**
-  - Auto-initializes PRD when user runs `/oh-my-claudecode:ralph-loop` without existing `prd.json`
+  - Auto-initializes PRD when user runs `/oh-my-antigravity :ralph-loop` without existing `prd.json`
   - PRD-based completion: loop ends when ALL stories have `passes: true`
   - Context injection includes current story, patterns, and recent learnings
   - Updated continuation prompts with structured story information
@@ -1410,7 +1410,7 @@ Started: 2026-01-19T...
 ### Refactored
 - **Merged sisyphus+orchestrator+ultrawork into default mode** - 80% behavior overlap consolidated
   - Default mode is now an intelligent orchestrator
-  - `/oh-my-claudecode:orchestrator` command deprecated (use default mode or `/oh-my-claudecode:ultrawork`)
+  - `/oh-my-antigravity :orchestrator` command deprecated (use default mode or `/oh-my-antigravity :ultrawork`)
   - Skill composition replaces agent swapping
 - **Removed deprecated orchestrator command** - Deleted `commands/orchestrator.md` and `orchestratorSkill` (1352 lines)
 - **Updated attribution** - Changed from "Port of" to "Inspired by" oh-my-opencode (70% divergence)
@@ -1569,7 +1569,7 @@ Task(subagent_type="oracle", model="opus", prompt="Force Opus for this task")
   - Converted all oh-my-opencode SDK patterns to Claude Code SDK:
     - `sisyphus_task()` → `Task(subagent_type=...)`
     - `background_output()` → `TaskOutput()`
-    - References to OhMyOpenCode → Oh-My-ClaudeCode-Sisyphus
+    - References to OhMyOpenCode → oh-my-antigravity -Sisyphus
 
 ### Verified
 - All 6 builtin skills install correctly to `~/.claude/skills/`

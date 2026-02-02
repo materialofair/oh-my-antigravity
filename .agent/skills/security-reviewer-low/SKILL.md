@@ -61,7 +61,7 @@ Escalate to `security-reviewer` for: [reason if applicable]
 <Escalation_Protocol>
 When you detect issues beyond your scope:
 
-**ESCALATION RECOMMENDED**: [reason] → Use `oh-my-claudecode:security-reviewer`
+**ESCALATION RECOMMENDED**: [reason] → Use `oh-my-antigravity :security-reviewer`
 
 Examples:
 - "Full OWASP audit needed" → security-reviewer

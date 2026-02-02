@@ -22,7 +22,7 @@ Automatically detects which mode is active and cancels it:
 ## Usage
 
 ```
-/oh-my-claudecode:cancel
+/oh-my-antigravity :cancel
 ```
 
 Or say: "cancelomc", "stopomc"
@@ -57,13 +57,13 @@ If multiple modes are active, they're cancelled in order of dependency:
 To clear ALL state files regardless of what's active:
 
 ```
-/oh-my-claudecode:cancel --force
+/oh-my-antigravity :cancel --force
 ```
 
 Or use the `--all` alias:
 
 ```
-/oh-my-claudecode:cancel --all
+/oh-my-antigravity :cancel --all
 ```
 
 This removes all state files:
@@ -212,7 +212,7 @@ if [[ -f .omc/state/autopilot-state.json ]]; then
   echo "$CURRENT_STATE" | jq '.active = false' > .omc/state/autopilot-state.json
 
   echo "Autopilot cancelled at phase: $CURRENT_PHASE. Progress preserved for resume."
-  echo "Run /oh-my-claudecode:autopilot to resume."
+  echo "Run /oh-my-antigravity :autopilot to resume."
 fi
 ```
 
@@ -260,7 +260,7 @@ if [[ -f .omc/state/ultrawork-state.json ]]; then
   LINKED=$(echo "$UW_STATE" | jq -r '.linked_to_ralph // false')
 
   if [[ "$LINKED" == "true" ]]; then
-    echo "Ultrawork is linked to Ralph. Use /oh-my-claudecode:cancel to cancel both."
+    echo "Ultrawork is linked to Ralph. Use /oh-my-antigravity :cancel to cancel both."
     exit 1
   fi
 
@@ -398,7 +398,7 @@ if [[ -f .omc/state/autopilot-state.json ]]; then
       echo "Cleaned up: ${CLEANED_UP[*]}"
     fi
 
-    echo "Progress preserved for resume. Run /oh-my-claudecode:autopilot to continue."
+    echo "Progress preserved for resume. Run /oh-my-antigravity :autopilot to continue."
     CANCELLED_ANYTHING=true
     exit 0
   fi
@@ -622,7 +622,7 @@ fi
 
 | Mode | State Preserved | Resume Command |
 |------|-----------------|----------------|
-| Autopilot | Yes (phase, files, spec, plan, verdicts) | `/oh-my-claudecode:autopilot` |
+| Autopilot | Yes (phase, files, spec, plan, verdicts) | `/oh-my-antigravity :autopilot` |
 | Ralph | No | N/A |
 | Ultrawork | No | N/A |
 | UltraQA | No | N/A |

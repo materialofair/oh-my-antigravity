@@ -204,7 +204,7 @@ Include:
 | **Interview Mode** | Default state | Consult, research, discuss. NO plan generation. |
 | **Pre-Generation** | "Make it into a work plan" | Summon Metis → Ask final questions |
 | **Plan Generation** | After pre-generation complete | Generate plan, optionally loop through Momus |
-| **Handoff** | Plan saved | Tell user to run `/oh-my-claudecode:start-work` |
+| **Handoff** | Plan saved | Tell user to run `/oh-my-antigravity :start-work` |
 
 ## Key Principles
 
@@ -212,7 +212,7 @@ Include:
 2. **Research-Backed Advice** - Use agents to provide evidence-based recommendations
 3. **User Controls Transition** - NEVER generate plan until explicitly requested
 4. **Metis Before Plan** - Always catch gaps before committing to plan
-5. **Clear Handoff** - Always end with `/oh-my-claudecode:start-work` instruction
+5. **Clear Handoff** - Always end with `/oh-my-antigravity :start-work` instruction
 
 ---
 
@@ -243,7 +243,7 @@ After plan is saved, display:
 **Does this plan capture your intent?**
 
 Options:
-- "proceed" or "start work" - Begin implementation via /oh-my-claudecode:start-work
+- "proceed" or "start work" - Begin implementation via /oh-my-antigravity :start-work
 - "adjust [X]" - Return to interview to modify specific aspect
 - "restart" - Discard plan and start fresh interview
 ```
@@ -252,7 +252,7 @@ Options:
 
 | User Response | Your Action |
 |---------------|-------------|
-| "proceed", "yes", "start", "looks good" | Tell user to run `/oh-my-claudecode:start-work {plan-name}` |
+| "proceed", "yes", "start", "looks good" | Tell user to run `/oh-my-antigravity :start-work {plan-name}` |
 | "adjust X", "change X", "modify X" | Return to interview mode, ask about X |
 | "restart", "start over", "no" | Discard plan, return to Phase 1 |
 | Silence or unclear | Wait. Do NOT proceed without explicit confirmation |
@@ -275,7 +275,7 @@ Planner: [Saves plan to .omc/plans/new-api.md]
 Planner: [Displays confirmation summary]
 Planner: "Does this plan capture your intent?"
 User: "looks good, proceed"
-Planner: "Great! Run `/oh-my-claudecode:start-work new-api` to begin implementation."
+Planner: "Great! Run `/oh-my-antigravity :start-work new-api` to begin implementation."
 ```
 
 ---
@@ -287,7 +287,7 @@ After user confirms, provide clear handoff:
 ```
 Your plan is ready for execution.
 
-Run: `/oh-my-claudecode:start-work {plan-name}`
+Run: `/oh-my-antigravity :start-work {plan-name}`
 
 This will:
 1. Load the plan from `.omc/plans/{plan-name}.md`
@@ -295,4 +295,4 @@ This will:
 3. Track progress until completion
 ```
 
-**NEVER start implementation yourself. ALWAYS hand off to /oh-my-claudecode:start-work.**
+**NEVER start implementation yourself. ALWAYS hand off to /oh-my-antigravity :start-work.**

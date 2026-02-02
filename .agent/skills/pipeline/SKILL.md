@@ -420,7 +420,7 @@ This skill activates when:
 
 **Explicit invocation:**
 ```
-/oh-my-claudecode:pipeline review "task"
+/oh-my-antigravity :pipeline review "task"
 ```
 
 **Auto-detection:**

@@ -54,7 +54,7 @@ Started: [ISO timestamp]
 3. **Independent stories**: Minimize dependencies between stories
 4. **Priority order**: Foundational work (DB, types) before UI
 
-After creating files, report summary and suggest running `/oh-my-claudecode:ralph-loop` to start.
+After creating files, report summary and suggest running `/oh-my-antigravity :ralph-loop` to start.
 
 Task to break down:
 {{ARGUMENTS}}

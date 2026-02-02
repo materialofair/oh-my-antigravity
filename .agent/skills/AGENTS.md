@@ -7,7 +7,7 @@
 
 ## Purpose
 
-Skills are reusable workflow templates that can be invoked via `/oh-my-claudecode:skill-name`. Each skill provides:
+Skills are reusable workflow templates that can be invoked via `/oh-my-antigravity :skill-name`. Each skill provides:
 - Structured prompts for specific workflows
 - Activation triggers (manual or automatic)
 - Integration with execution modes
@@ -110,10 +110,10 @@ Any configurable options.
 
 ```bash
 # Manual invocation
-/oh-my-claudecode:skill-name
+/oh-my-antigravity :skill-name
 
 # With arguments
-/oh-my-claudecode:skill-name arg1 arg2
+/oh-my-antigravity :skill-name arg1 arg2
 
 # Auto-detected from keywords
 "autopilot build me a REST API"  # Triggers autopilot skill

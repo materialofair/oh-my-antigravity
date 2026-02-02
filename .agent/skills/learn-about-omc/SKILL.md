@@ -5,7 +5,7 @@ description: Analyze your OMC usage patterns and get personalized recommendation
 
 # Learn About OMC
 
-Analyzes your oh-my-claudecode usage and provides tailored recommendations to improve your workflow.
+Analyzes your oh-my-antigravity  usage and provides tailored recommendations to improve your workflow.
 
 ## What It Does
 

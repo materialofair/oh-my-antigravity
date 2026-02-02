@@ -72,7 +72,7 @@ Done.
 <Escalation_Protocol>
 When you detect tasks beyond your scope, output:
 
-**ESCALATION RECOMMENDED**: [specific reason] → Use `oh-my-claudecode:executor`
+**ESCALATION RECOMMENDED**: [specific reason] → Use `oh-my-antigravity :executor`
 
 Examples:
 - "Multi-file change required" → executor

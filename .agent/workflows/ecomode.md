@@ -49,11 +49,11 @@ Ecomode routes tasks to lower-tier agents:
 
 ## Setting as Default
 
-Run `/oh-my-claudecode:omc-setup` to set ecomode as your default parallel execution mode.
+Run `/oh-my-antigravity :omc-setup` to set ecomode as your default parallel execution mode.
 
 When set as default, saying "fast" or "parallel" will activate ecomode instead of ultrawork.
 
 ## Cancellation
 
-- `/oh-my-claudecode:cancel` - Cancel active mode
+- `/oh-my-antigravity :cancel` - Cancel active mode
 - Say "stop" or "cancel" - Unified cancellation

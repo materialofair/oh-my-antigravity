@@ -1,14 +1,14 @@
 # Architecture
 
-> How oh-my-claudecode orchestrates multi-agent workflows.
+> How oh-my-antigravity  orchestrates multi-agent workflows.
 
 ## Overview
 
-oh-my-claudecode enables Claude Code to orchestrate specialized agents through a skill-based routing system.
+oh-my-antigravity  enables Claude Code to orchestrate specialized agents through a skill-based routing system.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                         OH-MY-CLAUDECODE                                 │
+│                         oh-my-antigravity                                  │
 │                     Intelligent Skill Activation                         │
 └─────────────────────────────────────────────────────────────────────────┘
 
@@ -70,7 +70,7 @@ Work is delegated through the Task tool with intelligent model routing:
 
 ```typescript
 Task(
-  subagent_type="oh-my-claudecode:executor",
+  subagent_type="oh-my-antigravity :executor",
   model="sonnet",
   prompt="Implement feature..."
 )
@@ -118,7 +118,7 @@ Legacy locations are auto-migrated on read.
 
 ## Hooks
 
-oh-my-claudecode uses Claude Code's hooks system for lifecycle events:
+oh-my-antigravity  uses Claude Code's hooks system for lifecycle events:
 
 - **conversationStart**: Initialize OMC, check for active modes
 - **beforeRequest**: Task delegation, skill routing

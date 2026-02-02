@@ -1,6 +1,6 @@
 ---
 name: omc-setup
-description: Setup and configure oh-my-claudecode (the ONLY command you need to learn)
+description: Setup and configure oh-my-antigravity  (the ONLY command you need to learn)
 ---
 
 # OMC Setup
@@ -126,7 +126,7 @@ Check for flags in the user's invocation:
 
 Use the AskUserQuestion tool to prompt the user:
 
-**Question:** "Where should I configure oh-my-claudecode?"
+**Question:** "Where should I configure oh-my-antigravity ?"
 
 **Options:**
 1. **Local (this project)** - Creates `.claude/CLAUDE.md` in current project directory. Best for project-specific configurations.
@@ -147,7 +147,7 @@ mkdir -p .claude && echo ".claude directory ready"
 
 ```bash
 # Extract old version before download
-OLD_VERSION=$(grep -m1 "^# oh-my-claudecode" .claude/CLAUDE.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "none")
+OLD_VERSION=$(grep -m1 "^# oh-my-antigravity " .claude/CLAUDE.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "none")
 
 # Backup existing CLAUDE.md before overwriting (if it exists)
 if [ -f ".claude/CLAUDE.md" ]; then
@@ -158,11 +158,11 @@ if [ -f ".claude/CLAUDE.md" ]; then
 fi
 
 # Download fresh CLAUDE.md from GitHub
-curl -fsSL "https://raw.githubusercontent.com/Yeachan-Heo/oh-my-claudecode/main/docs/CLAUDE.md" -o .claude/CLAUDE.md && \
+curl -fsSL "https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/docs/CLAUDE.md" -o .claude/CLAUDE.md && \
 echo "Downloaded CLAUDE.md to .claude/CLAUDE.md"
 
 # Extract new version and report
-NEW_VERSION=$(grep -m1 "^# oh-my-claudecode" .claude/CLAUDE.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "unknown")
+NEW_VERSION=$(grep -m1 "^# oh-my-antigravity " .claude/CLAUDE.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "unknown")
 if [ "$OLD_VERSION" = "none" ]; then
   echo "Installed CLAUDE.md: $NEW_VERSION"
 elif [ "$OLD_VERSION" = "$NEW_VERSION" ]; then
@@ -180,12 +180,12 @@ fi
 
 **FALLBACK** if curl fails:
 Tell user to manually download from:
-https://raw.githubusercontent.com/Yeachan-Heo/oh-my-claudecode/main/docs/CLAUDE.md
+https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/docs/CLAUDE.md
 
 ### Verify Plugin Installation
 
 ```bash
-grep -q "oh-my-claudecode" ~/.claude/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: claude /install-plugin oh-my-claudecode"
+grep -q "oh-my-antigravity " ~/.claude/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: claude /install-plugin oh-my-antigravity "
 ```
 
 ### Confirm Local Configuration Success
@@ -228,7 +228,7 @@ Do not continue to HUD setup or other steps.
 
 ```bash
 # Extract old version before download
-OLD_VERSION=$(grep -m1 "^# oh-my-claudecode" ~/.claude/CLAUDE.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "none")
+OLD_VERSION=$(grep -m1 "^# oh-my-antigravity " ~/.claude/CLAUDE.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "none")
 
 # Backup existing CLAUDE.md before overwriting (if it exists)
 if [ -f "$HOME/.claude/CLAUDE.md" ]; then
@@ -239,11 +239,11 @@ if [ -f "$HOME/.claude/CLAUDE.md" ]; then
 fi
 
 # Download fresh CLAUDE.md to global config
-curl -fsSL "https://raw.githubusercontent.com/Yeachan-Heo/oh-my-claudecode/main/docs/CLAUDE.md" -o ~/.claude/CLAUDE.md && \
+curl -fsSL "https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/docs/CLAUDE.md" -o ~/.claude/CLAUDE.md && \
 echo "Downloaded CLAUDE.md to ~/.claude/CLAUDE.md"
 
 # Extract new version and report
-NEW_VERSION=$(grep -m1 "^# oh-my-claudecode" ~/.claude/CLAUDE.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "unknown")
+NEW_VERSION=$(grep -m1 "^# oh-my-antigravity " ~/.claude/CLAUDE.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "unknown")
 if [ "$OLD_VERSION" = "none" ]; then
   echo "Installed CLAUDE.md: $NEW_VERSION"
 elif [ "$OLD_VERSION" = "$NEW_VERSION" ]; then
@@ -275,7 +275,7 @@ Check `~/.claude/settings.json` for manual hook entries. If the "hooks" key exis
 ### Verify Plugin Installation
 
 ```bash
-grep -q "oh-my-claudecode" ~/.claude/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: claude /install-plugin oh-my-claudecode"
+grep -q "oh-my-antigravity " ~/.claude/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: claude /install-plugin oh-my-antigravity "
 ```
 
 ### Confirm Global Configuration Success
@@ -343,7 +343,7 @@ Clear old cached plugin versions to avoid conflicts:
 
 ```bash
 # Clear stale plugin cache versions
-CACHE_DIR="$HOME/.claude/plugins/cache/omc/oh-my-claudecode"
+CACHE_DIR="$HOME/.claude/plugins/cache/omc/oh-my-antigravity "
 if [ -d "$CACHE_DIR" ]; then
   LATEST=$(ls -1 "$CACHE_DIR" | sort -V | tail -1)
   CLEARED=0
@@ -368,8 +368,8 @@ Notify user if a newer version is available:
 INSTALLED_VERSION=""
 
 # Try cache directory first
-if [ -d "$HOME/.claude/plugins/cache/omc/oh-my-claudecode" ]; then
-  INSTALLED_VERSION=$(ls -1 "$HOME/.claude/plugins/cache/omc/oh-my-claudecode" | sort -V | tail -1)
+if [ -d "$HOME/.claude/plugins/cache/omc/oh-my-antigravity " ]; then
+  INSTALLED_VERSION=$(ls -1 "$HOME/.claude/plugins/cache/omc/oh-my-antigravity " | sort -V | tail -1)
 fi
 
 # Try .omc-version.json second
@@ -380,9 +380,9 @@ fi
 # Try CLAUDE.md header third (local first, then global)
 if [ -z "$INSTALLED_VERSION" ]; then
   if [ -f ".claude/CLAUDE.md" ]; then
-    INSTALLED_VERSION=$(grep -m1 "^# oh-my-claudecode" .claude/CLAUDE.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | sed 's/^v//')
+    INSTALLED_VERSION=$(grep -m1 "^# oh-my-antigravity " .claude/CLAUDE.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | sed 's/^v//')
   elif [ -f "$HOME/.claude/CLAUDE.md" ]; then
-    INSTALLED_VERSION=$(grep -m1 "^# oh-my-claudecode" "$HOME/.claude/CLAUDE.md" 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | sed 's/^v//')
+    INSTALLED_VERSION=$(grep -m1 "^# oh-my-antigravity " "$HOME/.claude/CLAUDE.md" 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | sed 's/^v//')
   fi
 fi
 
@@ -397,7 +397,7 @@ if [ -n "$INSTALLED_VERSION" ] && [ -n "$LATEST_VERSION" ]; then
     echo "  Installed: v$INSTALLED_VERSION"
     echo "  Latest:    v$LATEST_VERSION"
     echo ""
-    echo "To update, run: claude /install-plugin oh-my-claudecode"
+    echo "To update, run: claude /install-plugin oh-my-antigravity "
   else
     echo "You're on the latest version: v$INSTALLED_VERSION"
   fi
@@ -451,15 +451,15 @@ Ask user: "Would you like to install the OMC CLI for standalone analytics? (Reco
 The CLI (`omc` command) is **no longer supported** via npm/bun global install.
 
 All functionality is available through the plugin system:
-- Use `/oh-my-claudecode:help` for guidance
-- Use `/oh-my-claudecode:doctor` for diagnostics
+- Use `/oh-my-antigravity :help` for guidance
+- Use `/oh-my-antigravity :doctor` for diagnostics
 
 Skip this step - the plugin provides all features.
 
 ## Step 4: Verify Plugin Installation
 
 ```bash
-grep -q "oh-my-claudecode" ~/.claude/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: claude /install-plugin oh-my-claudecode"
+grep -q "oh-my-antigravity " ~/.claude/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: claude /install-plugin oh-my-antigravity "
 ```
 
 ## Step 5: Offer MCP Server Configuration
@@ -470,7 +470,7 @@ Ask user: "Would you like to configure MCP servers for enhanced capabilities? (C
 
 If yes, invoke the mcp-setup skill:
 ```
-/oh-my-claudecode:mcp-setup
+/oh-my-antigravity :mcp-setup
 ```
 
 If no, skip to next step.
@@ -514,7 +514,7 @@ Just include these words naturally in your request:
 **ralph includes ultrawork:** When you activate ralph mode, it automatically includes ultrawork's parallel execution. No need to combine keywords.
 
 MCP SERVERS:
-Run /oh-my-claudecode:mcp-setup to add tools like web search, GitHub, etc.
+Run /oh-my-antigravity :mcp-setup to add tools like web search, GitHub, etc.
 
 HUD STATUSLINE:
 The status bar now shows OMC state. Restart Claude Code to see it.
@@ -576,7 +576,7 @@ gh auth status &>/dev/null
 
 Use the AskUserQuestion tool to prompt the user:
 
-**Question:** "If you're enjoying oh-my-claudecode, would you like to support the project by starring it on GitHub?"
+**Question:** "If you're enjoying oh-my-antigravity , would you like to support the project by starring it on GitHub?"
 
 **Options:**
 1. **Yes, star it!** - Star the repository
@@ -586,7 +586,7 @@ Use the AskUserQuestion tool to prompt the user:
 If user chooses "Yes, star it!":
 
 ```bash
-gh api -X PUT /user/starred/Yeachan-Heo/oh-my-claudecode 2>/dev/null && echo "Thanks for starring! ⭐" || true
+gh api -X PUT /user/starred/Yeachan-Heo/oh-my-antigravity  2>/dev/null && echo "Thanks for starring! ⭐" || true
 ```
 
 **Note:** Fail silently if the API call doesn't work - never block setup completion.
@@ -595,8 +595,8 @@ gh api -X PUT /user/starred/Yeachan-Heo/oh-my-claudecode 2>/dev/null && echo "Th
 
 ```bash
 echo ""
-echo "If you enjoy oh-my-claudecode, consider starring the repo:"
-echo "  https://github.com/Yeachan-Heo/oh-my-claudecode"
+echo "If you enjoy oh-my-antigravity , consider starring the repo:"
+echo "  https://github.com/Yeachan-Heo/oh-my-antigravity "
 echo ""
 ```
 
@@ -612,24 +612,24 @@ echo "Setup completed successfully!"
 
 ## Keeping Up to Date
 
-After installing oh-my-claudecode updates (via npm or plugin update), run:
-- `/oh-my-claudecode:omc-setup --local` to update project config
-- `/oh-my-claudecode:omc-setup --global` to update global config
+After installing oh-my-antigravity  updates (via npm or plugin update), run:
+- `/oh-my-antigravity :omc-setup --local` to update project config
+- `/oh-my-antigravity :omc-setup --global` to update global config
 
 This ensures you have the newest features and agent configurations.
 
 ## Help Text
 
-When user runs `/oh-my-claudecode:omc-setup --help` or just `--help`, display:
+When user runs `/oh-my-antigravity :omc-setup --help` or just `--help`, display:
 
 ```
-OMC Setup - Configure oh-my-claudecode
+OMC Setup - Configure oh-my-antigravity 
 
 USAGE:
-  /oh-my-claudecode:omc-setup           Run initial setup wizard
-  /oh-my-claudecode:omc-setup --local   Configure local project (.claude/CLAUDE.md)
-  /oh-my-claudecode:omc-setup --global  Configure global settings (~/.claude/CLAUDE.md)
-  /oh-my-claudecode:omc-setup --help    Show this help
+  /oh-my-antigravity :omc-setup           Run initial setup wizard
+  /oh-my-antigravity :omc-setup --local   Configure local project (.claude/CLAUDE.md)
+  /oh-my-antigravity :omc-setup --global  Configure global settings (~/.claude/CLAUDE.md)
+  /oh-my-antigravity :omc-setup --help    Show this help
 
 MODES:
   Initial Setup (no flags)
@@ -653,9 +653,9 @@ MODES:
     - Use this to update global config after OMC upgrades
 
 EXAMPLES:
-  /oh-my-claudecode:omc-setup           # First time setup
-  /oh-my-claudecode:omc-setup --local   # Update this project
-  /oh-my-claudecode:omc-setup --global  # Update all projects
+  /oh-my-antigravity :omc-setup           # First time setup
+  /oh-my-antigravity :omc-setup --local   # Update this project
+  /oh-my-antigravity :omc-setup --global  # Update all projects
 
-For more info: https://github.com/Yeachan-Heo/oh-my-claudecode
+For more info: https://github.com/Yeachan-Heo/oh-my-antigravity 
 ```

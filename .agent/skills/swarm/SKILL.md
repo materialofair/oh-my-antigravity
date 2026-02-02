@@ -104,7 +104,7 @@ Exit when hasPendingWork() returns false
 `);
 
 Task({
-  subagent_type: 'oh-my-claudecode:executor',
+  subagent_type: 'oh-my-antigravity :executor',
   prompt: agentPrompt,
   run_in_background: true
 });
@@ -156,7 +156,7 @@ LOOP:
 Exit when ANY of:
 - isSwarmComplete() returns true (all tasks done or failed)
 - All agents idle (no pending tasks, no claimed tasks)
-- User cancels via `/oh-my-claudecode:cancel`
+- User cancels via `/oh-my-antigravity :cancel`
 
 ## Storage
 
@@ -582,7 +582,7 @@ interface SwarmStats {
 
 ## Cancel Swarm
 
-User can cancel via `/oh-my-claudecode:cancel`:
+User can cancel via `/oh-my-antigravity :cancel`:
 - Stops orchestrator monitoring
 - Signals all background agents to exit
 - Preserves partial progress in SQLite database

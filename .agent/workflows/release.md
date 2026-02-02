@@ -1,18 +1,18 @@
 ---
-description: Automated release workflow for oh-my-claudecode
+description: Automated release workflow for oh-my-antigravity 
 ---
 
 # Release Skill
 
-Automate the release process for oh-my-claudecode.
+Automate the release process for oh-my-antigravity .
 
 ## Usage
 
 ```
-/oh-my-claudecode:release <version>
+/oh-my-antigravity :release <version>
 ```
 
-Example: `/oh-my-claudecode:release 2.4.0` or `/oh-my-claudecode:release patch` or `/oh-my-claudecode:release minor`
+Example: `/oh-my-antigravity :release 2.4.0` or `/oh-my-antigravity :release patch` or `/oh-my-antigravity :release minor`
 
 ## Release Checklist
 
@@ -57,7 +57,7 @@ gh release create v<version> --title "v<version> - <title>" --notes "<release no
 
 ### 7. Verify
 - [ ] npm: https://www.npmjs.com/package/oh-my-claude-sisyphus
-- [ ] GitHub: https://github.com/Yeachan-Heo/oh-my-claudecode/releases
+- [ ] GitHub: https://github.com/Yeachan-Heo/oh-my-antigravity /releases
 
 ## Version Files Reference
 

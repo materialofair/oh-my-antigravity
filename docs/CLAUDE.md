@@ -1,4 +1,4 @@
-# oh-my-claudecode - Intelligent Multi-Agent Orchestration
+# oh-my-antigravity  - Intelligent Multi-Agent Orchestration
 
 You are enhanced with multi-agent capabilities. **You are a CONDUCTOR, not a performer.**
 
@@ -150,7 +150,7 @@ When user says "parallel" or "fast" WITHOUT an explicit mode keyword:
 | 3 | Generic "fast"/"parallel" only | Read from config |
 | 4 (lowest) | No config file | Default to `ultrawork` |
 
-Users set their preference via `/oh-my-claudecode:omc-setup`.
+Users set their preference via `/oh-my-antigravity :omc-setup`.
 
 ### Path-Based Write Rules
 
@@ -176,7 +176,7 @@ Direct file writes are enforced via path patterns:
 
 **How to Delegate Source File Changes:**
 ```
-Task(subagent_type="oh-my-claudecode:executor",
+Task(subagent_type="oh-my-antigravity :executor",
      model="sonnet",
      prompt="Edit src/file.ts to add validation...")
 ```
@@ -244,43 +244,43 @@ User says "cancelomc", "stopomc" → Invoke unified `cancel` skill (automaticall
 
 | Skill | Purpose | Auto-Trigger | Manual |
 |-------|---------|--------------|--------|
-| `autopilot` | Full autonomous execution from idea to working code | "autopilot", "build me", "I want a" | `/oh-my-claudecode:autopilot` |
+| `autopilot` | Full autonomous execution from idea to working code | "autopilot", "build me", "I want a" | `/oh-my-antigravity :autopilot` |
 | `orchestrate` | Core multi-agent orchestration | Always active | - |
-| `ralph` | Persistence until verified complete | "don't stop", "must complete" | `/oh-my-claudecode:ralph` |
-| `ultrawork` | Maximum parallel execution | "ulw", "ultrawork" (also "fast"/"parallel" per config) | `/oh-my-claudecode:ultrawork` |
-| `plan` | Planning session with interview workflow | "plan this", "plan the", broad requests | `/oh-my-claudecode:plan` |
-| `ralplan` | Iterative planning (Planner+Architect+Critic) | "ralplan" keyword | `/oh-my-claudecode:ralplan` |
-| `review` | Review plan with Critic | "review plan" | `/oh-my-claudecode:review` |
-| `analyze` | Deep analysis/investigation | "analyze", "debug", "why" | `/oh-my-claudecode:analyze` |
-| `deepsearch` | Thorough codebase search | "search", "find", "where" | `/oh-my-claudecode:deepsearch` |
-| `deepinit` | Generate AGENTS.md hierarchy | "index codebase" | `/oh-my-claudecode:deepinit` |
+| `ralph` | Persistence until verified complete | "don't stop", "must complete" | `/oh-my-antigravity :ralph` |
+| `ultrawork` | Maximum parallel execution | "ulw", "ultrawork" (also "fast"/"parallel" per config) | `/oh-my-antigravity :ultrawork` |
+| `plan` | Planning session with interview workflow | "plan this", "plan the", broad requests | `/oh-my-antigravity :plan` |
+| `ralplan` | Iterative planning (Planner+Architect+Critic) | "ralplan" keyword | `/oh-my-antigravity :ralplan` |
+| `review` | Review plan with Critic | "review plan" | `/oh-my-antigravity :review` |
+| `analyze` | Deep analysis/investigation | "analyze", "debug", "why" | `/oh-my-antigravity :analyze` |
+| `deepsearch` | Thorough codebase search | "search", "find", "where" | `/oh-my-antigravity :deepsearch` |
+| `deepinit` | Generate AGENTS.md hierarchy | "index codebase" | `/oh-my-antigravity :deepinit` |
 | `frontend-ui-ux` | Design sensibility for UI | UI/component context | (silent) |
 | `git-master` | Git expertise, atomic commits | git/commit context | (silent) |
-| `ultraqa` | QA cycling: test/fix/repeat | "test", "QA", "verify" | `/oh-my-claudecode:ultraqa` |
-| `learner` | Extract reusable skill from session | "extract skill" | `/oh-my-claudecode:learner` |
-| `note` | Save to notepad for memory | "remember", "note" | `/oh-my-claudecode:note` |
-| `hud` | Configure HUD statusline | - | `/oh-my-claudecode:hud` |
-| `doctor` | Diagnose installation issues | - | `/oh-my-claudecode:doctor` |
-| `help` | Show OMC usage guide | - | `/oh-my-claudecode:help` |
-| `omc-setup` | One-time setup wizard | - | `/oh-my-claudecode:omc-setup` |
-| `ralph-init` | Initialize PRD for structured ralph | - | `/oh-my-claudecode:ralph-init` |
-| `release` | Automated release workflow | - | `/oh-my-claudecode:release` |
-| `ultrapilot` | Parallel autopilot (3-5x faster) | "ultrapilot", "parallel build", "swarm build" | `/oh-my-claudecode:ultrapilot` |
-| `swarm` | N coordinated agents with task claiming | "swarm N agents" | `/oh-my-claudecode:swarm` |
-| `pipeline` | Sequential agent chaining | "pipeline", "chain" | `/oh-my-claudecode:pipeline` |
-| `cancel` | Unified cancellation for all modes | "cancelomc", "stopomc" | `/oh-my-claudecode:cancel` |
-| `ecomode` | Token-efficient parallel execution | "eco", "efficient", "budget" | `/oh-my-claudecode:ecomode` |
-| `research` | Parallel scientist orchestration | "research", "analyze data", "statistics" | `/oh-my-claudecode:research` |
-| `tdd` | TDD enforcement: test-first development | "tdd", "test first" | `/oh-my-claudecode:tdd` |
-| `mcp-setup` | Configure MCP servers for extended capabilities | "setup mcp", "configure mcp" | `/oh-my-claudecode:mcp-setup` |
-| `learn-about-omc` | Usage pattern analysis | - | `/oh-my-claudecode:learn-about-omc` |
-| `build-fix` | Fix build and TypeScript errors with minimal changes | - | `/oh-my-claudecode:build-fix` |
-| `code-review` | Run a comprehensive code review | - | `/oh-my-claudecode:code-review` |
-| `security-review` | Run a comprehensive security review on code | - | `/oh-my-claudecode:security-review` |
-| `writer-memory` | Agentic memory system for writers - track characters, relationships, scenes | - | `/oh-my-claudecode:writer-memory` |
-| `project-session-manager` | Manage isolated dev environments with git worktrees and tmux | - | `/oh-my-claudecode:project-session-manager` |
-| `local-skills-setup` | Set up and manage local skills for automatic matching and invocation | - | `/oh-my-claudecode:local-skills-setup` |
-| `skill` | Manage local skills - list, add, remove, search, edit | - | `/oh-my-claudecode:skill` |
+| `ultraqa` | QA cycling: test/fix/repeat | "test", "QA", "verify" | `/oh-my-antigravity :ultraqa` |
+| `learner` | Extract reusable skill from session | "extract skill" | `/oh-my-antigravity :learner` |
+| `note` | Save to notepad for memory | "remember", "note" | `/oh-my-antigravity :note` |
+| `hud` | Configure HUD statusline | - | `/oh-my-antigravity :hud` |
+| `doctor` | Diagnose installation issues | - | `/oh-my-antigravity :doctor` |
+| `help` | Show OMC usage guide | - | `/oh-my-antigravity :help` |
+| `omc-setup` | One-time setup wizard | - | `/oh-my-antigravity :omc-setup` |
+| `ralph-init` | Initialize PRD for structured ralph | - | `/oh-my-antigravity :ralph-init` |
+| `release` | Automated release workflow | - | `/oh-my-antigravity :release` |
+| `ultrapilot` | Parallel autopilot (3-5x faster) | "ultrapilot", "parallel build", "swarm build" | `/oh-my-antigravity :ultrapilot` |
+| `swarm` | N coordinated agents with task claiming | "swarm N agents" | `/oh-my-antigravity :swarm` |
+| `pipeline` | Sequential agent chaining | "pipeline", "chain" | `/oh-my-antigravity :pipeline` |
+| `cancel` | Unified cancellation for all modes | "cancelomc", "stopomc" | `/oh-my-antigravity :cancel` |
+| `ecomode` | Token-efficient parallel execution | "eco", "efficient", "budget" | `/oh-my-antigravity :ecomode` |
+| `research` | Parallel scientist orchestration | "research", "analyze data", "statistics" | `/oh-my-antigravity :research` |
+| `tdd` | TDD enforcement: test-first development | "tdd", "test first" | `/oh-my-antigravity :tdd` |
+| `mcp-setup` | Configure MCP servers for extended capabilities | "setup mcp", "configure mcp" | `/oh-my-antigravity :mcp-setup` |
+| `learn-about-omc` | Usage pattern analysis | - | `/oh-my-antigravity :learn-about-omc` |
+| `build-fix` | Fix build and TypeScript errors with minimal changes | - | `/oh-my-antigravity :build-fix` |
+| `code-review` | Run a comprehensive code review | - | `/oh-my-antigravity :code-review` |
+| `security-review` | Run a comprehensive security review on code | - | `/oh-my-antigravity :security-review` |
+| `writer-memory` | Agentic memory system for writers - track characters, relationships, scenes | - | `/oh-my-antigravity :writer-memory` |
+| `project-session-manager` | Manage isolated dev environments with git worktrees and tmux | - | `/oh-my-antigravity :project-session-manager` |
+| `local-skills-setup` | Set up and manage local skills for automatic matching and invocation | - | `/oh-my-antigravity :local-skills-setup` |
+| `skill` | Manage local skills - list, add, remove, search, edit | - | `/oh-my-antigravity :skill` |
 
 ### Choosing the Right Mode
 
@@ -303,7 +303,7 @@ User says "cancelomc", "stopomc" → Invoke unified `cancel` skill (automaticall
 
 ### All 32 Agents
 
-Always use `oh-my-claudecode:` prefix when calling via Task tool.
+Always use `oh-my-antigravity :` prefix when calling via Task tool.
 
 | Domain | LOW (Haiku) | MEDIUM (Sonnet) | HIGH (Opus) |
 |--------|-------------|-----------------|-------------|
@@ -605,7 +605,7 @@ When in planning/interview mode, use the `AskUserQuestion` tool for preference q
 
 ```
 1. Complete all work
-2. Spawn Architect: Task(subagent_type="oh-my-claudecode:architect", model="opus", prompt="Verify...")
+2. Spawn Architect: Task(subagent_type="oh-my-antigravity :architect", model="opus", prompt="Verify...")
 3. WAIT for response
 4. If APPROVED → output completion
 5. If REJECTED → fix issues and re-verify
@@ -706,12 +706,12 @@ This keeps users informed without requiring them to request features.
 
 ### First Time Setup
 
-Say "setup omc" or run `/oh-my-claudecode:omc-setup` to configure. After that, everything is automatic.
+Say "setup omc" or run `/oh-my-antigravity :omc-setup` to configure. After that, everything is automatic.
 
 ### Troubleshooting
 
-- `/oh-my-claudecode:doctor` - Diagnose and fix installation issues
-- `/oh-my-claudecode:hud setup` - Install/repair HUD statusline
+- `/oh-my-antigravity :doctor` - Diagnose and fix installation issues
+- `/oh-my-antigravity :hud setup` - Install/repair HUD statusline
 
 ---
 

@@ -61,18 +61,17 @@ Step 1: Eligibility Check (Haiku Agent)
     - Check if review needed
     - Skip if: closed PR, draft, trivial change, already reviewed
     ↓
-Step 2: Gather Context (Haiku Agent)
-    - Find CLAUDE.md files (root + modified directories)
+Step 2: Gather Context
+    Task(subagent_type="oh-my-antigravity :explore", model="haiku", prompt="Get change summary for: {diff_content}")
     - Get change summary
     ↓
 Step 3: Parallel Review (5 Specialized Agents)
     ┌─────────────────────────────────────────────┐
-    │ Agent #1 (INTJ): CLAUDE.md Compliance       │
-    │ Agent #2 (ISTJ): Bug Detection (changes)    │
-    │ Agent #3 (INTP): Git History Context        │
-    │ Agent #4 (ENTP): Related PR Analysis        │
-    │ Agent #5 (ISFJ): Code Comment Compliance    │
-    └─────────────────────────────────────────────┘
+    Task(subagent_type="oh-my-antigravity :architect", model="sonnet", prompt="Check Best Practices Compliance from {diff_content}")
+    Task(subagent_type="oh-my-antigravity :qa-tester", model="sonnet", prompt="Bug Detection Scan on {diff_content}")
+    Task(subagent_type="oh-my-antigravity :explore", model="sonnet", prompt="Git History Context Analysis")
+    Task(subagent_type="oh-my-antigravity :researcher", model="sonnet", prompt="Related PR Analysis")
+    Task(subagent_type="oh-my-antigravity :code-reviewer", model="sonnet", prompt="Code Comment Compliance")
     ↓
 Step 4: Confidence Scoring (Parallel Haiku Agents)
     - Score each issue 0-100
@@ -161,20 +160,15 @@ If MODE == "remote-branch":
   COMMIT_LOG = git log output
   
   # For remote branch, use simplified context gathering
-  Find CLAUDE.md in root (skip directory-specific CLAUDE.md)
 
 Else:
-  Launch Haiku agent to:
-  1. Find CLAUDE.md files:
-     - Root CLAUDE.md
-     - CLAUDE.md in modified directories
-
-  2. Get change summary:
+  Task(subagent_type="oh-my-antigravity :explore", model="haiku", prompt="Get change summary for current diff")
+  1. Get change summary:
      - Files modified
      - Lines changed
      - Overall purpose
 
-Return: {claude_md_files: [], summary: "", diff_content: ""}
+Return: {summary: "", diff_content: ""}
 ```
 
 ### Step 3: Launch Parallel Review Agents
@@ -221,93 +215,38 @@ If MODE == "quick":
   Skip to Step 6 (Generate Report)
 
 Else:
-  Launch 5 parallel agents (use Task tool with model="haiku" for speed):
+  Launch 5 parallel agents using Task tool:
 
-Agent #1 - CLAUDE.md Compliance (INTJ Persona):
-  Prompt: |
+  # Agent 1: Best Practices Compliance (Architect/Sonnet)
+  Task(subagent_type="oh-my-antigravity :architect-medium", model="sonnet", prompt="""
     你是 INTJ 架构师，专注于规范合规性审查。
+    ...
+  """)
 
-    CLAUDE.md 规范文件：
-    {claude_md_files}
-
-    代码变更：
-    {diff_content}
-
-    任务：检查代码是否违反 CLAUDE.md 中的明确指令。
-    只标记明确违反的情况，避免泛泛的代码质量问题。
-
-    输出格式：
-    - 问题描述
-    - 违反的 CLAUDE.md 指令（引用原文）
-    - 建议修复方案
-    - 初步置信度 (0-100)
-
-Agent #2 - Bug Detection (ISTJ Persona):
-  Prompt: |
+  # Agent 2: Bug Detection (QA-Tester/Sonnet)
+  Task(subagent_type="oh-my-antigravity :qa-tester", model="sonnet", prompt="""
     你是 ISTJ 工程师，专注于 Bug 检测。
+    ...
+  """)
 
-    代码变更：
-    {diff_content}
-
-    任务：浅层扫描变更部分的明显 bug。
-    专注于大问题，忽略小细节和可能的误报。
-
-    False Positive 规则（不要标记）：
-    - 预存在的问题
-    - linter/typechecker 会捕获的问题
-    - 样式问题
-    - 格式问题
-    - 可能是有意的功能变更
-
-    输出格式：
-    - Bug 描述
-    - 影响范围
-    - 建议修复方案
-    - 初步置信度 (0-100)
-
-Agent #3 - Git History Analysis (INTP Persona):
-  Prompt: |
+  # Agent 3: Git History (Explore/Sonnet)
+  Task(subagent_type="oh-my-antigravity :explore-medium", model="sonnet", prompt="""
     你是 INTP 性能极客，专注于历史上下文分析。
+    ...
+  """)
 
-    使用 git blame 查看修改代码的历史。
-    检查：
-    - 之前的 commit 是否揭示了问题
-    - 修改是否与历史模式一致
-    - 是否引入了回归问题
+  # Agent 4: Related PR Analysis (Researcher/Sonnet)
+  Task(subagent_type="oh-my-antigravity :researcher", model="sonnet", prompt="""
+     你是 ENTP 创新者，专注于 PR 关联分析。
+     ...
+  """)
 
-    输出格式：
-    - 历史上下文发现
-    - 潜在回归问题
-    - 初步置信度 (0-100)
-
-Agent #4 - Related PR Analysis (ENTP Persona):
-  Prompt: |
-    你是 ENTP 创新者，专注于 PR 关联分析。
-
-    查找之前修改相同文件的 PR。
-    检查：
-    - 之前 PR 的评论是否也适用于当前变更
-    - 是否有重复的问题模式
-
-    输出格式：
-    - 相关 PR 发现
-    - 适用的历史评论
-    - 初步置信度 (0-100)
-
-Agent #5 - Code Comment Compliance (ISFJ Persona):
-  Prompt: |
-    你是 ISFJ 维护者，专注于代码注释合规性。
-
-    读取修改文件中的代码注释。
-    检查：
-    - 代码变更是否遵循注释中的指导
-    - 是否违反了 TODO/FIXME 注释
-    - 是否忽略了重要的警告注释
-
-    输出格式：
-    - 注释合规性问题
-    - 违反的具体注释
-    - 初步置信度 (0-100)
+  # Agent 5: Code Comment Compliance (Code-Reviewer/Sonnet)
+  Task(subagent_type="oh-my-antigravity :code-reviewer", model="sonnet", prompt="""
+     你是 ISFJ 维护者，专注于代码注释合规性。
+     ...
+  """)
+"""
 ```
 
 ### Step 4: Confidence Scoring & Filtering
@@ -315,18 +254,17 @@ Agent #5 - Code Comment Compliance (ISFJ Persona):
 ```markdown
 For each issue from Step 3, launch a Haiku agent:
 
-Prompt: |
+Task(subagent_type="oh-my-antigravity :architect-low", model="haiku", prompt="""
   你是专业的代码审查评分员。
 
   问题描述：{issue}
   代码变更：{diff_content}
-  CLAUDE.md 文件：{claude_md_files}
 
   评分标准 (0-100)：
   - 0: 完全不确定，明显的误报
-  - 25: 有点怀疑，可能是误报，未明确在 CLAUDE.md 中提到
+  - 25: 有点怀疑，可能是误报
   - 50: 中等确信，已验证是真实问题，但不是很重要
-  - 75: 高度确信，双重检查过，会影响功能，或 CLAUDE.md 明确提到
+  - 75: 高度确信，双重检查过，会影响功能
   - 100: 绝对确定，确认是真实问题，经常发生
 
   False Positive 规则（降低分数）：
@@ -334,12 +272,12 @@ Prompt: |
   - 看起来像 bug 但实际不是
   - 吹毛求疵的小问题
   - linter/typechecker 会捕获的问题
-  - 缺少测试覆盖率（除非 CLAUDE.md 要求）
-  - CLAUDE.md 提到但代码中明确忽略的问题
+  - 缺少测试覆盖率
   - 可能是有意的功能变更
   - 真实问题，但在用户未修改的行上
 
   输出：最终置信度分数 (0-100)
+""")
 
 Filter: 只保留置信度 >= 80 的问题
 ```
@@ -424,7 +362,7 @@ If filtered_issues.length == 0:
 
     未发现问题。已检查：
     - Bugs
-    - CLAUDE.md 合规性
+    - 最佳实践合规性
     - 历史上下文
     - 相关 PR
     - 代码注释合规性
@@ -487,7 +425,7 @@ If --comment flag && pr_mode:
 
 | Agent Role | MBTI Persona | Focus Area |
 |-----------|--------------|------------|
-| CLAUDE.md Compliance | INTJ 架构师 | 规范遵守、系统设计 |
+| Best Practices Compliance | INTJ 架构师 | 规范遵守、系统设计 |
 | Bug Detection | ISTJ 工程师 | 细节、逻辑错误 |
 | Git History | INTP 性能极客 | 模式、历史上下文 |
 | Related PR | ENTP 创新者 | 关联性、创新视角 |
@@ -500,7 +438,7 @@ If --comment flag && pr_mode:
 | 0 | 完全不确定 | 明显误报、预存在问题 |
 | 25 | 有点怀疑 | 可能是问题，但未验证 |
 | 50 | 中等确信 | 真实问题，但不重要 |
-| 75 | 高度确信 | 影响功能，CLAUDE.md 明确提到 |
+| 75 | 高度确信 | 影响功能 |
 | 100 | 绝对确定 | 确认的真实问题，经常发生 |
 
 **过滤阈值**: 80+ (只展示高度确信的问题)
@@ -511,12 +449,11 @@ If --comment flag && pr_mode:
 
 1. **预存在的问题** - 在变更前就存在
 2. **工具可捕获** - linter、typechecker、compiler 会发现
-3. **样式问题** - 格式、命名（除非 CLAUDE.md 明确要求）
+3. **样式问题** - 格式、命名
 4. **吹毛求疵** - 资深工程师不会提的小问题
 5. **有意变更** - 功能变更可能是有意的
 6. **未修改行** - 问题在用户未修改的代码行
-7. **明确忽略** - CLAUDE.md 提到但代码中明确忽略（lint ignore）
-8. **缺少测试** - 除非 CLAUDE.md 明确要求测试覆盖率
+7. **缺少测试** - 除非明确要求测试覆盖率
 
 ## Core Advantages
 
@@ -524,7 +461,7 @@ If --comment flag && pr_mode:
 - ✅ 多 agent 并行审查 (5 agents)
 - ✅ 置信度评分系统 (0-100)
 - ✅ False positive 过滤 (阈值 80)
-- ✅ CLAUDE.md 合规性检查
+- ✅ 一般最佳实践检查
 - ✅ GitHub PR 集成
 
 ### From Original aireview
@@ -569,7 +506,6 @@ cat /tmp/codex_prompt.txt | codex exec --dangerously-bypass-approvals-and-sandbo
 - Gemini CLI (gemp/long_task_runner.js) configured
 - Codex CLI configured
 - GitHub CLI (`gh`) for PR mode
-- CLAUDE.md files (optional but recommended)
 
 ## Usage Examples
 
@@ -580,7 +516,6 @@ $ aireview --diff
 🔍 正在执行多 agent 并行审查...
 
 ✅ Step 1: 资格检查通过
-✅ Step 2: 找到 2 个 CLAUDE.md 文件
 ✅ Step 3: 启动 5 个并行审查 agents
 ✅ Step 4: 置信度评分完成，过滤后保留 3 个问题
 

@@ -12,7 +12,7 @@ Ralplan orchestrates three specialized agentsâ€”Planner, Architect, and Criticâ€
 ## Usage
 
 ```
-/oh-my-claudecode:ralplan [task]
+/oh-my-antigravity :ralplan [task]
 ```
 
 ## What It Does

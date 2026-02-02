@@ -162,9 +162,9 @@ USAGE TIPS:
 TROUBLESHOOTING:
 - If MCP servers don't appear, check ~/.claude/settings.json for syntax errors
 - Ensure you have Node.js 18+ installed for npx commands
-- Run /oh-my-claudecode:doctor to diagnose issues
+- Run /oh-my-antigravity :doctor to diagnose issues
 
-To add more MCP servers later, run: /oh-my-claudecode:mcp-setup
+To add more MCP servers later, run: /oh-my-antigravity :mcp-setup
 ```
 
 ## Custom MCP Server

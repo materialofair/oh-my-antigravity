@@ -364,9 +364,9 @@ How to work with this integration correctly:
 
 When invoked with an argument, skip the interactive wizard:
 
-- `/oh-my-claudecode:local-skills-setup list` - Show detailed skill inventory
-- `/oh-my-claudecode:local-skills-setup add` - Start skill creation (invoke learner)
-- `/oh-my-claudecode:local-skills-setup scan` - Scan both skill directories
+- `/oh-my-antigravity :local-skills-setup list` - Show detailed skill inventory
+- `/oh-my-antigravity :local-skills-setup add` - Start skill creation (invoke learner)
+- `/oh-my-antigravity :local-skills-setup scan` - Scan both skill directories
 
 ### Interactive Mode
 
@@ -408,16 +408,16 @@ When introducing the skill system, explain these benefits:
 
 ## Related Skills
 
-- `/oh-my-claudecode:learner` - Extract a skill from current conversation
-- `/oh-my-claudecode:note` - Save quick notes (less formal than skills)
-- `/oh-my-claudecode:deepinit` - Generate AGENTS.md codebase hierarchy
+- `/oh-my-antigravity :learner` - Extract a skill from current conversation
+- `/oh-my-antigravity :note` - Save quick notes (less formal than skills)
+- `/oh-my-antigravity :deepinit` - Generate AGENTS.md codebase hierarchy
 
 ## Example Session
 
 Show users what a typical session looks like:
 
 ```
-> /oh-my-claudecode:local-skills-setup
+> /oh-my-antigravity :local-skills-setup
 
 Checking skill directories...
 ✓ User skills directory exists: ~/.claude/skills/omc-learned/
@@ -458,7 +458,7 @@ What would you like to do?
 
 ## Tips for Users
 
-- Run `/oh-my-claudecode:local-skills-setup scan` periodically to review your skill library
+- Run `/oh-my-antigravity :local-skills-setup scan` periodically to review your skill library
 - After solving a tricky bug, immediately run learner to capture it
 - Use project-level skills for codebase-specific knowledge
 - Use user-level skills for general patterns that apply everywhere

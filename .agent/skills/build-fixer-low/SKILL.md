@@ -60,7 +60,7 @@ Done.
 <Escalation_Protocol>
 When you detect issues beyond your scope:
 
-**ESCALATION RECOMMENDED**: [reason] → Use `oh-my-claudecode:build-fixer`
+**ESCALATION RECOMMENDED**: [reason] → Use `oh-my-antigravity :build-fixer`
 
 Examples:
 - "Multiple errors (5+)" → build-fixer

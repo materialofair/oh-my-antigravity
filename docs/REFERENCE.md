@@ -1,6 +1,6 @@
 # Reference Documentation
 
-Complete reference for oh-my-claudecode. For quick start, see the main [README.md](../README.md).
+Complete reference for oh-my-antigravity . For quick start, see the main [README.md](../README.md).
 
 ---
 
@@ -27,10 +27,10 @@ Complete reference for oh-my-claudecode. For quick start, see the main [README.m
 
 ```bash
 # Step 1: Add the marketplace
-/plugin marketplace add https://github.com/Yeachan-Heo/oh-my-claudecode
+/plugin marketplace add https://github.com/Yeachan-Heo/oh-my-antigravity 
 
 # Step 2: Install the plugin
-/plugin install oh-my-claudecode
+/plugin install oh-my-antigravity 
 ```
 
 This integrates directly with Claude Code's plugin system and uses Node.js hooks.
@@ -53,7 +53,7 @@ This integrates directly with Claude Code's plugin system and uses Node.js hooks
 Configure omc for the current project only:
 
 ```
-/oh-my-claudecode:omc-setup
+/oh-my-antigravity :omc-setup
 ```
 
 - Creates `./.claude/CLAUDE.md` in your current project
@@ -66,7 +66,7 @@ Configure omc for the current project only:
 Configure omc for all Claude Code sessions:
 
 ```
-/oh-my-claudecode:omc-setup
+/oh-my-antigravity :omc-setup
 ```
 
 - Creates `~/.claude/CLAUDE.md` globally
@@ -96,9 +96,9 @@ If both configurations exist, **project-scoped takes precedence** over global:
 - **First time**: Run after installation (choose project or global)
 - **After updates**: Re-run to get the latest configuration
 - **Different machines**: Run on each machine where you use Claude Code
-- **New projects**: Run `/oh-my-claudecode:omc-setup --local` in each project that needs omc
+- **New projects**: Run `/oh-my-antigravity :omc-setup --local` in each project that needs omc
 
-> **NOTE**: After updating the plugin (via `npm update`, `git pull`, or Claude Code's plugin update), you MUST re-run `/oh-my-claudecode:omc-setup` to apply the latest CLAUDE.md changes.
+> **NOTE**: After updating the plugin (via `npm update`, `git pull`, or Claude Code's plugin update), you MUST re-run `/oh-my-antigravity :omc-setup` to apply the latest CLAUDE.md changes.
 
 ### Agent Customization
 
@@ -137,7 +137,7 @@ This is a TypeScript monorepo using:
 
 ## Agents (32 Total)
 
-Always use `oh-my-claudecode:` prefix when calling via Task tool.
+Always use `oh-my-antigravity :` prefix when calling via Task tool.
 
 ### By Domain and Tier
 
@@ -202,91 +202,91 @@ Always use `oh-my-claudecode:` prefix when calling via Task tool.
 | Skill | Description | Manual Command |
 |-------|-------------|----------------|
 | `orchestrate` | Multi-agent orchestration mode | - |
-| `autopilot` | Full autonomous execution from idea to working code | `/oh-my-claudecode:autopilot` |
-| `ultrawork` | Maximum performance with parallel agents | `/oh-my-claudecode:ultrawork` |
-| `ultrapilot` | Parallel autopilot with 3-5x speedup | `/oh-my-claudecode:ultrapilot` |
-| `swarm` | N coordinated agents with task claiming | `/oh-my-claudecode:swarm` |
-| `pipeline` | Sequential agent chaining | `/oh-my-claudecode:pipeline` |
-| `ecomode` | Token-efficient parallel execution | `/oh-my-claudecode:ecomode` |
-| `ralph` | Self-referential development until completion | `/oh-my-claudecode:ralph` |
-| `ralph-init` | Initialize PRD for structured task tracking | `/oh-my-claudecode:ralph-init` |
-| `ultraqa` | Autonomous QA cycling workflow | `/oh-my-claudecode:ultraqa` |
-| `plan` | Start planning session | `/oh-my-claudecode:plan` |
-| `ralplan` | Iterative planning (Planner+Architect+Critic) | `/oh-my-claudecode:ralplan` |
-| `review` | Review work plans with critic | `/oh-my-claudecode:review` |
+| `autopilot` | Full autonomous execution from idea to working code | `/oh-my-antigravity :autopilot` |
+| `ultrawork` | Maximum performance with parallel agents | `/oh-my-antigravity :ultrawork` |
+| `ultrapilot` | Parallel autopilot with 3-5x speedup | `/oh-my-antigravity :ultrapilot` |
+| `swarm` | N coordinated agents with task claiming | `/oh-my-antigravity :swarm` |
+| `pipeline` | Sequential agent chaining | `/oh-my-antigravity :pipeline` |
+| `ecomode` | Token-efficient parallel execution | `/oh-my-antigravity :ecomode` |
+| `ralph` | Self-referential development until completion | `/oh-my-antigravity :ralph` |
+| `ralph-init` | Initialize PRD for structured task tracking | `/oh-my-antigravity :ralph-init` |
+| `ultraqa` | Autonomous QA cycling workflow | `/oh-my-antigravity :ultraqa` |
+| `plan` | Start planning session | `/oh-my-antigravity :plan` |
+| `ralplan` | Iterative planning (Planner+Architect+Critic) | `/oh-my-antigravity :ralplan` |
+| `review` | Review work plans with critic | `/oh-my-antigravity :review` |
 
 ### Enhancement Skills
 
 | Skill | Description | Manual Command |
 |-------|-------------|----------------|
-| `deepinit` | Hierarchical AGENTS.md codebase documentation | `/oh-my-claudecode:deepinit` |
-| `deepsearch` | Thorough multi-strategy codebase search | `/oh-my-claudecode:deepsearch` |
-| `analyze` | Deep analysis and investigation | `/oh-my-claudecode:analyze` |
-| `research` | Parallel scientist orchestration | `/oh-my-claudecode:research` |
+| `deepinit` | Hierarchical AGENTS.md codebase documentation | `/oh-my-antigravity :deepinit` |
+| `deepsearch` | Thorough multi-strategy codebase search | `/oh-my-antigravity :deepsearch` |
+| `analyze` | Deep analysis and investigation | `/oh-my-antigravity :analyze` |
+| `research` | Parallel scientist orchestration | `/oh-my-antigravity :research` |
 | `frontend-ui-ux` | Designer-turned-developer UI/UX expertise | (silent activation) |
 | `git-master` | Git expert for atomic commits and history | (silent activation) |
-| `tdd` | TDD enforcement: test-first development | `/oh-my-claudecode:tdd` |
-| `learner` | Extract reusable skill from session | `/oh-my-claudecode:learner` |
+| `tdd` | TDD enforcement: test-first development | `/oh-my-antigravity :tdd` |
+| `learner` | Extract reusable skill from session | `/oh-my-antigravity :learner` |
 
 ### Utility Skills
 
 | Skill | Description | Manual Command |
 |-------|-------------|----------------|
-| `note` | Save notes to compaction-resilient notepad | `/oh-my-claudecode:note` |
-| `cancel` | Unified cancellation for all modes | `/oh-my-claudecode:cancel` |
-| `omc-setup` | One-time setup wizard | `/oh-my-claudecode:omc-setup` |
-| `doctor` | Diagnose and fix installation issues | `/oh-my-claudecode:doctor` |
-| `help` | Show OMC usage guide | `/oh-my-claudecode:help` |
-| `hud` | Configure HUD statusline | `/oh-my-claudecode:hud` |
-| `release` | Automated release workflow | `/oh-my-claudecode:release` |
-| `mcp-setup` | Configure MCP servers | `/oh-my-claudecode:mcp-setup` |
-| `learn-about-omc` | Usage pattern analysis | `/oh-my-claudecode:learn-about-omc` |
-| `writer-memory` | Agentic memory system for writers | `/oh-my-claudecode:writer-memory` |
-| `project-session-manager` | Manage isolated dev environments (git worktrees + tmux) | `/oh-my-claudecode:project-session-manager` |
-| `local-skills-setup` | Set up and manage local skills | `/oh-my-claudecode:local-skills-setup` |
-| `skill` | Manage local skills (list, add, remove, search, edit) | `/oh-my-claudecode:skill` |
+| `note` | Save notes to compaction-resilient notepad | `/oh-my-antigravity :note` |
+| `cancel` | Unified cancellation for all modes | `/oh-my-antigravity :cancel` |
+| `omc-setup` | One-time setup wizard | `/oh-my-antigravity :omc-setup` |
+| `doctor` | Diagnose and fix installation issues | `/oh-my-antigravity :doctor` |
+| `help` | Show OMC usage guide | `/oh-my-antigravity :help` |
+| `hud` | Configure HUD statusline | `/oh-my-antigravity :hud` |
+| `release` | Automated release workflow | `/oh-my-antigravity :release` |
+| `mcp-setup` | Configure MCP servers | `/oh-my-antigravity :mcp-setup` |
+| `learn-about-omc` | Usage pattern analysis | `/oh-my-antigravity :learn-about-omc` |
+| `writer-memory` | Agentic memory system for writers | `/oh-my-antigravity :writer-memory` |
+| `project-session-manager` | Manage isolated dev environments (git worktrees + tmux) | `/oh-my-antigravity :project-session-manager` |
+| `local-skills-setup` | Set up and manage local skills | `/oh-my-antigravity :local-skills-setup` |
+| `skill` | Manage local skills (list, add, remove, search, edit) | `/oh-my-antigravity :skill` |
 
 ---
 
 ## Slash Commands
 
-All skills are available as slash commands with the prefix `/oh-my-claudecode:`.
+All skills are available as slash commands with the prefix `/oh-my-antigravity :`.
 
 | Command | Description |
 |---------|-------------|
-| `/oh-my-claudecode:orchestrate <task>` | Activate multi-agent orchestration mode |
-| `/oh-my-claudecode:autopilot <task>` | Full autonomous execution |
-| `/oh-my-claudecode:ultrawork <task>` | Maximum performance mode with parallel agents |
-| `/oh-my-claudecode:ultrapilot <task>` | Parallel autopilot (3-5x faster) |
-| `/oh-my-claudecode:swarm <N>:<agent> <task>` | Coordinated agent swarm |
-| `/oh-my-claudecode:pipeline <stages>` | Sequential agent chaining |
-| `/oh-my-claudecode:ecomode <task>` | Token-efficient parallel execution |
-| `/oh-my-claudecode:ralph-init <task>` | Initialize PRD for structured task tracking |
-| `/oh-my-claudecode:ralph <task>` | Self-referential loop until task completion |
-| `/oh-my-claudecode:ultraqa <goal>` | Autonomous QA cycling workflow |
-| `/oh-my-claudecode:plan <description>` | Start planning session |
-| `/oh-my-claudecode:ralplan <description>` | Iterative planning with consensus |
-| `/oh-my-claudecode:review [plan-path]` | Review a plan with critic |
-| `/oh-my-claudecode:deepsearch <query>` | Thorough multi-strategy codebase search |
-| `/oh-my-claudecode:deepinit [path]` | Index codebase with hierarchical AGENTS.md files |
-| `/oh-my-claudecode:analyze <target>` | Deep analysis and investigation |
-| `/oh-my-claudecode:research <topic>` | Parallel research orchestration |
-| `/oh-my-claudecode:tdd <feature>` | TDD workflow enforcement |
-| `/oh-my-claudecode:learner` | Extract reusable skill from session |
-| `/oh-my-claudecode:note <content>` | Save notes to notepad.md |
-| `/oh-my-claudecode:cancel` | Unified cancellation |
-| `/oh-my-claudecode:omc-setup` | One-time setup wizard |
-| `/oh-my-claudecode:doctor` | Diagnose and fix installation issues |
-| `/oh-my-claudecode:help` | Show OMC usage guide |
-| `/oh-my-claudecode:hud` | Configure HUD statusline |
-| `/oh-my-claudecode:release` | Automated release workflow |
-| `/oh-my-claudecode:mcp-setup` | Configure MCP servers |
+| `/oh-my-antigravity :orchestrate <task>` | Activate multi-agent orchestration mode |
+| `/oh-my-antigravity :autopilot <task>` | Full autonomous execution |
+| `/oh-my-antigravity :ultrawork <task>` | Maximum performance mode with parallel agents |
+| `/oh-my-antigravity :ultrapilot <task>` | Parallel autopilot (3-5x faster) |
+| `/oh-my-antigravity :swarm <N>:<agent> <task>` | Coordinated agent swarm |
+| `/oh-my-antigravity :pipeline <stages>` | Sequential agent chaining |
+| `/oh-my-antigravity :ecomode <task>` | Token-efficient parallel execution |
+| `/oh-my-antigravity :ralph-init <task>` | Initialize PRD for structured task tracking |
+| `/oh-my-antigravity :ralph <task>` | Self-referential loop until task completion |
+| `/oh-my-antigravity :ultraqa <goal>` | Autonomous QA cycling workflow |
+| `/oh-my-antigravity :plan <description>` | Start planning session |
+| `/oh-my-antigravity :ralplan <description>` | Iterative planning with consensus |
+| `/oh-my-antigravity :review [plan-path]` | Review a plan with critic |
+| `/oh-my-antigravity :deepsearch <query>` | Thorough multi-strategy codebase search |
+| `/oh-my-antigravity :deepinit [path]` | Index codebase with hierarchical AGENTS.md files |
+| `/oh-my-antigravity :analyze <target>` | Deep analysis and investigation |
+| `/oh-my-antigravity :research <topic>` | Parallel research orchestration |
+| `/oh-my-antigravity :tdd <feature>` | TDD workflow enforcement |
+| `/oh-my-antigravity :learner` | Extract reusable skill from session |
+| `/oh-my-antigravity :note <content>` | Save notes to notepad.md |
+| `/oh-my-antigravity :cancel` | Unified cancellation |
+| `/oh-my-antigravity :omc-setup` | One-time setup wizard |
+| `/oh-my-antigravity :doctor` | Diagnose and fix installation issues |
+| `/oh-my-antigravity :help` | Show OMC usage guide |
+| `/oh-my-antigravity :hud` | Configure HUD statusline |
+| `/oh-my-antigravity :release` | Automated release workflow |
+| `/oh-my-antigravity :mcp-setup` | Configure MCP servers |
 
 ---
 
 ## Hooks System
 
-Oh-my-claudecode includes 19 lifecycle hooks that enhance Claude Code's behavior.
+oh-my-antigravity  includes 19 lifecycle hooks that enhance Claude Code's behavior.
 
 ### Core Hooks
 
@@ -455,7 +455,7 @@ pipeline: analyze → fix → test this bug
 ### Diagnose Installation Issues
 
 ```bash
-/oh-my-claudecode:doctor
+/oh-my-antigravity :doctor
 ```
 
 Checks for:
@@ -468,7 +468,7 @@ Checks for:
 ### Configure HUD Statusline
 
 ```bash
-/oh-my-claudecode:hud setup
+/oh-my-antigravity :hud setup
 ```
 
 Installs or repairs the HUD statusline for real-time status updates.
@@ -477,15 +477,15 @@ Installs or repairs the HUD statusline for real-time status updates.
 
 | Issue | Solution |
 |-------|----------|
-| Commands not found | Re-run `/oh-my-claudecode:omc-setup` |
+| Commands not found | Re-run `/oh-my-antigravity :omc-setup` |
 | Hooks not executing | Check hook permissions: `chmod +x ~/.claude/hooks/**/*.sh` |
 | Agents not delegating | Verify CLAUDE.md is loaded: check `./.claude/CLAUDE.md` or `~/.claude/CLAUDE.md` |
 | LSP tools not working | Install language servers: `npm install -g typescript-language-server` |
-| Token limit errors | Use `/oh-my-claudecode:ecomode` for token-efficient execution |
+| Token limit errors | Use `/oh-my-antigravity :ecomode` for token-efficient execution |
 
 ### Auto-Update
 
-Oh-my-claudecode includes a silent auto-update system that checks for updates in the background.
+oh-my-antigravity  includes a silent auto-update system that checks for updates in the background.
 
 Features:
 - **Rate-limited**: Checks at most once every 24 hours
@@ -497,7 +497,7 @@ To manually update, re-run the plugin install command or use Claude Code's built
 ### Uninstall
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Yeachan-Heo/oh-my-claudecode/main/scripts/uninstall.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/scripts/uninstall.sh | bash
 ```
 
 Or manually:

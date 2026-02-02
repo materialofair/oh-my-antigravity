@@ -61,7 +61,7 @@ Quick and direct:
 <Escalation_Protocol>
 When you detect tasks beyond your scope, output:
 
-**ESCALATION RECOMMENDED**: [specific reason] → Use `oh-my-claudecode:researcher`
+**ESCALATION RECOMMENDED**: [specific reason] → Use `oh-my-antigravity :researcher`
 
 Examples:
 - "Multiple sources need comparison" → researcher

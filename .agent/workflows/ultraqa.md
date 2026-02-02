@@ -18,11 +18,11 @@ Parse the goal from arguments. Supported formats:
 
 | Invocation | Goal Type | What to Check |
 |------------|-----------|---------------|
-| `/oh-my-claudecode:ultraqa --tests` | tests | All test suites pass |
-| `/oh-my-claudecode:ultraqa --build` | build | Build succeeds with exit 0 |
-| `/oh-my-claudecode:ultraqa --lint` | lint | No lint errors |
-| `/oh-my-claudecode:ultraqa --typecheck` | typecheck | No TypeScript errors |
-| `/oh-my-claudecode:ultraqa --custom "pattern"` | custom | Custom success pattern in output |
+| `/oh-my-antigravity :ultraqa --tests` | tests | All test suites pass |
+| `/oh-my-antigravity :ultraqa --build` | build | Build succeeds with exit 0 |
+| `/oh-my-antigravity :ultraqa --lint` | lint | No lint errors |
+| `/oh-my-antigravity :ultraqa --typecheck` | typecheck | No TypeScript errors |
+| `/oh-my-antigravity :ultraqa --custom "pattern"` | custom | Custom success pattern in output |
 
 If no structured goal provided, interpret the argument as a custom goal.
 
@@ -38,7 +38,7 @@ If no structured goal provided, interpret the argument as a custom goal.
    - `--custom`: Run appropriate command and check for pattern
    - `--interactive`: Use qa-tester for interactive CLI/service testing:
      ```
-     Task(subagent_type="oh-my-claudecode:qa-tester", model="sonnet", prompt="TEST:
+     Task(subagent_type="oh-my-antigravity :qa-tester", model="sonnet", prompt="TEST:
      Goal: [describe what to verify]
      Service: [how to start]
      Test cases: [specific scenarios to verify]")
@@ -50,7 +50,7 @@ If no structured goal provided, interpret the argument as a custom goal.
 
 3. **ARCHITECT DIAGNOSIS**: Spawn architect to analyze failure
    ```
-   Task(subagent_type="oh-my-claudecode:architect", model="opus", prompt="DIAGNOSE FAILURE:
+   Task(subagent_type="oh-my-antigravity :architect", model="opus", prompt="DIAGNOSE FAILURE:
    Goal: [goal type]
    Output: [test/build output]
    Provide root cause and specific fix recommendations.")
@@ -58,7 +58,7 @@ If no structured goal provided, interpret the argument as a custom goal.
 
 4. **FIX ISSUES**: Apply architect's recommendations
    ```
-   Task(subagent_type="oh-my-claudecode:executor", model="sonnet", prompt="FIX:
+   Task(subagent_type="oh-my-antigravity :executor", model="sonnet", prompt="FIX:
    Issue: [architect diagnosis]
    Files: [affected files]
    Apply the fix precisely as recommended.")
@@ -106,7 +106,7 @@ Track state in `.omc/ultraqa-state.json`:
 
 ## Cancellation
 
-User can cancel with `/oh-my-claudecode:cancel` which clears the state file.
+User can cancel with `/oh-my-antigravity :cancel` which clears the state file.
 
 ## Important Rules
 

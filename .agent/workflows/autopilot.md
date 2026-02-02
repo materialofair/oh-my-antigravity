@@ -33,7 +33,7 @@ Spawn the Analyst agent:
 
 ```
 Task(
-  subagent_type="oh-my-claudecode:analyst",
+  subagent_type="oh-my-antigravity :analyst",
   model="opus",
   prompt="REQUIREMENTS ANALYSIS
 
@@ -55,7 +55,7 @@ After Analyst completes, spawn Architect:
 
 ```
 Task(
-  subagent_type="oh-my-claudecode:architect",
+  subagent_type="oh-my-antigravity :architect",
   model="opus",
   prompt="TECHNICAL SPECIFICATION
 
@@ -123,7 +123,7 @@ During execution, you MUST follow these rules:
 ```
 // Example: Delegate implementation
 Task(
-  subagent_type="oh-my-claudecode:executor",
+  subagent_type="oh-my-antigravity :executor",
   model="sonnet",
   prompt="IMPLEMENT: [specific task from plan]
 

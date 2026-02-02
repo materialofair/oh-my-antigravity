@@ -24,13 +24,13 @@ The enforcer runs as a pre-tool-use hook that intercepts `Task` and `Agent` tool
 ```typescript
 // Before enforcement
 Task(
-  subagent_type="oh-my-claudecode:executor",
+  subagent_type="oh-my-antigravity :executor",
   prompt="Implement feature X"
 )
 
 // After enforcement (automatic)
 Task(
-  subagent_type="oh-my-claudecode:executor",
+  subagent_type="oh-my-antigravity :executor",
   model="sonnet",  // ← Automatically injected
   prompt="Implement feature X"
 )
@@ -59,7 +59,7 @@ If you explicitly specify a model, it's always preserved:
 ```typescript
 // Explicit model is never overridden
 Task(
-  subagent_type="oh-my-claudecode:executor",
+  subagent_type="oh-my-antigravity :executor",
   model="haiku",  // ← Explicitly using haiku instead of default sonnet
   prompt="Quick lookup"
 )
@@ -181,13 +181,13 @@ When enabled, you'll see warnings like:
 ```typescript
 // Every delegation needs explicit model
 Task(
-  subagent_type="oh-my-claudecode:executor",
+  subagent_type="oh-my-antigravity :executor",
   model="sonnet",
   prompt="Implement X"
 )
 
 Task(
-  subagent_type="oh-my-claudecode:executor-low",
+  subagent_type="oh-my-antigravity :executor-low",
   model="haiku",
   prompt="Quick lookup"
 )
@@ -198,12 +198,12 @@ Task(
 ```typescript
 // Model automatically injected from definition
 Task(
-  subagent_type="oh-my-claudecode:executor",
+  subagent_type="oh-my-antigravity :executor",
   prompt="Implement X"
 )
 
 Task(
-  subagent_type="oh-my-claudecode:executor-low",
+  subagent_type="oh-my-antigravity :executor-low",
   prompt="Quick lookup"
 )
 ```
@@ -213,7 +213,7 @@ Task(
 ```typescript
 // Use haiku for a simple executor task
 Task(
-  subagent_type="oh-my-claudecode:executor",
+  subagent_type="oh-my-antigravity :executor",
   model="haiku",  // Override default sonnet
   prompt="Find definition of X"
 )

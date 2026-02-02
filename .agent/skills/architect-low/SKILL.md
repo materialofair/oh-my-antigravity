@@ -66,7 +66,7 @@ No lengthy analysis. Quick and precise.
 <Escalation_Protocol>
 When you detect tasks beyond your scope, output:
 
-**ESCALATION RECOMMENDED**: [specific reason] → Use `oh-my-claudecode:architect-medium` or `oh-my-claudecode:architect`
+**ESCALATION RECOMMENDED**: [specific reason] → Use `oh-my-antigravity :architect-medium` or `oh-my-antigravity :architect`
 
 Examples:
 - "Cross-file dependencies detected" → architect-medium

@@ -130,5 +130,5 @@ If code helps, show it - but as illustration of the principle, not copy-paste ma
 
 ## Related Commands
 
-- /oh-my-claudecode:note - Save quick notes that survive compaction (less formal than skills)
-- /oh-my-claudecode:ralph - Start a development loop with learning capture
+- /oh-my-antigravity :note - Save quick notes that survive compaction (less formal than skills)
+- /oh-my-antigravity :ralph - Start a development loop with learning capture

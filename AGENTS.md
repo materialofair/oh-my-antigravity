@@ -1,6 +1,6 @@
 <!-- Generated: 2026-01-28 | Updated: 2026-01-28 -->
 
-# oh-my-claudecode
+# oh-my-antigravity 
 
 Multi-agent orchestration system for Claude Code CLI, providing intelligent delegation, parallel execution, and IDE-like capabilities through LSP/AST integration.
 
@@ -10,7 +10,7 @@ Multi-agent orchestration system for Claude Code CLI, providing intelligent dele
 
 ## Purpose
 
-oh-my-claudecode enhances Claude Code with:
+oh-my-antigravity  enhances Claude Code with:
 - **32 specialized agents** across 8 domains with 3-tier model routing (Haiku/Sonnet/Opus)
 - **LSP tools** for IDE-like code intelligence (hover, go-to-definition, references, diagnostics)
 - **AST tools** for structural code search and transformation via ast-grep
@@ -86,7 +86,7 @@ npm run test:coverage # Coverage report
 
 ```typescript
 // Entry point
-import { createSisyphusSession } from 'oh-my-claudecode';
+import { createSisyphusSession } from 'oh-my-antigravity ';
 const session = createSisyphusSession();
 
 // Agent registration
@@ -103,7 +103,7 @@ import { allCustomTools, lspTools, astTools } from './tools';
 ┌─────────────────────────────────────────────────────────────┐
 │                    Claude Code CLI                          │
 ├─────────────────────────────────────────────────────────────┤
-│                  oh-my-claudecode (OMC)                     │
+│                  oh-my-antigravity  (OMC)                     │
 │  ┌─────────────┬─────────────┬─────────────┬─────────────┐  │
 │  │   Skills    │   Agents    │    Tools    │   Hooks     │  │
 │  │ (32 skills) │ (32 agents) │(LSP/AST/REPL)│ (30+ hooks)│  │

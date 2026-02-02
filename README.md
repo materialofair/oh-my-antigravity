@@ -2,7 +2,7 @@
 
 **The Ultimate Agentic Toolkit for Google Gemini Antigravity.**
 
-*Ported from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) with ❤️*
+*Ported from [oh-my-antigravity ](https://github.com/yeachan-heo/oh-my-antigravity ) with ❤️*
 
 > Give your Antigravity agent the collective intelligence of the "Oh My" ecosystem with **72 specialized Skills** and **32 automated Workflows**.
 
@@ -154,7 +154,7 @@ MIT License - See [LICENSE](LICENSE) for details.
 
 Special thanks to:
 
-- [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) - The original project that inspired this work
+- [oh-my-antigravity ](https://github.com/yeachan-heo/oh-my-antigravity ) - The original project that inspired this work
 - [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) - OpenAI Codex adaptation
 - [everything-claude-code](https://github.com/affaan-m/everything-claude-code) - Comprehensive Claude Code resources
 

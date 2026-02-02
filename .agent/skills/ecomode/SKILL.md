@@ -66,19 +66,19 @@ This skill enhances Claude's capabilities by:
 
 ```
 // Simple question → LOW tier (DEFAULT)
-Task(subagent_type="oh-my-claudecode:architect-low", model="haiku", prompt="What does this function return?")
+Task(subagent_type="oh-my-antigravity :architect-low", model="haiku", prompt="What does this function return?")
 
 // Standard implementation → TRY LOW first
-Task(subagent_type="oh-my-claudecode:executor-low", model="haiku", prompt="Add validation to login form")
+Task(subagent_type="oh-my-antigravity :executor-low", model="haiku", prompt="Add validation to login form")
 
 // If LOW fails, escalate to MEDIUM
-Task(subagent_type="oh-my-claudecode:executor", model="sonnet", prompt="Add error handling to login")
+Task(subagent_type="oh-my-antigravity :executor", model="sonnet", prompt="Add error handling to login")
 
 // File lookup → ALWAYS LOW
-Task(subagent_type="oh-my-claudecode:explore", model="haiku", prompt="Find where UserService is defined")
+Task(subagent_type="oh-my-antigravity :explore", model="haiku", prompt="Find where UserService is defined")
 
 // Only use MEDIUM for complex patterns
-Task(subagent_type="oh-my-claudecode:explore-medium", model="sonnet", prompt="Find all authentication patterns in the codebase")
+Task(subagent_type="oh-my-antigravity :explore-medium", model="sonnet", prompt="Find all authentication patterns in the codebase")
 ```
 
 ## DELEGATION ENFORCEMENT (CRITICAL)

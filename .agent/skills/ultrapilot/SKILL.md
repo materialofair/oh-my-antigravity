@@ -24,9 +24,9 @@ Ultrapilot is the parallel evolution of autopilot. It decomposes your task into 
 ## Usage
 
 ```
-/oh-my-claudecode:ultrapilot <your task>
-/oh-my-claudecode:up "Build a full-stack todo app"
-/oh-my-claudecode:ultrapilot Refactor the entire backend
+/oh-my-antigravity :ultrapilot <your task>
+/oh-my-antigravity :up "Build a full-stack todo app"
+/oh-my-antigravity :ultrapilot Refactor the entire backend
 ```
 
 ## Magic Keywords
@@ -120,7 +120,7 @@ const prompt = generateDecompositionPrompt(task, codebaseContext, {
 
 // 2. Call Architect agent
 const response = await Task({
-  subagent_type: 'oh-my-claudecode:architect',
+  subagent_type: 'oh-my-antigravity :architect',
   model: 'opus',
   prompt
 });
@@ -232,7 +232,7 @@ workers = [];
 for (subtask in decomposition.subtasks) {
   workers.push(
     Task(
-      subagent_type: "oh-my-claudecode:executor",
+      subagent_type: "oh-my-antigravity :executor",
       model: "sonnet",
       prompt: `ULTRAPILOT WORKER ${subtask.id}
 
@@ -375,7 +375,7 @@ Optional settings in `.claude/settings.json`:
 ## Cancellation
 
 ```
-/oh-my-claudecode:cancel
+/oh-my-antigravity :cancel
 ```
 
 Or say: "stop", "cancel ultrapilot", "abort"
@@ -390,7 +390,7 @@ Or say: "stop", "cancel ultrapilot", "abort"
 If ultrapilot was cancelled or a worker failed:
 
 ```
-/oh-my-claudecode:ultrapilot resume
+/oh-my-antigravity :ultrapilot resume
 ```
 
 **Resume Logic:**
@@ -403,7 +403,7 @@ If ultrapilot was cancelled or a worker failed:
 ### Example 1: Full-Stack App
 
 ```
-/oh-my-claudecode:ultrapilot Build a todo app with React frontend, Express backend, and PostgreSQL database
+/oh-my-antigravity :ultrapilot Build a todo app with React frontend, Express backend, and PostgreSQL database
 ```
 
 **Workers:**
@@ -420,7 +420,7 @@ If ultrapilot was cancelled or a worker failed:
 ### Example 2: Multi-Service Refactor
 
 ```
-/oh-my-claudecode:up Refactor all services to use dependency injection
+/oh-my-antigravity :up Refactor all services to use dependency injection
 ```
 
 **Workers:**
@@ -436,7 +436,7 @@ If ultrapilot was cancelled or a worker failed:
 ### Example 3: Test Coverage
 
 ```
-/oh-my-claudecode:ultrapilot Generate tests for all untested modules
+/oh-my-antigravity :ultrapilot Generate tests for all untested modules
 ```
 
 **Workers:**
@@ -601,7 +601,7 @@ You can provide a custom decomposition file to skip Phase 1:
 
 Then run:
 ```
-/oh-my-claudecode:ultrapilot --custom-decomposition
+/oh-my-antigravity :ultrapilot --custom-decomposition
 ```
 
 ## STATE CLEANUP ON COMPLETION
