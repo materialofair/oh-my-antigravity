@@ -143,7 +143,7 @@ If MODE == "pr":
   1. Is PR closed?
   2. Is PR draft?
   3. Is change trivial (< 10 lines, auto-generated)?
-  4. Already reviewed by Claude Code?
+  4. Already reviewed by Antigravity?
 
   If any is true → Exit with message
 ```
@@ -367,7 +367,7 @@ If filtered_issues.length == 0:
     - 相关 PR
     - 代码注释合规性
 
-    🤖 Generated with Claude Code
+    🤖 Generated with Antigravity
 
 Else:
   Output: |
@@ -411,7 +411,7 @@ Else:
     {codex_highlights}
     {end if}
 
-    🤖 Generated with Claude Code
+    🤖 Generated with Antigravity
 
     {if pr_mode}
     <sub>- 如果这个审查有帮助，请回复 👍。否则，回复 👎。</sub>
@@ -570,7 +570,7 @@ $ aireview origin/feature-cr
 **审查时间**: 2025-12-29 14:00
 **耗时**: < 30 秒
 
-🤖 Generated with Claude Code
+🤖 Generated with Antigravity
 ```
 
 ### Example 3: Remote Branch Deep Review

@@ -21,7 +21,7 @@ Check if `{{PROMPT}}` contains the flag pattern: `--prd` or `--PRD`
 
 When `--prd` flag detected:
 
-1. **Create PRD File Structure** (`.omc/prd.json` and `.omc/progress.txt`)
+1. **Create PRD File Structure** (`.oma/prd.json` and `.oma/progress.txt`)
 2. **Parse the task** (everything after `--prd` flag)
 3. **Break down into user stories** with this structure:
 
@@ -70,8 +70,8 @@ User input: `--prd build a todo app with React and TypeScript`
 Your workflow:
 1. Detect `--prd` flag
 2. Extract task: "build a todo app with React and TypeScript"
-3. Create `.omc/prd.json` with user stories
-4. Create `.omc/progress.txt`
+3. Create `.oma/prd.json` with user stories
+4. Create `.oma/progress.txt`
 5. Begin ralph loop using user stories as task breakdown
 
 ## ULTRAWORK MODE (AUTO-ACTIVATED)
@@ -196,13 +196,13 @@ When outputting the completion promise after Architect verification:
 
 ```bash
 # Delete ralph state file (and linked ultrawork if applicable)
-rm -f .omc/state/ralph-state.json
-rm -f .omc/state/ralph-verification.json
-rm -f ~/.claude/ralph-state.json
+rm -f .oma/state/ralph-state.json
+rm -f .oma/state/ralph-verification.json
+rm -f ~/.antigravity/ralph-state.json
 
 # If ultrawork was linked, delete it too
-rm -f .omc/state/ultrawork-state.json
-rm -f ~/.claude/ultrawork-state.json
+rm -f .oma/state/ultrawork-state.json
+rm -f ~/.antigravity/ultrawork-state.json
 ```
 
 This ensures clean state for future sessions. Stale state files with `active: false` should not be left behind.

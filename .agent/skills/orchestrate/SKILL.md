@@ -69,7 +69,7 @@ IMPORTANT: If codebase appears undisciplined, verify before assuming:
 
 ### Pre-Delegation Planning (MANDATORY)
 
-**BEFORE every `omc_task` call, EXPLICITLY declare your reasoning.**
+**BEFORE every `oma_task` call, EXPLICITLY declare your reasoning.**
 
 #### Step 1: Identify Task Requirements
 
@@ -107,7 +107,7 @@ Ask yourself:
 **MANDATORY FORMAT:**
 
 ```
-I will use omc_task with:
+I will use oma_task with:
 - **Category/Agent**: [name]
 - **Reason**: [why this choice fits the task]
 - **Skills** (if any): [skill names]

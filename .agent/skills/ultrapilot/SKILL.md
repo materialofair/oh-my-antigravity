@@ -14,7 +14,7 @@ Ultrapilot is the parallel evolution of autopilot. It decomposes your task into 
 **Key Capabilities:**
 1. **Decomposes** task into parallel-safe components
 2. **Partitions** files with exclusive ownership (no conflicts)
-3. **Spawns** up to 5 parallel workers (Claude Code limit)
+3. **Spawns** up to 5 parallel workers (Antigravity limit)
 4. **Coordinates** progress via TaskOutput
 5. **Integrates** changes with sequential handling of shared files
 6. **Validates** full system integrity
@@ -199,7 +199,7 @@ const finalResult = extractSharedFiles(result);
 2. **Shared files deferred** - Handled sequentially in integration
 3. **Boundary files tracked** - Files that import across boundaries
 
-**Data Structure:** `.omc/state/ultrapilot-ownership.json`
+**Data Structure:** `.oma/state/ultrapilot-ownership.json`
 
 ```json
 {
@@ -259,7 +259,7 @@ Deliver: Code changes + list of boundary dependencies`,
 - Detect conflicts early
 - Accumulate boundary dependencies
 
-**Max Workers:** 5 (Claude Code limit)
+**Max Workers:** 5 (Antigravity limit)
 
 ### Phase 4: Integration
 
@@ -301,7 +301,7 @@ Deliver: Code changes + list of boundary dependencies`,
 
 ### Session State
 
-**Location:** `.omc/ultrapilot-state.json`
+**Location:** `.oma/ultrapilot-state.json`
 
 ```json
 {
@@ -325,13 +325,13 @@ Deliver: Code changes + list of boundary dependencies`,
 
 ### File Ownership Map
 
-**Location:** `.omc/state/ultrapilot-ownership.json`
+**Location:** `.oma/state/ultrapilot-ownership.json`
 
 Tracks which worker owns which files (see Phase 2 example above).
 
 ### Progress Tracking
 
-**Location:** `.omc/ultrapilot/progress.json`
+**Location:** `.oma/ultrapilot/progress.json`
 
 ```json
 {
@@ -345,11 +345,11 @@ Tracks which worker owns which files (see Phase 2 example above).
 
 ## Configuration
 
-Optional settings in `.claude/settings.json`:
+Optional settings in `.antigravity/settings.json`:
 
 ```json
 {
-  "omc": {
+  "oma": {
     "ultrapilot": {
       "maxWorkers": 5,
       "maxValidationRounds": 3,
@@ -364,7 +364,7 @@ Optional settings in `.claude/settings.json`:
 ```
 
 **Settings Explained:**
-- `maxWorkers` - Max parallel workers (5 is Claude Code limit)
+- `maxWorkers` - Max parallel workers (5 is Antigravity limit)
 - `maxValidationRounds` - Validation retry attempts
 - `conflictPolicy` - "coordinator-handles" or "abort-on-conflict"
 - `fallbackToAutopilot` - Auto-switch if task not parallelizable
@@ -455,7 +455,7 @@ If ultrapilot was cancelled or a worker failed:
 1. **Clear module boundaries** - Works best with well-separated code
 2. **Minimal shared state** - Reduces integration complexity
 3. **Trust the decomposition** - Architect knows what's parallel-safe
-4. **Monitor progress** - Check `.omc/ultrapilot/progress.json`
+4. **Monitor progress** - Check `.oma/ultrapilot/progress.json`
 5. **Review conflicts early** - Don't wait until integration
 
 ## File Ownership Strategy
@@ -537,15 +537,15 @@ Automatically classified as shared:
 **Decomposition fails?**
 - Task may be too coupled
 - Fallback to autopilot triggered automatically
-- Review `.omc/ultrapilot/decomposition.json` for details
+- Review `.oma/ultrapilot/decomposition.json` for details
 
 **Worker hangs?**
-- Check worker logs in `.omc/logs/ultrapilot-worker-N.log`
+- Check worker logs in `.oma/logs/ultrapilot-worker-N.log`
 - Cancel and restart that worker
 - May indicate file ownership issue
 
 **Integration conflicts?**
-- Review `.omc/ultrapilot-state.json` conflicts array
+- Review `.oma/ultrapilot-state.json` conflicts array
 - Check if shared files were unexpectedly modified
 - Adjust ownership rules if needed
 
@@ -577,7 +577,7 @@ Automatically classified as shared:
 
 You can provide a custom decomposition file to skip Phase 1:
 
-**Location:** `.omc/ultrapilot/custom-decomposition.json`
+**Location:** `.oma/ultrapilot/custom-decomposition.json`
 
 ```json
 {
@@ -612,8 +612,8 @@ When all workers complete successfully:
 
 ```bash
 # Delete ultrapilot state files
-rm -f .omc/state/ultrapilot-state.json
-rm -f .omc/state/ultrapilot-ownership.json
+rm -f .oma/state/ultrapilot-state.json
+rm -f .oma/state/ultrapilot-ownership.json
 ```
 
 ## Future Enhancements
@@ -626,7 +626,7 @@ rm -f .omc/state/ultrapilot-ownership.json
 - Resume from integration phase (if validation fails)
 
 **Planned for v4.2:**
-- Multi-machine distribution (if Claude Code supports)
+- Multi-machine distribution (if Antigravity supports)
 - Real-time progress dashboard
 - Worker performance analytics
 - Auto-tuning of decomposition strategy

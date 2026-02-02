@@ -1,9 +1,9 @@
 ---
-name: omc-setup
+name: oma-setup
 description: Setup and configure oh-my-antigravity  (the ONLY command you need to learn)
 ---
 
-# OMC Setup
+# OMA Setup
 
 This is the **only command you need to learn**. After running this, everything else is automatic.
 
@@ -12,7 +12,7 @@ This is the **only command you need to learn**. After running this, everything e
 **IMPORTANT**: This setup process saves progress after each step. If interrupted (Ctrl+C or connection loss), the setup can resume from where it left off.
 
 ### State File Location
-- `.omc/state/setup-state.json` - Tracks completed steps
+- `.oma/state/setup-state.json` - Tracks completed steps
 
 ### Resume Detection (Step 0)
 
@@ -20,7 +20,7 @@ Before starting any step, check for existing state:
 
 ```bash
 # Check for existing setup state
-STATE_FILE=".omc/state/setup-state.json"
+STATE_FILE=".oma/state/setup-state.json"
 
 # Cross-platform ISO date to epoch conversion
 iso_to_epoch() {
@@ -73,7 +73,7 @@ If state exists, use AskUserQuestion to prompt:
 
 If user chooses "Start fresh":
 ```bash
-rm -f ".omc/state/setup-state.json"
+rm -f ".oma/state/setup-state.json"
 echo "Previous state cleared. Starting fresh setup."
 ```
 
@@ -85,8 +85,8 @@ After completing each major step, save progress:
 # Save setup progress (call after each step)
 # Usage: save_setup_progress STEP_NUMBER
 save_setup_progress() {
-  mkdir -p .omc/state
-  cat > ".omc/state/setup-state.json" << EOF
+  mkdir -p .oma/state
+  cat > ".oma/state/setup-state.json" << EOF
 {
   "lastCompletedStep": $1,
   "timestamp": "$(date -Iseconds)",
@@ -101,7 +101,7 @@ EOF
 After successful setup completion (Step 7/8), remove the state file:
 
 ```bash
-rm -f ".omc/state/setup-state.json"
+rm -f ".oma/state/setup-state.json"
 echo "Setup completed successfully. State cleared."
 ```
 
@@ -110,8 +110,8 @@ echo "Setup completed successfully. State cleared."
 This skill handles three scenarios:
 
 1. **Initial Setup (no flags)**: First-time installation wizard
-2. **Local Configuration (`--local`)**: Configure project-specific settings (.claude/CLAUDE.md)
-3. **Global Configuration (`--global`)**: Configure global settings (~/.claude/CLAUDE.md)
+2. **Local Configuration (`--local`)**: Configure project-specific settings (.antigravity/ANTIGRAVITY.md)
+3. **Global Configuration (`--global`)**: Configure global settings (~/.antigravity/ANTIGRAVITY.md)
 
 ## Mode Detection
 
@@ -129,63 +129,63 @@ Use the AskUserQuestion tool to prompt the user:
 **Question:** "Where should I configure oh-my-antigravity ?"
 
 **Options:**
-1. **Local (this project)** - Creates `.claude/CLAUDE.md` in current project directory. Best for project-specific configurations.
-2. **Global (all projects)** - Creates `~/.claude/CLAUDE.md` for all Claude Code sessions. Best for consistent behavior everywhere.
+1. **Local (this project)** - Creates `.antigravity/ANTIGRAVITY.md` in current project directory. Best for project-specific configurations.
+2. **Global (all projects)** - Creates `~/.antigravity/ANTIGRAVITY.md` for all Antigravity sessions. Best for consistent behavior everywhere.
 
 ## Step 2A: Local Configuration (--local flag or user chose LOCAL)
 
-**CRITICAL**: This ALWAYS downloads fresh CLAUDE.md from GitHub to the local project. DO NOT use the Write tool - use bash curl exclusively.
+**CRITICAL**: This ALWAYS downloads fresh ANTIGRAVITY.md from GitHub to the local project. DO NOT use the Write tool - use bash curl exclusively.
 
-### Create Local .claude Directory
+### Create Local .antigravity Directory
 
 ```bash
-# Create .claude directory in current project
-mkdir -p .claude && echo ".claude directory ready"
+# Create .antigravity directory in current project
+mkdir -p .antigravity && echo ".antigravity directory ready"
 ```
 
-### Download Fresh CLAUDE.md
+### Download Fresh ANTIGRAVITY.md
 
 ```bash
 # Extract old version before download
-OLD_VERSION=$(grep -m1 "^# oh-my-antigravity " .claude/CLAUDE.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "none")
+OLD_VERSION=$(grep -m1 "^# oh-my-antigravity " .antigravity/ANTIGRAVITY.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "none")
 
-# Backup existing CLAUDE.md before overwriting (if it exists)
-if [ -f ".claude/CLAUDE.md" ]; then
+# Backup existing ANTIGRAVITY.md before overwriting (if it exists)
+if [ -f ".antigravity/ANTIGRAVITY.md" ]; then
   BACKUP_DATE=$(date +%Y-%m-%d)
-  BACKUP_PATH=".claude/CLAUDE.md.backup.${BACKUP_DATE}"
-  cp .claude/CLAUDE.md "$BACKUP_PATH"
-  echo "Backed up existing CLAUDE.md to $BACKUP_PATH"
+  BACKUP_PATH=".antigravity/ANTIGRAVITY.md.backup.${BACKUP_DATE}"
+  cp .antigravity/ANTIGRAVITY.md "$BACKUP_PATH"
+  echo "Backed up existing ANTIGRAVITY.md to $BACKUP_PATH"
 fi
 
-# Download fresh CLAUDE.md from GitHub
-curl -fsSL "https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/docs/CLAUDE.md" -o .claude/CLAUDE.md && \
-echo "Downloaded CLAUDE.md to .claude/CLAUDE.md"
+# Download fresh ANTIGRAVITY.md from GitHub
+curl -fsSL "https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/docs/ANTIGRAVITY.md" -o .antigravity/ANTIGRAVITY.md && \
+echo "Downloaded ANTIGRAVITY.md to .antigravity/ANTIGRAVITY.md"
 
 # Extract new version and report
-NEW_VERSION=$(grep -m1 "^# oh-my-antigravity " .claude/CLAUDE.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "unknown")
+NEW_VERSION=$(grep -m1 "^# oh-my-antigravity " .antigravity/ANTIGRAVITY.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "unknown")
 if [ "$OLD_VERSION" = "none" ]; then
-  echo "Installed CLAUDE.md: $NEW_VERSION"
+  echo "Installed ANTIGRAVITY.md: $NEW_VERSION"
 elif [ "$OLD_VERSION" = "$NEW_VERSION" ]; then
-  echo "CLAUDE.md unchanged: $NEW_VERSION"
+  echo "ANTIGRAVITY.md unchanged: $NEW_VERSION"
 else
-  echo "Updated CLAUDE.md: $OLD_VERSION -> $NEW_VERSION"
+  echo "Updated ANTIGRAVITY.md: $OLD_VERSION -> $NEW_VERSION"
 fi
 ```
 
-**Note**: The downloaded CLAUDE.md includes Context Persistence instructions with `<remember>` tags for surviving conversation compaction.
+**Note**: The downloaded ANTIGRAVITY.md includes Context Persistence instructions with `<remember>` tags for surviving conversation compaction.
 
-**Note**: If an existing CLAUDE.md is found, it will be backed up to `.claude/CLAUDE.md.backup.YYYY-MM-DD` before downloading the new version.
+**Note**: If an existing ANTIGRAVITY.md is found, it will be backed up to `.antigravity/ANTIGRAVITY.md.backup.YYYY-MM-DD` before downloading the new version.
 
 **MANDATORY**: Always run this command. Do NOT skip. Do NOT use Write tool.
 
 **FALLBACK** if curl fails:
 Tell user to manually download from:
-https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/docs/CLAUDE.md
+https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/docs/ANTIGRAVITY.md
 
 ### Verify Plugin Installation
 
 ```bash
-grep -q "oh-my-antigravity " ~/.claude/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: claude /install-plugin oh-my-antigravity "
+grep -q "oh-my-antigravity " ~/.antigravity/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: claude /install-plugin oh-my-antigravity "
 ```
 
 ### Confirm Local Configuration Success
@@ -194,8 +194,8 @@ After completing local configuration, save progress and report:
 
 ```bash
 # Save progress - Step 2 complete (Local config)
-mkdir -p .omc/state
-cat > ".omc/state/setup-state.json" << EOF
+mkdir -p .oma/state
+cat > ".oma/state/setup-state.json" << EOF
 {
   "lastCompletedStep": 2,
   "timestamp": "$(date -Iseconds)",
@@ -204,9 +204,9 @@ cat > ".omc/state/setup-state.json" << EOF
 EOF
 ```
 
-**OMC Project Configuration Complete**
-- CLAUDE.md: Updated with latest configuration from GitHub at ./.claude/CLAUDE.md
-- Backup: Previous CLAUDE.md backed up to `.claude/CLAUDE.md.backup.YYYY-MM-DD` (if existed)
+**OMA Project Configuration Complete**
+- ANTIGRAVITY.md: Updated with latest configuration from GitHub at ./.antigravity/ANTIGRAVITY.md
+- Backup: Previous ANTIGRAVITY.md backed up to `.antigravity/ANTIGRAVITY.md.backup.YYYY-MM-DD` (if existed)
 - Scope: **PROJECT** - applies only to this project
 - Hooks: Provided by plugin (no manual installation needed)
 - Agents: 28+ available (base + tiered variants)
@@ -216,44 +216,44 @@ EOF
 
 If `--local` flag was used, clear state and **STOP HERE**:
 ```bash
-rm -f ".omc/state/setup-state.json"
+rm -f ".oma/state/setup-state.json"
 ```
 Do not continue to HUD setup or other steps.
 
 ## Step 2B: Global Configuration (--global flag or user chose GLOBAL)
 
-**CRITICAL**: This ALWAYS downloads fresh CLAUDE.md from GitHub to global config. DO NOT use the Write tool - use bash curl exclusively.
+**CRITICAL**: This ALWAYS downloads fresh ANTIGRAVITY.md from GitHub to global config. DO NOT use the Write tool - use bash curl exclusively.
 
-### Download Fresh CLAUDE.md
+### Download Fresh ANTIGRAVITY.md
 
 ```bash
 # Extract old version before download
-OLD_VERSION=$(grep -m1 "^# oh-my-antigravity " ~/.claude/CLAUDE.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "none")
+OLD_VERSION=$(grep -m1 "^# oh-my-antigravity " ~/.antigravity/ANTIGRAVITY.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "none")
 
-# Backup existing CLAUDE.md before overwriting (if it exists)
-if [ -f "$HOME/.claude/CLAUDE.md" ]; then
+# Backup existing ANTIGRAVITY.md before overwriting (if it exists)
+if [ -f "$HOME/.antigravity/ANTIGRAVITY.md" ]; then
   BACKUP_DATE=$(date +%Y-%m-%d)
-  BACKUP_PATH="$HOME/.claude/CLAUDE.md.backup.${BACKUP_DATE}"
-  cp "$HOME/.claude/CLAUDE.md" "$BACKUP_PATH"
-  echo "Backed up existing CLAUDE.md to $BACKUP_PATH"
+  BACKUP_PATH="$HOME/.antigravity/ANTIGRAVITY.md.backup.${BACKUP_DATE}"
+  cp "$HOME/.antigravity/ANTIGRAVITY.md" "$BACKUP_PATH"
+  echo "Backed up existing ANTIGRAVITY.md to $BACKUP_PATH"
 fi
 
-# Download fresh CLAUDE.md to global config
-curl -fsSL "https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/docs/CLAUDE.md" -o ~/.claude/CLAUDE.md && \
-echo "Downloaded CLAUDE.md to ~/.claude/CLAUDE.md"
+# Download fresh ANTIGRAVITY.md to global config
+curl -fsSL "https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/docs/ANTIGRAVITY.md" -o ~/.antigravity/ANTIGRAVITY.md && \
+echo "Downloaded ANTIGRAVITY.md to ~/.antigravity/ANTIGRAVITY.md"
 
 # Extract new version and report
-NEW_VERSION=$(grep -m1 "^# oh-my-antigravity " ~/.claude/CLAUDE.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "unknown")
+NEW_VERSION=$(grep -m1 "^# oh-my-antigravity " ~/.antigravity/ANTIGRAVITY.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "unknown")
 if [ "$OLD_VERSION" = "none" ]; then
-  echo "Installed CLAUDE.md: $NEW_VERSION"
+  echo "Installed ANTIGRAVITY.md: $NEW_VERSION"
 elif [ "$OLD_VERSION" = "$NEW_VERSION" ]; then
-  echo "CLAUDE.md unchanged: $NEW_VERSION"
+  echo "ANTIGRAVITY.md unchanged: $NEW_VERSION"
 else
-  echo "Updated CLAUDE.md: $OLD_VERSION -> $NEW_VERSION"
+  echo "Updated ANTIGRAVITY.md: $OLD_VERSION -> $NEW_VERSION"
 fi
 ```
 
-**Note**: If an existing CLAUDE.md is found, it will be backed up to `~/.claude/CLAUDE.md.backup.YYYY-MM-DD` before downloading the new version.
+**Note**: If an existing ANTIGRAVITY.md is found, it will be backed up to `~/.antigravity/ANTIGRAVITY.md.backup.YYYY-MM-DD` before downloading the new version.
 
 ### Clean Up Legacy Hooks (if present)
 
@@ -261,21 +261,21 @@ Check if old manual hooks exist and remove them to prevent duplicates:
 
 ```bash
 # Remove legacy bash hook scripts (now handled by plugin system)
-rm -f ~/.claude/hooks/keyword-detector.sh
-rm -f ~/.claude/hooks/stop-continuation.sh
-rm -f ~/.claude/hooks/persistent-mode.sh
-rm -f ~/.claude/hooks/session-start.sh
+rm -f ~/.antigravity/hooks/keyword-detector.sh
+rm -f ~/.antigravity/hooks/stop-continuation.sh
+rm -f ~/.antigravity/hooks/persistent-mode.sh
+rm -f ~/.antigravity/hooks/session-start.sh
 echo "Legacy hooks cleaned"
 ```
 
-Check `~/.claude/settings.json` for manual hook entries. If the "hooks" key exists with UserPromptSubmit, Stop, or SessionStart entries pointing to bash scripts, inform the user:
+Check `~/.antigravity/settings.json` for manual hook entries. If the "hooks" key exists with UserPromptSubmit, Stop, or SessionStart entries pointing to bash scripts, inform the user:
 
-> **Note**: Found legacy hooks in settings.json. These should be removed since the plugin now provides hooks automatically. Remove the "hooks" section from ~/.claude/settings.json to prevent duplicate hook execution.
+> **Note**: Found legacy hooks in settings.json. These should be removed since the plugin now provides hooks automatically. Remove the "hooks" section from ~/.antigravity/settings.json to prevent duplicate hook execution.
 
 ### Verify Plugin Installation
 
 ```bash
-grep -q "oh-my-antigravity " ~/.claude/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: claude /install-plugin oh-my-antigravity "
+grep -q "oh-my-antigravity " ~/.antigravity/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: claude /install-plugin oh-my-antigravity "
 ```
 
 ### Confirm Global Configuration Success
@@ -284,8 +284,8 @@ After completing global configuration, save progress and report:
 
 ```bash
 # Save progress - Step 2 complete (Global config)
-mkdir -p .omc/state
-cat > ".omc/state/setup-state.json" << EOF
+mkdir -p .oma/state
+cat > ".oma/state/setup-state.json" << EOF
 {
   "lastCompletedStep": 2,
   "timestamp": "$(date -Iseconds)",
@@ -294,10 +294,10 @@ cat > ".omc/state/setup-state.json" << EOF
 EOF
 ```
 
-**OMC Global Configuration Complete**
-- CLAUDE.md: Updated with latest configuration from GitHub at ~/.claude/CLAUDE.md
-- Backup: Previous CLAUDE.md backed up to `~/.claude/CLAUDE.md.backup.YYYY-MM-DD` (if existed)
-- Scope: **GLOBAL** - applies to all Claude Code sessions
+**OMA Global Configuration Complete**
+- ANTIGRAVITY.md: Updated with latest configuration from GitHub at ~/.antigravity/ANTIGRAVITY.md
+- Backup: Previous ANTIGRAVITY.md backed up to `~/.antigravity/ANTIGRAVITY.md.backup.YYYY-MM-DD` (if existed)
+- Scope: **GLOBAL** - applies to all Antigravity sessions
 - Hooks: Provided by plugin (no manual installation needed)
 - Agents: 28+ available (base + tiered variants)
 - Model routing: Haiku/Sonnet/Opus based on task complexity
@@ -306,7 +306,7 @@ EOF
 
 If `--global` flag was used, clear state and **STOP HERE**:
 ```bash
-rm -f ".omc/state/setup-state.json"
+rm -f ".oma/state/setup-state.json"
 ```
 Do not continue to HUD setup or other steps.
 
@@ -314,21 +314,21 @@ Do not continue to HUD setup or other steps.
 
 **Note**: If resuming and lastCompletedStep >= 3, skip to Step 3.5.
 
-The HUD shows real-time status in Claude Code's status bar. **Invoke the hud skill** to set up and configure:
+The HUD shows real-time status in Antigravity's status bar. **Invoke the hud skill** to set up and configure:
 
 Use the Skill tool to invoke: `hud` with args: `setup`
 
 This will:
-1. Install the HUD wrapper script to `~/.claude/hud/omc-hud.mjs`
-2. Configure `statusLine` in `~/.claude/settings.json`
+1. Install the HUD wrapper script to `~/.antigravity/hud/oma-hud.mjs`
+2. Configure `statusLine` in `~/.antigravity/settings.json`
 3. Report status and prompt to restart if needed
 
 After HUD setup completes, save progress:
 ```bash
 # Save progress - Step 3 complete (HUD setup)
-mkdir -p .omc/state
-CONFIG_TYPE=$(cat ".omc/state/setup-state.json" 2>/dev/null | grep -oE '"configType":\s*"[^"]+"' | cut -d'"' -f4 || echo "unknown")
-cat > ".omc/state/setup-state.json" << EOF
+mkdir -p .oma/state
+CONFIG_TYPE=$(cat ".oma/state/setup-state.json" 2>/dev/null | grep -oE '"configType":\s*"[^"]+"' | cut -d'"' -f4 || echo "unknown")
+cat > ".oma/state/setup-state.json" << EOF
 {
   "lastCompletedStep": 3,
   "timestamp": "$(date -Iseconds)",
@@ -343,7 +343,7 @@ Clear old cached plugin versions to avoid conflicts:
 
 ```bash
 # Clear stale plugin cache versions
-CACHE_DIR="$HOME/.claude/plugins/cache/omc/oh-my-antigravity "
+CACHE_DIR="$HOME/.antigravity/plugins/cache/oma/oh-my-antigravity "
 if [ -d "$CACHE_DIR" ]; then
   LATEST=$(ls -1 "$CACHE_DIR" | sort -V | tail -1)
   CLEARED=0
@@ -368,26 +368,26 @@ Notify user if a newer version is available:
 INSTALLED_VERSION=""
 
 # Try cache directory first
-if [ -d "$HOME/.claude/plugins/cache/omc/oh-my-antigravity " ]; then
-  INSTALLED_VERSION=$(ls -1 "$HOME/.claude/plugins/cache/omc/oh-my-antigravity " | sort -V | tail -1)
+if [ -d "$HOME/.antigravity/plugins/cache/oma/oh-my-antigravity " ]; then
+  INSTALLED_VERSION=$(ls -1 "$HOME/.antigravity/plugins/cache/oma/oh-my-antigravity " | sort -V | tail -1)
 fi
 
-# Try .omc-version.json second
-if [ -z "$INSTALLED_VERSION" ] && [ -f ".omc-version.json" ]; then
-  INSTALLED_VERSION=$(grep -oE '"version":\s*"[^"]+' .omc-version.json | cut -d'"' -f4)
+# Try .oma-version.json second
+if [ -z "$INSTALLED_VERSION" ] && [ -f ".oma-version.json" ]; then
+  INSTALLED_VERSION=$(grep -oE '"version":\s*"[^"]+' .oma-version.json | cut -d'"' -f4)
 fi
 
-# Try CLAUDE.md header third (local first, then global)
+# Try ANTIGRAVITY.md header third (local first, then global)
 if [ -z "$INSTALLED_VERSION" ]; then
-  if [ -f ".claude/CLAUDE.md" ]; then
-    INSTALLED_VERSION=$(grep -m1 "^# oh-my-antigravity " .claude/CLAUDE.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | sed 's/^v//')
-  elif [ -f "$HOME/.claude/CLAUDE.md" ]; then
-    INSTALLED_VERSION=$(grep -m1 "^# oh-my-antigravity " "$HOME/.claude/CLAUDE.md" 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | sed 's/^v//')
+  if [ -f ".antigravity/ANTIGRAVITY.md" ]; then
+    INSTALLED_VERSION=$(grep -m1 "^# oh-my-antigravity " .antigravity/ANTIGRAVITY.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | sed 's/^v//')
+  elif [ -f "$HOME/.antigravity/ANTIGRAVITY.md" ]; then
+    INSTALLED_VERSION=$(grep -m1 "^# oh-my-antigravity " "$HOME/.antigravity/ANTIGRAVITY.md" 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | sed 's/^v//')
   fi
 fi
 
 # Check npm for latest version
-LATEST_VERSION=$(npm view oh-my-claude-sisyphus version 2>/dev/null)
+LATEST_VERSION=$(npm view oh-my-antigravity version 2>/dev/null)
 
 if [ -n "$INSTALLED_VERSION" ] && [ -n "$LATEST_VERSION" ]; then
   # Simple version comparison (assumes semantic versioning)
@@ -416,11 +416,11 @@ Use the AskUserQuestion tool to prompt the user:
 1. **ultrawork (maximum capability)** - Uses all agent tiers including Opus for complex tasks. Best for challenging work where quality matters most. (Recommended)
 2. **ecomode (token efficient)** - Prefers Haiku/Sonnet agents, avoids Opus. Best for pro-plan users who want cost efficiency.
 
-Store the preference in `~/.claude/.omc-config.json`:
+Store the preference in `~/.antigravity/.oma-config.json`:
 
 ```bash
 # Read existing config or create empty object
-CONFIG_FILE="$HOME/.claude/.omc-config.json"
+CONFIG_FILE="$HOME/.antigravity/.oma-config.json"
 mkdir -p "$(dirname "$CONFIG_FILE")"
 
 if [ -f "$CONFIG_FILE" ]; then
@@ -438,17 +438,17 @@ echo "Default execution mode set to: USER_CHOICE"
 
 ## Step 3.8: Install CLI Analytics Tools (Optional)
 
-The OMC CLI provides standalone token analytics commands (`omc stats`, `omc agents`, `omc tui`).
+The OMA CLI provides standalone token analytics commands (`oma stats`, `oma agents`, `oma tui`).
 
-Ask user: "Would you like to install the OMC CLI for standalone analytics? (Recommended for tracking token usage and costs)"
+Ask user: "Would you like to install the OMA CLI for standalone analytics? (Recommended for tracking token usage and costs)"
 
 **Options:**
-1. **Yes (Recommended)** - Install CLI tools globally for `omc stats`, `omc agents`, etc.
+1. **Yes (Recommended)** - Install CLI tools globally for `oma stats`, `oma agents`, etc.
 2. **No** - Skip CLI installation, use only plugin skills
 
 ### CLI Installation Note
 
-The CLI (`omc` command) is **no longer supported** via npm/bun global install.
+The CLI (`oma` command) is **no longer supported** via npm/bun global install.
 
 All functionality is available through the plugin system:
 - Use `/oh-my-antigravity :help` for guidance
@@ -459,12 +459,12 @@ Skip this step - the plugin provides all features.
 ## Step 4: Verify Plugin Installation
 
 ```bash
-grep -q "oh-my-antigravity " ~/.claude/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: claude /install-plugin oh-my-antigravity "
+grep -q "oh-my-antigravity " ~/.antigravity/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: claude /install-plugin oh-my-antigravity "
 ```
 
 ## Step 5: Offer MCP Server Configuration
 
-MCP servers extend Claude Code with additional tools (web search, GitHub, etc.).
+MCP servers extend Antigravity with additional tools (web search, GitHub, etc.).
 
 Ask user: "Would you like to configure MCP servers for enhanced capabilities? (Context7, Exa search, GitHub, etc.)"
 
@@ -480,7 +480,7 @@ If no, skip to next step.
 Check if user has existing configuration:
 ```bash
 # Check for existing 2.x artifacts
-ls ~/.claude/commands/ralph-loop.md 2>/dev/null || ls ~/.claude/commands/ultrawork.md 2>/dev/null
+ls ~/.antigravity/commands/ralph-loop.md 2>/dev/null || ls ~/.antigravity/commands/ultrawork.md 2>/dev/null
 ```
 
 If found, this is an upgrade from 2.x.
@@ -490,7 +490,7 @@ If found, this is an upgrade from 2.x.
 ### For New Users:
 
 ```
-OMC Setup Complete!
+OMA Setup Complete!
 
 You don't need to learn any commands. I now have intelligent behaviors that activate automatically.
 
@@ -517,21 +517,21 @@ MCP SERVERS:
 Run /oh-my-antigravity :mcp-setup to add tools like web search, GitHub, etc.
 
 HUD STATUSLINE:
-The status bar now shows OMC state. Restart Claude Code to see it.
+The status bar now shows OMA state. Restart Antigravity to see it.
 
 CLI ANALYTICS (if installed):
-- omc           - Full dashboard (stats + agents + cost)
-- omc stats     - View token usage and costs
-- omc agents    - See agent breakdown by cost
-- omc tui       - Launch interactive TUI dashboard
+- oma           - Full dashboard (stats + agents + cost)
+- oma stats     - View token usage and costs
+- oma agents    - See agent breakdown by cost
+- oma tui       - Launch interactive TUI dashboard
 
-That's it! Just use Claude Code normally.
+That's it! Just use Antigravity normally.
 ```
 
 ### For Users Upgrading from 2.x:
 
 ```
-OMC Setup Complete! (Upgraded from 2.x)
+OMA Setup Complete! (Upgraded from 2.x)
 
 GOOD NEWS: Your existing commands still work!
 - /ralph, /ultrawork, /plan, etc. all still function
@@ -553,13 +553,13 @@ MAGIC KEYWORDS (power-user shortcuts):
 | plan | /plan | "plan the endpoints" |
 
 HUD STATUSLINE:
-The status bar now shows OMC state. Restart Claude Code to see it.
+The status bar now shows OMA state. Restart Antigravity to see it.
 
 CLI ANALYTICS (if installed):
-- omc           - Full dashboard (stats + agents + cost)
-- omc stats     - View token usage and costs
-- omc agents    - See agent breakdown by cost
-- omc tui       - Launch interactive TUI dashboard
+- oma           - Full dashboard (stats + agents + cost)
+- oma stats     - View token usage and costs
+- oma agents    - See agent breakdown by cost
+- oma tui       - Launch interactive TUI dashboard
 
 Your workflow won't break - it just got easier!
 ```
@@ -606,56 +606,56 @@ After Step 8 completes (regardless of star choice), clear the setup state:
 
 ```bash
 # Setup complete - clear state file
-rm -f ".omc/state/setup-state.json"
+rm -f ".oma/state/setup-state.json"
 echo "Setup completed successfully!"
 ```
 
 ## Keeping Up to Date
 
 After installing oh-my-antigravity  updates (via npm or plugin update), run:
-- `/oh-my-antigravity :omc-setup --local` to update project config
-- `/oh-my-antigravity :omc-setup --global` to update global config
+- `/oh-my-antigravity :oma-setup --local` to update project config
+- `/oh-my-antigravity :oma-setup --global` to update global config
 
 This ensures you have the newest features and agent configurations.
 
 ## Help Text
 
-When user runs `/oh-my-antigravity :omc-setup --help` or just `--help`, display:
+When user runs `/oh-my-antigravity :oma-setup --help` or just `--help`, display:
 
 ```
-OMC Setup - Configure oh-my-antigravity 
+OMA Setup - Configure oh-my-antigravity 
 
 USAGE:
-  /oh-my-antigravity :omc-setup           Run initial setup wizard
-  /oh-my-antigravity :omc-setup --local   Configure local project (.claude/CLAUDE.md)
-  /oh-my-antigravity :omc-setup --global  Configure global settings (~/.claude/CLAUDE.md)
-  /oh-my-antigravity :omc-setup --help    Show this help
+  /oh-my-antigravity :oma-setup           Run initial setup wizard
+  /oh-my-antigravity :oma-setup --local   Configure local project (.antigravity/ANTIGRAVITY.md)
+  /oh-my-antigravity :oma-setup --global  Configure global settings (~/.antigravity/ANTIGRAVITY.md)
+  /oh-my-antigravity :oma-setup --help    Show this help
 
 MODES:
   Initial Setup (no flags)
     - Interactive wizard for first-time setup
-    - Configures CLAUDE.md (local or global)
+    - Configures ANTIGRAVITY.md (local or global)
     - Sets up HUD statusline
     - Checks for updates
     - Offers MCP server configuration
 
   Local Configuration (--local)
-    - Downloads fresh CLAUDE.md to ./.claude/
-    - Backs up existing CLAUDE.md to .claude/CLAUDE.md.backup.YYYY-MM-DD
+    - Downloads fresh ANTIGRAVITY.md to ./.antigravity/
+    - Backs up existing ANTIGRAVITY.md to .antigravity/ANTIGRAVITY.md.backup.YYYY-MM-DD
     - Project-specific settings
-    - Use this to update project config after OMC upgrades
+    - Use this to update project config after OMA upgrades
 
   Global Configuration (--global)
-    - Downloads fresh CLAUDE.md to ~/.claude/
-    - Backs up existing CLAUDE.md to ~/.claude/CLAUDE.md.backup.YYYY-MM-DD
-    - Applies to all Claude Code sessions
+    - Downloads fresh ANTIGRAVITY.md to ~/.antigravity/
+    - Backs up existing ANTIGRAVITY.md to ~/.antigravity/ANTIGRAVITY.md.backup.YYYY-MM-DD
+    - Applies to all Antigravity sessions
     - Cleans up legacy hooks
-    - Use this to update global config after OMC upgrades
+    - Use this to update global config after OMA upgrades
 
 EXAMPLES:
-  /oh-my-antigravity :omc-setup           # First time setup
-  /oh-my-antigravity :omc-setup --local   # Update this project
-  /oh-my-antigravity :omc-setup --global  # Update all projects
+  /oh-my-antigravity :oma-setup           # First time setup
+  /oh-my-antigravity :oma-setup --local   # Update this project
+  /oh-my-antigravity :oma-setup --global  # Update all projects
 
 For more info: https://github.com/Yeachan-Heo/oh-my-antigravity 
 ```

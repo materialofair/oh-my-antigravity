@@ -6,25 +6,25 @@ aliases: [psm]
 
 # Project Session Manager (PSM) Skill
 
-Automate isolated development environments using git worktrees and tmux sessions with Claude Code. Enables parallel work across multiple tasks, projects, and repositories.
+Automate isolated development environments using git worktrees and tmux sessions with Antigravity. Enables parallel work across multiple tasks, projects, and repositories.
 
 ## Commands
 
 | Command | Description | Example |
 |---------|-------------|---------|
-| `review <ref>` | PR review session | `/psm review omc#123` |
-| `fix <ref>` | Issue fix session | `/psm fix omc#42` |
-| `feature <proj> <name>` | Feature development | `/psm feature omc add-webhooks` |
+| `review <ref>` | PR review session | `/psm review oma#123` |
+| `fix <ref>` | Issue fix session | `/psm fix oma#42` |
+| `feature <proj> <name>` | Feature development | `/psm feature oma add-webhooks` |
 | `list [project]` | List active sessions | `/psm list` |
-| `attach <session>` | Attach to session | `/psm attach omc:pr-123` |
-| `kill <session>` | Kill session | `/psm kill omc:pr-123` |
+| `attach <session>` | Attach to session | `/psm attach oma:pr-123` |
+| `kill <session>` | Kill session | `/psm kill oma:pr-123` |
 | `cleanup` | Clean merged/closed | `/psm cleanup` |
 | `status` | Current session info | `/psm status` |
 
 ## Project References
 
 Supported formats:
-- **Alias**: `omc#123` (requires `~/.psm/projects.json`)
+- **Alias**: `oma#123` (requires `~/.psm/projects.json`)
 - **Full**: `owner/repo#123`
 - **URL**: `https://github.com/owner/repo/pull/123`
 - **Current**: `#123` (uses current directory's repo)
@@ -36,7 +36,7 @@ Supported formats:
 ```json
 {
   "aliases": {
-    "omc": {
+    "oma": {
       "repo": "Yeachan-Heo/oh-my-antigravity ",
       "local": "~/Workspace/oh-my-antigravity ",
       "default_base": "main"
@@ -64,9 +64,9 @@ Supported formats:
 
 | Type | Tmux Session | Worktree Dir |
 |------|--------------|--------------|
-| PR Review | `psm:omc:pr-123` | `~/.psm/worktrees/omc/pr-123` |
-| Issue Fix | `psm:omc:issue-42` | `~/.psm/worktrees/omc/issue-42` |
-| Feature | `psm:omc:feat-auth` | `~/.psm/worktrees/omc/feat-auth` |
+| PR Review | `psm:oma:pr-123` | `~/.psm/worktrees/oma/pr-123` |
+| Issue Fix | `psm:oma:issue-42` | `~/.psm/worktrees/oma/issue-42` |
+| Feature | `psm:oma:feat-auth` | `~/.psm/worktrees/oma/feat-auth` |
 
 ---
 
@@ -156,7 +156,7 @@ Parse `{{ARGUMENTS}}` to determine:
    tmux new-session -d -s "psm:$project_alias:pr-$pr_number" -c "$worktree_path"
    ```
 
-8. **Launch Claude Code** (unless --no-claude):
+8. **Launch Antigravity** (unless --no-claude):
    ```bash
    tmux send-keys -t "psm:$project_alias:pr-$pr_number" "claude" Enter
    ```
@@ -165,11 +165,11 @@ Parse `{{ARGUMENTS}}` to determine:
    ```
    Session ready!
 
-     ID: omc:pr-123
-     Worktree: ~/.psm/worktrees/omc/pr-123
-     Tmux: psm:omc:pr-123
+     ID: oma:pr-123
+     Worktree: ~/.psm/worktrees/oma/pr-123
+     Tmux: psm:oma:pr-123
 
-   To attach: tmux attach -t psm:omc:pr-123
+   To attach: tmux attach -t psm:oma:pr-123
    ```
 
 ### Subcommand: `fix <ref>`
@@ -254,8 +254,8 @@ Parse `{{ARGUMENTS}}` to determine:
 
    ID                 | Type    | Status   | Worktree
    -------------------|---------|----------|---------------------------
-   omc:pr-123        | review  | active   | ~/.psm/worktrees/omc/pr-123
-   omc:issue-42      | fix     | detached | ~/.psm/worktrees/omc/issue-42
+   oma:pr-123        | review  | active   | ~/.psm/worktrees/oma/pr-123
+   oma:issue-42      | fix     | detached | ~/.psm/worktrees/oma/issue-42
    ```
 
 ### Subcommand: `attach <session>`
@@ -327,9 +327,9 @@ Parse `{{ARGUMENTS}}` to determine:
 5. **Report**:
    ```
    Cleanup complete:
-     Removed: omc:pr-123 (merged)
-     Removed: omc:issue-42 (closed)
-     Kept: omc:feat-auth (active)
+     Removed: oma:pr-123 (merged)
+     Removed: oma:issue-42 (closed)
+     Kept: oma:feat-auth (active)
    ```
 
 ### Subcommand: `status`
@@ -351,7 +351,7 @@ Parse `{{ARGUMENTS}}` to determine:
 
 3. **Show status**:
    ```
-   Current Session: omc:pr-123
+   Current Session: oma:pr-123
    Type: review
    PR: #123 - Add webhook support
    Branch: feature/webhooks
@@ -388,7 +388,7 @@ if [[ ! -f ~/.psm/projects.json ]]; then
   cat > ~/.psm/projects.json << 'EOF'
 {
   "aliases": {
-    "omc": {
+    "oma": {
       "repo": "Yeachan-Heo/oh-my-antigravity ",
       "local": "~/Workspace/oh-my-antigravity ",
       "default_base": "main"

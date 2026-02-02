@@ -43,7 +43,7 @@ RULE 5: ALWAYS consult official documentation before implementing with SDKs/fram
 
 **NEVER make assumptions about SDK, framework, or API behavior.**
 
-When implementing with any external tool (Claude Code hooks, React, database drivers, etc.):
+When implementing with any external tool (Antigravity hooks, React, database drivers, etc.):
 
 1. **BEFORE writing code**: Delegate to `researcher` agent to fetch official docs
 2. **Use Context7 MCP tools**: `resolve-library-id` → `query-docs` for up-to-date documentation
@@ -103,7 +103,7 @@ When you detect these patterns, you MUST invoke the corresponding skill:
 | "research", "analyze data", "statistics" | `research` |
 | "tdd", "test first", "red green" | `tdd` |
 | "setup mcp", "configure mcp" | `mcp-setup` |
-| "cancelomc", "stopomc" | `cancel` (unified) |
+| "canceloma", "stopoma" | `cancel` (unified) |
 
 **Keyword Conflict Resolution:**
 - Explicit mode keywords (`ulw`, `ultrawork`, `eco`, `ecomode`) ALWAYS override defaults
@@ -130,7 +130,7 @@ When user says "parallel" or "fast" WITHOUT an explicit mode keyword:
 
 2. **If no explicit keyword, read config file:**
    ```bash
-   CONFIG_FILE="$HOME/.claude/.omc-config.json"
+   CONFIG_FILE="$HOME/.antigravity/.oma-config.json"
    if [[ -f "$CONFIG_FILE" ]]; then
      DEFAULT_MODE=$(cat "$CONFIG_FILE" | jq -r '.defaultExecutionMode // "ultrawork"')
    else
@@ -150,7 +150,7 @@ When user says "parallel" or "fast" WITHOUT an explicit mode keyword:
 | 3 | Generic "fast"/"parallel" only | Read from config |
 | 4 (lowest) | No config file | Default to `ultrawork` |
 
-Users set their preference via `/oh-my-antigravity :omc-setup`.
+Users set their preference via `/oh-my-antigravity :oma-setup`.
 
 ### Path-Based Write Rules
 
@@ -159,10 +159,10 @@ Direct file writes are enforced via path patterns:
 **Allowed Paths (Direct Write OK):**
 | Path | Allowed For |
 |------|-------------|
-| `~/.claude/**` | System configuration |
-| `.omc/**` | OMC state and config |
-| `.claude/**` | Local Claude config |
-| `CLAUDE.md` | User instructions |
+| `~/.antigravity/**` | System configuration |
+| `.oma/**` | OMA state and config |
+| `.antigravity/**` | Local Claude config |
+| `ANTIGRAVITY.md` | User instructions |
 | `AGENTS.md` | AI documentation |
 
 **Warned Paths (Should Delegate):**
@@ -181,7 +181,7 @@ Task(subagent_type="oh-my-antigravity :executor",
      prompt="Edit src/file.ts to add validation...")
 ```
 
-This is **soft enforcement** (warnings only). Audit log at `.omc/logs/delegation-audit.jsonl`.
+This is **soft enforcement** (warnings only). Audit log at `.oma/logs/delegation-audit.jsonl`.
 
 ---
 
@@ -214,7 +214,7 @@ Users don't need to learn commands. You detect intent and activate behaviors aut
 | "don't stop until done" | Activate ralph-loop for persistence |
 | UI/frontend work | Activate design sensibility + delegate to designer |
 | "fast" / "parallel" | Activate default execution mode (ultrawork or ecomode per config) |
-| "cancelomc" / "stopomc" | Intelligently stop current operation |
+| "canceloma" / "stopoma" | Intelligently stop current operation |
 
 ### Magic Keywords (Optional Shortcuts)
 
@@ -231,7 +231,7 @@ Users don't need to learn commands. You detect intent and activate behaviors aut
 
 ### Stopping and Cancelling
 
-User says "cancelomc", "stopomc" → Invoke unified `cancel` skill (automatically detects active mode):
+User says "canceloma", "stopoma" → Invoke unified `cancel` skill (automatically detects active mode):
 - Detects and cancels: autopilot, ultrapilot, ralph, ultrawork, ultraqa, swarm, pipeline
 - In planning → end interview
 - Unclear → ask user
@@ -261,19 +261,19 @@ User says "cancelomc", "stopomc" → Invoke unified `cancel` skill (automaticall
 | `note` | Save to notepad for memory | "remember", "note" | `/oh-my-antigravity :note` |
 | `hud` | Configure HUD statusline | - | `/oh-my-antigravity :hud` |
 | `doctor` | Diagnose installation issues | - | `/oh-my-antigravity :doctor` |
-| `help` | Show OMC usage guide | - | `/oh-my-antigravity :help` |
-| `omc-setup` | One-time setup wizard | - | `/oh-my-antigravity :omc-setup` |
+| `help` | Show OMA usage guide | - | `/oh-my-antigravity :help` |
+| `oma-setup` | One-time setup wizard | - | `/oh-my-antigravity :oma-setup` |
 | `ralph-init` | Initialize PRD for structured ralph | - | `/oh-my-antigravity :ralph-init` |
 | `release` | Automated release workflow | - | `/oh-my-antigravity :release` |
 | `ultrapilot` | Parallel autopilot (3-5x faster) | "ultrapilot", "parallel build", "swarm build" | `/oh-my-antigravity :ultrapilot` |
 | `swarm` | N coordinated agents with task claiming | "swarm N agents" | `/oh-my-antigravity :swarm` |
 | `pipeline` | Sequential agent chaining | "pipeline", "chain" | `/oh-my-antigravity :pipeline` |
-| `cancel` | Unified cancellation for all modes | "cancelomc", "stopomc" | `/oh-my-antigravity :cancel` |
+| `cancel` | Unified cancellation for all modes | "canceloma", "stopoma" | `/oh-my-antigravity :cancel` |
 | `ecomode` | Token-efficient parallel execution | "eco", "efficient", "budget" | `/oh-my-antigravity :ecomode` |
 | `research` | Parallel scientist orchestration | "research", "analyze data", "statistics" | `/oh-my-antigravity :research` |
 | `tdd` | TDD enforcement: test-first development | "tdd", "test first" | `/oh-my-antigravity :tdd` |
 | `mcp-setup` | Configure MCP servers for extended capabilities | "setup mcp", "configure mcp" | `/oh-my-antigravity :mcp-setup` |
-| `learn-about-omc` | Usage pattern analysis | - | `/oh-my-antigravity :learn-about-omc` |
+| `learn-about-oma` | Usage pattern analysis | - | `/oh-my-antigravity :learn-about-oma` |
 | `build-fix` | Fix build and TypeScript errors with minimal changes | - | `/oh-my-antigravity :build-fix` |
 | `code-review` | Run a comprehensive code review | - | `/oh-my-antigravity :code-review` |
 | `security-review` | Run a comprehensive security review on code | - | `/oh-my-antigravity :security-review` |
@@ -448,7 +448,7 @@ For complex rename or refactoring tasks requiring implementation, delegate to `e
 
 Plan-scoped wisdom capture for learnings, decisions, issues, and problems.
 
-**Location:** `.omc/notepads/{plan-name}/`
+**Location:** `.oma/notepads/{plan-name}/`
 
 | File | Purpose |
 |------|---------|
@@ -503,8 +503,8 @@ Parallel autopilot with up to 5 concurrent workers for 3-5x faster execution.
 **Best for:** Multi-component systems, fullstack apps, large refactoring
 
 **State files:**
-- `.omc/state/ultrapilot-state.json` - Session state
-- `.omc/state/ultrapilot-ownership.json` - File ownership
+- `.oma/state/ultrapilot-state.json` - Session state
+- `.oma/state/ultrapilot-ownership.json` - File ownership
 
 ### Swarm (v3.4)
 
@@ -537,7 +537,7 @@ Sequential agent chaining with data passing between stages.
 
 Smart cancellation that auto-detects active mode.
 
-**Usage:** `/cancel` or just say "cancelomc", "stopomc"
+**Usage:** `/cancel` or just say "canceloma", "stopoma"
 
 Auto-detects and cancels: autopilot, ultrapilot, ralph, ultrawork, ultraqa, ecomode, swarm, pipeline
 Use `--force` or `--all` to clear ALL states.
@@ -555,8 +555,8 @@ Reusable verification protocol for workflows.
 Standardized state file locations.
 
 **Standard paths for all mode state files:**
-- Primary: `.omc/state/{name}.json` (local, per-project)
-- Global backup: `~/.omc/state/{name}.json` (global, session continuity)
+- Primary: `.oma/state/{name}.json` (local, per-project)
+- Global backup: `~/.oma/state/{name}.json` (global, session continuity)
 
 **Mode State Files:**
 | Mode | State File |
@@ -570,7 +570,7 @@ Standardized state file locations.
 | pipeline | `pipeline-state.json` |
 | swarm | `swarm-summary.json` + `swarm-active.marker` |
 
-**Important:** Never store OMC state in `~/.claude/` - that directory is reserved for Claude Code itself.
+**Important:** Never store OMA state in `~/.antigravity/` - that directory is reserved for Antigravity itself.
 
 Legacy locations auto-migrated on read.
 
@@ -706,7 +706,7 @@ This keeps users informed without requiring them to request features.
 
 ### First Time Setup
 
-Say "setup omc" or run `/oh-my-antigravity :omc-setup` to configure. After that, everything is automatic.
+Say "setup oma" or run `/oh-my-antigravity :oma-setup` to configure. After that, everything is automatic.
 
 ### Troubleshooting
 

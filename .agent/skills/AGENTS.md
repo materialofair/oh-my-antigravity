@@ -55,10 +55,10 @@ Skills are reusable workflow templates that can be invoked via `/oh-my-antigravi
 |------|-------|---------|
 | `learner.md` | learner | Extract reusable skill from session |
 | `note.md` | note | Save notes for compaction resilience |
-| `cancel.md` | cancel | Cancel any active OMC mode |
+| `cancel.md` | cancel | Cancel any active OMA mode |
 | `hud.md` | hud | Configure HUD display |
 | `doctor.md` | doctor | Diagnose installation issues |
-| `omc-setup.md` | omc-setup | One-time setup wizard |
+| `oma-setup.md` | oma-setup | One-time setup wizard |
 | `mcp-setup.md` | mcp-setup | Configure MCP servers |
 | `help.md` | help | Usage guide |
 
@@ -168,7 +168,7 @@ None - pure markdown files.
 | Planning | plan, ralplan, review, analyze, ralph-init | "plan this", "analyze" |
 | Quality | code-review, security-review, tdd, build-fix | "review", "security", "tdd" |
 | Exploration | deepsearch, deepinit, research | "search", "research" |
-| Utility | learner, note, cancel, hud, doctor, omc-setup, mcp-setup, help | "stop", "cancel" |
+| Utility | learner, note, cancel, hud, doctor, oma-setup, mcp-setup, help | "stop", "cancel" |
 | Domain | frontend-ui-ux, git-master, psm, writer-memory, release | UI context, git context |
 
 ## Auto-Activation

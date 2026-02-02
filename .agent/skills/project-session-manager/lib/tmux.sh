@@ -33,7 +33,7 @@ psm_create_tmux_session() {
     return 0
 }
 
-# Launch Claude Code in tmux session
+# Launch Antigravity in tmux session
 # Usage: psm_launch_claude <session_name>
 psm_launch_claude() {
     local session_name="$1"

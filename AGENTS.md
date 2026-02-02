@@ -2,15 +2,15 @@
 
 # oh-my-antigravity 
 
-Multi-agent orchestration system for Claude Code CLI, providing intelligent delegation, parallel execution, and IDE-like capabilities through LSP/AST integration.
+Multi-agent orchestration system for Antigravity CLI, providing intelligent delegation, parallel execution, and IDE-like capabilities through LSP/AST integration.
 
 **Version:** 3.7.7
-**Purpose:** Transform Claude Code into a conductor of specialized AI agents
+**Purpose:** Transform Antigravity into a conductor of specialized AI agents
 **Inspired by:** oh-my-zsh / oh-my-opencode
 
 ## Purpose
 
-oh-my-antigravity  enhances Claude Code with:
+oh-my-antigravity  enhances Antigravity with:
 - **32 specialized agents** across 8 domains with 3-tier model routing (Haiku/Sonnet/Opus)
 - **LSP tools** for IDE-like code intelligence (hover, go-to-definition, references, diagnostics)
 - **AST tools** for structural code search and transformation via ast-grep
@@ -24,7 +24,7 @@ oh-my-antigravity  enhances Claude Code with:
 | `package.json` | Project dependencies and npm scripts |
 | `tsconfig.json` | TypeScript configuration |
 | `CHANGELOG.md` | Version history and release notes |
-| `CLAUDE.md` | Main orchestration instructions (loaded by Claude Code) |
+| `ANTIGRAVITY.md` | Main orchestration instructions (loaded by Antigravity) |
 | `src/index.ts` | Main entry point - exports `createSisyphusSession()` |
 
 ## Subdirectories
@@ -101,9 +101,9 @@ import { allCustomTools, lspTools, astTools } from './tools';
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Claude Code CLI                          │
+│                    Antigravity CLI                          │
 ├─────────────────────────────────────────────────────────────┤
-│                  oh-my-antigravity  (OMC)                     │
+│                  oh-my-antigravity  (OMA)                     │
 │  ┌─────────────┬─────────────┬─────────────┬─────────────┐  │
 │  │   Skills    │   Agents    │    Tools    │   Hooks     │  │
 │  │ (32 skills) │ (32 agents) │(LSP/AST/REPL)│ (30+ hooks)│  │
@@ -153,7 +153,7 @@ import { allCustomTools, lspTools, astTools } from './tools';
 
 ## Skills (32)
 
-Key skills: `autopilot`, `ultrawork`, `ralph`, `ultrapilot`, `plan`, `ralplan`, `deepsearch`, `deepinit`, `frontend-ui-ux`, `git-master`, `tdd`, `security-review`, `code-review`, `research`, `analyze`, `swarm`, `pipeline`, `ecomode`, `cancel`, `learner`, `note`, `hud`, `doctor`, `omc-setup`, `mcp-setup`, `build-fix`, `ultraqa`
+Key skills: `autopilot`, `ultrawork`, `ralph`, `ultrapilot`, `plan`, `ralplan`, `deepsearch`, `deepinit`, `frontend-ui-ux`, `git-master`, `tdd`, `security-review`, `code-review`, `research`, `analyze`, `swarm`, `pipeline`, `ecomode`, `cancel`, `learner`, `note`, `hud`, `doctor`, `oma-setup`, `mcp-setup`, `build-fix`, `ultraqa`
 
 ## LSP/AST Tools (v3.7.5+)
 
@@ -189,17 +189,17 @@ ast_grep_replace  // AST-aware code transformation (dry-run by default)
 
 | Path | Purpose |
 |------|---------|
-| `.omc/state/*.json` | Execution mode state (autopilot, swarm, etc.) |
-| `.omc/notepads/` | Plan-scoped wisdom (learnings, decisions, issues) |
-| `~/.omc/state/` | Global state |
-| `~/.claude/.omc/` | Legacy state (auto-migrated) |
+| `.oma/state/*.json` | Execution mode state (autopilot, swarm, etc.) |
+| `.oma/notepads/` | Plan-scoped wisdom (learnings, decisions, issues) |
+| `~/.oma/state/` | Global state |
+| `~/.antigravity/.oma/` | Legacy state (auto-migrated) |
 
 ## Dependencies
 
 ### Runtime
 | Package | Purpose |
 |---------|---------|
-| `@anthropic-ai/claude-agent-sdk` | Claude Code integration |
+| `@anthropic-ai/claude-agent-sdk` | Antigravity integration |
 | `@ast-grep/napi` | AST-based code search/replace |
 | `vscode-languageserver-protocol` | LSP types |
 | `zod` | Runtime schema validation |
@@ -241,7 +241,7 @@ Key hooks in `src/hooks/`:
 
 ## Configuration
 
-Settings in `~/.claude/settings.local.json` or `.omc-config.json`:
+Settings in `~/.antigravity/settings.local.json` or `.oma-config.json`:
 
 ```json
 {

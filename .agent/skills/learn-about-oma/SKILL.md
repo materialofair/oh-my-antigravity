@@ -1,16 +1,16 @@
 ---
-name: learn-about-omc
-description: Analyze your OMC usage patterns and get personalized recommendations
+name: learn-about-oma
+description: Analyze your OMA usage patterns and get personalized recommendations
 ---
 
-# Learn About OMC
+# Learn About OMA
 
 Analyzes your oh-my-antigravity  usage and provides tailored recommendations to improve your workflow.
 
 ## What It Does
 
-1. Reads token tracking from `~/.omc/state/token-tracking.jsonl`
-2. Reads session history from `.omc/state/session-history.json`
+1. Reads token tracking from `~/.oma/state/token-tracking.jsonl`
+2. Reads session history from `.oma/state/session-history.json`
 3. Analyzes agent usage patterns
 4. Identifies underutilized features
 5. Recommends configuration changes
@@ -21,11 +21,11 @@ Analyzes your oh-my-antigravity  usage and provides tailored recommendations to 
 
 ```bash
 # Check for token tracking data
-TOKEN_FILE="$HOME/.omc/state/token-tracking.jsonl"
-SESSION_FILE=".omc/state/session-history.json"
-CONFIG_FILE="$HOME/.claude/.omc-config.json"
+TOKEN_FILE="$HOME/.oma/state/token-tracking.jsonl"
+SESSION_FILE=".oma/state/session-history.json"
+CONFIG_FILE="$HOME/.antigravity/.oma-config.json"
 
-echo "📊 Analyzing OMC Usage..."
+echo "📊 Analyzing OMA Usage..."
 echo ""
 
 # Check what data is available
@@ -80,7 +80,7 @@ Based on patterns found, output recommendations:
 - "Use security-reviewer after auth/API changes"
 
 **If defaultExecutionMode not set:**
-- "Set defaultExecutionMode in /omc-setup for consistent behavior"
+- "Set defaultExecutionMode in /oma-setup for consistent behavior"
 
 ### Step 4: Output Report
 
@@ -97,16 +97,16 @@ If no data found:
 📊 Limited Usage Data Available
 
 No token tracking found. To enable tracking:
-1. Ensure ~/.omc/state/ directory exists
-2. Run any OMC command to start tracking
+1. Ensure ~/.oma/state/ directory exists
+2. Run any OMA command to start tracking
 
-Tip: Run /omc-setup to configure OMC properly.
+Tip: Run /oma-setup to configure OMA properly.
 ```
 
 ## Example Output
 
 ```
-📊 Your OMC Usage Analysis
+📊 Your OMA Usage Analysis
 
 TOKEN SUMMARY:
 - Total records: 1,234

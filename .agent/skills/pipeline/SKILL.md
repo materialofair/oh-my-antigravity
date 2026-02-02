@@ -239,7 +239,7 @@ any-stage -> on-error -> pause-for-user-input
 
 ## Pipeline State Management
 
-Pipelines maintain state in `.omc/pipeline-state.json`:
+Pipelines maintain state in `.oma/pipeline-state.json`:
 
 ```json
 {
@@ -371,7 +371,7 @@ Pipelines can be used within other skills:
 
 ### Pipeline Hangs
 
-**Check:** `.omc/pipeline-state.json` for current stage
+**Check:** `.oma/pipeline-state.json` for current stage
 **Fix:** Resume with `/pipeline resume` or cancel and restart
 
 ### Agent Fails Repeatedly
@@ -405,7 +405,7 @@ When pipeline completes (all stages done or cancelled):
 
 ```bash
 # Delete pipeline state file
-rm -f .omc/state/pipeline-state.json
+rm -f .oma/state/pipeline-state.json
 ```
 
 This ensures clean state for future sessions. Stale state files with `active: false` should not be left behind.

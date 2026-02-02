@@ -11,8 +11,8 @@ This skill provides a guided wizard for setting up and managing your local learn
 ## Why Local Skills?
 
 Local skills allow you to capture hard-won insights and solutions that are specific to your codebase or workflow:
-- **Project-level skills** (.omc/skills/) - Version-controlled with your repo
-- **User-level skills** (~/.claude/skills/omc-learned/) - Portable across all your projects
+- **Project-level skills** (.oma/skills/) - Version-controlled with your repo
+- **User-level skills** (~/.antigravity/skills/oma-learned/) - Portable across all your projects
 
 When you solve a tricky bug or discover a non-obvious workaround, you can extract it as a skill. Claude will automatically detect and apply these skills in future conversations when it sees matching triggers.
 
@@ -24,7 +24,7 @@ First, check if skill directories exist and create them if needed:
 
 ```bash
 # Check and create user-level skills directory
-USER_SKILLS_DIR="$HOME/.claude/skills/omc-learned"
+USER_SKILLS_DIR="$HOME/.antigravity/skills/oma-learned"
 if [ -d "$USER_SKILLS_DIR" ]; then
   echo "User skills directory exists: $USER_SKILLS_DIR"
 else
@@ -33,7 +33,7 @@ else
 fi
 
 # Check and create project-level skills directory
-PROJECT_SKILLS_DIR=".omc/skills"
+PROJECT_SKILLS_DIR=".oma/skills"
 if [ -d "$PROJECT_SKILLS_DIR" ]; then
   echo "Project skills directory exists: $PROJECT_SKILLS_DIR"
 else
@@ -48,15 +48,15 @@ Scan both directories and show a comprehensive inventory:
 
 ```bash
 # Scan user-level skills
-echo "=== USER-LEVEL SKILLS (~/.claude/skills/omc-learned/) ==="
-if [ -d "$HOME/.claude/skills/omc-learned" ]; then
-  USER_COUNT=$(find "$HOME/.claude/skills/omc-learned" -name "*.md" 2>/dev/null | wc -l)
+echo "=== USER-LEVEL SKILLS (~/.antigravity/skills/oma-learned/) ==="
+if [ -d "$HOME/.antigravity/skills/oma-learned" ]; then
+  USER_COUNT=$(find "$HOME/.antigravity/skills/oma-learned" -name "*.md" 2>/dev/null | wc -l)
   echo "Total skills: $USER_COUNT"
 
   if [ $USER_COUNT -gt 0 ]; then
     echo ""
     echo "Skills found:"
-    find "$HOME/.claude/skills/omc-learned" -name "*.md" -type f -exec sh -c '
+    find "$HOME/.antigravity/skills/oma-learned" -name "*.md" -type f -exec sh -c '
       FILE="$1"
       NAME=$(grep -m1 "^name:" "$FILE" 2>/dev/null | sed "s/name: //")
       DESC=$(grep -m1 "^description:" "$FILE" 2>/dev/null | sed "s/description: //")
@@ -72,15 +72,15 @@ else
 fi
 
 echo ""
-echo "=== PROJECT-LEVEL SKILLS (.omc/skills/) ==="
-if [ -d ".omc/skills" ]; then
-  PROJECT_COUNT=$(find ".omc/skills" -name "*.md" 2>/dev/null | wc -l)
+echo "=== PROJECT-LEVEL SKILLS (.oma/skills/) ==="
+if [ -d ".oma/skills" ]; then
+  PROJECT_COUNT=$(find ".oma/skills" -name "*.md" 2>/dev/null | wc -l)
   echo "Total skills: $PROJECT_COUNT"
 
   if [ $PROJECT_COUNT -gt 0 ]; then
     echo ""
     echo "Skills found:"
-    find ".omc/skills" -name "*.md" -type f -exec sh -c '
+    find ".oma/skills" -name "*.md" -type f -exec sh -c '
       FILE="$1"
       NAME=$(grep -m1 "^name:" "$FILE" 2>/dev/null | sed "s/name: //")
       DESC=$(grep -m1 "^description:" "$FILE" 2>/dev/null | sed "s/description: //")
@@ -162,15 +162,15 @@ show_skill_details() {
 export -f show_skill_details
 
 # Show user-level skills
-if [ -d "$HOME/.claude/skills/omc-learned" ]; then
+if [ -d "$HOME/.antigravity/skills/oma-learned" ]; then
   echo "USER-LEVEL SKILLS:"
-  find "$HOME/.claude/skills/omc-learned" -name "*.md" -type f -exec bash -c 'show_skill_details "$0" "user-level"' {} \;
+  find "$HOME/.antigravity/skills/oma-learned" -name "*.md" -type f -exec bash -c 'show_skill_details "$0" "user-level"' {} \;
 fi
 
 # Show project-level skills
-if [ -d ".omc/skills" ]; then
+if [ -d ".oma/skills" ]; then
   echo "PROJECT-LEVEL SKILLS:"
-  find ".omc/skills" -name "*.md" -type f -exec bash -c 'show_skill_details "$0" "project-level"' {} \;
+  find ".oma/skills" -name "*.md" -type f -exec bash -c 'show_skill_details "$0" "project-level"' {} \;
 fi
 ```
 
@@ -191,8 +191,8 @@ Ask user to provide either:
 - **Paste content**: Paste skill markdown content directly
 
 Then ask for scope:
-- **User-level** (~/.claude/skills/omc-learned/) - Available across all projects
-- **Project-level** (.omc/skills/) - Only for this project
+- **User-level** (~/.antigravity/skills/oma-learned/) - Available across all projects
+- **Project-level** (.oma/skills/) - Only for this project
 
 Validate the skill format and save to the chosen location.
 
@@ -398,7 +398,7 @@ When introducing the skill system, explain these benefits:
 
 **Automatic Application**: Claude detects triggers and applies skills automatically - no need to remember or search for solutions.
 
-**Version Control**: Project-level skills (.omc/skills/) are committed with your code, so the whole team benefits.
+**Version Control**: Project-level skills (.oma/skills/) are committed with your code, so the whole team benefits.
 
 **Evolving Knowledge**: Skills improve over time as you discover better approaches and refine triggers.
 
@@ -420,8 +420,8 @@ Show users what a typical session looks like:
 > /oh-my-antigravity :local-skills-setup
 
 Checking skill directories...
-✓ User skills directory exists: ~/.claude/skills/omc-learned/
-✓ Project skills directory exists: .omc/skills/
+✓ User skills directory exists: ~/.antigravity/skills/oma-learned/
+✓ Project skills directory exists: .oma/skills/
 
 Scanning for skills...
 

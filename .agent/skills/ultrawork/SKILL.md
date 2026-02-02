@@ -49,7 +49,7 @@ This skill enhances Claude's capabilities by:
 
 ### Routing Examples
 
-**CRITICAL: Always pass `model` parameter explicitly - Claude Code does NOT auto-apply models from agent definitions!**
+**CRITICAL: Always pass `model` parameter explicitly - Antigravity does NOT auto-apply models from agent definitions!**
 
 ```
 // Simple question → LOW tier (saves tokens!)
@@ -99,8 +99,8 @@ When all verification passes and work is complete:
 
 ```bash
 # Delete ultrawork state files
-rm -f .omc/state/ultrawork-state.json
-rm -f ~/.claude/ultrawork-state.json
+rm -f .oma/state/ultrawork-state.json
+rm -f ~/.antigravity/ultrawork-state.json
 ```
 
 This ensures clean state for future sessions. Stale state files with `active: false` should not be left behind.

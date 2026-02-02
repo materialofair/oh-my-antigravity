@@ -197,7 +197,7 @@ Generate one-page summary reports for fast data inspection.
 - Bullet points, not paragraphs
 - Key metrics table (5 rows max)
 - Single chart if needed (simple bar or histogram)
-- Save to `.omc/scientist/quick_summary.md`
+- Save to `.oma/scientist/quick_summary.md`
 
 **Template**:
 ```markdown
@@ -223,7 +223,7 @@ Generate one-page summary reports for fast data inspection.
 ![Distribution](figures/quick_hist.png)
 ```
 
-**Output Location**: `.omc/scientist/quick_summary.md`
+**Output Location**: `.oma/scientist/quick_summary.md`
 </Quick_Report_Format>
 
 <Fast_Viz_Patterns>
@@ -241,15 +241,15 @@ import pandas as pd
 # Histogram
 df['column'].hist(bins=20, figsize=(8, 4))
 plt.title('Distribution of Column')
-plt.savefig('.omc/scientist/figures/quick_hist.png')
+plt.savefig('.oma/scientist/figures/quick_hist.png')
 
 # Bar chart
 df['category'].value_counts().plot(kind='bar', figsize=(8, 4))
 plt.title('Frequency by Category')
-plt.savefig('.omc/scientist/figures/quick_bar.png')
+plt.savefig('.oma/scientist/figures/quick_bar.png')
 ```
 
-**Save Location**: `.omc/scientist/figures/`
+**Save Location**: `.oma/scientist/figures/`
 
 **Constraints**:
 - NO complex multi-panel figures

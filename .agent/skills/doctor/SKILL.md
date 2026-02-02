@@ -7,17 +7,17 @@ description: Diagnose and fix oh-my-antigravity  installation issues
 
 ## Task: Run Installation Diagnostics
 
-You are the OMC Doctor - diagnose and fix installation issues.
+You are the OMA Doctor - diagnose and fix installation issues.
 
 ### Step 1: Check Plugin Version
 
 ```bash
 # Get installed version
-INSTALLED=$(ls ~/.claude/plugins/cache/omc/oh-my-antigravity / 2>/dev/null | sort -V | tail -1)
+INSTALLED=$(ls ~/.antigravity/plugins/cache/oma/oh-my-antigravity / 2>/dev/null | sort -V | tail -1)
 echo "Installed: $INSTALLED"
 
 # Get latest from npm
-LATEST=$(npm view oh-my-claude-sisyphus version 2>/dev/null)
+LATEST=$(npm view oh-my-antigravity version 2>/dev/null)
 echo "Latest: $LATEST"
 ```
 
@@ -28,10 +28,10 @@ echo "Latest: $LATEST"
 
 ### Step 2: Check for Legacy Hooks in settings.json
 
-Read `~/.claude/settings.json` and check if there's a `"hooks"` key with entries like:
-- `bash $HOME/.claude/hooks/keyword-detector.sh`
-- `bash $HOME/.claude/hooks/persistent-mode.sh`
-- `bash $HOME/.claude/hooks/session-start.sh`
+Read `~/.antigravity/settings.json` and check if there's a `"hooks"` key with entries like:
+- `bash $HOME/.antigravity/hooks/keyword-detector.sh`
+- `bash $HOME/.antigravity/hooks/persistent-mode.sh`
+- `bash $HOME/.antigravity/hooks/session-start.sh`
 
 **Diagnosis**:
 - If found: CRITICAL - legacy hooks causing duplicates
@@ -39,31 +39,31 @@ Read `~/.claude/settings.json` and check if there's a `"hooks"` key with entries
 ### Step 3: Check for Legacy Bash Hook Scripts
 
 ```bash
-ls -la ~/.claude/hooks/*.sh 2>/dev/null
+ls -la ~/.antigravity/hooks/*.sh 2>/dev/null
 ```
 
 **Diagnosis**:
 - If `keyword-detector.sh`, `persistent-mode.sh`, `session-start.sh`, or `stop-continuation.sh` exist: WARN - legacy scripts (can cause confusion)
 
-### Step 4: Check CLAUDE.md
+### Step 4: Check ANTIGRAVITY.md
 
 ```bash
-# Check if CLAUDE.md exists
-ls -la ~/.claude/CLAUDE.md 2>/dev/null
+# Check if ANTIGRAVITY.md exists
+ls -la ~/.antigravity/ANTIGRAVITY.md 2>/dev/null
 
-# Check for OMC marker
-grep -q "oh-my-antigravity  Multi-Agent System" ~/.claude/CLAUDE.md 2>/dev/null && echo "Has OMC config" || echo "Missing OMC config"
+# Check for OMA marker
+grep -q "oh-my-antigravity  Multi-Agent System" ~/.antigravity/ANTIGRAVITY.md 2>/dev/null && echo "Has OMA config" || echo "Missing OMA config"
 ```
 
 **Diagnosis**:
-- If missing: CRITICAL - CLAUDE.md not configured
-- If missing OMC marker: WARN - outdated CLAUDE.md
+- If missing: CRITICAL - ANTIGRAVITY.md not configured
+- If missing OMA marker: WARN - outdated ANTIGRAVITY.md
 
 ### Step 5: Check for Stale Plugin Cache
 
 ```bash
 # Count versions in cache
-ls ~/.claude/plugins/cache/omc/oh-my-antigravity / 2>/dev/null | wc -l
+ls ~/.antigravity/plugins/cache/oma/oh-my-antigravity / 2>/dev/null | wc -l
 ```
 
 **Diagnosis**:
@@ -75,19 +75,19 @@ Check for legacy agents, commands, and skills installed via curl (before plugin 
 
 ```bash
 # Check for legacy agents directory
-ls -la ~/.claude/agents/ 2>/dev/null
+ls -la ~/.antigravity/agents/ 2>/dev/null
 
 # Check for legacy commands directory
-ls -la ~/.claude/commands/ 2>/dev/null
+ls -la ~/.antigravity/commands/ 2>/dev/null
 
 # Check for legacy skills directory
-ls -la ~/.claude/skills/ 2>/dev/null
+ls -la ~/.antigravity/skills/ 2>/dev/null
 ```
 
 **Diagnosis**:
-- If `~/.claude/agents/` exists with oh-my-antigravity -related files: WARN - legacy agents (now provided by plugin)
-- If `~/.claude/commands/` exists with oh-my-antigravity -related files: WARN - legacy commands (now provided by plugin)
-- If `~/.claude/skills/` exists with oh-my-antigravity -related files: WARN - legacy skills (now provided by plugin)
+- If `~/.antigravity/agents/` exists with oh-my-antigravity -related files: WARN - legacy agents (now provided by plugin)
+- If `~/.antigravity/commands/` exists with oh-my-antigravity -related files: WARN - legacy commands (now provided by plugin)
+- If `~/.antigravity/skills/` exists with oh-my-antigravity -related files: WARN - legacy skills (now provided by plugin)
 
 Look for files like:
 - `architect.md`, `researcher.md`, `explore.md`, `executor.md`, etc. in agents/
@@ -101,7 +101,7 @@ Look for files like:
 After running all checks, output a report:
 
 ```
-## OMC Doctor Report
+## OMA Doctor Report
 
 ### Summary
 [HEALTHY / ISSUES FOUND]
@@ -112,12 +112,12 @@ After running all checks, output a report:
 |-------|--------|---------|
 | Plugin Version | OK/WARN/CRITICAL | ... |
 | Legacy Hooks (settings.json) | OK/CRITICAL | ... |
-| Legacy Scripts (~/.claude/hooks/) | OK/WARN | ... |
-| CLAUDE.md | OK/WARN/CRITICAL | ... |
+| Legacy Scripts (~/.antigravity/hooks/) | OK/WARN | ... |
+| ANTIGRAVITY.md | OK/WARN/CRITICAL | ... |
 | Plugin Cache | OK/WARN | ... |
-| Legacy Agents (~/.claude/agents/) | OK/WARN | ... |
-| Legacy Commands (~/.claude/commands/) | OK/WARN | ... |
-| Legacy Skills (~/.claude/skills/) | OK/WARN | ... |
+| Legacy Agents (~/.antigravity/agents/) | OK/WARN | ... |
+| Legacy Commands (~/.antigravity/commands/) | OK/WARN | ... |
+| Legacy Skills (~/.antigravity/skills/) | OK/WARN | ... |
 
 ### Issues Found
 1. [Issue description]
@@ -136,33 +136,33 @@ If issues found, ask user: "Would you like me to fix these issues automatically?
 If yes, apply fixes:
 
 ### Fix: Legacy Hooks in settings.json
-Remove the `"hooks"` section from `~/.claude/settings.json` (keep other settings intact)
+Remove the `"hooks"` section from `~/.antigravity/settings.json` (keep other settings intact)
 
 ### Fix: Legacy Bash Scripts
 ```bash
-rm -f ~/.claude/hooks/keyword-detector.sh
-rm -f ~/.claude/hooks/persistent-mode.sh
-rm -f ~/.claude/hooks/session-start.sh
-rm -f ~/.claude/hooks/stop-continuation.sh
+rm -f ~/.antigravity/hooks/keyword-detector.sh
+rm -f ~/.antigravity/hooks/persistent-mode.sh
+rm -f ~/.antigravity/hooks/session-start.sh
+rm -f ~/.antigravity/hooks/stop-continuation.sh
 ```
 
 ### Fix: Outdated Plugin
 ```bash
-rm -rf ~/.claude/plugins/cache/oh-my-antigravity 
-echo "Plugin cache cleared. Restart Claude Code to fetch latest version."
+rm -rf ~/.antigravity/plugins/cache/oh-my-antigravity 
+echo "Plugin cache cleared. Restart Antigravity to fetch latest version."
 ```
 
 ### Fix: Stale Cache (multiple versions)
 ```bash
 # Keep only latest version
-cd ~/.claude/plugins/cache/omc/oh-my-antigravity /
+cd ~/.antigravity/plugins/cache/oma/oh-my-antigravity /
 ls | sort -V | head -n -1 | xargs rm -rf
 ```
 
-### Fix: Missing/Outdated CLAUDE.md
-Fetch latest from GitHub and write to `~/.claude/CLAUDE.md`:
+### Fix: Missing/Outdated ANTIGRAVITY.md
+Fetch latest from GitHub and write to `~/.antigravity/ANTIGRAVITY.md`:
 ```
-WebFetch(url: "https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/docs/CLAUDE.md", prompt: "Return the complete raw markdown content exactly as-is")
+WebFetch(url: "https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/docs/ANTIGRAVITY.md", prompt: "Return the complete raw markdown content exactly as-is")
 ```
 
 ### Fix: Legacy Curl-Installed Content
@@ -171,14 +171,14 @@ Remove legacy agents, commands, and skills directories (now provided by plugin):
 
 ```bash
 # Backup first (optional - ask user)
-# mv ~/.claude/agents ~/.claude/agents.bak
-# mv ~/.claude/commands ~/.claude/commands.bak
-# mv ~/.claude/skills ~/.claude/skills.bak
+# mv ~/.antigravity/agents ~/.antigravity/agents.bak
+# mv ~/.antigravity/commands ~/.antigravity/commands.bak
+# mv ~/.antigravity/skills ~/.antigravity/skills.bak
 
 # Or remove directly
-rm -rf ~/.claude/agents
-rm -rf ~/.claude/commands
-rm -rf ~/.claude/skills
+rm -rf ~/.antigravity/agents
+rm -rf ~/.antigravity/commands
+rm -rf ~/.antigravity/skills
 ```
 
 **Note**: Only remove if these contain oh-my-antigravity -related files. If user has custom agents/commands/skills, warn them and ask before removing.
@@ -188,4 +188,4 @@ rm -rf ~/.claude/skills
 ## Post-Fix
 
 After applying fixes, inform user:
-> Fixes applied. **Restart Claude Code** for changes to take effect.
+> Fixes applied. **Restart Antigravity** for changes to take effect.

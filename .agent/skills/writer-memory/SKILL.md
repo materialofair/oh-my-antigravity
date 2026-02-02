@@ -225,8 +225,8 @@ The system synthesizes answers from all relevant memory types.
 
 ## Integration
 
-### With OMC Notepad System
-Writer Memory integrates with `.omc/notepad.md`:
+### With OMA Notepad System
+Writer Memory integrates with `.oma/notepad.md`:
 - Scene ideas can be captured as notes
 - Character insights from analysis sessions are preserved
 - Cross-reference between notepad and memory

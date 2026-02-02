@@ -139,8 +139,8 @@ Plans must meet these standards:
 
 ## Plan Storage
 
-- Drafts are saved to `.omc/drafts/`
-- Final plans are saved to `.omc/plans/`
+- Drafts are saved to `.oma/drafts/`
+- Final plans are saved to `.oma/plans/`
 
 ## Deprecation Notice
 

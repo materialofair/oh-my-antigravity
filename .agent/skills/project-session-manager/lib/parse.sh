@@ -3,12 +3,12 @@
 
 # Parse a reference string into components
 # Supports:
-#   omc#123           -> alias=omc, number=123
+#   oma#123           -> alias=oma, number=123
 #   owner/repo#123    -> repo=owner/repo, number=123
 #   https://...       -> parsed from URL
 #   #123              -> number=123 (use current repo)
 #
-# Usage: psm_parse_ref "omc#123"
+# Usage: psm_parse_ref "oma#123"
 # Returns: type|alias|repo|number|local_path|base
 psm_parse_ref() {
     local ref="$1"
@@ -46,7 +46,7 @@ psm_parse_ref() {
         return 0
     fi
 
-    # alias#number format (e.g., omc#123)
+    # alias#number format (e.g., oma#123)
     if [[ "$ref" =~ ^([a-zA-Z][a-zA-Z0-9_-]*)#([0-9]+)$ ]]; then
         alias="${BASH_REMATCH[1]}"
         number="${BASH_REMATCH[2]}"

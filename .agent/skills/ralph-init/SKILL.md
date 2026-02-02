@@ -13,7 +13,7 @@ A PRD (Product Requirements Document) structures your task into discrete user st
 
 ## Your Task
 
-Create `.omc/prd.json` and `.omc/progress.txt` based on the task description.
+Create `.oma/prd.json` and `.oma/progress.txt` based on the task description.
 
 ### prd.json Structure
 

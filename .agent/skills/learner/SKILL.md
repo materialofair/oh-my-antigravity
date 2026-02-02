@@ -62,8 +62,8 @@ The system REJECTS skills that are:
 
 **Step 3: Save Location**
 
-- **User-level**: ~/.claude/skills/omc-learned/ - Rare. Only for truly portable insights.
-- **Project-level**: .omc/skills/ - Default. Version-controlled with repo.
+- **User-level**: ~/.antigravity/skills/oma-learned/ - Rare. Only for truly portable insights.
+- **Project-level**: .oma/skills/ - Default. Version-controlled with repo.
 
 ### What Makes a USEFUL Skill
 

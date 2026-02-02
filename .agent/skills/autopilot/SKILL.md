@@ -44,7 +44,7 @@ These phrases auto-activate autopilot:
 - Analyst (Opus) - Extract requirements
 - Architect (Opus) - Technical specification
 
-**Output:** `.omc/autopilot/spec.md`
+**Output:** `.oma/autopilot/spec.md`
 
 ### Phase 1: Planning
 
@@ -54,7 +54,7 @@ These phrases auto-activate autopilot:
 - Architect (Opus) - Create plan (direct mode, no interview)
 - Critic (Opus) - Validate plan
 
-**Output:** `.omc/plans/autopilot-impl.md`
+**Output:** `.oma/plans/autopilot-impl.md`
 
 ### Phase 2: Execution
 
@@ -93,11 +93,11 @@ These phrases auto-activate autopilot:
 
 ## Configuration
 
-Optional settings in `.claude/settings.json`:
+Optional settings in `.antigravity/settings.json`:
 
 ```json
 {
-  "omc": {
+  "oma": {
     "autopilot": {
       "maxIterations": 10,
       "maxQaCycles": 5,
@@ -157,12 +157,12 @@ When autopilot reaches the `complete` phase (all validation passed):
 
 ```bash
 # Delete autopilot and all sub-mode state files
-rm -f .omc/state/autopilot-state.json
-rm -f .omc/state/ralph-state.json
-rm -f .omc/state/ultrawork-state.json
-rm -f .omc/state/ultraqa-state.json
-rm -f ~/.claude/ralph-state.json
-rm -f ~/.claude/ultrawork-state.json
+rm -f .oma/state/autopilot-state.json
+rm -f .oma/state/ralph-state.json
+rm -f .oma/state/ultrawork-state.json
+rm -f .oma/state/ultraqa-state.json
+rm -f ~/.antigravity/ralph-state.json
+rm -f ~/.antigravity/ultrawork-state.json
 ```
 
 This ensures clean state for future sessions.
@@ -171,7 +171,7 @@ This ensures clean state for future sessions.
 
 **Stuck in a phase?**
 - Check TODO list for blocked tasks
-- Review `.omc/autopilot-state.json` for state
+- Review `.oma/autopilot-state.json` for state
 - Cancel and resume if needed
 
 **Validation keeps failing?**

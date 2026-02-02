@@ -230,7 +230,7 @@ Batch 2: Stages 6-7 (parallel)
 ### Directory Structure
 
 ```
-.omc/research/{session-id}/
+.oma/research/{session-id}/
   state.json              # Session state and progress
   stages/
     stage-1.md            # Stage 1 findings
@@ -460,11 +460,11 @@ Report generator embeds figures:
 
 ## Configuration
 
-Optional settings in `.claude/settings.json`:
+Optional settings in `.antigravity/settings.json`:
 
 ```json
 {
-  "omc": {
+  "oma": {
     "research": {
       "maxIterations": 10,
       "maxConcurrentScientists": 5,
@@ -485,7 +485,7 @@ Optional settings in `.claude/settings.json`:
 
 Or say: "stop research", "cancel research", "abort"
 
-Progress is preserved in `.omc/research/{session-id}/` for resume.
+Progress is preserved in `.oma/research/{session-id}/` for resume.
 
 ## Troubleshooting
 

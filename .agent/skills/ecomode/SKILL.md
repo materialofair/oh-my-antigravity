@@ -62,7 +62,7 @@ This skill enhances Claude's capabilities by:
 
 ### Routing Examples
 
-**CRITICAL: Always pass `model` parameter explicitly - Claude Code does NOT auto-apply models from agent definitions!**
+**CRITICAL: Always pass `model` parameter explicitly - Antigravity does NOT auto-apply models from agent definitions!**
 
 ```
 // Simple question → LOW tier (DEFAULT)
@@ -94,7 +94,7 @@ Task(subagent_type="oh-my-antigravity :explore-medium", model="sonnet", prompt="
 | **UI work** | ✗ NEVER | designer-low/designer |
 | **Docs** | ✗ NEVER | writer |
 
-**Path Exception**: Only write to `.omc/`, `.claude/`, `CLAUDE.md`, `AGENTS.md`
+**Path Exception**: Only write to `.oma/`, `.antigravity/`, `ANTIGRAVITY.md`, `AGENTS.md`
 
 ## Background Execution Rules
 
@@ -135,8 +135,8 @@ When ecomode completes (all verification passes):
 
 ```bash
 # Delete ecomode state files
-rm -f .omc/state/ecomode-state.json
-rm -f ~/.claude/ecomode-state.json
+rm -f .oma/state/ecomode-state.json
+rm -f ~/.antigravity/ecomode-state.json
 ```
 
 This ensures clean state for future sessions. Stale state files with `active: false` should not be left behind.

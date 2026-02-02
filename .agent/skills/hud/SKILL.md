@@ -1,13 +1,13 @@
 ---
 name: hud
 description: Configure HUD display options (layout, presets, display elements)
-role: config-writer  # DOCUMENTATION ONLY - This skill writes to ~/.claude/ paths
-scope: ~/.claude/**  # DOCUMENTATION ONLY - Allowed write scope
+role: config-writer  # DOCUMENTATION ONLY - This skill writes to ~/.antigravity/ paths
+scope: ~/.antigravity/**  # DOCUMENTATION ONLY - Allowed write scope
 ---
 
 # HUD Skill
 
-Configure the OMC HUD (Heads-Up Display) for the statusline.
+Configure the OMA HUD (Heads-Up Display) for the statusline.
 
 ## Quick Commands
 
@@ -23,26 +23,26 @@ Configure the OMC HUD (Heads-Up Display) for the statusline.
 ## Auto-Setup
 
 When you run `/oh-my-antigravity :hud` or `/oh-my-antigravity :hud setup`, the system will automatically:
-1. Check if `~/.claude/hud/omc-hud.mjs` exists
-2. Check if `statusLine` is configured in `~/.claude/settings.json`
+1. Check if `~/.antigravity/hud/oma-hud.mjs` exists
+2. Check if `statusLine` is configured in `~/.antigravity/settings.json`
 3. If missing, create the HUD wrapper script and configure settings
-4. Report status and prompt to restart Claude Code if changes were made
+4. Report status and prompt to restart Antigravity if changes were made
 
-**IMPORTANT**: If the argument is `setup` OR if the HUD script doesn't exist at `~/.claude/hud/omc-hud.mjs`, you MUST create the HUD files directly using the instructions below.
+**IMPORTANT**: If the argument is `setup` OR if the HUD script doesn't exist at `~/.antigravity/hud/oma-hud.mjs`, you MUST create the HUD files directly using the instructions below.
 
 ### Setup Instructions (Run These Commands)
 
 **Step 1:** Check if setup is needed:
 ```bash
-ls ~/.claude/hud/omc-hud.mjs 2>/dev/null && echo "EXISTS" || echo "MISSING"
+ls ~/.antigravity/hud/oma-hud.mjs 2>/dev/null && echo "EXISTS" || echo "MISSING"
 ```
 
 **Step 2:** Check if the plugin is built (CRITICAL - common issue!):
 ```bash
 # Find the latest version and check if dist/hud/index.js exists
-PLUGIN_VERSION=$(ls ~/.claude/plugins/cache/omc/oh-my-antigravity / 2>/dev/null | sort -V | tail -1)
+PLUGIN_VERSION=$(ls ~/.antigravity/plugins/cache/oma/oh-my-antigravity / 2>/dev/null | sort -V | tail -1)
 if [ -n "$PLUGIN_VERSION" ]; then
-  ls ~/.claude/plugins/cache/omc/oh-my-antigravity /$PLUGIN_VERSION/dist/hud/index.js 2>/dev/null && echo "BUILT" || echo "NOT_BUILT"
+  ls ~/.antigravity/plugins/cache/oma/oh-my-antigravity /$PLUGIN_VERSION/dist/hud/index.js 2>/dev/null && echo "BUILT" || echo "NOT_BUILT"
 fi
 ```
 
@@ -52,7 +52,7 @@ fi
 
 **THE FIX:** Run npm install in the plugin directory to build it:
 ```bash
-cd ~/.claude/plugins/cache/omc/oh-my-antigravity /$PLUGIN_VERSION && npm install
+cd ~/.antigravity/plugins/cache/oma/oh-my-antigravity /$PLUGIN_VERSION && npm install
 ```
 
 This will:
@@ -62,19 +62,19 @@ This will:
 
 **DO NOT** try to download `dist/hud/index.js` from GitHub raw URLs - it doesn't exist there!
 
-**Step 3:** If omc-hud.mjs is MISSING or argument is `setup`, create the HUD directory and script:
+**Step 3:** If oma-hud.mjs is MISSING or argument is `setup`, create the HUD directory and script:
 
 First, create the directory:
 ```bash
-mkdir -p ~/.claude/hud
+mkdir -p ~/.antigravity/hud
 ```
 
-Then, use the Write tool to create `~/.claude/hud/omc-hud.mjs` with this exact content:
+Then, use the Write tool to create `~/.antigravity/hud/oma-hud.mjs` with this exact content:
 
 ```javascript
 #!/usr/bin/env node
 /**
- * OMC HUD - Statusline Script
+ * OMA HUD - Statusline Script
  * Wrapper that imports from plugin cache or development paths
  */
 
@@ -99,8 +99,8 @@ async function main() {
   const home = homedir();
   let pluginCacheDir = null;
 
-  // 1. Try plugin cache first (marketplace: omc, plugin: oh-my-antigravity )
-  const pluginCacheBase = join(home, ".claude/plugins/cache/omc/oh-my-antigravity ");
+  // 1. Try plugin cache first (marketplace: oma, plugin: oh-my-antigravity )
+  const pluginCacheBase = join(home, ".antigravity/plugins/cache/oma/oh-my-antigravity ");
   if (existsSync(pluginCacheBase)) {
     try {
       const versions = readdirSync(pluginCacheBase);
@@ -118,8 +118,8 @@ async function main() {
 
   // 2. Development paths
   const devPaths = [
-    join(home, "Workspace/oh-my-claude-sisyphus/dist/hud/index.js"),
-    join(home, "workspace/oh-my-claude-sisyphus/dist/hud/index.js"),
+    join(home, "Workspace/oh-my-antigravity/dist/hud/index.js"),
+    join(home, "workspace/oh-my-antigravity/dist/hud/index.js"),
     join(home, "Workspace/oh-my-antigravity /dist/hud/index.js"),
     join(home, "workspace/oh-my-antigravity /dist/hud/index.js"),
   ];
@@ -135,9 +135,9 @@ async function main() {
 
   // 3. Fallback - HUD not found (provide actionable error message)
   if (pluginCacheDir) {
-    console.log(`[OMC] HUD not built. Run: cd "${pluginCacheDir}" && npm install`);
+    console.log(`[OMA] HUD not built. Run: cd "${pluginCacheDir}" && npm install`);
   } else {
-    console.log("[OMC] Plugin not found. Run: /oh-my-antigravity :omc-setup");
+    console.log("[OMA] Plugin not found. Run: /oh-my-antigravity :oma-setup");
   }
 }
 
@@ -146,18 +146,18 @@ main();
 
 **Step 3:** Make it executable:
 ```bash
-chmod +x ~/.claude/hud/omc-hud.mjs
+chmod +x ~/.antigravity/hud/oma-hud.mjs
 ```
 
 **Step 4:** Update settings.json to use the HUD:
 
-Read `~/.claude/settings.json`, then update/add the `statusLine` field.
+Read `~/.antigravity/settings.json`, then update/add the `statusLine` field.
 
 **IMPORTANT:** The command must use an absolute path, not `~`, because Windows does not expand `~` in shell commands.
 
 First, determine the correct path:
 ```bash
-node -e "const p=require('path').join(require('os').homedir(),'.claude','hud','omc-hud.mjs');console.log(JSON.stringify(p))"
+node -e "const p=require('path').join(require('os').homedir(),'.antigravity','hud','oma-hud.mjs');console.log(JSON.stringify(p))"
 ```
 
 Then set the `statusLine` field using the resolved path. On Unix it will look like:
@@ -165,7 +165,7 @@ Then set the `statusLine` field using the resolved path. On Unix it will look li
 {
   "statusLine": {
     "type": "command",
-    "command": "node /home/username/.claude/hud/omc-hud.mjs"
+    "command": "node /home/username/.antigravity/hud/oma-hud.mjs"
   }
 }
 ```
@@ -175,7 +175,7 @@ On Windows it will look like:
 {
   "statusLine": {
     "type": "command",
-    "command": "node C:\\Users\\username\\.claude\\hud\\omc-hud.mjs"
+    "command": "node C:\\Users\\username\\.antigravity\\hud\\oma-hud.mjs"
   }
 }
 ```
@@ -184,29 +184,29 @@ Use the Edit tool to add/update this field while preserving other settings.
 
 **Step 5:** Clean up old HUD scripts (if any):
 ```bash
-rm -f ~/.claude/hud/sisyphus-hud.mjs 2>/dev/null
+rm -f ~/.antigravity/hud/sisyphus-hud.mjs 2>/dev/null
 ```
 
-**Step 6:** Tell the user to restart Claude Code for changes to take effect.
+**Step 6:** Tell the user to restart Antigravity for changes to take effect.
 
 ## Display Presets
 
 ### Minimal
 Shows only the essentials:
 ```
-[OMC] ralph | ultrawork | todos:2/5
+[OMA] ralph | ultrawork | todos:2/5
 ```
 
 ### Focused (Default)
 Shows all relevant elements:
 ```
-[OMC] ralph:3/10 | US-002 | ultrawork skill:planner | ctx:67% | agents:2 | bg:3/5 | todos:2/5
+[OMA] ralph:3/10 | US-002 | ultrawork skill:planner | ctx:67% | agents:2 | bg:3/5 | todos:2/5
 ```
 
 ### Full
 Shows everything including multi-line agent details:
 ```
-[OMC] ralph:3/10 | US-002 (2/5) | ultrawork | ctx:[████░░]67% | agents:3 | bg:3/5 | todos:2/5
+[OMA] ralph:3/10 | US-002 (2/5) | ultrawork | ctx:[████░░]67% | agents:3 | bg:3/5 | todos:2/5
 ├─ O architect    2m   analyzing architecture patterns...
 ├─ e explore     45s   searching for test files
 └─ s executor     1m   implementing validation logic
@@ -224,7 +224,7 @@ When agents are running, the HUD shows detailed information on separate lines:
 
 | Element | Description |
 |---------|-------------|
-| `[OMC]` | Mode identifier |
+| `[OMA]` | Mode identifier |
 | `ralph:3/10` | Ralph loop iteration/max |
 | `US-002` | Current PRD story ID |
 | `ultrawork` | Active mode badge |
@@ -242,7 +242,7 @@ When agents are running, the HUD shows detailed information on separate lines:
 
 ## Configuration Location
 
-HUD config is stored at: `~/.claude/.omc/hud-config.json`
+HUD config is stored at: `~/.antigravity/.oma/hud-config.json`
 
 ## Manual Configuration
 
@@ -252,7 +252,7 @@ You can manually edit the config file:
 {
   "preset": "focused",
   "elements": {
-    "omcLabel": true,
+    "omaLabel": true,
     "ralph": true,
     "prdStory": true,
     "activeSkills": true,
@@ -276,12 +276,12 @@ You can manually edit the config file:
 
 If the HUD is not showing:
 1. Run `/oh-my-antigravity :hud setup` to auto-install and configure
-2. Restart Claude Code after setup completes
+2. Restart Antigravity after setup completes
 3. If still not working, run `/oh-my-antigravity :doctor` for full diagnostics
 
 Manual verification:
-- HUD script: `~/.claude/hud/omc-hud.mjs`
-- Settings: `~/.claude/settings.json` should have `statusLine` configured
+- HUD script: `~/.antigravity/hud/oma-hud.mjs`
+- Settings: `~/.antigravity/settings.json` should have `statusLine` configured
 
 ---
 

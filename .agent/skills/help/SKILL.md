@@ -3,9 +3,9 @@ name: help
 description: Guide on using oh-my-antigravity  plugin
 ---
 
-# How OMC Works
+# How OMA Works
 
-**You don't need to learn any commands!** OMC enhances Claude Code with intelligent behaviors that activate automatically.
+**You don't need to learn any commands!** OMA enhances Antigravity with intelligent behaviors that activate automatically.
 
 ## What Happens Automatically
 
@@ -41,10 +41,10 @@ I'll figure out what to stop based on context.
 
 ## First Time Setup
 
-If you haven't configured OMC yet:
+If you haven't configured OMA yet:
 
 ```
-/oh-my-antigravity :omc-setup
+/oh-my-antigravity :oma-setup
 ```
 
 This is the **only command** you need to know. It downloads the configuration and you're done.

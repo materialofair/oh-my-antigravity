@@ -1,6 +1,6 @@
 {
   "aliases": {
-    "omc": {
+    "oma": {
       "repo": "Yeachan-Heo/oh-my-antigravity ",
       "local": "~/Workspace/oh-my-antigravity ",
       "default_base": "main"

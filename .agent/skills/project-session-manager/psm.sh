@@ -74,18 +74,18 @@ Commands:
   status                 Show current session info
 
 Reference formats:
-  omc#123               Project alias + number
+  oma#123               Project alias + number
   owner/repo#123        Full GitHub reference
   https://...           GitHub URL
   #123                  Number only (uses current repo)
 
 Examples:
-  psm review omc#123
+  psm review oma#123
   psm fix Yeachan-Heo/oh-my-antigravity #42
-  psm feature omc add-webhooks
+  psm feature oma add-webhooks
   psm list
-  psm attach omc:pr-123
-  psm kill omc:pr-123
+  psm attach oma:pr-123
+  psm kill oma:pr-123
   psm cleanup
 EOF
 }
@@ -189,9 +189,9 @@ cmd_review() {
         else
             log_success "Tmux session created: $session_name"
 
-            # Launch Claude Code
+            # Launch Antigravity
             if [[ "$no_claude" != "true" ]]; then
-                log_info "Launching Claude Code..."
+                log_info "Launching Antigravity..."
                 psm_launch_claude "$session_name"
             fi
         fi
