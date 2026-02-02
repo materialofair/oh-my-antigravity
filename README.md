@@ -2,7 +2,7 @@
 
 **The Ultimate Agentic Toolkit for Google Gemini Antigravity.**
 
-*Ported from [oh-my-antigravity ](https://github.com/yeachan-heo/oh-my-antigravity ) with ❤️*
+*Ported from [oh-my-claudcode ](https://github.com/yeachan-heo/oh-my-claudcode ) with ❤️*
 
 > Give your Antigravity agent the collective intelligence of the "Oh My" ecosystem with **72 specialized Skills** and **32 automated Workflows**.
 
