@@ -65,7 +65,7 @@ Three agents collaborate in structured phases to validate and refine work plans:
 
 ## State Management
 
-Ralplan maintains persistent state in `.omc/ralplan-state.json` to track progress and enable recovery across interruptions:
+Ralplan maintains persistent state in `.oma/ralplan-state.json` to track progress and enable recovery across interruptions:
 
 ```json
 {
@@ -73,7 +73,7 @@ Ralplan maintains persistent state in `.omc/ralplan-state.json` to track progres
   "mode": "ralplan",
   "iteration": 1,
   "max_iterations": 5,
-  "plan_path": ".omc/plans/[feature].md",
+  "plan_path": ".oma/plans/[feature].md",
   "current_phase": "planner_planning",
   "started_at": "ISO-timestamp",
   "task_description": "[original task]"
@@ -120,7 +120,7 @@ The Planner agent has a PHASE 3.5 (CONFIRMATION) that normally requires user con
 
 The skill begins by establishing the planning environment:
 
-1. Create `.omc/plans/` directory if it doesn't exist
+1. Create `.oma/plans/` directory if it doesn't exist
 2. Read task description from user input
 3. Create `ralplan-state.json` with initial values:
    - `active: true`
@@ -138,9 +138,9 @@ The Planner creates an initial plan based on task context:
 - **CRITICAL: Planner MUST skip PHASE 3.5 (CONFIRMATION)** - the Critic will review, not the user
 - Planner receives task context directly without preliminary questioning
 - Planner mandatorily consults with Metis for gap detection
-- Planner generates plan directly to `.omc/plans/[feature-name].md`
+- Planner generates plan directly to `.oma/plans/[feature-name].md`
 - Plan includes: requirements summary, concrete acceptance criteria, specific implementation steps with file references, risk identification with mitigations, and verification steps
-- Signal completion with `PLAN_READY: .omc/plans/[filename].md`
+- Signal completion with `PLAN_READY: .oma/plans/[filename].md`
 - **After PLAN_READY: DO NOT approve or confirm the plan. Proceed to Critic Review.**
 - Extract plan path from completion signal and update state
 - Log: `[RALPLAN] Critic review required before approval`
@@ -258,7 +258,7 @@ CRITIC_FEEDBACK:
 To stop an active ralplan session:
 
 - Use `/oh-my-antigravity :cancel` (automatically detects active mode)
-- Or manually delete `.omc/ralplan-state.json`
+- Or manually delete `.oma/ralplan-state.json`
 
 ## Skill Workflow
 

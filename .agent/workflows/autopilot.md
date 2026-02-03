@@ -72,7 +72,7 @@ Output as structured markdown."
 
 ### Step 3: Save Spec
 
-Combine Analyst + Architect output into `.omc/autopilot/spec.md`
+Combine Analyst + Architect output into `.oma/autopilot/spec.md`
 
 Then signal: **EXPANSION_COMPLETE**
 
@@ -105,9 +105,9 @@ During execution, you MUST follow these rules:
 | **Documentation** | ✗ NEVER | writer |
 
 **Path-Based Exception**: You may ONLY use Edit/Write for:
-- `.omc/**` (state files)
-- `.claude/**` (config)
-- `CLAUDE.md`, `AGENTS.md` (docs)
+- `.oma/**` (state files)
+- `.antigravity/**` (config)
+- `ANTIGRAVITY.md`, `AGENTS.md` (docs)
 
 **All source code changes MUST go through executor agents.**
 
@@ -158,7 +158,7 @@ Signal: **AUTOPILOT_COMPLETE**
 ### Delegation Rules (MANDATORY)
 - **NEVER** use Edit/Write/Bash for source code changes
 - **ALWAYS** delegate implementation to executor agents
-- **ONLY** write directly to `.omc/`, `.claude/`, `CLAUDE.md`, `AGENTS.md`
+- **ONLY** write directly to `.oma/`, `.antigravity/`, `ANTIGRAVITY.md`, `AGENTS.md`
 - If you attempt direct code changes, the PreToolUse hook will warn you
 
 ### Execution Rules

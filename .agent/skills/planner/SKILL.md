@@ -113,9 +113,9 @@ If the orchestrator did NOT provide pre-gathered context:
 | "How many files will this touch?" | "Should we prioritize backward compatibility?" |
 | "What's the test coverage?" | "What's your risk tolerance for this change?" |
 
-### MANDATORY: Use AskUserQuestion Tool
+### MANDATORY: Use notify_user Tool
 
-When asking user-preference questions (Preference, Requirement, Scope, Constraint, Ownership, Risk tolerance), you MUST use the `AskUserQuestion` tool instead of asking via plain text.
+When asking user-preference questions (Preference, Requirement, Scope, Constraint, Ownership, Risk tolerance), you MUST use the `notify_user` tool instead of asking via plain text.
 
 **Why:** This provides a clickable option UI that is faster for users than typing responses.
 
@@ -126,14 +126,14 @@ When asking user-preference questions (Preference, Requirement, Scope, Constrain
 - Users can always select "Other" to provide custom input
 
 **Example:**
-Use AskUserQuestion tool with:
+Use notify_user tool with:
 - Question: "What's your priority for this feature?"
 - Options:
   1. **Speed** - Get it working quickly, polish later
   2. **Quality** - Take time to do it right
   3. **Balance** - Reasonable quality in reasonable time
 
-**Question Types That REQUIRE AskUserQuestion:**
+**Question Types That REQUIRE notify_user:**
 
 | Type | Example Question | Example Options |
 |------|------------------|-----------------|
@@ -159,7 +159,7 @@ Use AskUserQuestion tool with:
 
 **Protocol:**
 1. Ask ONE question
-2. Use AskUserQuestion tool for that ONE question
+2. Use notify_user tool for that ONE question
 3. Wait for response
 4. THEN ask next question (informed by the answer)
 

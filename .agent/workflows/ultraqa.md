@@ -90,7 +90,7 @@ Output progress each cycle:
 
 ## State Tracking
 
-Track state in `.omc/ultraqa-state.json`:
+Track state in `.oma/ultraqa-state.json`:
 ```json
 {
   "active": true,

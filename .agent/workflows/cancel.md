@@ -1,12 +1,12 @@
 ---
-description: Cancel any active OMC mode (autopilot, ralph, ultrawork, ecomode, ultraqa, swarm, ultrapilot, pipeline)
+description: Cancel any active OMA mode (autopilot, ralph, ultrawork, ecomode, ultraqa, swarm, ultrapilot, pipeline)
 ---
 
 # Cancel Command
 
 [UNIFIED CANCEL - INTELLIGENT MODE DETECTION]
 
-You are cancelling the active OMC mode. The cancel skill will automatically detect which mode is running and clean it up properly.
+You are cancelling the active OMA mode. The cancel skill will automatically detect which mode is running and clean it up properly.
 
 ## Auto-Detection
 
@@ -40,14 +40,14 @@ Force clear ALL state files:
 
 ## State Files Checked
 
-- `.omc/state/autopilot-state.json` → Autopilot
-- `.omc/state/ralph-state.json` → Ralph
-- `.omc/state/ultrawork-state.json` → Ultrawork
-- `.omc/state/ecomode-state.json` → Ecomode
-- `.omc/state/ultraqa-state.json` → UltraQA
-- `.omc/state/swarm.db` (SQLite) or `.omc/state/swarm-active.marker` → Swarm
-- `.omc/state/ultrapilot-state.json` → Ultrapilot
-- `.omc/state/pipeline-state.json` → Pipeline
+- `.oma/state/autopilot-state.json` → Autopilot
+- `.oma/state/ralph-state.json` → Ralph
+- `.oma/state/ultrawork-state.json` → Ultrawork
+- `.oma/state/ecomode-state.json` → Ecomode
+- `.oma/state/ultraqa-state.json` → UltraQA
+- `.oma/state/swarm.db` (SQLite) or `.oma/state/swarm-active.marker` → Swarm
+- `.oma/state/ultrapilot-state.json` → Ultrapilot
+- `.oma/state/pipeline-state.json` → Pipeline
 
 ## What Gets Preserved
 

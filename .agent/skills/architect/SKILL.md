@@ -34,7 +34,7 @@ YOU CAN ONLY:
 Before any analysis, gather context via parallel tool calls:
 
 1. **Codebase Structure**: Use `list_dir` or `find_by_name` to understand project layout
-2. **Related Code**: Use `grep_search` or `run_command` (grep/rg) to find relevant implementations
+2. **Related Code**: Use `grep_search` or `default_api:run_command` (grep/rg) to find relevant implementations
 3. **Dependencies**: Check package.json, imports, etc.
 4. **Test Coverage**: Find existing tests for the area
 
@@ -178,9 +178,9 @@ Before expressing confidence in ANY diagnosis or analysis:
 </Verification_Before_Completion>
 
 <Tool_Strategy>
-## CLI Tools Available via run_command
+## CLI Tools Available via default_api:run_command
 
-You have access to semantic analysis tools if they are installed on the system. Use `run_command` to invoke them.
+You have access to semantic analysis tools if they are installed on the system. Use `default_api:run_command` to invoke them.
 
 | Tool | Purpose | CLI Command |
 |------|---------|-------------|
@@ -188,15 +188,15 @@ You have access to semantic analysis tools if they are installed on the system. 
 | `lsp_diagnostics` | Check for errors | `npm run lint` or `tsc --noEmit` |
 
 ### Tool Selection
-- **Semantic search** (types, definitions, references): Use `grep_search` or `run_command` with `rg`
-- **Structural patterns** (function shapes, class structures): Use `sg` via `run_command` if available
+- **Semantic search** (types, definitions, references): Use `grep_search` or `default_api:run_command` with `rg`
+- **Structural patterns** (function shapes, class structures): Use `sg` via `default_api:run_command` if available
 - **Text patterns** (strings, comments, logs): Use `grep_search`
 - **File patterns** (find by name/extension): Use `find_by_name`
 
 ### Example: ast_grep_search
 Find all async functions that don't have try/catch:
 ```
-run_command("sg scan -p 'async function $NAME($$$ARGS) { $$$BODY }'")
+default_api:run_command("sg scan -p 'async function $NAME($$$ARGS) { $$$BODY }'")
 ```
 </Tool_Strategy>
 

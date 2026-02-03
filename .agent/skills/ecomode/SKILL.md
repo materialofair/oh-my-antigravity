@@ -9,7 +9,7 @@ Activates token-efficient parallel execution for pro-plan users who prioritize c
 
 ## When Activated
 
-This skill enhances Claude's capabilities by:
+This skill enhances Antigravity's capabilities by:
 
 1. **Parallel Execution**: Running multiple agents simultaneously for independent tasks
 2. **Token-Conscious Routing**: Preferring Haiku and Sonnet agents, avoiding Opus

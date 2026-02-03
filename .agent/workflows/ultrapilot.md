@@ -81,7 +81,7 @@ Signal WORKER_COMPLETE when done."
 ```
 
 **Critical Rules:**
-- Maximum 5 parallel workers (Claude Code limit)
+- Maximum 5 parallel workers (Antigravity limit)
 - Each worker owns exclusive file set
 - Monitor via TaskOutput
 - Handle failures by reassigning or fixing
@@ -124,11 +124,11 @@ Verify the complete implementation:
 | Track progress | ✓ | |
 | **ANY code change** | ✗ NEVER | executor workers |
 
-**Path Exception**: Only write to `.omc/`, `.claude/`, `CLAUDE.md`, `AGENTS.md`
+**Path Exception**: Only write to `.oma/`, `.antigravity/`, `ANTIGRAVITY.md`, `AGENTS.md`
 
 ## State Management
 
-Track state in `.omc/ultrapilot-state.json`:
+Track state in `.oma/ultrapilot-state.json`:
 
 ```json
 {

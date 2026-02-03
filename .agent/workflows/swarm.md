@@ -21,7 +21,7 @@ Spawn N coordinated agents working on a shared task list with SQLite-based atomi
 
 ### Parameters
 
-- **N** - Number of agents (1-5, enforced by Claude Code limit)
+- **N** - Number of agents (1-5, enforced by Antigravity limit)
 - **agent-type** - Agent to spawn (e.g., executor, build-fixer, architect)
 - **task** - High-level task to decompose and distribute
 
@@ -147,9 +147,9 @@ Exit when ANY of:
 
 ## Storage
 
-### SQLite Database (`.omc/state/swarm.db`)
+### SQLite Database (`.oma/state/swarm.db`)
 
-The swarm uses a single SQLite database stored at `.omc/state/swarm.db`. This provides:
+The swarm uses a single SQLite database stored at `.oma/state/swarm.db`. This provides:
 - **ACID compliance** - All task state transitions are atomic
 - **Concurrent access** - Multiple agents query/update safely
 - **Persistence** - State survives agent crashes
@@ -364,7 +364,7 @@ interface SwarmStats {
 
 ## Key Parameters
 
-- **Max Agents:** 5 (enforced by Claude Code background task limit)
+- **Max Agents:** 5 (enforced by Antigravity background task limit)
 - **Lease Timeout:** 5 minutes (default, configurable)
   - Tasks claimed longer than this without heartbeat are auto-released
 - **Heartbeat Interval:** 60 seconds (recommended)
@@ -372,7 +372,7 @@ interface SwarmStats {
   - Prevents false timeout while working on long tasks
 - **Cleanup Interval:** 60 seconds
   - Orchestrator automatically runs `cleanupStaleClaims()` to release orphaned tasks
-- **Database:** SQLite (stored at `.omc/state/swarm.db`)
+- **Database:** SQLite (stored at `.oma/state/swarm.db`)
   - One database per swarm session
   - Survives agent crashes
   - Provides ACID guarantees

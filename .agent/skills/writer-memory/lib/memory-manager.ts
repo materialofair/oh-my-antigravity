@@ -4,7 +4,7 @@
  * Core memory management module for the Writer Memory System.
  * Handles all CRUD operations for .writer-memory/ storage.
  *
- * This is a REFERENCE IMPLEMENTATION that Claude reads when the skill
+ * This is a REFERENCE IMPLEMENTATION that Antigravity reads when the skill
  * is activated. Written as real, runnable TypeScript with proper types,
  * error handling, and atomic operations.
  */

@@ -29,7 +29,7 @@ First, parse the command to determine what action to take:
 | `status` | Show current session |
 
 Reference formats:
-- `omc#123` - alias + number
+- `oma#123` - alias + number
 - `owner/repo#123` - full repo + number
 - `https://github.com/.../pull/123` - full URL
 - `#123` - number only (use current repo)
@@ -47,7 +47,7 @@ if [[ ! -f ~/.psm/projects.json ]]; then
   cat > ~/.psm/projects.json << 'EOF'
 {
   "aliases": {
-    "omc": {
+    "oma": {
       "repo": "Yeachan-Heo/oh-my-antigravity ",
       "local": "~/Workspace/oh-my-antigravity ",
       "default_base": "main"
@@ -83,7 +83,7 @@ Based on parsed command, execute the appropriate workflow.
    git worktree add ~/.psm/worktrees/<alias>/pr-<num> pr-<num>-review
    ```
 5. Create tmux session: `tmux new-session -d -s psm:<alias>:pr-<num> -c <worktree_path>`
-6. Launch claude in tmux: `tmux send-keys -t psm:<alias>:pr-<num> "claude" Enter`
+6. Launch Antigravity in tmux: `tmux send-keys -t psm:<alias>:pr-<num> "antigravity" Enter`
 7. Update ~/.psm/sessions.json
 8. Report session details
 
@@ -98,7 +98,7 @@ Based on parsed command, execute the appropriate workflow.
    git branch fix/<num>-<slug> origin/main
    git worktree add ~/.psm/worktrees/<alias>/issue-<num> fix/<num>-<slug>
    ```
-4. Create tmux session and launch claude
+4. Create tmux session and launch Antigravity
 5. Update sessions.json
 6. Report session details
 
@@ -112,7 +112,7 @@ Based on parsed command, execute the appropriate workflow.
    git branch feature/<name> origin/main
    git worktree add ~/.psm/worktrees/<alias>/feat-<name> feature/<name>
    ```
-3. Create tmux session and launch claude
+3. Create tmux session and launch Antigravity
 4. Update sessions.json
 5. Report session details
 
@@ -158,15 +158,15 @@ After executing, provide clear output:
 ```
 Session Ready!
 
-  ID:       omc:pr-123
+  ID:       oma:pr-123
   Type:     review
   PR:       #123 - Add webhook support
-  Worktree: ~/.psm/worktrees/omc/pr-123
-  Tmux:     psm:omc:pr-123
+  Worktree: ~/.psm/worktrees/oma/pr-123
+  Tmux:     psm:oma:pr-123
 
 Commands:
-  Attach:  tmux attach -t psm:omc:pr-123
-  Kill:    /psm kill omc:pr-123
+  Attach:  tmux attach -t psm:oma:pr-123
+  Kill:    /psm kill oma:pr-123
   Cleanup: /psm cleanup
 ```
 

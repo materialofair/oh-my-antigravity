@@ -9,7 +9,7 @@ Activates maximum performance mode with parallel agent orchestration.
 
 ## When Activated
 
-This skill enhances Claude's capabilities by:
+This skill enhances Antigravity's capabilities by:
 
 1. **Parallel Execution**: Running multiple agents simultaneously for independent tasks
 2. **Aggressive Delegation**: Routing tasks to specialist agents immediately

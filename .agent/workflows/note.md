@@ -4,7 +4,7 @@ description: Save notes to notepad.md for compaction resilience
 
 # Note Skill
 
-Save important context to `.omc/notepad.md` that survives conversation compaction.
+Save important context to `.oma/notepad.md` that survives conversation compaction.
 
 ## Usage
 
@@ -46,7 +46,7 @@ Save important context to `.omc/notepad.md` that survives conversation compactio
 
 ## Behavior
 
-1. Creates `.omc/notepad.md` if it doesn't exist
+1. Creates `.oma/notepad.md` if it doesn't exist
 2. Parses the argument to determine section
 3. Appends content with timestamp (for Working Memory)
 4. Warns if Priority Context exceeds 500 chars

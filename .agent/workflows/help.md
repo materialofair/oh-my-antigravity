@@ -42,10 +42,10 @@ I'll figure out what to stop based on context.
 
 ## First Time Setup
 
-If you haven't configured OMC yet:
+If you haven't configured OMA yet:
 
 ```
-/oh-my-antigravity :omc-setup
+/oh-my-antigravity :oma-setup
 ```
 
 This is the **only command** you need to know. It downloads the configuration and you're done.

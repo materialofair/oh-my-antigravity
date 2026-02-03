@@ -77,7 +77,7 @@ Run agents in parallel then merge:
 
 ## Pipeline State
 
-Pipelines maintain state in `.omc/pipeline-state.json`:
+Pipelines maintain state in `.oma/pipeline-state.json`:
 
 ```json
 {
@@ -135,7 +135,7 @@ Extract:
 
 ### 2. Initialize State
 
-Create `.omc/pipeline-state.json` with:
+Create `.oma/pipeline-state.json` with:
 - Unique pipeline ID
 - Stage definitions
 - Status tracking

@@ -10,7 +10,7 @@ Persistent memory system designed for creative writers, with first-class support
 
 ## Overview
 
-Writer Memory maintains context across Claude sessions for fiction writers. It tracks:
+Writer Memory maintains context across Antigravity sessions for fiction writers. It tracks:
 
 - **Characters (캐릭터)**: Emotional arcs (감정궤도), attitudes (태도), dialogue tone (대사톤), speech levels
 - **World (세계관)**: Settings, rules, atmosphere, constraints

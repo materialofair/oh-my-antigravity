@@ -42,9 +42,9 @@ Ask clarifying questions about: Goals, Constraints, Context, Risks, Preferences
 
 **CRITICAL**: Don't assume. Ask until requirements are clear.
 
-**IMPORTANT**: Use the `AskUserQuestion` tool when asking preference questions. This provides a clickable UI for faster responses.
+**IMPORTANT**: Use the `notify_user` tool when asking preference questions. This provides a clickable UI for faster responses.
 
-**Question types requiring AskUserQuestion:**
+**Question types requiring notify_user:**
 - Preference (speed vs quality)
 - Requirement (deadline)
 - Scope (include feature Y?)

@@ -79,7 +79,7 @@ When the user invokes a PSM command, follow this protocol:
 Parse `{{ARGUMENTS}}` to determine:
 1. **Subcommand**: review, fix, feature, list, attach, kill, cleanup, status
 2. **Reference**: project#number, URL, or session ID
-3. **Options**: --branch, --base, --no-claude, --no-tmux, etc.
+3. **Options**: --branch, --base, --no-antigravity, --no-tmux, etc.
 
 ### Subcommand: `review <ref>`
 
@@ -156,9 +156,9 @@ Parse `{{ARGUMENTS}}` to determine:
    tmux new-session -d -s "psm:$project_alias:pr-$pr_number" -c "$worktree_path"
    ```
 
-8. **Launch Antigravity** (unless --no-claude):
+8. **Launch Antigravity** (unless --no-antigravity):
    ```bash
-   tmux send-keys -t "psm:$project_alias:pr-$pr_number" "claude" Enter
+   tmux send-keys -t "psm:$project_alias:pr-$pr_number" "antigravity" Enter
    ```
 
 9. **Output session info**:
@@ -201,7 +201,7 @@ Parse `{{ARGUMENTS}}` to determine:
 
 5. **Create session metadata** (similar to review, type="fix")
 
-6. **Update registry, create tmux, launch claude** (same as review)
+6. **Update registry, create tmux, launch Antigravity** (same as review)
 
 ### Subcommand: `feature <project> <name>`
 
@@ -225,7 +225,7 @@ Parse `{{ARGUMENTS}}` to determine:
    git worktree add "$worktree_path" "$branch_name"
    ```
 
-4. **Create session, tmux, launch claude** (same pattern)
+4. **Create session, tmux, launch Antigravity** (same pattern)
 
 ### Subcommand: `list [project]`
 

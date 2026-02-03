@@ -34,8 +34,8 @@ psm_create_tmux_session() {
 }
 
 # Launch Antigravity in tmux session
-# Usage: psm_launch_claude <session_name>
-psm_launch_claude() {
+# Usage: psm_launch_antigravity <session_name>
+psm_launch_antigravity() {
     local session_name="$1"
 
     if ! tmux has-session -t "$session_name" 2>/dev/null; then
@@ -43,8 +43,8 @@ psm_launch_claude() {
         return 1
     fi
 
-    # Send claude command to the session
-    tmux send-keys -t "$session_name" "claude" Enter
+    # Send Antigravity command to the session
+    tmux send-keys -t "$session_name" "antigravity" Enter
 
     echo "launched|$session_name"
     return 0

@@ -63,7 +63,7 @@ if [ -f "$STATE_FILE" ]; then
 fi
 ```
 
-If state exists, use AskUserQuestion to prompt:
+If state exists, use notify_user to prompt:
 
 **Question:** "Found a previous setup session. Would you like to resume or start fresh?"
 
@@ -124,7 +124,7 @@ Check for flags in the user's invocation:
 
 **Note**: If resuming and lastCompletedStep >= 1, skip to the appropriate step based on configType.
 
-Use the AskUserQuestion tool to prompt the user:
+Use the notify_user tool to prompt the user:
 
 **Question:** "Where should I configure oh-my-antigravity ?"
 
@@ -185,7 +185,7 @@ https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/docs/ANTIG
 ### Verify Plugin Installation
 
 ```bash
-grep -q "oh-my-antigravity " ~/.antigravity/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: claude /install-plugin oh-my-antigravity "
+grep -q "oh-my-antigravity " ~/.antigravity/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: antigravity /install-plugin oh-my-antigravity "
 ```
 
 ### Confirm Local Configuration Success
@@ -275,7 +275,7 @@ Check `~/.antigravity/settings.json` for manual hook entries. If the "hooks" key
 ### Verify Plugin Installation
 
 ```bash
-grep -q "oh-my-antigravity " ~/.antigravity/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: claude /install-plugin oh-my-antigravity "
+grep -q "oh-my-antigravity " ~/.antigravity/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: antigravity /install-plugin oh-my-antigravity "
 ```
 
 ### Confirm Global Configuration Success
@@ -397,7 +397,7 @@ if [ -n "$INSTALLED_VERSION" ] && [ -n "$LATEST_VERSION" ]; then
     echo "  Installed: v$INSTALLED_VERSION"
     echo "  Latest:    v$LATEST_VERSION"
     echo ""
-    echo "To update, run: claude /install-plugin oh-my-antigravity "
+    echo "To update, run: antigravity /install-plugin oh-my-antigravity "
   else
     echo "You're on the latest version: v$INSTALLED_VERSION"
   fi
@@ -408,7 +408,7 @@ fi
 
 ## Step 3.7: Set Default Execution Mode
 
-Use the AskUserQuestion tool to prompt the user:
+Use the notify_user tool to prompt the user:
 
 **Question:** "Which parallel execution mode should be your default when you say 'fast' or 'parallel'?"
 
@@ -459,7 +459,7 @@ Skip this step - the plugin provides all features.
 ## Step 4: Verify Plugin Installation
 
 ```bash
-grep -q "oh-my-antigravity " ~/.antigravity/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: claude /install-plugin oh-my-antigravity "
+grep -q "oh-my-antigravity " ~/.antigravity/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: antigravity /install-plugin oh-my-antigravity "
 ```
 
 ## Step 5: Offer MCP Server Configuration
@@ -574,7 +574,7 @@ gh auth status &>/dev/null
 
 ### If gh is available and authenticated:
 
-Use the AskUserQuestion tool to prompt the user:
+Use the notify_user tool to prompt the user:
 
 **Question:** "If you're enjoying oh-my-antigravity , would you like to support the project by starring it on GitHub?"
 

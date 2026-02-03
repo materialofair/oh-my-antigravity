@@ -9,7 +9,7 @@ Activates maximum performance mode with parallel agent orchestration.
 
 ## When Activated
 
-This skill enhances Claude's capabilities by:
+This skill enhances Antigravity's capabilities by:
 
 1. **Parallel Execution**: Running multiple agents simultaneously for independent tasks
 2. **Aggressive Delegation**: Routing tasks to specialist agents immediately
@@ -30,7 +30,7 @@ This skill enhances Claude's capabilities by:
 | **UI work** | ✗ NEVER | designer/designer-high |
 | **Docs** | ✗ NEVER | writer |
 
-**Path Exception**: Only write to `.omc/`, `.claude/`, `CLAUDE.md`, `AGENTS.md`
+**Path Exception**: Only write to `.oma/`, `.antigravity/`, `ANTIGRAVITY.md`, `AGENTS.md`
 
 The PreToolUse hook will warn you if you attempt direct code changes.
 
@@ -62,7 +62,7 @@ The PreToolUse hook will warn you if you attempt direct code changes.
 
 ### Routing Examples
 
-**CRITICAL: Always pass `model` parameter explicitly - Claude Code does NOT auto-apply models from agent definitions!**
+**CRITICAL: Always pass `model` parameter explicitly - Antigravity does NOT auto-apply models from agent definitions!**
 
 ```
 // Simple question → LOW tier (saves tokens!)

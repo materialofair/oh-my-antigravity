@@ -77,7 +77,7 @@ AUTO mode runs the complete research workflow autonomously with loop control.
 
 ## Session Management
 
-Sessions are stored at `.omc/research/{session-id}/` with:
+Sessions are stored at `.oma/research/{session-id}/` with:
 - `state.json` - Session state and progress
 - `stages/` - Individual stage findings
 - `findings/` - Raw and verified findings

@@ -93,7 +93,7 @@ EOF
 # Command: review
 cmd_review() {
     local ref="$1"
-    local no_claude="${2:-false}"
+    local no_antigravity="${2:-false}"
     local no_tmux="${3:-false}"
 
     log_info "Parsing reference: $ref"
@@ -190,9 +190,9 @@ cmd_review() {
             log_success "Tmux session created: $session_name"
 
             # Launch Antigravity
-            if [[ "$no_claude" != "true" ]]; then
+            if [[ "$no_antigravity" != "true" ]]; then
                 log_info "Launching Antigravity..."
-                psm_launch_claude "$session_name"
+                psm_launch_antigravity "$session_name"
             fi
         fi
     fi
@@ -231,7 +231,7 @@ EOF
 # Command: fix
 cmd_fix() {
     local ref="$1"
-    local no_claude="${2:-false}"
+    local no_antigravity="${2:-false}"
 
     log_info "Parsing reference: $ref"
 
@@ -304,8 +304,8 @@ cmd_fix() {
     log_info "Creating tmux session..."
     psm_create_tmux_session "$session_name" "$worktree_path"
 
-    if [[ "$no_claude" != "true" ]]; then
-        psm_launch_claude "$session_name"
+    if [[ "$no_antigravity" != "true" ]]; then
+        psm_launch_antigravity "$session_name"
     fi
 
     # Create metadata
@@ -377,7 +377,7 @@ cmd_feature() {
     local session_id="${project}:feat-${safe_name}"
 
     psm_create_tmux_session "$session_name" "$worktree_path"
-    psm_launch_claude "$session_name"
+    psm_launch_antigravity "$session_name"
 
     psm_add_session "$session_id" "feature" "$project" "feat-${safe_name}" "$branch_name" "$base" "$session_name" "$worktree_path" "$local_path" "{}"
 

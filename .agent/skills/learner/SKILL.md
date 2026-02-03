@@ -7,13 +7,13 @@ description: Extract a learned skill from the current conversation
 
 ## The Insight
 
-Reusable skills are not code snippets to copy-paste, but **principles and decision-making heuristics** that teach Claude HOW TO THINK about a class of problems.
+Reusable skills are not code snippets to copy-paste, but **principles and decision-making heuristics** that teach Antigravity HOW TO THINK about a class of problems.
 
 **The difference:**
 - BAD (mimicking): "When you see ConnectionResetError, add this try/except block"
 - GOOD (reusable skill): "In async network code, any I/O operation can fail independently due to client/server lifecycle mismatches. The principle: wrap each I/O operation separately, because failure between operations is the common case, not the exception."
 
-A good skill changes how Claude APPROACHES problems, not just what code it produces.
+A good skill changes how Antigravity APPROACHES problems, not just what code it produces.
 
 ## Why This Matters
 
@@ -120,14 +120,14 @@ How do you know when this skill applies? What are the signs?
 Example: "Building any long-lived connection handler (proxy, websocket, SSE)"
 
 ## The Approach
-The decision-making heuristic, not just code. How should Claude THINK about this?
+The decision-making heuristic, not just code. How should Antigravity THINK about this?
 Example: "For each I/O operation, ask: what if this fails right now? Handle it locally."
 
 ## Example (Optional)
 If code helps, show it - but as illustration of the principle, not copy-paste material.
 ```
 
-**Key**: A skill is REUSABLE if Claude can apply it to NEW situations, not just identical ones.
+**Key**: A skill is REUSABLE if Antigravity can apply it to NEW situations, not just identical ones.
 
 ## Related Commands
 

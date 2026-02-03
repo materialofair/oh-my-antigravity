@@ -252,7 +252,7 @@ If project has build/test commands, run them at task completion.
 
 **NEVER declare a task complete without Architect verification.**
 
-Claude models are prone to premature completion claims. Before saying "done", you MUST:
+Antigravity models are prone to premature completion claims. Before saying "done", you MUST:
 
 1. **Self-check passes** (all criteria above)
 

@@ -27,8 +27,8 @@ Say one of these when you're ready to generate the plan:
 - "I'm ready to plan"
 
 ### Plan Storage
-- Drafts are saved to `.omc/drafts/`
-- Final plans are saved to `.omc/plans/`
+- Drafts are saved to `.oma/drafts/`
+- Final plans are saved to `.oma/plans/`
 
 ---
 

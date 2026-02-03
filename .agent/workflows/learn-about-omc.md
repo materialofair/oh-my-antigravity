@@ -1,5 +1,5 @@
 ---
-description: Learn about your OMC usage patterns and get personalized recommendations
+description: Learn about your OMA usage patterns and get personalized recommendations
 ---
 
-Learn about your OMC usage patterns and get personalized recommendations.
+Learn about your OMA usage patterns and get personalized recommendations.
