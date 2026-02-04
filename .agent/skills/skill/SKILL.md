@@ -15,13 +15,13 @@ Meta-skill for managing oh-my-antigravity  skills via CLI-like commands.
 Show all local skills organized by scope.
 
 **Behavior:**
-1. Scan user skills at `~/.antigravity/skills/oma-learned/`
+1. Scan user skills at `~/.gemini/antigravity/skills/oma-learned/`
 2. Scan project skills at `.oma/skills/`
 3. Parse YAML frontmatter for metadata
 4. Display in organized table format:
 
 ```
-USER SKILLS (~/.antigravity/skills/oma-learned/):
+USER SKILLS (~/.gemini/antigravity/skills/oma-learned/):
 | Name              | Triggers           | Quality | Usage | Scope |
 |-------------------|--------------------|---------|-------|-------|
 | error-handler     | fix, error         | 95%     | 42    | user  |
@@ -51,7 +51,7 @@ Interactive wizard for creating a new skill.
 4. **Ask for argument hint** (optional)
    - Example: "<file> [options]"
 5. **Ask for scope:**
-   - `user` → `~/.antigravity/skills/oma-learned/<name>/SKILL.md`
+   - `user` → `~/.gemini/antigravity/skills/oma-learned/<name>/SKILL.md`
    - `project` → `.oma/skills/<name>/SKILL.md`
 6. **Create skill file** with template:
 
@@ -105,7 +105,7 @@ Triggers (comma-separated): log, logger, logging
 Argument hint (optional): <level> [message]
 Scope (user/project): user
 
-✓ Created skill at ~/.antigravity/skills/oma-learned/custom-logger/SKILL.md
+✓ Created skill at ~/.gemini/antigravity/skills/oma-learned/custom-logger/SKILL.md
 → Edit with: /skill edit custom-logger
 ```
 
@@ -117,13 +117,13 @@ Remove a skill by name.
 
 **Behavior:**
 1. **Search for skill** in both scopes:
-   - `~/.antigravity/skills/oma-learned/<name>/SKILL.md`
+   - `~/.gemini/antigravity/skills/oma-learned/<name>/SKILL.md`
    - `.oma/skills/<name>/SKILL.md`
 2. **If found:**
    - Display skill info (name, description, scope)
    - **Ask for confirmation:** "Delete '<name>' skill from <scope>? (yes/no)"
 3. **If confirmed:**
-   - Delete entire skill directory (e.g., `~/.antigravity/skills/oma-learned/<name>/`)
+   - Delete entire skill directory (e.g., `~/.gemini/antigravity/skills/oma-learned/<name>/`)
    - Report: "✓ Removed skill '<name>' from <scope>"
 4. **If not found:**
    - Report: "✗ Skill '<name>' not found in user or project scope"
@@ -135,7 +135,7 @@ Remove a skill by name.
 User: /skill remove old-logger
 Assistant: Found skill 'old-logger' in user scope:
   Description: Legacy logging utility
-  Scope: user (~/.antigravity/skills/oma-learned/)
+  Scope: user (~/.gemini/antigravity/skills/oma-learned/)
 
 Delete 'old-logger' skill? (yes/no)
 
@@ -251,13 +251,13 @@ Show detailed information about a skill.
 
 ```
 Skill: custom-logger
-Scope: user (~/.antigravity/skills/oma-learned/custom-logger/)
+Scope: user (~/.gemini/antigravity/skills/oma-learned/custom-logger/)
 Description: Enhanced logging with structured output
 Triggers: log, logger, logging
 Argument Hint: <level> [message]
 Quality: 95% (if available)
 Usage Count: 42 times (if available)
-File Path: /home/user/.antigravity/skills/oma-learned/custom-logger/SKILL.md
+File Path: /home/user/.agent/skills/oma-learned/custom-logger/SKILL.md
 
 --- FULL CONTENT ---
 [entire markdown content]
@@ -272,7 +272,7 @@ Assistant: Skill: custom-logger
 Scope: user
 Description: Enhanced logging with structured output
 Triggers: log, logger, logging
-File: ~/.antigravity/skills/oma-learned/custom-logger/SKILL.md
+File: ~/.gemini/antigravity/skills/oma-learned/custom-logger/SKILL.md
 
 --- CONTENT ---
 # Custom Logger Skill
@@ -290,7 +290,7 @@ Sync skills between user and project scopes.
 
 **Behavior:**
 1. **Scan both scopes:**
-   - User skills: `~/.antigravity/skills/oma-learned/`
+   - User skills: `~/.gemini/antigravity/skills/oma-learned/`
    - Project skills: `.oma/skills/`
 2. **Compare and categorize:**
    - User-only skills (not in project)

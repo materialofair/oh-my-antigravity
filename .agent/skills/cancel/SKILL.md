@@ -80,9 +80,9 @@ This removes all state files:
 - `.oma/state/pipeline-state.json`
 - `.oma/state/plan-consensus.json`
 - `.oma/state/ralplan-state.json`
-- `~/.antigravity/ralph-state.json`
-- `~/.antigravity/ultrawork-state.json`
-- `~/.antigravity/ecomode-state.json`
+- `~/.gemini/antigravity/ralph-state.json`
+- `~/.gemini/antigravity/ultrawork-state.json`
+- `~/.gemini/antigravity/ecomode-state.json`
 
 ## Implementation Steps
 
@@ -162,9 +162,9 @@ if [[ "$FORCE_MODE" == "true" ]]; then
   rm -f .oma/state/ralplan-state.json
 
   # Remove global state files
-  rm -f ~/.antigravity/ralph-state.json
-  rm -f ~/.antigravity/ultrawork-state.json
-  rm -f ~/.antigravity/ecomode-state.json
+  rm -f ~/.gemini/antigravity/ralph-state.json
+  rm -f ~/.gemini/antigravity/ultrawork-state.json
+  rm -f ~/.gemini/antigravity/ecomode-state.json
 
   echo "All OMA modes cleared. You are free to start fresh."
   exit 0
@@ -175,7 +175,7 @@ fi
 
 #### If Autopilot Active
 
-Call `cancelAutopilot()` from `src/hooks/autopilot/cancel.ts:27-78`:
+Use the autopilot cleanup sequence below:
 
 ```bash
 # Autopilot handles its own cleanup + ralph + ultraqa
@@ -189,13 +189,13 @@ if [[ -f .oma/state/autopilot-state.json ]]; then
     # Clean linked ultrawork first
     if [[ "$LINKED_UW" == "true" ]] && [[ -f .oma/state/ultrawork-state.json ]]; then
       rm -f .oma/state/ultrawork-state.json
-      rm -f ~/.antigravity/ultrawork-state.json
+      rm -f ~/.gemini/antigravity/ultrawork-state.json
       echo "Cleaned up: ultrawork (linked to ralph)"
     fi
 
     # Clean ralph
     rm -f .oma/state/ralph-state.json
-    rm -f ~/.antigravity/ralph-state.json
+    rm -f ~/.gemini/antigravity/ralph-state.json
     rm -f .oma/state/ralph-verification.json
     echo "Cleaned up: ralph"
   fi
@@ -218,7 +218,7 @@ fi
 
 #### If Ralph Active (but not Autopilot)
 
-Call `clearRalphState()` + `clearLinkedUltraworkState()` from `src/hooks/ralph-loop/index.ts:147-182`:
+Use the ralph cleanup sequence below:
 
 ```bash
 if [[ -f .oma/state/ralph-state.json ]]; then
@@ -234,14 +234,14 @@ if [[ -f .oma/state/ralph-state.json ]]; then
     # Only clear if it was linked to ralph
     if [[ "$UW_LINKED" == "true" ]]; then
       rm -f .oma/state/ultrawork-state.json
-      rm -f ~/.antigravity/ultrawork-state.json
+      rm -f ~/.gemini/antigravity/ultrawork-state.json
       echo "Cleaned up: ultrawork (linked to ralph)"
     fi
   fi
 
   # Clean ralph state (both local and global)
   rm -f .oma/state/ralph-state.json
-  rm -f ~/.antigravity/ralph-state.json
+  rm -f ~/.gemini/antigravity/ralph-state.json
   rm -f .oma/state/ralph-plan-state.json
   rm -f .oma/state/ralph-verification.json
 
@@ -251,7 +251,7 @@ fi
 
 #### If Ultrawork Active (standalone, not linked)
 
-Call `deactivateUltrawork()` from `src/hooks/ultrawork/index.ts:150-173`:
+Use the ultrawork cleanup sequence below:
 
 ```bash
 if [[ -f .oma/state/ultrawork-state.json ]]; then
@@ -266,7 +266,7 @@ if [[ -f .oma/state/ultrawork-state.json ]]; then
 
   # Remove both local and global state
   rm -f .oma/state/ultrawork-state.json
-  rm -f ~/.antigravity/ultrawork-state.json
+  rm -f ~/.gemini/antigravity/ultrawork-state.json
 
   echo "Ultrawork cancelled. Parallel execution mode deactivated."
 fi
@@ -274,7 +274,7 @@ fi
 
 #### If UltraQA Active (standalone)
 
-Call `clearUltraQAState()` from `src/hooks/ultraqa/index.ts:107-120`:
+Use the ultraqa cleanup sequence below:
 
 ```bash
 if [[ -f .oma/state/ultraqa-state.json ]]; then
@@ -314,7 +314,7 @@ fi
 if [[ "$FORCE_MODE" == "true" ]]; then
   echo "FORCE CLEAR: Removing all OMA state files..."
 
-  mkdir -p .oma ~/.antigravity
+  mkdir -p .oma ~/.gemini/antigravity
 
   # Remove local state files
   rm -f .oma/state/autopilot-state.json
@@ -334,9 +334,9 @@ if [[ "$FORCE_MODE" == "true" ]]; then
   rm -f .oma/state/ralplan-state.json
 
   # Remove global state files
-  rm -f ~/.antigravity/ralph-state.json
-  rm -f ~/.antigravity/ultrawork-state.json
-  rm -f ~/.antigravity/ecomode-state.json
+  rm -f ~/.gemini/antigravity/ralph-state.json
+  rm -f ~/.gemini/antigravity/ultrawork-state.json
+  rm -f ~/.gemini/antigravity/ecomode-state.json
 
   echo ""
   echo "All OMA modes cleared. You are free to start fresh."
@@ -366,13 +366,13 @@ if [[ -f .oma/state/autopilot-state.json ]]; then
         # Clean linked ultrawork first
         if [[ "$LINKED_UW" == "true" ]] && [[ -f .oma/state/ultrawork-state.json ]]; then
           rm -f .oma/state/ultrawork-state.json
-          rm -f ~/.antigravity/ultrawork-state.json
+          rm -f ~/.gemini/antigravity/ultrawork-state.json
           CLEANED_UP+=("ultrawork")
         fi
 
         # Clean ralph
         rm -f .oma/state/ralph-state.json
-        rm -f ~/.antigravity/ralph-state.json
+        rm -f ~/.gemini/antigravity/ralph-state.json
         rm -f .oma/state/ralph-verification.json
         CLEANED_UP+=("ralph")
       fi
@@ -420,7 +420,7 @@ if [[ -f .oma/state/ralph-state.json ]]; then
       # Only clear if it was linked to ralph
       if [[ "$UW_LINKED" == "true" ]]; then
         rm -f .oma/state/ultrawork-state.json
-        rm -f ~/.antigravity/ultrawork-state.json
+        rm -f ~/.gemini/antigravity/ultrawork-state.json
         echo "Cleaned up: ultrawork (linked to ralph)"
       fi
     fi
@@ -434,14 +434,14 @@ if [[ -f .oma/state/ralph-state.json ]]; then
 
       if [[ "$ECO_LINKED" == "true" ]]; then
         rm -f .oma/state/ecomode-state.json
-        rm -f ~/.antigravity/ecomode-state.json
+        rm -f ~/.gemini/antigravity/ecomode-state.json
         echo "Cleaned up: ecomode (linked to ralph)"
       fi
     fi
 
     # Clean ralph state (both local and global)
     rm -f .oma/state/ralph-state.json
-    rm -f ~/.antigravity/ralph-state.json
+    rm -f ~/.gemini/antigravity/ralph-state.json
     rm -f .oma/state/ralph-plan-state.json
     rm -f .oma/state/ralph-verification.json
 
@@ -466,7 +466,7 @@ if [[ -f .oma/state/ultrawork-state.json ]]; then
 
     # Remove both local and global state
     rm -f .oma/state/ultrawork-state.json
-    rm -f ~/.antigravity/ultrawork-state.json
+    rm -f ~/.gemini/antigravity/ultrawork-state.json
 
     echo "Ultrawork cancelled. Parallel execution mode deactivated."
     CANCELLED_ANYTHING=true
@@ -489,7 +489,7 @@ if [[ -f .oma/state/ecomode-state.json ]]; then
 
     # Remove both local and global state
     rm -f .oma/state/ecomode-state.json
-    rm -f ~/.antigravity/ecomode-state.json
+    rm -f ~/.gemini/antigravity/ecomode-state.json
 
     echo "Ecomode cancelled. Token-efficient execution mode deactivated."
     CANCELLED_ANYTHING=true
@@ -636,5 +636,5 @@ fi
 - **Dependency-aware**: Autopilot cancellation cleans up Ralph and UltraQA
 - **Link-aware**: Ralph cancellation cleans up linked Ultrawork or Ecomode
 - **Safe**: Only clears linked Ultrawork, preserves standalone Ultrawork
-- **Dual-location**: Clears both `.oma/` and `~/.antigravity/` state files
+- **Dual-location**: Clears both `.oma/` and `~/.gemini/antigravity/` state files
 - **Resume-friendly**: Autopilot state is preserved for seamless resume

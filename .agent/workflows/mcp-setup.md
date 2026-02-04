@@ -8,7 +8,7 @@ Configure Model Context Protocol (MCP) servers to extend Antigravity's capabilit
 
 ## Overview
 
-MCP servers provide additional tools that Antigravity agents can use. This skill helps you configure popular MCP servers in your `~/.antigravity/settings.json`.
+MCP servers provide additional tools that Antigravity agents can use. This skill helps you configure popular MCP servers in your `~/.gemini/antigravity/settings.json`.
 
 ## Step 1: Show Available MCP Servers
 
@@ -56,7 +56,7 @@ Do you have a GitHub Personal Access Token?
 
 ## Step 3: Update settings.json
 
-Read the current `~/.antigravity/settings.json` and add/update the `mcpServers` section.
+Read the current `~/.gemini/antigravity/settings.json` and add/update the `mcpServers` section.
 
 ### Context7 Configuration:
 ```json
@@ -117,14 +117,14 @@ Read the current `~/.antigravity/settings.json` and add/update the `mcpServers` 
 
 When updating settings.json:
 
-1. Read existing file: `~/.antigravity/settings.json`
+1. Read existing file: `~/.gemini/antigravity/settings.json`
 2. Parse as JSON (handle comments with jsonc-parser if needed)
 3. Merge new `mcpServers` entries with existing ones (don't overwrite user's other MCP servers)
 4. Write back to file with proper formatting
 
 ```bash
 # Backup existing settings first
-cp ~/.antigravity/settings.json ~/.antigravity/settings.json.bak 2>/dev/null || true
+cp ~/.gemini/antigravity/settings.json ~/.gemini/antigravity/settings.json.bak 2>/dev/null || true
 ```
 
 Use the Edit tool or Write tool to update the settings file, preserving existing configuration.
@@ -135,10 +135,10 @@ After configuration, verify the MCP servers are properly set up:
 
 ```bash
 # Check if settings.json has mcpServers
-grep -q "mcpServers" ~/.antigravity/settings.json && echo "MCP servers configured" || echo "Configuration may have failed"
+grep -q "mcpServers" ~/.gemini/antigravity/settings.json && echo "MCP servers configured" || echo "Configuration may have failed"
 
 # List configured servers
-node -e "const s = require('$HOME/.antigravity/settings.json'); console.log('Configured MCP servers:', Object.keys(s.mcpServers || {}).join(', ') || 'none')"
+node -e "const s = require('$HOME/.agent/settings.json'); console.log('Configured MCP servers:', Object.keys(s.mcpServers || {}).join(', ') || 'none')"
 ```
 
 ## Step 6: Show Completion Message
@@ -160,7 +160,7 @@ USAGE TIPS:
 - GitHub: Interact with GitHub repos, issues, and PRs
 
 TROUBLESHOOTING:
-- If MCP servers don't appear, check ~/.antigravity/settings.json for syntax errors
+- If MCP servers don't appear, check ~/.gemini/antigravity/settings.json for syntax errors
 - Ensure you have Node.js 18+ installed for npx commands
 - Run /oh-my-antigravity :doctor to diagnose issues
 

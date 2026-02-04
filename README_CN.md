@@ -2,9 +2,23 @@
 
 **Google Gemini Antigravity 的终极 AI 代理工具包**
 
-*基于 [oh-my-claudecode ](https://github.com/yeachan-heo/oh-my-claudecode ) 移植 ❤️*
+*基于 [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) 移植 ❤️*
 
-> 为你的 Antigravity 代理注入 "Oh My" 生态系统的集体智慧 — **72 个专业技能** 和 **32 个自动化工作流**。
+> 为你的 Antigravity 代理注入 "Oh My" 生态系统的集体智慧 — **73 个专业技能** 和 **36 个自动化工作流**。
+
+**✅ 迁移状态**: 已完成 - 可直接用于 Antigravity ✅  
+**📊 兼容性**: 73/73 技能 ✅ | 36/36 工作流 ✅ | 0 问题  
+**📖 查看**: [迁移状态报告](MIGRATION_STATUS.md) | [迁移计划](MIGRATION_TO_ANTIGRAVITY.md)
+
+---
+
+## ✅ 迁移已完成
+
+本项目已完整迁移至 Google Antigravity：
+
+- ✅ **技能与工作流**：内容已完成 Antigravity 兼容审查
+- ✅ **Hooks 替代**：旧 hooks 已转换为工作流 + `GEMINI.md` 规则
+- ✅ **安装脚本**：使用 `~/.gemini/antigravity/` 路径
 
 ---
 
@@ -20,7 +34,7 @@ oh-my-antigravity 是一个全面的 AI 代理"人设"（技能）和自动化�
 
 ## 🚀 功能特性
 
-### 🧠 72 个专业技能
+### 🧠 73 个专业技能
 
 | 类别 | 技能 | 描述 |
 |------|------|------|
@@ -32,7 +46,7 @@ oh-my-antigravity 是一个全面的 AI 代理"人设"（技能）和自动化�
 | **UI/UX 设计** | `designer`、`frontend-ui-ux`、`vision` | 界面设计与视觉分析 |
 | **专项能力** | `git-master`、`writer`、`writer-memory`、`learner` | Git 操作、文档编写、记忆系统 |
 
-### ⚡️ 32 个工作流
+### ⚡️ 36 个工作流
 
 | 工作流 | 描述 |
 |--------|------|
@@ -102,6 +116,10 @@ cd oh-my-antigravity
 使用斜杠命令触发工作流：
 
 ```
+
+### 规则（GEMINI.md）
+
+项目规则放在 `GEMINI.md`，全局规则放在 `~/.gemini/antigravity/GEMINI.md`。
 /autopilot 构建一个用户认证的 REST API
 /ultrawork 并行实现所有待完成的功能
 /aireview 审查最近 5 次提交
@@ -156,5 +174,4 @@ MIT 许可证 - 详见 [LICENSE](LICENSE)
 
 - [oh-my-claudcode ](https://github.com/yeachan-heo/oh-my-claudcode ) - 本项目的灵感来源和基础
 - [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) - OpenAI Codex 适配版本
-- [everything-claude-code](https://github.com/affaan-m/everything-claude-code) - 全面的 Claude Code 资源集合
-
+- [everything-claude-code](https://github.com/affaan-m/everything-claude-code) - 旧版 Claude Code 资料（历史参考）

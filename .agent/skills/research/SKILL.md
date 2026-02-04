@@ -460,7 +460,7 @@ Report generator embeds figures:
 
 ## Configuration
 
-Optional settings in `.antigravity/settings.json`:
+Optional settings in `.agent/settings.json`:
 
 ```json
 {

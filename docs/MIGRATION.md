@@ -1,5 +1,8 @@
 # Migration Guide
 
+> **Legacy (Claude Code)**: This document is preserved for historical reference. It does not apply to Antigravity. See `README.md` and `docs/REFERENCE.md` for current guidance.
+
+
 This guide covers all migration paths for oh-my-antigravity . Find your current version below.
 
 ---

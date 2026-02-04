@@ -90,5 +90,7 @@
         }
       ]
     }
-  ]
+  ],
+  "deprecated": true,
+  "note": "Legacy Claude Code hooks. Antigravity does not support hooks; see docs/HOOKS_MIGRATION.md for replacements."
 }

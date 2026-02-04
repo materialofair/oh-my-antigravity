@@ -12,7 +12,7 @@ This skill provides a guided wizard for setting up and managing your local learn
 
 Local skills allow you to capture hard-won insights and solutions that are specific to your codebase or workflow:
 - **Project-level skills** (.oma/skills/) - Version-controlled with your repo
-- **User-level skills** (~/.antigravity/skills/oma-learned/) - Portable across all your projects
+- **User-level skills** (~/.gemini/antigravity/skills/oma-learned/) - Portable across all your projects
 
 When you solve a tricky bug or discover a non-obvious workaround, you can extract it as a skill. Antigravity will automatically detect and apply these skills in future conversations when it sees matching triggers.
 
@@ -24,7 +24,7 @@ First, check if skill directories exist and create them if needed:
 
 ```bash
 # Check and create user-level skills directory
-USER_SKILLS_DIR="$HOME/.antigravity/skills/oma-learned"
+USER_SKILLS_DIR="$HOME/.agent/skills/oma-learned"
 if [ -d "$USER_SKILLS_DIR" ]; then
   echo "User skills directory exists: $USER_SKILLS_DIR"
 else
@@ -48,15 +48,15 @@ Scan both directories and show a comprehensive inventory:
 
 ```bash
 # Scan user-level skills
-echo "=== USER-LEVEL SKILLS (~/.antigravity/skills/oma-learned/) ==="
-if [ -d "$HOME/.antigravity/skills/oma-learned" ]; then
-  USER_COUNT=$(find "$HOME/.antigravity/skills/oma-learned" -name "*.md" 2>/dev/null | wc -l)
+echo "=== USER-LEVEL SKILLS (~/.gemini/antigravity/skills/oma-learned/) ==="
+if [ -d "$HOME/.agent/skills/oma-learned" ]; then
+  USER_COUNT=$(find "$HOME/.agent/skills/oma-learned" -name "*.md" 2>/dev/null | wc -l)
   echo "Total skills: $USER_COUNT"
 
   if [ $USER_COUNT -gt 0 ]; then
     echo ""
     echo "Skills found:"
-    find "$HOME/.antigravity/skills/oma-learned" -name "*.md" -type f -exec sh -c '
+    find "$HOME/.agent/skills/oma-learned" -name "*.md" -type f -exec sh -c '
       FILE="$1"
       NAME=$(grep -m1 "^name:" "$FILE" 2>/dev/null | sed "s/name: //")
       DESC=$(grep -m1 "^description:" "$FILE" 2>/dev/null | sed "s/description: //")
@@ -162,9 +162,9 @@ show_skill_details() {
 export -f show_skill_details
 
 # Show user-level skills
-if [ -d "$HOME/.antigravity/skills/oma-learned" ]; then
+if [ -d "$HOME/.agent/skills/oma-learned" ]; then
   echo "USER-LEVEL SKILLS:"
-  find "$HOME/.antigravity/skills/oma-learned" -name "*.md" -type f -exec bash -c 'show_skill_details "$0" "user-level"' {} \;
+  find "$HOME/.agent/skills/oma-learned" -name "*.md" -type f -exec bash -c 'show_skill_details "$0" "user-level"' {} \;
 fi
 
 # Show project-level skills
@@ -191,7 +191,7 @@ Ask user to provide either:
 - **Paste content**: Paste skill markdown content directly
 
 Then ask for scope:
-- **User-level** (~/.antigravity/skills/oma-learned/) - Available across all projects
+- **User-level** (~/.gemini/antigravity/skills/oma-learned/) - Available across all projects
 - **Project-level** (.oma/skills/) - Only for this project
 
 Validate the skill format and save to the chosen location.
@@ -420,7 +420,7 @@ Show users what a typical session looks like:
 > /oh-my-antigravity :local-skills-setup
 
 Checking skill directories...
-✓ User skills directory exists: ~/.antigravity/skills/oma-learned/
+✓ User skills directory exists: ~/.gemini/antigravity/skills/oma-learned/
 ✓ Project skills directory exists: .oma/skills/
 
 Scanning for skills...

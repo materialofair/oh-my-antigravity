@@ -9,9 +9,9 @@ Complete reference for oh-my-antigravity . For quick start, see the main [README
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Agents (32 Total)](#agents-32-total)
-- [Skills (37 Total)](#skills-37-total)
+- [Skills (73 Total)](#skills-73-total)
 - [Slash Commands](#slash-commands)
-- [Hooks System](#hooks-system)
+- [Rules System](#rules-system)
 - [Magic Keywords](#magic-keywords)
 - [Platform Support](#platform-support)
 - [Troubleshooting](#troubleshooting)
@@ -21,57 +21,58 @@ Complete reference for oh-my-antigravity . For quick start, see the main [README
 
 ## Installation
 
-**Only the Claude Code Plugin method is supported.** Other installation methods (npm, bun, curl) are deprecated and may not work correctly.
+oh-my-antigravity installs via the provided scripts and uses Antigravity's standard paths.
 
-### Claude Code Plugin (Required)
+### Local Installation (Per Project)
 
 ```bash
-# Step 1: Add the marketplace
-/plugin marketplace add https://github.com/Yeachan-Heo/oh-my-antigravity 
-
-# Step 2: Install the plugin
-/plugin install oh-my-antigravity 
+./install.sh /path/to/your/project
 ```
 
-This integrates directly with Claude Code's plugin system and uses Node.js hooks.
+Installs to:
+- Skills → `<project>/.agent/skills/`
+- Workflows → `<project>/.agent/workflows/`
 
-> **Note**: Direct npm/bun global installs are **not supported**. The plugin system handles all installation and hook setup automatically.
+### Global Installation (All Projects)
+
+```bash
+./install_global.sh
+```
+
+Installs to:
+- Skills → `~/.gemini/antigravity/skills/`
+- Workflows → `~/.gemini/antigravity/global_workflows/`
 
 ### Requirements
 
-- [Claude Code](https://docs.anthropic.com/claude-code) installed
-- One of:
-  - **Claude Max/Pro subscription** (recommended for individuals)
-  - **Anthropic API key** (`ANTHROPIC_API_KEY` environment variable)
+- Antigravity CLI installed
+- Node.js available for workflow commands that call `npx`
 
 ---
 
 ## Configuration
 
-### Project-Scoped Configuration (Recommended)
+### Project Rules (Recommended)
 
-Configure omc for the current project only:
+Place a `GEMINI.md` file in your project root for workspace-specific rules.
 
-```
-/oh-my-antigravity :omc-setup
-```
+### Global Rules
 
-- Creates `./.claude/CLAUDE.md` in your current project
-- Configuration applies only to this project
-- Won't affect other projects or global settings
-- **Safe**: Preserves your global CLAUDE.md
-
-### Global Configuration
-
-Configure omc for all Claude Code sessions:
+Place a `GEMINI.md` file at:
 
 ```
-/oh-my-antigravity :omc-setup
+~/.gemini/antigravity/GEMINI.md
 ```
 
-- Creates `~/.claude/CLAUDE.md` globally
-- Configuration applies to all projects
-- **Warning**: Completely overwrites existing `~/.claude/CLAUDE.md`
+### Settings
+
+Global settings live in:
+
+```
+~/.gemini/antigravity/settings.json
+```
+
+Use `/mcp-setup` to configure MCP servers.
 
 ### What Configuration Enables
 
@@ -85,53 +86,24 @@ Configure omc for all Claude Code sessions:
 
 ### Configuration Precedence
 
-If both configurations exist, **project-scoped takes precedence** over global:
+If both rules files exist, **project rules take precedence** over global:
 
 ```
-./.claude/CLAUDE.md  (project)   →  Overrides  →  ~/.claude/CLAUDE.md  (global)
+./GEMINI.md  (project)   →  Overrides  →  ~/.gemini/antigravity/GEMINI.md  (global)
 ```
 
 ### When to Re-run Setup
 
-- **First time**: Run after installation (choose project or global)
-- **After updates**: Re-run to get the latest configuration
-- **Different machines**: Run on each machine where you use Claude Code
-- **New projects**: Run `/oh-my-antigravity :omc-setup --local` in each project that needs omc
+- **First time**: Run after installation
+- **After updates**: Re-run to refresh `GEMINI.md`
+- **Different machines**: Run on each machine where you use Antigravity
 
-> **NOTE**: After updating the plugin (via `npm update`, `git pull`, or Claude Code's plugin update), you MUST re-run `/oh-my-antigravity :omc-setup` to apply the latest CLAUDE.md changes.
+### Skill Customization
 
-### Agent Customization
+Customize skills by editing:
 
-Edit agent files in `~/.claude/agents/` to customize behavior:
-
-```yaml
----
-name: architect
-description: Your custom description
-tools: Read, Grep, Glob, Bash, Edit
-model: opus  # or sonnet, haiku
----
-
-Your custom system prompt here...
-```
-
-### Project-Level Config
-
-Create `.claude/CLAUDE.md` in your project for project-specific instructions:
-
-```markdown
-# Project Context
-
-This is a TypeScript monorepo using:
-- Bun runtime
-- React for frontend
-- PostgreSQL database
-
-## Conventions
-- Use functional components
-- All API routes in /src/api
-- Tests alongside source files
-```
+- Project: `<project>/.agent/skills/<skill>/SKILL.md`
+- Global: `~/.gemini/antigravity/skills/<skill>/SKILL.md`
 
 ---
 
@@ -195,7 +167,7 @@ Always use `oh-my-antigravity :` prefix when calling via Task tool.
 
 ---
 
-## Skills (37 Total)
+## Skills (73 Total)
 
 ### Core Skills
 
@@ -284,48 +256,13 @@ All skills are available as slash commands with the prefix `/oh-my-antigravity :
 
 ---
 
-## Hooks System
+## Rules System
 
-oh-my-antigravity  includes 19 lifecycle hooks that enhance Claude Code's behavior.
+Antigravity does not support hooks. Persistent behavior is defined via rules.
 
-### Core Hooks
-
-| Hook | Description |
-|------|-------------|
-| `rules-injector` | Dynamic rules injection with YAML frontmatter parsing |
-| `omc-orchestrator` | Enforces orchestrator behavior and delegation |
-| `auto-slash-command` | Automatic slash command detection and execution |
-| `keyword-detector` | Magic keyword detection (ultrawork, search, analyze) |
-| `ralph-loop` | Self-referential development loop management |
-| `todo-continuation` | Ensures todo list completion |
-| `notepad` | Compaction-resilient memory system with three-tier storage |
-
-### Context & Recovery
-
-| Hook | Description |
-|------|-------------|
-| `context-window-limit-recovery` | Token limit error handling and recovery |
-| `preemptive-compaction` | Context usage monitoring to prevent limits |
-| `session-recovery` | Session state recovery on crashes |
-| `directory-readme-injector` | README context injection |
-
-### Quality & Validation
-
-| Hook | Description |
-|------|-------------|
-| `comment-checker` | BDD detection and directive filtering |
-| `thinking-block-validator` | Extended thinking validation |
-| `empty-message-sanitizer` | Empty message handling |
-| `edit-error-recovery` | Automatic recovery from edit errors |
-| `post-tool-use` | Remember tag auto-capture to notepad system |
-
-### Environment & Notifications
-
-| Hook | Description |
-|------|-------------|
-| `non-interactive-env` | CI/non-interactive environment handling |
-| `agent-usage-reminder` | Reminder to use specialized agents |
-| `background-notification` | Background task completion notifications |
+- Project rules: `./GEMINI.md`
+- Global rules: `~/.gemini/antigravity/GEMINI.md`
+- Legacy hook replacements: `docs/HOOKS_MIGRATION.md`
 
 ---
 
@@ -353,7 +290,7 @@ Just include these words anywhere in your prompt to activate enhanced modes:
 ### Examples
 
 ```bash
-# In Claude Code:
+# In Antigravity:
 
 # Maximum parallelism
 ultrawork implement user authentication with OAuth
@@ -395,15 +332,11 @@ pipeline: analyze → fix → test this bug
 
 ### Operating Systems
 
-| Platform | Install Method | Hook Type |
-|----------|---------------|-----------|
-| **Windows** | `npm install -g` | Node.js (.mjs) |
-| **macOS** | curl or npm | Bash (.sh) |
-| **Linux** | curl or npm | Bash (.sh) |
-
-> **Note**: Bash hooks are fully portable across macOS and Linux (no GNU-specific dependencies).
-
-> **Advanced**: Set `OMC_USE_NODE_HOOKS=1` to use Node.js hooks on macOS/Linux.
+| Platform | Install Method |
+|----------|----------------|
+| **Windows** | `install_global.sh` (Git Bash / WSL) |
+| **macOS** | `install_global.sh` |
+| **Linux** | `install_global.sh` |
 
 ### Available Tools
 
@@ -478,21 +411,18 @@ Installs or repairs the HUD statusline for real-time status updates.
 | Issue | Solution |
 |-------|----------|
 | Commands not found | Re-run `/oh-my-antigravity :omc-setup` |
-| Hooks not executing | Check hook permissions: `chmod +x ~/.claude/hooks/**/*.sh` |
-| Agents not delegating | Verify CLAUDE.md is loaded: check `./.claude/CLAUDE.md` or `~/.claude/CLAUDE.md` |
+| Rules not applying | Verify `GEMINI.md` exists (project or global) |
 | LSP tools not working | Install language servers: `npm install -g typescript-language-server` |
 | Token limit errors | Use `/oh-my-antigravity :ecomode` for token-efficient execution |
 
-### Auto-Update
+### Updates
 
-oh-my-antigravity  includes a silent auto-update system that checks for updates in the background.
+To update, pull the latest repository changes and re-run the installer scripts:
 
-Features:
-- **Rate-limited**: Checks at most once every 24 hours
-- **Concurrent-safe**: Lock file prevents simultaneous update attempts
-- **Cross-platform**: Works on both macOS and Linux
-
-To manually update, re-run the plugin install command or use Claude Code's built-in update mechanism.
+```bash
+git pull
+./install_global.sh
+```
 
 ### Uninstall
 
@@ -500,11 +430,11 @@ To manually update, re-run the plugin install command or use Claude Code's built
 curl -fsSL https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/scripts/uninstall.sh | bash
 ```
 
-Or manually:
+Or manually remove installed files:
 
 ```bash
-rm ~/.claude/agents/{architect,researcher,explore,designer,writer,vision,critic,analyst,executor,qa-tester}.md
-rm ~/.claude/commands/{analyze,autopilot,deepsearch,plan,review,ultrawork}.md
+rm -rf ~/.gemini/antigravity/skills
+rm -rf ~/.gemini/antigravity/global_workflows
 ```
 
 ---

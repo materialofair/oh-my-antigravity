@@ -4,7 +4,7 @@
 
 ## Overview
 
-oh-my-antigravity  enables Claude Code to orchestrate specialized agents through a skill-based routing system.
+oh-my-antigravity  enables Antigravity to orchestrate specialized agents through a skill-based routing system.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -17,7 +17,7 @@ oh-my-antigravity  enables Claude Code to orchestrate specialized agents through
        │                                │                              │
        ▼                                ▼                              ▼
 ┌─────────────┐              ┌──────────────────┐           ┌─────────────────┐
-│  "ultrawork │              │   CLAUDE.md      │           │ SKILL ACTIVATED │
+│  "ultrawork │              │   GEMINI.md      │           │ SKILL ACTIVATED │
 │   refactor  │─────────────▶│   Auto-Routing   │──────────▶│                 │
 │   the API"  │              │                  │           │ ultrawork +     │
 └─────────────┘              │ Task Type:       │           │ default +       │
@@ -108,23 +108,17 @@ Skills compose in layers:
 State files follow standardized locations:
 
 **Local Project State:**
-- `.omc/state/{name}.json` - Session state (ultrapilot, swarm, pipeline)
-- `.omc/notepads/{plan-name}/` - Plan-scoped wisdom capture
+- `.oma/state/{name}.json` - Session state (ultrapilot, swarm, pipeline)
+- `.oma/notepads/{plan-name}/` - Plan-scoped wisdom capture
 
 **Global State:**
-- `~/.omc/state/{name}.json` - User preferences and global config
+- `~/.gemini/antigravity/.oma/` - User preferences and global config
 
 Legacy locations are auto-migrated on read.
 
-## Hooks
+## Rules
 
-oh-my-antigravity  uses Claude Code's hooks system for lifecycle events:
-
-- **conversationStart**: Initialize OMC, check for active modes
-- **beforeRequest**: Task delegation, skill routing
-- **afterResponse**: State updates, verification checks
-
-Hooks are defined in `.claude/hooks/` and managed through the plugin system.
+Antigravity does not support hooks. Behavioral rules live in `GEMINI.md`.
 
 ## Verification Protocol
 
@@ -145,4 +139,4 @@ Evidence must be fresh (within 5 minutes) and include actual command output.
 
 - **API Reference**: See [FEATURES.md](./FEATURES.md)
 - **User Guide**: See [README.md](../README.md)
-- **Skills Reference**: See CLAUDE.md in your project
+- **Skills Reference**: See `.agent/` and `GEMINI.md` in your project

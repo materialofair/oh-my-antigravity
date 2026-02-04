@@ -24,7 +24,7 @@ oh-my-antigravity  enhances Antigravity with:
 | `package.json` | Project dependencies and npm scripts |
 | `tsconfig.json` | TypeScript configuration |
 | `CHANGELOG.md` | Version history and release notes |
-| `ANTIGRAVITY.md` | Main orchestration instructions (loaded by Antigravity) |
+| `GEMINI.md` | Rules file loaded by Antigravity |
 | `src/index.ts` | Main entry point - exports `createSisyphusSession()` |
 
 ## Subdirectories
@@ -105,8 +105,8 @@ import { allCustomTools, lspTools, astTools } from './tools';
 ├─────────────────────────────────────────────────────────────┤
 │                  oh-my-antigravity  (OMA)                     │
 │  ┌─────────────┬─────────────┬─────────────┬─────────────┐  │
-│  │   Skills    │   Agents    │    Tools    │   Hooks     │  │
-│  │ (32 skills) │ (32 agents) │(LSP/AST/REPL)│ (30+ hooks)│  │
+│  │   Skills    │   Agents    │    Tools    │   Rules     │  │
+│  │ (73 skills) │ (32 agents) │(LSP/AST/REPL)│ (GEMINI.md)│  │
 │  └─────────────┴─────────────┴─────────────┴─────────────┘  │
 │  ┌─────────────────────────────────────────────────────────┐│
 │  │              Features Layer                             ││
@@ -191,15 +191,14 @@ ast_grep_replace  // AST-aware code transformation (dry-run by default)
 |------|---------|
 | `.oma/state/*.json` | Execution mode state (autopilot, swarm, etc.) |
 | `.oma/notepads/` | Plan-scoped wisdom (learnings, decisions, issues) |
-| `~/.oma/state/` | Global state |
-| `~/.antigravity/.oma/` | Legacy state (auto-migrated) |
+| `~/.gemini/antigravity/.oma/` | Global state |
 
 ## Dependencies
 
 ### Runtime
 | Package | Purpose |
 |---------|---------|
-| `@anthropic-ai/claude-agent-sdk` | Antigravity integration |
+| Antigravity CLI | External runtime integration |
 | `@ast-grep/napi` | AST-based code search/replace |
 | `vscode-languageserver-protocol` | LSP types |
 | `zod` | Runtime schema validation |
@@ -226,22 +225,13 @@ npm run lint            # ESLint
 npm run sync-metadata   # Sync agent/skill metadata
 ```
 
-## Hook System (30+)
+## Rules System
 
-Key hooks in `src/hooks/`:
-- `autopilot/` - Full autonomous execution
-- `ralph/` - Persistence until verified
-- `ultrawork/` - Parallel execution
-- `ultrapilot/` - Parallel autopilot with ownership
-- `swarm/` - Coordinated multi-agent
-- `learner/` - Skill extraction
-- `recovery/` - Error recovery
-- `rules-injector/` - Rule file injection
-- `think-mode/` - Enhanced reasoning
+Antigravity uses `GEMINI.md` for persistent behavioral rules.
 
 ## Configuration
 
-Settings in `~/.antigravity/settings.local.json` or `.oma-config.json`:
+Settings in `~/.gemini/antigravity/settings.local.json` or `~/.gemini/antigravity/.oma-config.json`:
 
 ```json
 {

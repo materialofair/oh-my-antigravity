@@ -1,5 +1,8 @@
 # MCP/Plugin Compatibility Layer
 
+> **Legacy (Claude Code)**: This document is preserved for historical reference. It does not apply to Antigravity. See `README.md` and `docs/REFERENCE.md` for current guidance.
+
+
 The Compatibility Layer enables oh-my-antigravity  to discover, register, and use external plugins, MCP servers, and tools. It provides a unified interface for managing external tools while maintaining security through an integrated permission system.
 
 ## Table of Contents

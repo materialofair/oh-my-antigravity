@@ -1,8 +1,8 @@
 ---
 name: hud
 description: Configure HUD display options (layout, presets, display elements)
-role: config-writer  # DOCUMENTATION ONLY - This skill writes to ~/.antigravity/ paths
-scope: ~/.antigravity/**  # DOCUMENTATION ONLY - Allowed write scope
+role: config-writer  # DOCUMENTATION ONLY - This skill writes to ~/.gemini/antigravity/ paths
+scope: ~/.gemini/antigravity/**  # DOCUMENTATION ONLY - Allowed write scope
 ---
 
 # HUD Skill
@@ -23,26 +23,26 @@ Configure the OMA HUD (Heads-Up Display) for the statusline.
 ## Auto-Setup
 
 When you run `/oh-my-antigravity :hud` or `/oh-my-antigravity :hud setup`, the system will automatically:
-1. Check if `~/.antigravity/hud/oma-hud.mjs` exists
-2. Check if `statusLine` is configured in `~/.antigravity/settings.json`
+1. Check if `~/.gemini/antigravity/hud/oma-hud.mjs` exists
+2. Check if `statusLine` is configured in `~/.gemini/antigravity/settings.json`
 3. If missing, create the HUD wrapper script and configure settings
 4. Report status and prompt to restart Antigravity if changes were made
 
-**IMPORTANT**: If the argument is `setup` OR if the HUD script doesn't exist at `~/.antigravity/hud/oma-hud.mjs`, you MUST create the HUD files directly using the instructions below.
+**IMPORTANT**: If the argument is `setup` OR if the HUD script doesn't exist at `~/.gemini/antigravity/hud/oma-hud.mjs`, you MUST create the HUD files directly using the instructions below.
 
 ### Setup Instructions (Run These Commands)
 
 **Step 1:** Check if setup is needed:
 ```bash
-ls ~/.antigravity/hud/oma-hud.mjs 2>/dev/null && echo "EXISTS" || echo "MISSING"
+ls ~/.gemini/antigravity/hud/oma-hud.mjs 2>/dev/null && echo "EXISTS" || echo "MISSING"
 ```
 
 **Step 2:** Check if the plugin is built (CRITICAL - common issue!):
 ```bash
 # Find the latest version and check if dist/hud/index.js exists
-PLUGIN_VERSION=$(ls ~/.antigravity/plugins/cache/oma/oh-my-antigravity / 2>/dev/null | sort -V | tail -1)
+PLUGIN_VERSION=$(ls ~/.gemini/antigravity/plugins/cache/oma/oh-my-antigravity / 2>/dev/null | sort -V | tail -1)
 if [ -n "$PLUGIN_VERSION" ]; then
-  ls ~/.antigravity/plugins/cache/oma/oh-my-antigravity /$PLUGIN_VERSION/dist/hud/index.js 2>/dev/null && echo "BUILT" || echo "NOT_BUILT"
+  ls ~/.gemini/antigravity/plugins/cache/oma/oh-my-antigravity /$PLUGIN_VERSION/dist/hud/index.js 2>/dev/null && echo "BUILT" || echo "NOT_BUILT"
 fi
 ```
 
@@ -52,7 +52,7 @@ fi
 
 **THE FIX:** Run npm install in the plugin directory to build it:
 ```bash
-cd ~/.antigravity/plugins/cache/oma/oh-my-antigravity /$PLUGIN_VERSION && npm install
+cd ~/.gemini/antigravity/plugins/cache/oma/oh-my-antigravity /$PLUGIN_VERSION && npm install
 ```
 
 This will:
@@ -66,10 +66,10 @@ This will:
 
 First, create the directory:
 ```bash
-mkdir -p ~/.antigravity/hud
+mkdir -p ~/.gemini/antigravity/hud
 ```
 
-Then, use the Write tool to create `~/.antigravity/hud/oma-hud.mjs` with this exact content:
+Then, use the Write tool to create `~/.gemini/antigravity/hud/oma-hud.mjs` with this exact content:
 
 ```javascript
 #!/usr/bin/env node
@@ -100,7 +100,7 @@ async function main() {
   let pluginCacheDir = null;
 
   // 1. Try plugin cache first (marketplace: oma, plugin: oh-my-antigravity )
-  const pluginCacheBase = join(home, ".antigravity/plugins/cache/oma/oh-my-antigravity ");
+  const pluginCacheBase = join(home, ".gemini/antigravity/plugins/cache/oma/oh-my-antigravity ");
   if (existsSync(pluginCacheBase)) {
     try {
       const versions = readdirSync(pluginCacheBase);
@@ -146,18 +146,18 @@ main();
 
 **Step 3:** Make it executable:
 ```bash
-chmod +x ~/.antigravity/hud/oma-hud.mjs
+chmod +x ~/.gemini/antigravity/hud/oma-hud.mjs
 ```
 
 **Step 4:** Update settings.json to use the HUD:
 
-Read `~/.antigravity/settings.json`, then update/add the `statusLine` field.
+Read `~/.gemini/antigravity/settings.json`, then update/add the `statusLine` field.
 
 **IMPORTANT:** The command must use an absolute path, not `~`, because Windows does not expand `~` in shell commands.
 
 First, determine the correct path:
 ```bash
-node -e "const p=require('path').join(require('os').homedir(),'.antigravity','hud','oma-hud.mjs');console.log(JSON.stringify(p))"
+node -e "const p=require('path').join(require('os').homedir(),'.gemini','antigravity','hud','oma-hud.mjs');console.log(JSON.stringify(p))"
 ```
 
 Then set the `statusLine` field using the resolved path. On Unix it will look like:
@@ -165,7 +165,7 @@ Then set the `statusLine` field using the resolved path. On Unix it will look li
 {
   "statusLine": {
     "type": "command",
-    "command": "node /home/username/.antigravity/hud/oma-hud.mjs"
+    "command": "node /home/username/.agent/hud/oma-hud.mjs"
   }
 }
 ```
@@ -175,7 +175,7 @@ On Windows it will look like:
 {
   "statusLine": {
     "type": "command",
-    "command": "node C:\\Users\\username\\.antigravity\\hud\\oma-hud.mjs"
+    "command": "node C:\\Users\\username\\.gemini\\antigravity\\hud\\oma-hud.mjs"
   }
 }
 ```
@@ -184,7 +184,7 @@ Use the Edit tool to add/update this field while preserving other settings.
 
 **Step 5:** Clean up old HUD scripts (if any):
 ```bash
-rm -f ~/.antigravity/hud/sisyphus-hud.mjs 2>/dev/null
+rm -f ~/.gemini/antigravity/hud/sisyphus-hud.mjs 2>/dev/null
 ```
 
 **Step 6:** Tell the user to restart Antigravity for changes to take effect.
@@ -242,7 +242,7 @@ When agents are running, the HUD shows detailed information on separate lines:
 
 ## Configuration Location
 
-HUD config is stored at: `~/.antigravity/.oma/hud-config.json`
+HUD config is stored at: `~/.gemini/antigravity/.oma/hud-config.json`
 
 ## Manual Configuration
 
@@ -280,8 +280,8 @@ If the HUD is not showing:
 3. If still not working, run `/oh-my-antigravity :doctor` for full diagnostics
 
 Manual verification:
-- HUD script: `~/.antigravity/hud/oma-hud.mjs`
-- Settings: `~/.antigravity/settings.json` should have `statusLine` configured
+- HUD script: `~/.gemini/antigravity/hud/oma-hud.mjs`
+- Settings: `~/.gemini/antigravity/settings.json` should have `statusLine` configured
 
 ---
 

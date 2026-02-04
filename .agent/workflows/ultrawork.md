@@ -30,7 +30,7 @@ This skill enhances Antigravity's capabilities by:
 | **UI work** | ✗ NEVER | designer/designer-high |
 | **Docs** | ✗ NEVER | writer |
 
-**Path Exception**: Only write to `.oma/`, `.antigravity/`, `ANTIGRAVITY.md`, `AGENTS.md`
+**Path Exception**: Only write to `.oma/`, `.agent/`, `GEMINI.md`, `AGENTS.md`
 
 The PreToolUse hook will warn you if you attempt direct code changes.
 

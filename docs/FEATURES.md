@@ -528,7 +528,7 @@ import {
   getValidationStatus,
   generateSummary,
   formatSummary
-} from '@/hooks/autopilot';
+} from '@/core/autopilot';
 
 // Initialize session
 const idea = 'Create a REST API for todo management with authentication';

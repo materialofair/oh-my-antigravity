@@ -1,5 +1,8 @@
 # OMC Analytics System
 
+> **Legacy (Claude Code)**: This document is preserved for historical reference. It does not apply to Antigravity. See `README.md` and `docs/REFERENCE.md` for current guidance.
+
+
 ## Overview
 
 Automatic token tracking and cost estimation for Claude API usage in oh-my-antigravity .

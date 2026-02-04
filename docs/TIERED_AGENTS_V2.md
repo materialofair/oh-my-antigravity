@@ -1,5 +1,8 @@
 # Tiered Agents v2 Architecture Design
 
+> **Legacy (Claude Code)**: This document is preserved for historical reference. It does not apply to Antigravity. See `README.md` and `docs/REFERENCE.md` for current guidance.
+
+
 ## Overview
 
 This document describes an improved tiered agent architecture that addresses current gaps and implements sophisticated patterns for model routing, capability inheritance, and dynamic escalation.

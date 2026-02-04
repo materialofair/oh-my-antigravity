@@ -1,5 +1,8 @@
 # Project Session Manager (PSM) - Design Document
 
+> **Legacy (Claude Code)**: This document is preserved for historical reference. It does not apply to Antigravity. See `README.md` and `docs/REFERENCE.md` for current guidance.
+
+
 > **Skill Name:** `project-session-manager` (alias: `psm`)
 > **Version:** 1.0.0
 > **Author:** oh-my-antigravity 

@@ -23,7 +23,7 @@ Analyzes your oh-my-antigravity  usage and provides tailored recommendations to 
 # Check for token tracking data
 TOKEN_FILE="$HOME/.oma/state/token-tracking.jsonl"
 SESSION_FILE=".oma/state/session-history.json"
-CONFIG_FILE="$HOME/.antigravity/.oma-config.json"
+CONFIG_FILE="$HOME/.gemini/antigravity/.oma-config.json"
 
 echo "📊 Analyzing OMA Usage..."
 echo ""

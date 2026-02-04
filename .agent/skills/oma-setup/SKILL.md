@@ -110,8 +110,8 @@ echo "Setup completed successfully. State cleared."
 This skill handles three scenarios:
 
 1. **Initial Setup (no flags)**: First-time installation wizard
-2. **Local Configuration (`--local`)**: Configure project-specific settings (.antigravity/ANTIGRAVITY.md)
-3. **Global Configuration (`--global`)**: Configure global settings (~/.antigravity/ANTIGRAVITY.md)
+2. **Local Configuration (`--local`)**: Configure project-specific settings (GEMINI.md)
+3. **Global Configuration (`--global`)**: Configure global settings (~/.gemini/antigravity/GEMINI.md)
 
 ## Mode Detection
 
@@ -129,64 +129,51 @@ Use the notify_user tool to prompt the user:
 **Question:** "Where should I configure oh-my-antigravity ?"
 
 **Options:**
-1. **Local (this project)** - Creates `.antigravity/ANTIGRAVITY.md` in current project directory. Best for project-specific configurations.
-2. **Global (all projects)** - Creates `~/.antigravity/ANTIGRAVITY.md` for all Antigravity sessions. Best for consistent behavior everywhere.
+1. **Local (this project)** - Creates `GEMINI.md` in current project directory. Best for project-specific configurations.
+2. **Global (all projects)** - Creates `~/.gemini/antigravity/GEMINI.md` for all Antigravity sessions. Best for consistent behavior everywhere.
 
 ## Step 2A: Local Configuration (--local flag or user chose LOCAL)
 
-**CRITICAL**: This ALWAYS downloads fresh ANTIGRAVITY.md from GitHub to the local project. DO NOT use the Write tool - use bash curl exclusively.
+**CRITICAL**: This ALWAYS downloads fresh GEMINI.md from GitHub to the local project. DO NOT use the Write tool - use bash curl exclusively.
 
-### Create Local .antigravity Directory
-
-```bash
-# Create .antigravity directory in current project
-mkdir -p .antigravity && echo ".antigravity directory ready"
-```
-
-### Download Fresh ANTIGRAVITY.md
+### Download Fresh GEMINI.md
 
 ```bash
 # Extract old version before download
-OLD_VERSION=$(grep -m1 "^# oh-my-antigravity " .antigravity/ANTIGRAVITY.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "none")
+OLD_VERSION=$(grep -m1 "^# oh-my-antigravity " GEMINI.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "none")
 
-# Backup existing ANTIGRAVITY.md before overwriting (if it exists)
-if [ -f ".antigravity/ANTIGRAVITY.md" ]; then
+# Backup existing GEMINI.md before overwriting (if it exists)
+if [ -f "GEMINI.md" ]; then
   BACKUP_DATE=$(date +%Y-%m-%d)
-  BACKUP_PATH=".antigravity/ANTIGRAVITY.md.backup.${BACKUP_DATE}"
-  cp .antigravity/ANTIGRAVITY.md "$BACKUP_PATH"
-  echo "Backed up existing ANTIGRAVITY.md to $BACKUP_PATH"
+  BACKUP_PATH="GEMINI.md.backup.${BACKUP_DATE}"
+  cp GEMINI.md "$BACKUP_PATH"
+  echo "Backed up existing GEMINI.md to $BACKUP_PATH"
 fi
 
-# Download fresh ANTIGRAVITY.md from GitHub
-curl -fsSL "https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/docs/ANTIGRAVITY.md" -o .antigravity/ANTIGRAVITY.md && \
-echo "Downloaded ANTIGRAVITY.md to .antigravity/ANTIGRAVITY.md"
+# Download fresh GEMINI.md from GitHub
+curl -fsSL "https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/GEMINI.md" -o GEMINI.md && \
+echo "Downloaded GEMINI.md to GEMINI.md"
 
 # Extract new version and report
-NEW_VERSION=$(grep -m1 "^# oh-my-antigravity " .antigravity/ANTIGRAVITY.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "unknown")
+NEW_VERSION=$(grep -m1 "^# oh-my-antigravity " GEMINI.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "unknown")
 if [ "$OLD_VERSION" = "none" ]; then
-  echo "Installed ANTIGRAVITY.md: $NEW_VERSION"
+  echo "Installed GEMINI.md: $NEW_VERSION"
 elif [ "$OLD_VERSION" = "$NEW_VERSION" ]; then
-  echo "ANTIGRAVITY.md unchanged: $NEW_VERSION"
+  echo "GEMINI.md unchanged: $NEW_VERSION"
 else
-  echo "Updated ANTIGRAVITY.md: $OLD_VERSION -> $NEW_VERSION"
+  echo "Updated GEMINI.md: $OLD_VERSION -> $NEW_VERSION"
 fi
 ```
 
-**Note**: The downloaded ANTIGRAVITY.md includes Context Persistence instructions with `<remember>` tags for surviving conversation compaction.
+**Note**: The downloaded GEMINI.md includes Context Persistence instructions with `<remember>` tags for surviving conversation compaction.
 
-**Note**: If an existing ANTIGRAVITY.md is found, it will be backed up to `.antigravity/ANTIGRAVITY.md.backup.YYYY-MM-DD` before downloading the new version.
+**Note**: If an existing GEMINI.md is found, it will be backed up to `GEMINI.md.backup.YYYY-MM-DD` before downloading the new version.
 
 **MANDATORY**: Always run this command. Do NOT skip. Do NOT use Write tool.
 
 **FALLBACK** if curl fails:
 Tell user to manually download from:
-https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/docs/ANTIGRAVITY.md
-
-### Verify Plugin Installation
-
-```bash
-grep -q "oh-my-antigravity " ~/.antigravity/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: antigravity /install-plugin oh-my-antigravity "
-```
+https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/GEMINI.md
 
 ### Confirm Local Configuration Success
 
@@ -205,10 +192,10 @@ EOF
 ```
 
 **OMA Project Configuration Complete**
-- ANTIGRAVITY.md: Updated with latest configuration from GitHub at ./.antigravity/ANTIGRAVITY.md
-- Backup: Previous ANTIGRAVITY.md backed up to `.antigravity/ANTIGRAVITY.md.backup.YYYY-MM-DD` (if existed)
+- GEMINI.md: Updated with latest configuration from GitHub at ./GEMINI.md
+- Backup: Previous GEMINI.md backed up to `GEMINI.md.backup.YYYY-MM-DD` (if existed)
 - Scope: **PROJECT** - applies only to this project
-- Hooks: Provided by plugin (no manual installation needed)
+- Hooks: Not supported (legacy hooks removed if present)
 - Agents: 28+ available (base + tiered variants)
 - Model routing: Haiku/Sonnet/Opus based on task complexity
 
@@ -222,61 +209,55 @@ Do not continue to HUD setup or other steps.
 
 ## Step 2B: Global Configuration (--global flag or user chose GLOBAL)
 
-**CRITICAL**: This ALWAYS downloads fresh ANTIGRAVITY.md from GitHub to global config. DO NOT use the Write tool - use bash curl exclusively.
+**CRITICAL**: This ALWAYS downloads fresh GEMINI.md from GitHub to global config. DO NOT use the Write tool - use bash curl exclusively.
 
-### Download Fresh ANTIGRAVITY.md
+### Download Fresh GEMINI.md
 
 ```bash
 # Extract old version before download
-OLD_VERSION=$(grep -m1 "^# oh-my-antigravity " ~/.antigravity/ANTIGRAVITY.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "none")
+OLD_VERSION=$(grep -m1 "^# oh-my-antigravity " ~/.gemini/antigravity/GEMINI.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "none")
 
-# Backup existing ANTIGRAVITY.md before overwriting (if it exists)
-if [ -f "$HOME/.antigravity/ANTIGRAVITY.md" ]; then
+# Backup existing GEMINI.md before overwriting (if it exists)
+if [ -f "$HOME/GEMINI.md" ]; then
   BACKUP_DATE=$(date +%Y-%m-%d)
-  BACKUP_PATH="$HOME/.antigravity/ANTIGRAVITY.md.backup.${BACKUP_DATE}"
-  cp "$HOME/.antigravity/ANTIGRAVITY.md" "$BACKUP_PATH"
-  echo "Backed up existing ANTIGRAVITY.md to $BACKUP_PATH"
+  BACKUP_PATH="$HOME/GEMINI.md.backup.${BACKUP_DATE}"
+  cp "$HOME/GEMINI.md" "$BACKUP_PATH"
+  echo "Backed up existing GEMINI.md to $BACKUP_PATH"
 fi
 
-# Download fresh ANTIGRAVITY.md to global config
-curl -fsSL "https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/docs/ANTIGRAVITY.md" -o ~/.antigravity/ANTIGRAVITY.md && \
-echo "Downloaded ANTIGRAVITY.md to ~/.antigravity/ANTIGRAVITY.md"
+# Download fresh GEMINI.md to global config
+curl -fsSL "https://raw.githubusercontent.com/Yeachan-Heo/oh-my-antigravity /main/GEMINI.md" -o ~/.gemini/antigravity/GEMINI.md && \
+echo "Downloaded GEMINI.md to ~/.gemini/antigravity/GEMINI.md"
 
 # Extract new version and report
-NEW_VERSION=$(grep -m1 "^# oh-my-antigravity " ~/.antigravity/ANTIGRAVITY.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "unknown")
+NEW_VERSION=$(grep -m1 "^# oh-my-antigravity " ~/.gemini/antigravity/GEMINI.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "unknown")
 if [ "$OLD_VERSION" = "none" ]; then
-  echo "Installed ANTIGRAVITY.md: $NEW_VERSION"
+  echo "Installed GEMINI.md: $NEW_VERSION"
 elif [ "$OLD_VERSION" = "$NEW_VERSION" ]; then
-  echo "ANTIGRAVITY.md unchanged: $NEW_VERSION"
+  echo "GEMINI.md unchanged: $NEW_VERSION"
 else
-  echo "Updated ANTIGRAVITY.md: $OLD_VERSION -> $NEW_VERSION"
+  echo "Updated GEMINI.md: $OLD_VERSION -> $NEW_VERSION"
 fi
 ```
 
-**Note**: If an existing ANTIGRAVITY.md is found, it will be backed up to `~/.antigravity/ANTIGRAVITY.md.backup.YYYY-MM-DD` before downloading the new version.
+**Note**: If an existing GEMINI.md is found, it will be backed up to `~/.gemini/antigravity/GEMINI.md.backup.YYYY-MM-DD` before downloading the new version.
 
 ### Clean Up Legacy Hooks (if present)
 
 Check if old manual hooks exist and remove them to prevent duplicates:
 
 ```bash
-# Remove legacy bash hook scripts (now handled by plugin system)
-rm -f ~/.antigravity/hooks/keyword-detector.sh
-rm -f ~/.antigravity/hooks/stop-continuation.sh
-rm -f ~/.antigravity/hooks/persistent-mode.sh
-rm -f ~/.antigravity/hooks/session-start.sh
+# Remove legacy bash hook scripts (hooks are not supported)
+rm -f ~/.gemini/antigravity/hooks/keyword-detector.sh
+rm -f ~/.gemini/antigravity/hooks/stop-continuation.sh
+rm -f ~/.gemini/antigravity/hooks/persistent-mode.sh
+rm -f ~/.gemini/antigravity/hooks/session-start.sh
 echo "Legacy hooks cleaned"
 ```
 
-Check `~/.antigravity/settings.json` for manual hook entries. If the "hooks" key exists with UserPromptSubmit, Stop, or SessionStart entries pointing to bash scripts, inform the user:
+Check `~/.gemini/antigravity/settings.json` for manual hook entries. If the "hooks" key exists with UserPromptSubmit, Stop, or SessionStart entries pointing to bash scripts, inform the user:
 
-> **Note**: Found legacy hooks in settings.json. These should be removed since the plugin now provides hooks automatically. Remove the "hooks" section from ~/.antigravity/settings.json to prevent duplicate hook execution.
-
-### Verify Plugin Installation
-
-```bash
-grep -q "oh-my-antigravity " ~/.antigravity/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: antigravity /install-plugin oh-my-antigravity "
-```
+> **Note**: Found legacy hooks in settings.json. Antigravity does not support hooks; remove the "hooks" section from ~/.gemini/antigravity/settings.json.
 
 ### Confirm Global Configuration Success
 
@@ -295,14 +276,12 @@ EOF
 ```
 
 **OMA Global Configuration Complete**
-- ANTIGRAVITY.md: Updated with latest configuration from GitHub at ~/.antigravity/ANTIGRAVITY.md
-- Backup: Previous ANTIGRAVITY.md backed up to `~/.antigravity/ANTIGRAVITY.md.backup.YYYY-MM-DD` (if existed)
+- GEMINI.md: Updated with latest configuration from GitHub at ~/.gemini/antigravity/GEMINI.md
+- Backup: Previous GEMINI.md backed up to `~/.gemini/antigravity/GEMINI.md.backup.YYYY-MM-DD` (if existed)
 - Scope: **GLOBAL** - applies to all Antigravity sessions
-- Hooks: Provided by plugin (no manual installation needed)
+- Hooks: Not supported (legacy hooks removed if present)
 - Agents: 28+ available (base + tiered variants)
 - Model routing: Haiku/Sonnet/Opus based on task complexity
-
-**Note**: Hooks are now managed by the plugin system automatically. No manual hook installation required.
 
 If `--global` flag was used, clear state and **STOP HERE**:
 ```bash
@@ -319,8 +298,8 @@ The HUD shows real-time status in Antigravity's status bar. **Invoke the hud ski
 Use the Skill tool to invoke: `hud` with args: `setup`
 
 This will:
-1. Install the HUD wrapper script to `~/.antigravity/hud/oma-hud.mjs`
-2. Configure `statusLine` in `~/.antigravity/settings.json`
+1. Install the HUD wrapper script to `~/.gemini/antigravity/hud/oma-hud.mjs`
+2. Configure `statusLine` in `~/.gemini/antigravity/settings.json`
 3. Report status and prompt to restart if needed
 
 After HUD setup completes, save progress:
@@ -337,76 +316,7 @@ cat > ".oma/state/setup-state.json" << EOF
 EOF
 ```
 
-## Step 3.5: Clear Stale Plugin Cache
-
-Clear old cached plugin versions to avoid conflicts:
-
-```bash
-# Clear stale plugin cache versions
-CACHE_DIR="$HOME/.antigravity/plugins/cache/oma/oh-my-antigravity "
-if [ -d "$CACHE_DIR" ]; then
-  LATEST=$(ls -1 "$CACHE_DIR" | sort -V | tail -1)
-  CLEARED=0
-  for dir in "$CACHE_DIR"/*; do
-    if [ "$(basename "$dir")" != "$LATEST" ]; then
-      rm -rf "$dir"
-      CLEARED=$((CLEARED + 1))
-    fi
-  done
-  [ $CLEARED -gt 0 ] && echo "Cleared $CLEARED stale cache version(s)" || echo "Cache is clean"
-else
-  echo "No cache directory found (normal for new installs)"
-fi
-```
-
-## Step 3.6: Check for Updates
-
-Notify user if a newer version is available:
-
-```bash
-# Detect installed version
-INSTALLED_VERSION=""
-
-# Try cache directory first
-if [ -d "$HOME/.antigravity/plugins/cache/oma/oh-my-antigravity " ]; then
-  INSTALLED_VERSION=$(ls -1 "$HOME/.antigravity/plugins/cache/oma/oh-my-antigravity " | sort -V | tail -1)
-fi
-
-# Try .oma-version.json second
-if [ -z "$INSTALLED_VERSION" ] && [ -f ".oma-version.json" ]; then
-  INSTALLED_VERSION=$(grep -oE '"version":\s*"[^"]+' .oma-version.json | cut -d'"' -f4)
-fi
-
-# Try ANTIGRAVITY.md header third (local first, then global)
-if [ -z "$INSTALLED_VERSION" ]; then
-  if [ -f ".antigravity/ANTIGRAVITY.md" ]; then
-    INSTALLED_VERSION=$(grep -m1 "^# oh-my-antigravity " .antigravity/ANTIGRAVITY.md 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | sed 's/^v//')
-  elif [ -f "$HOME/.antigravity/ANTIGRAVITY.md" ]; then
-    INSTALLED_VERSION=$(grep -m1 "^# oh-my-antigravity " "$HOME/.antigravity/ANTIGRAVITY.md" 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | sed 's/^v//')
-  fi
-fi
-
-# Check npm for latest version
-LATEST_VERSION=$(npm view oh-my-antigravity version 2>/dev/null)
-
-if [ -n "$INSTALLED_VERSION" ] && [ -n "$LATEST_VERSION" ]; then
-  # Simple version comparison (assumes semantic versioning)
-  if [ "$INSTALLED_VERSION" != "$LATEST_VERSION" ]; then
-    echo ""
-    echo "UPDATE AVAILABLE:"
-    echo "  Installed: v$INSTALLED_VERSION"
-    echo "  Latest:    v$LATEST_VERSION"
-    echo ""
-    echo "To update, run: antigravity /install-plugin oh-my-antigravity "
-  else
-    echo "You're on the latest version: v$INSTALLED_VERSION"
-  fi
-elif [ -n "$LATEST_VERSION" ]; then
-  echo "Latest version available: v$LATEST_VERSION"
-fi
-```
-
-## Step 3.7: Set Default Execution Mode
+## Step 3.5: Set Default Execution Mode
 
 Use the notify_user tool to prompt the user:
 
@@ -416,11 +326,11 @@ Use the notify_user tool to prompt the user:
 1. **ultrawork (maximum capability)** - Uses all agent tiers including Opus for complex tasks. Best for challenging work where quality matters most. (Recommended)
 2. **ecomode (token efficient)** - Prefers Haiku/Sonnet agents, avoids Opus. Best for pro-plan users who want cost efficiency.
 
-Store the preference in `~/.antigravity/.oma-config.json`:
+Store the preference in `~/.gemini/antigravity/.oma-config.json`:
 
 ```bash
 # Read existing config or create empty object
-CONFIG_FILE="$HOME/.antigravity/.oma-config.json"
+CONFIG_FILE="$HOME/.gemini/antigravity/.oma-config.json"
 mkdir -p "$(dirname "$CONFIG_FILE")"
 
 if [ -f "$CONFIG_FILE" ]; then
@@ -435,32 +345,6 @@ echo "Default execution mode set to: USER_CHOICE"
 ```
 
 **Note**: This preference ONLY affects generic keywords ("fast", "parallel"). Explicit keywords ("ulw", "eco") always override this preference.
-
-## Step 3.8: Install CLI Analytics Tools (Optional)
-
-The OMA CLI provides standalone token analytics commands (`oma stats`, `oma agents`, `oma tui`).
-
-Ask user: "Would you like to install the OMA CLI for standalone analytics? (Recommended for tracking token usage and costs)"
-
-**Options:**
-1. **Yes (Recommended)** - Install CLI tools globally for `oma stats`, `oma agents`, etc.
-2. **No** - Skip CLI installation, use only plugin skills
-
-### CLI Installation Note
-
-The CLI (`oma` command) is **no longer supported** via npm/bun global install.
-
-All functionality is available through the plugin system:
-- Use `/oh-my-antigravity :help` for guidance
-- Use `/oh-my-antigravity :doctor` for diagnostics
-
-Skip this step - the plugin provides all features.
-
-## Step 4: Verify Plugin Installation
-
-```bash
-grep -q "oh-my-antigravity " ~/.antigravity/settings.json && echo "Plugin verified" || echo "Plugin NOT found - run: antigravity /install-plugin oh-my-antigravity "
-```
 
 ## Step 5: Offer MCP Server Configuration
 
@@ -480,7 +364,7 @@ If no, skip to next step.
 Check if user has existing configuration:
 ```bash
 # Check for existing 2.x artifacts
-ls ~/.antigravity/commands/ralph-loop.md 2>/dev/null || ls ~/.antigravity/commands/ultrawork.md 2>/dev/null
+ls ~/.gemini/antigravity/commands/ralph-loop.md 2>/dev/null || ls ~/.gemini/antigravity/commands/ultrawork.md 2>/dev/null
 ```
 
 If found, this is an upgrade from 2.x.
@@ -612,7 +496,7 @@ echo "Setup completed successfully!"
 
 ## Keeping Up to Date
 
-After installing oh-my-antigravity  updates (via npm or plugin update), run:
+After updating oh-my-antigravity , run:
 - `/oh-my-antigravity :oma-setup --local` to update project config
 - `/oh-my-antigravity :oma-setup --global` to update global config
 
@@ -627,27 +511,27 @@ OMA Setup - Configure oh-my-antigravity
 
 USAGE:
   /oh-my-antigravity :oma-setup           Run initial setup wizard
-  /oh-my-antigravity :oma-setup --local   Configure local project (.antigravity/ANTIGRAVITY.md)
-  /oh-my-antigravity :oma-setup --global  Configure global settings (~/.antigravity/ANTIGRAVITY.md)
+  /oh-my-antigravity :oma-setup --local   Configure local project (GEMINI.md)
+  /oh-my-antigravity :oma-setup --global  Configure global settings (~/.gemini/antigravity/GEMINI.md)
   /oh-my-antigravity :oma-setup --help    Show this help
 
 MODES:
   Initial Setup (no flags)
     - Interactive wizard for first-time setup
-    - Configures ANTIGRAVITY.md (local or global)
+    - Configures GEMINI.md (local or global)
     - Sets up HUD statusline
     - Checks for updates
     - Offers MCP server configuration
 
   Local Configuration (--local)
-    - Downloads fresh ANTIGRAVITY.md to ./.antigravity/
-    - Backs up existing ANTIGRAVITY.md to .antigravity/ANTIGRAVITY.md.backup.YYYY-MM-DD
+    - Downloads fresh GEMINI.md to ./.agent/
+    - Backs up existing GEMINI.md to GEMINI.md.backup.YYYY-MM-DD
     - Project-specific settings
     - Use this to update project config after OMA upgrades
 
   Global Configuration (--global)
-    - Downloads fresh ANTIGRAVITY.md to ~/.antigravity/
-    - Backs up existing ANTIGRAVITY.md to ~/.antigravity/ANTIGRAVITY.md.backup.YYYY-MM-DD
+    - Downloads fresh GEMINI.md to ~/.gemini/antigravity/
+    - Backs up existing GEMINI.md to ~/.gemini/antigravity/GEMINI.md.backup.YYYY-MM-DD
     - Applies to all Antigravity sessions
     - Cleans up legacy hooks
     - Use this to update global config after OMA upgrades

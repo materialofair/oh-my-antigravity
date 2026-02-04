@@ -132,7 +132,7 @@ Add functional dark mode toggle to settings.
 ## Files to Modify
 1. src/styles/theme.ts - Add dark theme colors
 2. src/components/SettingsPage.tsx - Add toggle
-3. src/hooks/useTheme.ts - Create new hook
+3. src/ui/useTheme.ts - Create new theme helper
 4. src/App.tsx - Wrap with ThemeProvider
 
 ## Color Decisions
@@ -152,7 +152,7 @@ File: src/styles/theme.ts
 ...
 
 ### 2. Created useTheme hook
-File: src/hooks/useTheme.ts
+File: src/ui/useTheme.ts
 ...
 ```
 

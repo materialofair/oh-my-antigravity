@@ -40,7 +40,7 @@ Use /oh-my-antigravity :learner ONLY after:
 
 - **Problem Statement**: The SPECIFIC error, symptom, or confusion that occurred
   - Include actual error messages, file paths, line numbers
-  - Example: "TypeError in src/hooks/session.ts:45 when sessionId is undefined after restart"
+  - Example: "TypeError in src/session/state.ts:45 when sessionId is undefined after restart"
 
 - **Solution**: The EXACT fix, not general advice
   - Include code snippets, file paths, configuration changes
@@ -62,7 +62,7 @@ The system REJECTS skills that are:
 
 **Step 3: Save Location**
 
-- **User-level**: ~/.antigravity/skills/oma-learned/ - Rare. Only for truly portable insights.
+- **User-level**: ~/.gemini/antigravity/skills/oma-learned/ - Rare. Only for truly portable insights.
 - **Project-level**: .oma/skills/ - Default. Version-controlled with repo.
 
 ### What Makes a USEFUL Skill

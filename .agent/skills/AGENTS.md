@@ -154,8 +154,8 @@ Skills are tested via integration tests that invoke skills and verify behavior.
 
 ### Internal
 - Loaded by skill bridge (`scripts/build-skill-bridge.mjs`)
-- References agents from `agents/`
-- Uses hooks from `src/hooks/`
+- References agents from `agents/` (template-only, no runtime dependency)
+- Uses internal runtime modules (no hooks required)
 
 ### External
 None - pure markdown files.

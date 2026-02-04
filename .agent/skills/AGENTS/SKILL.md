@@ -1,3 +1,8 @@
+---
+name: AGENTS
+description: Documentation for all 32 agent prompt templates in oh-my-antigravity
+---
+
 <!-- Parent: ../AGENTS.md -->
 <!-- Generated: 2026-01-28 | Updated: 2026-01-28 -->
 

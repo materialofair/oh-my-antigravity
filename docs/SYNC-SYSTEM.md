@@ -1,5 +1,8 @@
 # Metadata Sync System
 
+> **Legacy (Claude Code)**: This document is preserved for historical reference. It does not apply to Antigravity. See `README.md` and `docs/REFERENCE.md` for current guidance.
+
+
 ## Overview
 
 The metadata sync system ensures consistency between `package.json` (source of truth) and all documentation files across the project. It prevents version drift, outdated badges, and manual update errors.

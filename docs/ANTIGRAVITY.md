@@ -43,7 +43,7 @@ RULE 5: ALWAYS consult official documentation before implementing with SDKs/fram
 
 **NEVER make assumptions about SDK, framework, or API behavior.**
 
-When implementing with any external tool (Antigravity hooks, React, database drivers, etc.):
+When implementing with any external tool (Antigravity extensions, React, database drivers, etc.):
 
 1. **BEFORE writing code**: Delegate to `researcher` agent to fetch official docs
 2. **Use Context7 MCP tools**: `resolve-library-id` → `query-docs` for up-to-date documentation
@@ -55,7 +55,7 @@ When implementing with any external tool (Antigravity hooks, React, database dri
 | Situation | Action |
 |-----------|--------|
 | Using a new SDK/API | Delegate to `researcher` first |
-| Implementing hooks/plugins | Verify output schema from official docs |
+| Implementing extensions/plugins | Verify output schema from official docs |
 | Uncertain about field names | Query official documentation |
 | Copying from old code | Verify pattern still valid |
 
@@ -130,7 +130,7 @@ When user says "parallel" or "fast" WITHOUT an explicit mode keyword:
 
 2. **If no explicit keyword, read config file:**
    ```bash
-   CONFIG_FILE="$HOME/.antigravity/.oma-config.json"
+   CONFIG_FILE="$HOME/.gemini/antigravity/.oma-config.json"
    if [[ -f "$CONFIG_FILE" ]]; then
      DEFAULT_MODE=$(cat "$CONFIG_FILE" | jq -r '.defaultExecutionMode // "ultrawork"')
    else
@@ -159,10 +159,10 @@ Direct file writes are enforced via path patterns:
 **Allowed Paths (Direct Write OK):**
 | Path | Allowed For |
 |------|-------------|
-| `~/.antigravity/**` | System configuration |
+| `~/.gemini/antigravity/**` | System configuration |
 | `.oma/**` | OMA state and config |
-| `.antigravity/**` | Local Claude config |
-| `ANTIGRAVITY.md` | User instructions |
+| `.agent/**` | Local Antigravity config |
+| `GEMINI.md` | Project rules |
 | `AGENTS.md` | AI documentation |
 
 **Warned Paths (Should Delegate):**
@@ -570,7 +570,7 @@ Standardized state file locations.
 | pipeline | `pipeline-state.json` |
 | swarm | `swarm-summary.json` + `swarm-active.marker` |
 
-**Important:** Never store OMA state in `~/.antigravity/` - that directory is reserved for Antigravity itself.
+**Important:** Never store OMA state in `~/.gemini/antigravity/` - that directory is reserved for Antigravity itself.
 
 Legacy locations auto-migrated on read.
 

@@ -1,5 +1,8 @@
 # Local Plugin Installation
 
+> **Legacy (Claude Code)**: This document is preserved for historical reference. It does not apply to Antigravity. See `README.md` and `docs/REFERENCE.md` for current guidance.
+
+
 How to install oh-my-antigravity  from a local development directory as a Claude Code plugin.
 
 ## Quick Install

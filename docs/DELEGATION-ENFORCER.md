@@ -1,5 +1,8 @@
 # Delegation Enforcer
 
+> **Legacy (Claude Code)**: This document is preserved for historical reference. It does not apply to Antigravity. See `README.md` and `docs/REFERENCE.md` for current guidance.
+
+
 **Automatic model parameter injection for Task/Agent calls**
 
 ## Problem

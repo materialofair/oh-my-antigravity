@@ -292,7 +292,7 @@ Reusable React components organized by feature and complexity.
 ## Dependencies
 
 ### Internal
-- `src/hooks/` - Custom hooks used by components
+- `src/services/` - Shared service modules used by components
 - `src/utils/` - Utility functions
 
 ### External

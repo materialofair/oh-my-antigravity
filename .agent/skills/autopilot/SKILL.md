@@ -93,7 +93,7 @@ These phrases auto-activate autopilot:
 
 ## Configuration
 
-Optional settings in `.antigravity/settings.json`:
+Optional settings in `.agent/settings.json`:
 
 ```json
 {
@@ -161,8 +161,8 @@ rm -f .oma/state/autopilot-state.json
 rm -f .oma/state/ralph-state.json
 rm -f .oma/state/ultrawork-state.json
 rm -f .oma/state/ultraqa-state.json
-rm -f ~/.antigravity/ralph-state.json
-rm -f ~/.antigravity/ultrawork-state.json
+rm -f ~/.gemini/antigravity/ralph-state.json
+rm -f ~/.gemini/antigravity/ultrawork-state.json
 ```
 
 This ensures clean state for future sessions.
