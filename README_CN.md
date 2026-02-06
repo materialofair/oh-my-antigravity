@@ -172,6 +172,6 @@ MIT 许可证 - 详见 [LICENSE](LICENSE)
 
 特别感谢以下项目：
 
-- [oh-my-claudcode ](https://github.com/yeachan-heo/oh-my-claudcode ) - 本项目的灵感来源和基础
-- [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) - OpenAI Codex 适配版本
+- [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) - 本项目的原始启发来源
+- [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) - 同生态中的 OpenCode 脚手架适配版本
 - [everything-claude-code](https://github.com/affaan-m/everything-claude-code) - 旧版 Claude Code 资料（历史参考）

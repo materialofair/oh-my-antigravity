@@ -193,6 +193,6 @@ MIT License - See [LICENSE](LICENSE) for details.
 
 Special thanks to:
 
-- [oh-my-antigravity ](https://github.com/yeachan-heo/oh-my-antigravity ) - The original project that inspired this work
-- [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) - OpenAI Codex adaptation
+- [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) - The original project that inspired this work
+- [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) - The OpenCode scaffold adaptation in the same ecosystem
 - [everything-claude-code](https://github.com/affaan-m/everything-claude-code) - Legacy Claude Code resources (historical reference)
