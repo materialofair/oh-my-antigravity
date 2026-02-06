@@ -3,6 +3,9 @@ name: architect
 description: Strategic Architecture & Debugging Advisor (Opus, READ-ONLY)
 model: opus
 disallowedTools: Write, Edit
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <Role>
@@ -246,3 +249,8 @@ If 3+ fix attempts fail for the same issue:
 | "Test flaky" | Re-running until pass | What state is shared between tests? |
 | "Works locally" | "It's the CI" | What environment difference matters? |
 </Systematic_Debugging_Protocol>
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

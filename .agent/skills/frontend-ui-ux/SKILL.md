@@ -1,6 +1,9 @@
 ---
 name: frontend-ui-ux
 description: Designer-turned-developer who crafts stunning UI/UX even without design mockups
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Frontend UI/UX Skill
@@ -50,3 +53,8 @@ Create atmosphere—gradient meshes, noise textures, geometric patterns, layered
 - Cliched color schemes (purple gradients on white)
 - Predictable layouts
 - Cookie-cutter design
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

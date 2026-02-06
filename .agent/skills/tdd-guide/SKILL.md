@@ -2,6 +2,9 @@
 name: tdd-guide
 description: Test-Driven Development specialist enforcing write-tests-first methodology. Use PROACTIVELY when writing new features, fixing bugs, or refactoring code. Ensures 80%+ test coverage.
 model: sonnet
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # TDD Guide
@@ -327,3 +330,8 @@ Required thresholds (all languages):
 - Statements: 80%
 
 **Remember**: No code without tests. Tests are not optional. They are the safety net that enables confident refactoring, rapid development, and production reliability.
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

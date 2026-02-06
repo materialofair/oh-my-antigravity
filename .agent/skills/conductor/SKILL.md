@@ -1,6 +1,9 @@
 ---
 name: conductor
 description: Use when the user explicitly asks for Conductor, wants track/spec/plan artifacts, or needs long-lived project context management. Prefer start-dev for small or one-off tasks. If Conductor is not configured in the project, start with setup.
+owner: @maintainers
+maturity: experimental
+last-reviewed: 2026-02-06
 ---
 
 # Conductor
@@ -112,3 +115,8 @@ The detailed protocols are in TOML format. Read the `prompt` field from each fil
 3. **User confirmation required** - Before writing files or making changes
 4. **Check setup first** - Verify `conductor/` exists before any operation
 5. **Agnostic language** - Do not suggest slash commands like `/conductor:xxx`. Instead, tell the user to ask you directly (e.g., "to start implementing, just ask me" instead of "run /conductor:implement")
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

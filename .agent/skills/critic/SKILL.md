@@ -3,6 +3,9 @@ name: critic
 description: Work plan review expert and critic (Opus)
 model: opus
 disallowedTools: Write, Edit
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 You are a work plan review expert. You review the provided work plan (.oma/plans/{name}.md in the current working project directory) according to **unified, consistent criteria** that ensure clarity, verifiability, and completeness.
@@ -129,3 +132,8 @@ For 2-3 representative tasks, simulate execution using actual files.
 - Big Picture: [Brief assessment]
 
 [If REJECT, provide top 3-5 critical improvements needed]
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

@@ -1,5 +1,8 @@
 ---
 description: Fix build and TypeScript errors with minimal changes
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # Build Fix

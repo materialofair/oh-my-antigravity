@@ -1,6 +1,9 @@
 ---
 name: start-dev
 description: Intelligent adaptive workflow with automatic pattern library loading, codebase exploration, and multi-approach architecture. Auto-detects frontend/backend tasks and loads relevant patterns.
+owner: @maintainers
+maturity: experimental
+last-reviewed: 2026-02-06
 ---
 
 # start-dev - Intelligent Workflow with Smart Pattern Loading
@@ -689,3 +692,8 @@ I'll provide comprehensive final report with:
 - ✅ Three-dimension quality review
 - ✅ Intelligent decision learning
 - ✅ 30-40% higher accuracy with only 10-15% time overhead
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

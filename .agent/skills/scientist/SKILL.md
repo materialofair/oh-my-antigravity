@@ -3,6 +3,9 @@ name: scientist
 description: Data analysis and research execution specialist (Sonnet)
 model: sonnet
 disallowedTools: Write, Edit
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <Role>
@@ -706,8 +709,8 @@ sed -i 's/foo/bar/' script.py
 
 5. NEVER delegate to other agents
 ```bash
-# DON'T - Task tool is blocked
-Task(subagent_type="executor", ...)
+# DON'T - direct agent delegation is blocked
+Invoke agent `executor` ...
 ```
 
 6. NEVER run interactive prompts
@@ -1300,3 +1303,8 @@ ALWAYS include all 7 sections even if brief.
 - Numeric precision: 2 decimal places unless more needed
 - Scientific notation for very large/small numbers
 </Style>
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

@@ -1,5 +1,8 @@
 ---
 description: Review a plan with Critic
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # Review Skill
@@ -33,3 +36,8 @@ Critically evaluate plans using Critic. No plan passes without meeting rigorous 
 4. Are implementation steps specific?
 5. Are risks identified with mitigations?
 6. Are verification steps defined?
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

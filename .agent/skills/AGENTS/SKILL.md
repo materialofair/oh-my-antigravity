@@ -1,6 +1,9 @@
 ---
 name: AGENTS
 description: Documentation for all 32 agent prompt templates in oh-my-antigravity
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <!-- Parent: ../AGENTS.md -->
@@ -147,3 +150,8 @@ None - pure markdown files.
 | Data | scientist, scientist-low, scientist-high | Read, Glob, Grep, Bash, python_repl |
 
 <!-- MANUAL: -->
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

@@ -1,6 +1,9 @@
 ---
 name: autopilot
 description: Full autonomous execution from idea to working code
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Autopilot Skill
@@ -183,3 +186,8 @@ This ensures clean state for future sessions.
 - Same error 3 times = fundamental issue
 - Review the error pattern
 - May need manual intervention
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

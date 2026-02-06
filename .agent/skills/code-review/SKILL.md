@@ -1,6 +1,9 @@
 ---
 name: code-review
 description: Run a comprehensive code review
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # Code Review Skill
@@ -44,10 +47,9 @@ Delegates to the `code-reviewer` agent (Opus model) for deep analysis:
 ## Agent Delegation
 
 ```
-Task(
-  subagent_type="oh-my-antigravity :code-reviewer",
-  model="opus",
-  prompt="CODE REVIEW TASK
+Invoke agent `oh-my-antigravity :code-reviewer` (model: `opus`) with prompt:
+
+CODE REVIEW TASK
 
 Review code changes for quality, security, and maintainability.
 
@@ -65,8 +67,7 @@ Output: Code review report with:
 - Issues by severity (CRITICAL, HIGH, MEDIUM, LOW)
 - Specific file:line locations
 - Fix recommendations
-- Approval recommendation (APPROVE / REQUEST CHANGES / COMMENT)"
-)
+- Approval recommendation (APPROVE / REQUEST CHANGES / COMMENT)
 ```
 
 ## Output Format
@@ -177,3 +178,8 @@ Parallel code review across multiple files.
 - **Address CRITICAL/HIGH first** - Fix security and bugs immediately
 - **Consider context** - Some "issues" may be intentional trade-offs
 - **Learn from reviews** - Use feedback to improve coding practices
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

@@ -1,6 +1,9 @@
 ---
 name: learn-about-oma
 description: Analyze your OMA usage patterns and get personalized recommendations
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Learn About OMA
@@ -126,3 +129,8 @@ RECOMMENDATIONS:
 2. Try /pipeline review for PR reviews
 3. Use explore agent before architect to save context
 ```
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

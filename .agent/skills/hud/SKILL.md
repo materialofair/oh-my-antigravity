@@ -3,6 +3,9 @@ name: hud
 description: Configure HUD display options (layout, presets, display elements)
 role: config-writer  # DOCUMENTATION ONLY - This skill writes to ~/.gemini/antigravity/ paths
 scope: ~/.gemini/antigravity/**  # DOCUMENTATION ONLY - Allowed write scope
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # HUD Skill
@@ -286,3 +289,8 @@ Manual verification:
 ---
 
 *The HUD updates automatically every ~300ms during active sessions.*
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

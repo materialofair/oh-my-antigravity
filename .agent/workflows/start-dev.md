@@ -1,5 +1,8 @@
 ---
 description: Intelligent adaptive workflow with automatic pattern library loading and codebase exploration
+owner: @maintainers
+maturity: experimental
+last-reviewed: 2026-02-06
 ---
 
 # start-dev - Intelligent Development Workflow
@@ -41,3 +44,8 @@ start-dev --backend <feature>             # Force backend patterns
    - Complete project report with pattern metrics
    - All artifacts (ResearchPack, ImplementationPlan, etc.)
    - Quality scores and pattern compliance
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

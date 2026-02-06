@@ -1,6 +1,9 @@
 ---
 name: cancel
 description: Cancel any active OMA mode (autopilot, ralph, ultrawork, ecomode, ultraqa, swarm, ultrapilot, pipeline)
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # Cancel Skill
@@ -638,3 +641,8 @@ fi
 - **Safe**: Only clears linked Ultrawork, preserves standalone Ultrawork
 - **Dual-location**: Clears both `.oma/` and `~/.gemini/antigravity/` state files
 - **Resume-friendly**: Autopilot state is preserved for seamless resume
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

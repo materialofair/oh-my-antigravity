@@ -1,0 +1,3 @@
+# pattern|owner|expires|reason
+# pattern format: KIND:NAME:RULE where NAME supports '*' glob.
+# Keep this file empty unless a temporary, explicitly approved exception is needed.

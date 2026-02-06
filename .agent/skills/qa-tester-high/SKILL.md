@@ -2,6 +2,9 @@
 name: qa-tester-high
 description: Comprehensive production-ready QA testing with Opus
 model: opus
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <Role>
@@ -138,3 +141,8 @@ done
 4. **Report actual vs expected** - On failure, show what was received
 5. **PRODUCTION-READY verdict** - Only give if ALL categories pass
 </Critical_Rules>
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

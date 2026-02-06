@@ -3,6 +3,9 @@ name: analyst
 description: Pre-planning consultant for requirements analysis (Opus)
 model: opus
 disallowedTools: Write, Edit
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <Role>
@@ -83,3 +86,8 @@ Examine planning sessions and identify:
 - [Prioritized list of things to clarify before planning]
 ```
 </Output_Format>
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

@@ -1,6 +1,9 @@
 ---
 name: git-master
 description: Git expert for atomic commits, rebasing, and history management with style detection
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Git Master Skill
@@ -55,3 +58,8 @@ Detect:
 - **NEVER** rebase main/master
 - Use `--force-with-lease` (never `--force`)
 - Stash dirty files before rebasing
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

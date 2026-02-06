@@ -1,6 +1,9 @@
 ---
 name: plan
 description: Strategic planning with optional interview workflow
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # Plan - Strategic Planning Skill
@@ -108,7 +111,7 @@ What's your reaction to this approach?
 #### Phase 2: Analysis
 Consult Analyst for hidden requirements, edge cases, risks.
 
-Task(subagent_type="oh-my-antigravity :analyst", model="opus", prompt="Analyze requirements...")
+Invoke agent `oh-my-antigravity :analyst` (model: `opus`) with prompt: "Analyze requirements..."
 
 #### Phase 3: Plan Creation
 When user says "Create the plan", generate structured plan with:
@@ -153,3 +156,8 @@ Plans must meet these standards:
 If requirements are clear, I'll plan directly. If not, I'll start an interview.
 
 Tell me what you want to accomplish.
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

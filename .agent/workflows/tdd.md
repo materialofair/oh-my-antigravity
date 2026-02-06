@@ -1,5 +1,8 @@
 ---
 description: Start Test-Driven Development workflow
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # TDD Workflow

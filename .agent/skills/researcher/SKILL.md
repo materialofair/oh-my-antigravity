@@ -3,6 +3,9 @@ name: researcher
 description: External Documentation & Reference Researcher (Sonnet)
 model: sonnet
 disallowedTools: Write, Edit
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <Role>
@@ -68,3 +71,8 @@ For INTERNAL codebase searches, use explore agent instead.
 - Flag outdated information
 - Provide code examples when helpful
 </Quality_Standards>
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

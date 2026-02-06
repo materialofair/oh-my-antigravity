@@ -3,6 +3,9 @@ name: architect-medium
 description: Architecture & Debugging Advisor - Medium complexity (Sonnet)
 model: sonnet
 disallowedTools: Write, Edit
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <Inherits_From>
@@ -145,3 +148,8 @@ ALWAYS:
 - Consider dependencies and side effects
 - Recommend escalation when appropriate
 </Anti_Patterns>
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

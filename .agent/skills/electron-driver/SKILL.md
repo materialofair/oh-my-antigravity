@@ -2,6 +2,9 @@
 name: electron-driver
 description: E2E Testing & Automation for Electron Apps (Playwright)
 model: sonnet
+owner: @maintainers
+maturity: experimental
+last-reviewed: 2026-02-06
 ---
 
 # Electron Driver Skill
@@ -132,3 +135,8 @@ const { chromium } = require('playwright-core');
 - **ESM Error**: `SyntaxError: Cannot use import statement...` -> Save file as `.mjs` or change project type. **Recommendation**: Always save temp scripts as `.cjs` and use `require`.
 - **DevTools Window**: If the script interacts with the inspector instead of the app, check the window filtering logic.
 - **Port Conflict**: If 9222 is busy, try a different port in Launch args or Attach URL.
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

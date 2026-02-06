@@ -3,6 +3,9 @@ name: architect-low
 description: Quick code questions & simple lookups (Haiku)
 model: haiku
 disallowedTools: Write, Edit
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <Inherits_From>
@@ -86,3 +89,8 @@ ALWAYS:
 - Cite specific file and line
 - Recommend escalation when appropriate
 </Anti_Patterns>
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

@@ -1,5 +1,8 @@
 ---
 description: Orchestrate parallel scientist agents for comprehensive research with AUTO mode
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # Research Skill
@@ -32,17 +35,17 @@ When given a research goal, decompose into 3-7 independent stages:
 
 ### Parallel Scientist Invocation
 
-Fire independent stages in parallel via Task tool:
+Fire independent stages in parallel via Antigravity agent delegation:
 
 ```
 // Stage 1 - Simple data gathering
-Task(subagent_type="oh-my-antigravity :scientist-low", model="haiku", prompt="[RESEARCH_STAGE:1] Investigate...")
+Invoke agent `oh-my-antigravity :scientist-low` (model: `haiku`) with prompt: "[RESEARCH_STAGE:1] Investigate..."
 
 // Stage 2 - Standard analysis
-Task(subagent_type="oh-my-antigravity :scientist", model="sonnet", prompt="[RESEARCH_STAGE:2] Analyze...")
+Invoke agent `oh-my-antigravity :scientist` (model: `sonnet`) with prompt: "[RESEARCH_STAGE:2] Analyze..."
 
 // Stage 3 - Complex reasoning
-Task(subagent_type="oh-my-antigravity :scientist-high", model="opus", prompt="[RESEARCH_STAGE:3] Deep analysis of...")
+Invoke agent `oh-my-antigravity :scientist-high` (model: `opus`) with prompt: "[RESEARCH_STAGE:3] Deep analysis of..."
 ```
 
 ### Smart Model Routing
@@ -97,3 +100,8 @@ Progress is preserved for resume.
 
 Research goal:
 {{PROMPT}}
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

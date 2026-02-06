@@ -1,5 +1,8 @@
 ---
 description: Diagnose current environment and verify required tools for Antigravity
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # Antigravity Doctor
@@ -91,3 +94,8 @@ If tools are missing and user is on macOS (detected via `uname -s`), offer to in
 # Example fix command
 brew install fd ripgrep ast-grep gh
 ```
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

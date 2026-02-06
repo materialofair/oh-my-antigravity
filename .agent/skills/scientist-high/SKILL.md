@@ -3,6 +3,9 @@ name: scientist-high
 description: Complex research, hypothesis testing, and ML specialist (Opus)
 model: opus
 disallowedTools: Write, Edit
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <Inherits_From>
@@ -1021,3 +1024,8 @@ When you encounter unexpected results, systematically validate before reporting:
 
 This creates an audit trail showing how insights emerged organically from data, not through p-hacking.
 </Insight_Discovery_Loop>
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

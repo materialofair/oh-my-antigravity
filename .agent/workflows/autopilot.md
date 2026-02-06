@@ -1,6 +1,9 @@
 ---
 description: Full autonomous execution from idea to working code
 aliases: [ap, autonomous, fullsend]
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Autopilot Command
@@ -32,10 +35,9 @@ First, expand the user's idea into a detailed specification.
 Spawn the Analyst agent:
 
 ```
-Task(
-  subagent_type="oh-my-antigravity :analyst",
-  model="opus",
-  prompt="REQUIREMENTS ANALYSIS
+Invoke agent `oh-my-antigravity :analyst` (model: `opus`) with prompt:
+
+REQUIREMENTS ANALYSIS
 
 Analyze this product idea: {{ARGUMENTS}}
 
@@ -45,8 +47,7 @@ Extract:
 3. Implicit requirements - things the user needs but didn't say
 4. Out of scope - what this is NOT
 
-Output as structured markdown."
-)
+Output as structured markdown.
 ```
 
 ### Step 2: Technical Specification
@@ -54,10 +55,9 @@ Output as structured markdown."
 After Analyst completes, spawn Architect:
 
 ```
-Task(
-  subagent_type="oh-my-antigravity :architect",
-  model="opus",
-  prompt="TECHNICAL SPECIFICATION
+Invoke agent `oh-my-antigravity :architect` (model: `opus`) with prompt:
+
+TECHNICAL SPECIFICATION
 
 Based on the requirements above, create a technical specification:
 1. Tech stack with rationale
@@ -66,8 +66,7 @@ Based on the requirements above, create a technical specification:
 4. Dependencies
 5. API/interfaces
 
-Output as structured markdown."
-)
+Output as structured markdown.
 ```
 
 ### Step 3: Save Spec
@@ -121,16 +120,12 @@ During execution, you MUST follow these rules:
    - Complex/multi-file → `executor-high` (opus)
 
 ```
-// Example: Delegate implementation
-Task(
-  subagent_type="oh-my-antigravity :executor",
-  model="sonnet",
-  prompt="IMPLEMENT: [specific task from plan]
+Invoke agent `oh-my-antigravity :executor` (model: `sonnet`) with prompt:
+
+IMPLEMENT: [specific task from plan]
 
 Files: [list target files]
 Requirements: [copy from plan]
-"
-)
 ```
 
 Signal when done: **EXECUTION_COMPLETE**
@@ -159,7 +154,7 @@ Signal: **AUTOPILOT_COMPLETE**
 - **NEVER** use Edit/Write/Bash for source code changes
 - **ALWAYS** delegate implementation to executor agents
 - **ONLY** write directly to `.oma/`, `.agent/`, `GEMINI.md`, `AGENTS.md`
-- If you attempt direct code changes, the PreToolUse hook will warn you
+- If you attempt direct code changes, delegation rules and audit checks will flag the violation
 
 ### Execution Rules
 - Do NOT stop between phases
@@ -177,3 +172,8 @@ When all phases complete successfully, output:
 ```
 
 And display the autopilot summary.
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

@@ -1,6 +1,9 @@
 ---
 name: security-review
 description: Run a comprehensive security review on code
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # Security Review Skill
@@ -61,10 +64,9 @@ Delegates to the `security-reviewer` agent (Opus model) for deep security analys
 ## Agent Delegation
 
 ```
-Task(
-  subagent_type="oh-my-antigravity :security-reviewer",
-  model="opus",
-  prompt="SECURITY REVIEW TASK
+Invoke agent `oh-my-antigravity :security-reviewer` (model: `opus`) with prompt:
+
+SECURITY REVIEW TASK
 
 Conduct comprehensive security audit of codebase.
 
@@ -82,8 +84,7 @@ Output: Security review report with:
 - Specific file:line locations
 - CVE references where applicable
 - Remediation guidance for each issue
-- Overall security posture assessment"
-)
+- Overall security posture assessment
 ```
 
 ## Output Format
@@ -252,3 +253,8 @@ Review, fix, re-review until all issues resolved.
 - **Fix immediately** - Don't accumulate security debt
 - **Educate** - Learn from findings to prevent future issues
 - **Verify fixes** - Re-run security review after remediation
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

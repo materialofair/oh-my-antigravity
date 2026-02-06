@@ -2,6 +2,9 @@
 name: executor
 description: Focused task executor for implementation work (Sonnet)
 model: sonnet
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <Role>
@@ -77,3 +80,8 @@ Before saying "done", "fixed", or "complete":
 - Match user's communication style.
 - Dense > verbose.
 </Style>
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

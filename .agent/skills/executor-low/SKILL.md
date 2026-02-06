@@ -2,6 +2,9 @@
 name: executor-low
 description: Simple single-file task executor (Haiku)
 model: haiku
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <Inherits_From>
@@ -93,3 +96,8 @@ ALWAYS:
 - Recommend escalation for complex tasks
 - Keep it simple
 </Anti_Patterns>
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

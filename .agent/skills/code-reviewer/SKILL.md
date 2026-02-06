@@ -3,6 +3,9 @@ name: code-reviewer
 description: Expert code review specialist. Proactively reviews code for quality, security, and maintainability. Use immediately after writing or modifying code. Provides severity-rated feedback.
 model: opus
 disallowedTools: Write, Edit
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Code Reviewer
@@ -204,3 +207,8 @@ APPROVE / REQUEST CHANGES / COMMENT
 6. **Documentation**: Public API docs, comments
 
 **Remember**: Be constructive. Explain why something is an issue and how to fix it. The goal is to improve code quality, not to criticize.
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

@@ -1,6 +1,9 @@
 ---
 name: aireview
 description: Professional multi-agent AI code review with confidence scoring
+owner: @maintainers
+maturity: experimental
+last-reviewed: 2026-02-06
 ---
 
 # aireview - Enhanced AI Code Review
@@ -62,16 +65,16 @@ Step 1: Eligibility Check (Haiku Agent)
     - Skip if: closed PR, draft, trivial change, already reviewed
     ↓
 Step 2: Gather Context
-    Task(subagent_type="oh-my-antigravity :explore", model="haiku", prompt="Get change summary for: {diff_content}")
+    Invoke agent `oh-my-antigravity :explore` (model: `haiku`) with prompt: "Get change summary for: {diff_content}"
     - Get change summary
     ↓
 Step 3: Parallel Review (5 Specialized Agents)
     ┌─────────────────────────────────────────────┐
-    Task(subagent_type="oh-my-antigravity :architect", model="sonnet", prompt="Check Best Practices Compliance from {diff_content}")
-    Task(subagent_type="oh-my-antigravity :qa-tester", model="sonnet", prompt="Bug Detection Scan on {diff_content}")
-    Task(subagent_type="oh-my-antigravity :explore", model="sonnet", prompt="Git History Context Analysis")
-    Task(subagent_type="oh-my-antigravity :researcher", model="sonnet", prompt="Related PR Analysis")
-    Task(subagent_type="oh-my-antigravity :code-reviewer", model="sonnet", prompt="Code Comment Compliance")
+    Invoke agent `oh-my-antigravity :architect` (model: `sonnet`) with prompt: "Check Best Practices Compliance from {diff_content}"
+    Invoke agent `oh-my-antigravity :qa-tester` (model: `sonnet`) with prompt: "Bug Detection Scan on {diff_content}"
+    Invoke agent `oh-my-antigravity :explore` (model: `sonnet`) with prompt: "Git History Context Analysis"
+    Invoke agent `oh-my-antigravity :researcher` (model: `sonnet`) with prompt: "Related PR Analysis"
+    Invoke agent `oh-my-antigravity :code-reviewer` (model: `sonnet`) with prompt: "Code Comment Compliance"
     ↓
 Step 4: Confidence Scoring (Parallel Haiku Agents)
     - Score each issue 0-100
@@ -162,7 +165,7 @@ If MODE == "remote-branch":
   # For remote branch, use simplified context gathering
 
 Else:
-  Task(subagent_type="oh-my-antigravity :explore", model="haiku", prompt="Get change summary for current diff")
+  Invoke agent `oh-my-antigravity :explore` (model: `haiku`) with prompt: "Get change summary for current diff"
   1. Get change summary:
      - Files modified
      - Lines changed
@@ -215,38 +218,32 @@ If MODE == "quick":
   Skip to Step 6 (Generate Report)
 
 Else:
-  Launch 5 parallel agents using Task tool:
+  Launch 5 parallel agents using Antigravity delegation:
 
   # Agent 1: Best Practices Compliance (Architect/Sonnet)
-  Task(subagent_type="oh-my-antigravity :architect-medium", model="sonnet", prompt="""
+  Invoke agent `oh-my-antigravity :architect-medium` (model: `sonnet`) with prompt:
     你是 INTJ 架构师，专注于规范合规性审查。
     ...
-  """)
 
   # Agent 2: Bug Detection (QA-Tester/Sonnet)
-  Task(subagent_type="oh-my-antigravity :qa-tester", model="sonnet", prompt="""
+  Invoke agent `oh-my-antigravity :qa-tester` (model: `sonnet`) with prompt:
     你是 ISTJ 工程师，专注于 Bug 检测。
     ...
-  """)
 
   # Agent 3: Git History (Explore/Sonnet)
-  Task(subagent_type="oh-my-antigravity :explore-medium", model="sonnet", prompt="""
+  Invoke agent `oh-my-antigravity :explore-medium` (model: `sonnet`) with prompt:
     你是 INTP 性能极客，专注于历史上下文分析。
     ...
-  """)
 
   # Agent 4: Related PR Analysis (Researcher/Sonnet)
-  Task(subagent_type="oh-my-antigravity :researcher", model="sonnet", prompt="""
+  Invoke agent `oh-my-antigravity :researcher` (model: `sonnet`) with prompt:
      你是 ENTP 创新者，专注于 PR 关联分析。
      ...
-  """)
 
   # Agent 5: Code Comment Compliance (Code-Reviewer/Sonnet)
-  Task(subagent_type="oh-my-antigravity :code-reviewer", model="sonnet", prompt="""
+  Invoke agent `oh-my-antigravity :code-reviewer` (model: `sonnet`) with prompt:
      你是 ISFJ 维护者，专注于代码注释合规性。
      ...
-  """)
-"""
 ```
 
 ### Step 4: Confidence Scoring & Filtering
@@ -254,7 +251,7 @@ Else:
 ```markdown
 For each issue from Step 3, launch a Haiku agent:
 
-Task(subagent_type="oh-my-antigravity :architect-low", model="haiku", prompt="""
+Invoke agent `oh-my-antigravity :architect-low` (model: `haiku`) with prompt:
   你是专业的代码审查评分员。
 
   问题描述：{issue}
@@ -277,7 +274,6 @@ Task(subagent_type="oh-my-antigravity :architect-low", model="haiku", prompt="""
   - 真实问题，但在用户未修改的行上
 
   输出：最终置信度分数 (0-100)
-""")
 
 Filter: 只保留置信度 >= 80 的问题
 ```
@@ -625,3 +621,8 @@ $ aireview --pr 123 --comment
 3. 引入置信度评分和 false positive 过滤
 4. 增强的 MBTI 人格专业化
 5. 分层深度分析 (multi-agent → Gemini → Codex)
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

@@ -3,6 +3,9 @@ name: explore-high
 description: Complex architectural search for deep system understanding (Opus)
 model: opus
 disallowedTools: Write, Edit
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <Inherits_From>
@@ -219,3 +222,8 @@ When someone asks you to explore, they're not just looking for files - they need
 
 Prioritize correctness. Full exploration. Make architectural decisions.
 </HIGH_Tier_Philosophy>
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

@@ -1,6 +1,9 @@
 ---
 name: release
 description: Automated release workflow for oh-my-antigravity 
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Release Skill
@@ -81,3 +84,8 @@ gh release create v<version> --title "v<version> - <title>" --notes "<release no
 - Always run tests before publishing
 - Create release notes summarizing changes
 - Plugin marketplace syncs automatically from GitHub releases
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

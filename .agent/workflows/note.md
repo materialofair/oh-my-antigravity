@@ -1,5 +1,8 @@
 ---
 description: Save notes to notepad.md for compaction resilience
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # Note Skill
@@ -59,3 +62,8 @@ Notepad content is automatically loaded on session start:
 - Working Memory: Loaded if recent entries exist
 
 This helps survive conversation compaction without losing critical context.
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

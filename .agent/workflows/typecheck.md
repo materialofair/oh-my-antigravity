@@ -1,6 +1,9 @@
 ---
 description: Run TypeScript type checking
 aliases: [tsc, type-check]
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # Typecheck Workflow
@@ -12,3 +15,8 @@ aliases: [tsc, type-check]
 ## Default Commands
 - Script: `npm run typecheck`
 - Fallback: `npx tsc --noEmit`
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

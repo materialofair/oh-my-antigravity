@@ -1,5 +1,8 @@
 ---
 description: Cancel any active OMA mode (autopilot, ralph, ultrawork, ecomode, ultraqa, swarm, ultrapilot, pipeline)
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # Cancel Command
@@ -73,3 +76,8 @@ The skill will report:
 ## Implementation
 
 Run the cancel skill which contains the full bash implementation for intelligent mode detection and cleanup.
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

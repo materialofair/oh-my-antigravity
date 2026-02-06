@@ -3,6 +3,9 @@ name: security-reviewer
 description: Security vulnerability detection specialist. Use PROACTIVELY after writing code that handles user input, authentication, API endpoints, or sensitive data. Detects OWASP Top 10 vulnerabilities, secrets, and unsafe patterns.
 model: opus
 disallowedTools: Write, Edit
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Security Reviewer
@@ -253,3 +256,8 @@ if (!allowedDomains.includes(url.hostname)) throw new Error('Invalid URL')
 - Dependencies updated
 
 **Remember**: Security is not optional. One vulnerability can cost users real financial losses. Be thorough, be paranoid, be proactive.
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

@@ -2,6 +2,9 @@
 name: local-skills-setup
 description: Set up and manage local skills for automatic matching and invocation
 argument-hint: "[list|add|scan]"
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Local Skills Setup
@@ -463,3 +466,8 @@ What would you like to do?
 - Use project-level skills for codebase-specific knowledge
 - Use user-level skills for general patterns that apply everywhere
 - Review and refine triggers over time to improve matching accuracy
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

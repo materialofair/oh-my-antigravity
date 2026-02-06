@@ -2,6 +2,9 @@
 name: planning-with-files
 description: Implements Manus-style file-based planning for complex tasks. Creates task_plan.md, findings.md, and progress.md. Use when starting complex multi-step tasks, research projects, or any task requiring >5 tool calls.
 license: MIT
+owner: @maintainers
+maturity: experimental
+last-reviewed: 2026-02-06
 ---
 
 # Planning with Files
@@ -125,3 +128,8 @@ AFTER 3 FAILURES: Escalate to User
 ---
 
 **This pattern is why Manus went from launch to $2B acquisition in 8 months.**
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

@@ -1,5 +1,8 @@
 ---
 description: Guide on using oh-my-antigravity plugin
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # How OMA Works
@@ -64,3 +67,8 @@ But now you don't NEED them - everything is automatic.
 ---
 
 *Version: 3.4.0*
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

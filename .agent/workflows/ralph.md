@@ -1,5 +1,8 @@
 ---
 description: Self-referential loop until task completion with architect verification
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Ralph Skill
@@ -29,7 +32,7 @@ Ralph automatically activates Ultrawork for maximum parallel execution. You MUST
 
 ### Parallel Execution Rules
 - **PARALLEL**: Fire independent calls simultaneously - NEVER wait sequentially
-- **BACKGROUND FIRST**: Use Task(run_in_background=true) for long operations (10+ concurrent)
+- **BACKGROUND FIRST**: Use Antigravity background execution for long operations (10+ concurrent)
 - **DELEGATE**: Route ALL implementation to executor agents - NEVER edit code yourself
 
 ### Smart Model Routing (SAVE TOKENS)
@@ -62,9 +65,9 @@ Ralph automatically activates Ultrawork for maximum parallel execution. You MUST
 
 **CRITICAL: Always pass `model` parameter explicitly!**
 ```
-Task(subagent_type="oh-my-antigravity :architect-low", model="haiku", prompt="...")
-Task(subagent_type="oh-my-antigravity :executor", model="sonnet", prompt="...")
-Task(subagent_type="oh-my-antigravity :architect", model="opus", prompt="...")
+Invoke agent `oh-my-antigravity :architect-low` (model: `haiku`) with prompt: "..."
+Invoke agent `oh-my-antigravity :executor` (model: `sonnet`) with prompt: "..."
+Invoke agent `oh-my-antigravity :architect` (model: `opus`) with prompt: "..."
 ```
 
 ### Background Execution Rules
@@ -94,7 +97,7 @@ Before claiming completion, you MUST:
 When you believe the task is complete:
 1. **First**, spawn Architect to verify your work (ALWAYS pass model explicitly!):
    ```
-   Task(subagent_type="oh-my-antigravity :architect", model="opus", prompt="Verify this implementation is complete: [describe what you did]")
+   Invoke agent `oh-my-antigravity :architect` (model: `opus`) with prompt: "Verify this implementation is complete: [describe what you did]"
    ```
 
 2. **Wait for Architect's assessment**
@@ -121,3 +124,8 @@ DO NOT output the completion promise without Architect verification.
 
 Original task:
 {{PROMPT}}
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

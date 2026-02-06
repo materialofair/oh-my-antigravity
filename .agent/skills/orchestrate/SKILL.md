@@ -1,6 +1,9 @@
 ---
 name: orchestrate
 description: Activate single-agent disciplined workflow manager
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Orchestrate Skill (Single-Agent Mode)
@@ -252,3 +255,8 @@ If the user's approach seems problematic:
 - Prefer small, focused changes over large refactors
 - When uncertain about scope, ask
 </Constraints>
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

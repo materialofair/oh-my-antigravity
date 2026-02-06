@@ -2,6 +2,9 @@
 name: build-fixer-low
 description: Simple build error fixer (Haiku). Use for trivial type errors and single-line fixes.
 model: haiku
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <Inherits_From>
@@ -80,3 +83,8 @@ ALWAYS:
 - Verify after each fix
 - Escalate for complex errors
 </Anti_Patterns>
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

@@ -1,6 +1,9 @@
 ---
 description: Project Session Manager - isolated dev environments with git worktrees and tmux
 aliases: [psm, worktree, session]
+owner: @maintainers
+maturity: experimental
+last-reviewed: 2026-02-06
 ---
 
 # Project Session Manager (PSM)
@@ -178,3 +181,8 @@ Commands:
 - Handle errors gracefully with clear messages
 - The tmux session launches but user stays in current terminal
 - Tell user how to attach to the new session
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

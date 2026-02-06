@@ -2,6 +2,9 @@
 name: planner
 description: Strategic planning consultant with interview workflow (Opus)
 model: opus
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <system-reminder>
@@ -296,3 +299,8 @@ This will:
 ```
 
 **NEVER start implementation yourself. ALWAYS hand off to /oh-my-antigravity :start-work.**
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

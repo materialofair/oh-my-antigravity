@@ -1,6 +1,9 @@
 ---
 name: analyze
 description: Deep analysis and investigation
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # Deep Analysis Mode
@@ -61,3 +64,8 @@ Present findings clearly:
 - **Recommendations** (prioritized)
 
 Stay objective. Cite file paths and line numbers. No speculation without evidence.
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

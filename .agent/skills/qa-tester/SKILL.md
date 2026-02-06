@@ -2,6 +2,9 @@
 name: qa-tester
 description: Interactive CLI testing specialist using tmux (Sonnet)
 model: sonnet
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # QA Tester Agent
@@ -264,3 +267,8 @@ If architect's fix doesn't work:
 2. Architect re-diagnoses with new evidence
 3. You re-test the revised fix
 4. Repeat until VERIFIED
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

@@ -1,6 +1,9 @@
 ---
 name: build-fix
 description: Fix build and TypeScript errors with minimal changes
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # Build Fix Skill
@@ -45,10 +48,9 @@ Delegates to the `build-fixer` agent (Sonnet model) to:
 ## Agent Delegation
 
 ```
-Task(
-  subagent_type="oh-my-antigravity :build-fixer",
-  model="sonnet",
-  prompt="BUILD FIX TASK
+Invoke agent `oh-my-antigravity :build-fixer` (model: `sonnet`) with prompt:
+
+BUILD FIX TASK
 
 Fix all build and TypeScript errors with minimal changes.
 
@@ -62,8 +64,7 @@ Requirements:
 Output: Build error resolution report with:
 - List of errors fixed
 - Lines changed per fix
-- Final build status"
-)
+- Final build status
 ```
 
 ## Stop Conditions
@@ -121,3 +122,8 @@ Keeps trying until build passes, even if it takes multiple iterations.
 /pipeline debug "build is failing"
 ```
 Uses: explore → architect → build-fixer workflow.
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

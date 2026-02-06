@@ -4,10 +4,10 @@
 
 *Ported from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) with ❤️*
 
-> Give your Antigravity agent the collective intelligence of the "Oh My" ecosystem with **73 specialized Skills** and **36 automated Workflows**.
+> Give your Antigravity agent the collective intelligence of the "Oh My" ecosystem with **72 specialized Skills** and **35 automated Workflows**.
 
 **✅ Migration Status**: Complete - Antigravity-ready ✅  
-**📊 Compatibility**: 73/73 Skills ✅ | 36/36 Workflows ✅ | 0 Issues  
+**📊 Compatibility**: 72/72 Skills ✅ | 35/35 Workflows ✅ | 0 Issues  
 **📖 See**: [Migration Status Report](MIGRATION_STATUS.md) | [Migration Plan](MIGRATION_TO_ANTIGRAVITY.md)
 
 ---
@@ -34,7 +34,7 @@ Think of it as:
 
 ## 🚀 Features
 
-### 🧠 73 Specialized Skills
+### 🧠 72 Specialized Skills
 
 | Category | Skills | Description |
 |----------|--------|-------------|
@@ -46,7 +46,7 @@ Think of it as:
 | **Design** | `designer`, `frontend-ui-ux`, `vision` | UI/UX design & visual analysis |
 | **Specialized** | `git-master`, `writer`, `writer-memory`, `learner` | Git operations, documentation, memory |
 
-### ⚡️ 36 Workflows
+### ⚡️ 35 Workflows
 
 | Workflow | Description |
 |----------|-------------|
@@ -149,6 +149,27 @@ Add project rules in `GEMINI.md` and global rules in `~/.gemini/antigravity/GEMI
   - `sg` (ast-grep) - Structural code search
 
 Run `/doctor` to verify your environment setup.
+
+## 🛡️ Skill Governance
+
+This repository includes a governance policy and checker for Skills + Workflows in Antigravity IDE:
+
+- Policy: `docs/SKILL_GOVERNANCE.md`
+- Checker: `scripts/check-skill-governance.sh`
+- Debt allowlist: `.governance/skill-lint.allowlist`
+
+Run governance check:
+
+```bash
+bash scripts/check-skill-governance.sh
+```
+
+## 📌 Governance Status (2026-02-06)
+
+- Governance check result: `0 issues`, `0 allowlisted debt`
+- Runtime-incompatible task syntax removed from active skills/workflows
+- Deprecated migration in place:
+  - `learn-about-omc` (deprecated) -> `learn-about-oma` (canonical)
 
 ---
 

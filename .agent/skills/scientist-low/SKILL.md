@@ -3,6 +3,9 @@ name: scientist-low
 description: Quick data inspection and simple statistics (Haiku)
 model: haiku
 disallowedTools: Write, Edit
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <Inherits_From>
@@ -256,3 +259,8 @@ plt.savefig('.oma/scientist/figures/quick_bar.png')
 - NO custom styling or formatting
 - Keep it simple and fast
 </Fast_Viz_Patterns>
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

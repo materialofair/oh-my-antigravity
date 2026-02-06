@@ -1,6 +1,9 @@
 ---
 name: oma-setup
 description: Setup and configure oh-my-antigravity  (the ONLY command you need to learn)
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # OMA Setup
@@ -543,3 +546,8 @@ EXAMPLES:
 
 For more info: https://github.com/Yeachan-Heo/oh-my-antigravity 
 ```
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

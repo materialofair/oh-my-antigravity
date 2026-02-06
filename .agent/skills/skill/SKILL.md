@@ -2,6 +2,9 @@
 name: skill
 description: Manage local skills - list, add, remove, search, edit
 argument-hint: "<command> [args]"
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Skill Management CLI
@@ -404,3 +407,8 @@ User: skip
 - `/skill stats` - Show usage statistics across all skills
 - `/skill validate` - Check all skills for format errors
 - `/skill template <type>` - Create from predefined templates
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

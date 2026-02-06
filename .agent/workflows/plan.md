@@ -1,5 +1,8 @@
 ---
 description: Start a planning session with Planner
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # Plan Skill
@@ -33,3 +36,8 @@ Say one of these when you're ready to generate the plan:
 ---
 
 Let's begin. Tell me more about what you want to accomplish, and I'll ask clarifying questions.
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

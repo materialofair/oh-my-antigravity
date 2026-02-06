@@ -1,5 +1,8 @@
 ---
 description: Configure popular MCP servers for enhanced agent capabilities
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # MCP Setup
@@ -193,3 +196,8 @@ Then add to mcpServers section accordingly.
 ### Agents Still Using Built-in Tools
 - Restart Antigravity after configuration
 - The built-in websearch will be deprioritized when exa is configured
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

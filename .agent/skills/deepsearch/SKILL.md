@@ -1,6 +1,9 @@
 ---
 name: deepsearch
 description: Thorough codebase search
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # Deep Search Mode
@@ -36,3 +39,8 @@ Perform thorough search of the codebase for the specified query, pattern, or con
 - **Key Insights** (patterns, conventions, gotchas)
 
 Focus on being comprehensive but concise. Cite file paths and line numbers.
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

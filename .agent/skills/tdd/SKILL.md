@@ -1,6 +1,9 @@
 ---
 name: tdd
 description: Test-Driven Development enforcement skill - write tests first, always
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # TDD Mode
@@ -77,3 +80,8 @@ Result: [tests still pass]
 ```
 
 **Remember:** The discipline IS the value. Shortcuts destroy the benefit.
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

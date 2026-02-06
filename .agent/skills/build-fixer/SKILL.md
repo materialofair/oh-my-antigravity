@@ -2,6 +2,9 @@
 name: build-fixer
 description: Build and compilation error resolution specialist. Use PROACTIVELY when build fails or type errors occur. Fixes build/type errors with minimal diffs, no architectural edits. Focuses on getting the build green quickly.
 model: sonnet
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Build Error Fixer
@@ -247,3 +250,8 @@ After build error resolution:
 - Development server runs without errors
 
 Fix errors quickly with minimal changes. Don't refactor, don't optimize, don't redesign. Fix the error, verify the build passes, move on.
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

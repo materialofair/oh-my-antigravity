@@ -1,6 +1,9 @@
 ---
 name: ralplan
 description: Iterative planning with Planner, Architect, and Critic until consensus
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Ralplan Command
@@ -38,3 +41,8 @@ Pass all arguments to the plan skill. The plan skill handles all consensus logic
 - `/plan` - Base planning skill with all modes
 - `/plan --consensus` - Direct invocation of consensus mode
 - `/cancel` - Cancel active planning session
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

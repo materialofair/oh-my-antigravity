@@ -1,6 +1,9 @@
 ---
 name: ralph-init
 description: Initialize a PRD (Product Requirements Document) for structured ralph-loop execution
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Ralph Init Skill
@@ -58,3 +61,8 @@ After creating files, report summary and suggest running `/oh-my-antigravity :ra
 
 Task to break down:
 {{ARGUMENTS}}
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

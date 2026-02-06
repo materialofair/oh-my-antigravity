@@ -1,6 +1,9 @@
 ---
 name: deepinit
 description: Deep codebase initialization with hierarchical AGENTS.md documentation
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Deep Init Skill
@@ -84,8 +87,8 @@ This creates a navigable hierarchy:
 ### Step 1: Map Directory Structure
 
 ```
-Task(subagent_type="explore", model="haiku",
-  prompt="List all directories recursively. Exclude: node_modules, .git, dist, build, __pycache__, .venv, coverage, .next, .nuxt")
+Invoke agent `explore` (model: `haiku`) with prompt:
+List all directories recursively. Exclude: node_modules, .git, dist, build, __pycache__, .venv, coverage, .next, .nuxt
 ```
 
 ### Step 2: Create Work Plan
@@ -318,3 +321,8 @@ When running on an existing codebase with AGENTS.md files:
 - **Batch small directories** - Process multiple at once
 - **Skip unchanged** - If directory hasn't changed, skip regeneration
 - **Parallel writes** - Multiple agents writing different files simultaneously
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

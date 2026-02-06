@@ -1,6 +1,9 @@
 ---
 description: Activate maximum performance mode with parallel agent orchestration for high-throughput task completion
 aliases: [ulw, uw, turbo]
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Ultrawork Skill
@@ -32,7 +35,7 @@ This skill enhances Antigravity's capabilities by:
 
 **Path Exception**: Only write to `.oma/`, `.agent/`, `GEMINI.md`, `AGENTS.md`
 
-The PreToolUse hook will warn you if you attempt direct code changes.
+Delegation rules and audit checks will flag direct code changes.
 
 ## Smart Model Routing (CRITICAL - SAVE TOKENS)
 
@@ -66,19 +69,19 @@ The PreToolUse hook will warn you if you attempt direct code changes.
 
 ```
 // Simple question → LOW tier (saves tokens!)
-Task(subagent_type="architect-low", model="haiku", prompt="What does this function return?")
+Invoke agent `architect-low` (model: `haiku`) with prompt: "What does this function return?"
 
 // Standard implementation → MEDIUM tier
-Task(subagent_type="executor", model="sonnet", prompt="Add error handling to login")
+Invoke agent `executor` (model: `sonnet`) with prompt: "Add error handling to login"
 
 // Complex refactoring → HIGH tier
-Task(subagent_type="executor-high", model="opus", prompt="Refactor auth module using JWT across 5 files")
+Invoke agent `executor-high` (model: `opus`) with prompt: "Refactor auth module using JWT across 5 files"
 
 // Quick file lookup → LOW tier
-Task(subagent_type="explore", model="haiku", prompt="Find where UserService is defined")
+Invoke agent `explore` (model: `haiku`) with prompt: "Find where UserService is defined"
 
 // Thorough search → MEDIUM tier
-Task(subagent_type="explore-medium", model="sonnet", prompt="Find all authentication patterns in the codebase")
+Invoke agent `explore-medium` (model: `sonnet`) with prompt: "Find all authentication patterns in the codebase"
 ```
 
 ## Background Execution Rules
@@ -103,3 +106,8 @@ Before stopping, verify:
 - [ ] ERRORS: Zero unaddressed errors
 
 **If ANY checkbox is unchecked, CONTINUE WORKING.**
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

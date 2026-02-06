@@ -1,5 +1,8 @@
 ---
 description: QA cycling workflow - test, verify, fix, repeat until goal met
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # UltraQA Skill
@@ -38,10 +41,11 @@ If no structured goal provided, interpret the argument as a custom goal.
    - `--custom`: Run appropriate command and check for pattern
    - `--interactive`: Use qa-tester for interactive CLI/service testing:
      ```
-     Task(subagent_type="oh-my-antigravity :qa-tester", model="sonnet", prompt="TEST:
+     Invoke agent `oh-my-antigravity :qa-tester` (model: `sonnet`) with prompt:
+     TEST:
      Goal: [describe what to verify]
      Service: [how to start]
-     Test cases: [specific scenarios to verify]")
+     Test cases: [specific scenarios to verify]
      ```
 
 2. **CHECK RESULT**: Did the goal pass?
@@ -50,18 +54,20 @@ If no structured goal provided, interpret the argument as a custom goal.
 
 3. **ARCHITECT DIAGNOSIS**: Spawn architect to analyze failure
    ```
-   Task(subagent_type="oh-my-antigravity :architect", model="opus", prompt="DIAGNOSE FAILURE:
+   Invoke agent `oh-my-antigravity :architect` (model: `opus`) with prompt:
+   DIAGNOSE FAILURE:
    Goal: [goal type]
    Output: [test/build output]
-   Provide root cause and specific fix recommendations.")
+   Provide root cause and specific fix recommendations.
    ```
 
 4. **FIX ISSUES**: Apply architect's recommendations
    ```
-   Task(subagent_type="oh-my-antigravity :executor", model="sonnet", prompt="FIX:
+   Invoke agent `oh-my-antigravity :executor` (model: `sonnet`) with prompt:
+   FIX:
    Issue: [architect diagnosis]
    Files: [affected files]
-   Apply the fix precisely as recommended.")
+   Apply the fix precisely as recommended.
    ```
 
 5. **REPEAT**: Go back to step 1
@@ -119,3 +125,8 @@ User can cancel with `/oh-my-antigravity :cancel` which clears the state file.
 ---
 
 Begin ULTRAQA cycling now. Parse the goal and start cycle 1.
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

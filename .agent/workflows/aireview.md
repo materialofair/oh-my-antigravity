@@ -1,5 +1,8 @@
 ---
 description: Professional multi-agent AI code review with confidence scoring
+owner: @maintainers
+maturity: experimental
+last-reviewed: 2026-02-06
 ---
 
 # aireview - Enhanced AI Code Review
@@ -41,3 +44,8 @@ aireview --diff --deep                    # Gemini + parallel analysis
    - AI review report with confidence scores
    - Severity-rated issues (Critical/High/Medium/Low)
    - Fix suggestions with code links
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

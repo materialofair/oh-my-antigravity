@@ -1,6 +1,9 @@
 ---
 description: Iterative planning with Planner, Architect, and Critic until consensus
 aliases: [rp, planloop]
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Ralplan Command
@@ -275,3 +278,8 @@ To stop an active ralplan session:
 **HARD RULE:** Steps 5-7 are NON-NEGOTIABLE. No plan approval, user confirmation, or plan mode exit can occur before the Critic has rendered its verdict. This prevents the plan mode confirmation flow from short-circuiting the ralplan review loop.
 
 The iterative loop refines the plan until it meets the rigorous standards of all three agents, ensuring comprehensive, architecturally sound work plans ready for execution.
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

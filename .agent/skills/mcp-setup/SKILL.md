@@ -1,6 +1,9 @@
 ---
 name: mcp-setup
 description: Configure popular MCP servers for enhanced agent capabilities
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # MCP Setup
@@ -183,3 +186,8 @@ antigravity mcp add --transport http --header "Authorization: Bearer <token>" <s
 ### Removing or Updating a Server
 - Remove: `antigravity mcp remove <server-name>`
 - Update: Remove the old server, then add it again with new configuration
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

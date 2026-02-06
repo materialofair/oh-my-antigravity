@@ -2,6 +2,9 @@
 name: project-session-manager
 description: Manage isolated dev environments with git worktrees and tmux sessions
 aliases: [psm]
+owner: @maintainers
+maturity: experimental
+last-reviewed: 2026-02-06
 ---
 
 # Project Session Manager (PSM) Skill
@@ -408,3 +411,8 @@ if [[ ! -f ~/.psm/sessions.json ]]; then
   echo '{"version":1,"sessions":{},"stats":{"total_created":0,"total_cleaned":0}}' > ~/.psm/sessions.json
 fi
 ```
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

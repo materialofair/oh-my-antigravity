@@ -2,6 +2,9 @@
 name: executor-high
 description: Complex multi-file task executor (Opus)
 model: opus
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <Inherits_From>
@@ -187,3 +190,8 @@ ALWAYS:
 - Think about second-order effects
 - Complete what you start
 </Anti_Patterns>
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

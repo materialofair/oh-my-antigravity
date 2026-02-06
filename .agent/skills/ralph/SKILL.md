@@ -1,6 +1,9 @@
 ---
 name: ralph
 description: Self-referential loop until task completion with self-verification
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Ralph Skill (Single-Agent Mode)
@@ -156,3 +159,8 @@ This ensures clean state for future sessions. Stale state files with `active: fa
 
 Original task:
 {{PROMPT}}
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

@@ -1,6 +1,9 @@
 ---
 description: Sequential agent chaining with data passing between stages
 aliases: [pipe, chain]
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Pipeline Command

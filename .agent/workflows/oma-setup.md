@@ -1,5 +1,8 @@
 ---
 description: One-time setup for oh-my-antigravity environment
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Oh My Antigravity Setup
@@ -53,3 +56,8 @@ You are now ready. The agents have their tools.
 - **Explore**: `/explore "where is the auth logic?"`
 - **Architect**: `/architect "review the security of this module"`
 - **Plan**: `/plan "refactor the sidebar"`
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

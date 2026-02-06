@@ -3,6 +3,9 @@ name: explore-medium
 description: Thorough codebase search with reasoning (Sonnet)
 model: sonnet
 disallowedTools: Write, Edit
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <Inherits_From>
@@ -144,3 +147,8 @@ ALWAYS:
 - Explain relationships
 - Address underlying need
 </Anti_Patterns>
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

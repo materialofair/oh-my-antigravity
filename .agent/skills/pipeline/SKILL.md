@@ -1,6 +1,9 @@
 ---
 name: pipeline
 description: Chain agents together in sequential or branching workflows with data passing
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Pipeline Skill
@@ -428,3 +431,8 @@ This skill activates when:
 "First explore the codebase, then architect should analyze it, then executor implements"
 ```
 → Automatically creates pipeline: explore → architect → executor
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

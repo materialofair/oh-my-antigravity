@@ -1,6 +1,9 @@
 ---
 name: learner
 description: Extract a learned skill from the current conversation
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Learner Skill
@@ -133,3 +136,8 @@ If code helps, show it - but as illustration of the principle, not copy-paste ma
 
 - /oh-my-antigravity :note - Save quick notes that survive compaction (less formal than skills)
 - /oh-my-antigravity :ralph - Start a development loop with learning capture
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

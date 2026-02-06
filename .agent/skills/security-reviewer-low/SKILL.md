@@ -3,6 +3,9 @@ name: security-reviewer-low
 description: Quick security scan specialist (Haiku). Use for fast security checks on small code changes.
 model: haiku
 disallowedTools: Write, Edit
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 <Inherits_From>
@@ -81,3 +84,8 @@ ALWAYS:
 - Report concisely
 - Recommend escalation when needed
 </Anti_Patterns>
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

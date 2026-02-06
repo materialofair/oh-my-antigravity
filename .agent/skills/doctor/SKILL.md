@@ -1,6 +1,9 @@
 ---
 name: doctor
 description: Diagnose and fix oh-my-antigravity  installation issues
+owner: @maintainers
+maturity: core
+last-reviewed: 2026-02-06
 ---
 
 # Doctor Skill
@@ -71,3 +74,8 @@ Provide a short report with:
 - GEMINI.md status
 - Legacy hooks status
 - Recommended next steps
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

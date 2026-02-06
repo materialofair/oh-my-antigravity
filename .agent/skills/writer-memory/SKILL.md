@@ -2,6 +2,9 @@
 name: writer-memory
 description: Agentic memory system for writers - track characters, relationships, scenes, and themes
 argument-hint: "init|char|rel|scene|query|validate|synopsis|status|export [args]"
+owner: @maintainers
+maturity: experimental
+last-reviewed: 2026-02-06
 ---
 
 # Writer Memory - Agentic Memory System for Writers
@@ -234,9 +237,7 @@ Writer Memory integrates with `.oma/notepad.md`:
 ### With Architect Agent
 For complex character analysis:
 ```
-Task(subagent_type="oh-my-antigravity :architect",
-     model="opus",
-     prompt="Analyze 새랑's arc across all scenes...")
+Invoke agent `oh-my-antigravity :architect` (model: `opus`) with prompt: "Analyze 새랑's arc across all scenes..."
 ```
 
 ### Character Validation Pipeline
@@ -441,3 +442,8 @@ Output:
 - Ensure relevant data is in memory
 - Try more specific queries
 - Check character names match exactly
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.

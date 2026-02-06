@@ -1,6 +1,9 @@
 ---
 name: ultrawork
 description: Activate maximum performance mode with parallel agent orchestration for high-throughput task completion
+owner: @maintainers
+maturity: domain
+last-reviewed: 2026-02-06
 ---
 
 # Ultrawork Skill
@@ -53,19 +56,19 @@ This skill enhances Antigravity's capabilities by:
 
 ```
 // Simple question → LOW tier (saves tokens!)
-Task(subagent_type="oh-my-antigravity :architect-low", model="haiku", prompt="What does this function return?")
+Invoke agent `oh-my-antigravity :architect-low` (model: `haiku`) with prompt: "What does this function return?"
 
 // Standard implementation → MEDIUM tier
-Task(subagent_type="oh-my-antigravity :executor", model="sonnet", prompt="Add error handling to login")
+Invoke agent `oh-my-antigravity :executor` (model: `sonnet`) with prompt: "Add error handling to login"
 
 // Complex refactoring → HIGH tier
-Task(subagent_type="oh-my-antigravity :executor-high", model="opus", prompt="Refactor auth module using JWT across 5 files")
+Invoke agent `oh-my-antigravity :executor-high` (model: `opus`) with prompt: "Refactor auth module using JWT across 5 files"
 
 // Quick file lookup → LOW tier
-Task(subagent_type="oh-my-antigravity :explore", model="haiku", prompt="Find where UserService is defined")
+Invoke agent `oh-my-antigravity :explore` (model: `haiku`) with prompt: "Find where UserService is defined"
 
 // Thorough search → MEDIUM tier
-Task(subagent_type="oh-my-antigravity :explore-medium", model="sonnet", prompt="Find all authentication patterns in the codebase")
+Invoke agent `oh-my-antigravity :explore-medium` (model: `sonnet`) with prompt: "Find all authentication patterns in the codebase"
 ```
 
 ## Background Execution Rules
@@ -104,3 +107,8 @@ rm -f ~/.gemini/antigravity/ultrawork-state.json
 ```
 
 This ensures clean state for future sessions. Stale state files with `active: false` should not be left behind.
+
+## Output
+
+- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
+- Include key decisions, actions taken, and final status for Antigravity IDE visibility.
