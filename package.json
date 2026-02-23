@@ -1,6 +1,6 @@
 {
   "name": "oh-my-oma",
-  "version": "3.8.14",
+  "version": "3.8.15",
   "description": "Multi-agent orchestration system for Google Antigravity CLI",
   "license": "MIT",
   "bin": {
