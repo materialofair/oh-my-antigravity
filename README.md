@@ -6,6 +6,9 @@
 
 > Give your Antigravity agent the collective intelligence of the "Oh My" ecosystem with **72 specialized Skills** and **35 automated Workflows**.
 
+**📦 NPM Package**: `oh-my-oma`  
+**⚡ Quick Install**: `npm install -g oh-my-oma`
+
 **✅ Migration Status**: Complete - Antigravity-ready ✅  
 **📊 Compatibility**: 72/72 Skills ✅ | 35/35 Workflows ✅ | 0 Issues  
 **📖 See**: [Migration Status Report](MIGRATION_STATUS.md) | [Migration Plan](MIGRATION_TO_ANTIGRAVITY.md)
@@ -68,21 +71,24 @@ Think of it as:
 
 ## 📦 Installation
 
-### Recommended (OMA CLI Style)
+### Recommended (NPM Global Install)
 
 ```bash
-# global install surfaces (~/.gemini/antigravity/*)
-node bin/oma.js setup --scope user
+# Install CLI globally
+npm install -g oh-my-oma
 
-# project-local install surfaces (<project>/.agent/*)
-node bin/oma.js setup --scope project-local --target /path/to/your/project
+# Install skills/workflows to user scope (~/.gemini/antigravity/*)
+oh-my-oma setup --scope user
+
+# Install to a specific project (<project>/.agent/*)
+oh-my-oma setup --scope project-local --target /path/to/your/project
 ```
 
 Diagnostics and verification:
 
 ```bash
-node bin/oma.js doctor
-node bin/oma.js verify
+oh-my-oma doctor
+oh-my-oma verify
 ```
 
 ### Option 1: Local Installation (Per Project)
@@ -95,6 +101,9 @@ git clone https://github.com/YourUsername/oh-my-antigravity.git
 
 # Navigate to the repository
 cd oh-my-antigravity
+
+# Optional: install CLI from local checkout
+npm install -g .
 
 # Run the installer (installs to current directory by default)
 ./install.sh /path/to/your/project
@@ -119,13 +128,13 @@ This installs to:
 Validate install and governance/sync baseline in one command:
 
 ```bash
-node bin/oma.js verify
+oh-my-oma verify
 ```
 
 Quick diagnostics:
 
 ```bash
-node bin/oma.js doctor
+oh-my-oma doctor
 ```
 
 ---

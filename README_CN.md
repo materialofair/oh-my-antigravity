@@ -6,6 +6,9 @@
 
 > 为你的 Antigravity 代理注入 "Oh My" 生态系统的集体智慧 — **72 个专业技能** 和 **35 个自动化工作流**。
 
+**📦 NPM 包名**: `oh-my-oma`  
+**⚡ 快速安装**: `npm install -g oh-my-oma`
+
 **✅ 迁移状态**: 已完成 - 可直接用于 Antigravity ✅  
 **📊 兼容性**: 72/72 技能 ✅ | 35/35 工作流 ✅ | 0 问题  
 **📖 查看**: [迁移状态报告](MIGRATION_STATUS.md) | [迁移计划](MIGRATION_TO_ANTIGRAVITY.md)
@@ -68,21 +71,24 @@ oh-my-antigravity 是一个全面的 AI 代理"人设"（技能）和自动化�
 
 ## 📦 安装
 
-### 推荐方式（OMA CLI 风格）
+### 推荐方式（NPM 全局安装）
 
 ```bash
-# 全局安装面（~/.gemini/antigravity/*）
-node bin/oma.js setup --scope user
+# 全局安装 CLI
+npm install -g oh-my-oma
 
-# 项目级安装面（<project>/.agent/*）
-node bin/oma.js setup --scope project-local --target /path/to/your/project
+# 将技能/工作流安装到用户级目录（~/.gemini/antigravity/*）
+oh-my-oma setup --scope user
+
+# 安装到指定项目（<project>/.agent/*）
+oh-my-oma setup --scope project-local --target /path/to/your/project
 ```
 
 诊断与验证：
 
 ```bash
-node bin/oma.js doctor
-node bin/oma.js verify
+oh-my-oma doctor
+oh-my-oma verify
 ```
 
 ### 方式一：本地安装（单项目）
@@ -95,6 +101,9 @@ git clone https://github.com/YourUsername/oh-my-antigravity.git
 
 # 进入仓库目录
 cd oh-my-antigravity
+
+# 可选：从本地仓库全局安装 CLI
+npm install -g .
 
 # 运行安装脚本（默认安装到当前目录）
 ./install.sh /path/to/your/project

@@ -1,0 +1,36 @@
+{
+  "name": "oh-my-oma",
+  "version": "3.8.14",
+  "description": "Multi-agent orchestration system for Google Antigravity CLI",
+  "license": "MIT",
+  "bin": {
+    "oh-my-oma": "bin/oma.js"
+  },
+  "files": [
+    ".agent",
+    ".governance",
+    "bin",
+    "docs/generated",
+    "scripts",
+    "install.sh",
+    "install_global.sh",
+    "README.md",
+    "README_CN.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "doctor": "node bin/oma.js doctor",
+    "verify": "node bin/oma.js verify",
+    "pack:dry-run": "npm pack --dry-run"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "antigravity",
+    "gemini",
+    "ai-agent",
+    "workflow",
+    "skills"
+  ]
+}
