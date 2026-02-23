@@ -4,7 +4,7 @@
 
 Multi-agent orchestration system for Antigravity CLI, providing intelligent delegation, parallel execution, and IDE-like capabilities through LSP/AST integration.
 
-**Version:** 3.7.7
+**Version:** 3.8.14
 **Purpose:** Transform Antigravity into a conductor of specialized AI agents
 **Inspired by:** oh-my-zsh / oh-my-opencode
 

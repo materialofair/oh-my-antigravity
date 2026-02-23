@@ -1,0 +1,655 @@
+{
+  "generatedAt": "2026-02-23T01:36:30.332Z",
+  "counts": {
+    "skillCount": 72,
+    "workflowCount": 35,
+    "activeSkillCount": 72,
+    "activeWorkflowCount": 35
+  },
+  "skills": [
+    {
+      "name": "AGENTS",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "aireview",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "analyst",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "analyze",
+      "category": "analysis",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "architect",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "architect-low",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "architect-medium",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "autopilot",
+      "category": "execution",
+      "status": "active",
+      "core": true
+    },
+    {
+      "name": "build-fix",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "build-fixer",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "build-fixer-low",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "cancel",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "code-review",
+      "category": "quality",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "code-reviewer",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "code-reviewer-low",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "conductor",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "critic",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "deepinit",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "deepsearch",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "designer",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "designer-high",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "designer-low",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "doctor",
+      "category": "utility",
+      "status": "active",
+      "core": true
+    },
+    {
+      "name": "electron-driver",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "executor",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "executor-high",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "executor-low",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "explore",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "explore-high",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "explore-medium",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "frontend-ui-ux",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "git-master",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "help",
+      "category": "utility",
+      "status": "active",
+      "core": true
+    },
+    {
+      "name": "hud",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "learn-about-oma",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "learner",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "local-skills-setup",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "mcp-setup",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "note",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "oma-setup",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "orchestrate",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "pipeline",
+      "category": "execution",
+      "status": "active",
+      "core": true
+    },
+    {
+      "name": "plan",
+      "category": "planning",
+      "status": "active",
+      "core": true
+    },
+    {
+      "name": "planner",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "planning-with-files",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "project-session-manager",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "qa-tester",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "qa-tester-high",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "ralph",
+      "category": "execution",
+      "status": "active",
+      "core": true
+    },
+    {
+      "name": "ralph-init",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "ralplan",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "release",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "research",
+      "category": "analysis",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "researcher",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "researcher-low",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "review",
+      "category": "planning",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "scientist",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "scientist-high",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "scientist-low",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "security-review",
+      "category": "quality",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "security-reviewer",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "security-reviewer-low",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "skill",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "start-dev",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "tdd",
+      "category": "quality",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "tdd-guide",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "tdd-guide-low",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "ultraqa",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "ultrawork",
+      "category": "execution",
+      "status": "active",
+      "core": true
+    },
+    {
+      "name": "vision",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "writer",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "writer-memory",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    }
+  ],
+  "workflows": [
+    {
+      "name": "aireview",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "analyze",
+      "category": "analysis",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "autopilot",
+      "category": "execution",
+      "status": "active",
+      "core": true
+    },
+    {
+      "name": "build-fix",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "cancel",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "code-review",
+      "category": "quality",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "conductor",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "deepinit",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "deepsearch",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "doctor",
+      "category": "utility",
+      "status": "active",
+      "core": true
+    },
+    {
+      "name": "format",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "help",
+      "category": "utility",
+      "status": "active",
+      "core": true
+    },
+    {
+      "name": "learn-about-oma",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "learn-about-omc",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "learner",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "lint",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "mcp-setup",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "note",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "oma-setup",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "pipeline",
+      "category": "execution",
+      "status": "active",
+      "core": true
+    },
+    {
+      "name": "plan",
+      "category": "planning",
+      "status": "active",
+      "core": true
+    },
+    {
+      "name": "planning-with-files",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "psm",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "ralph",
+      "category": "execution",
+      "status": "active",
+      "core": true
+    },
+    {
+      "name": "ralph-init",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "ralplan",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "release",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "research",
+      "category": "analysis",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "review",
+      "category": "planning",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "security-review",
+      "category": "quality",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "start-dev",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "tdd",
+      "category": "quality",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "typecheck",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "ultraqa",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "ultrawork",
+      "category": "execution",
+      "status": "active",
+      "core": true
+    }
+  ]
+}

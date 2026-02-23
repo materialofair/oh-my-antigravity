@@ -105,7 +105,13 @@ has_key() {
 get_value() {
   local frontmatter="$1"
   local key="$2"
-  echo "$frontmatter" | grep -Ei "^${key}:" | head -n 1 | sed -E "s/^${key}:[[:space:]]*//I" | sed -E "s/[[:space:]]+$//"
+  echo "$frontmatter" \
+    | grep -Ei "^${key}:" \
+    | head -n 1 \
+    | sed -E "s/^${key}:[[:space:]]*//I" \
+    | sed -E "s/[[:space:]]+$//" \
+    | sed -E "s/^\"(.*)\"$/\\1/" \
+    | sed -E "s/^'(.*)'$/\\1/"
 }
 
 check_common_content() {
@@ -266,6 +272,17 @@ main() {
     echo
     printf "${red}Governance check failed.${nc}\n"
     exit 1
+  fi
+
+  if command -v node >/dev/null 2>&1 && [[ -f "$PROJECT_ROOT/scripts/generate-catalog-docs.js" ]]; then
+    echo
+    echo "==> Catalog consistency check"
+    if [[ -f "$PROJECT_ROOT/.governance/catalog-manifest.json" && -f "$PROJECT_ROOT/docs/generated/public-catalog.json" ]]; then
+      node "$PROJECT_ROOT/scripts/generate-catalog-docs.js" --verify
+    else
+      node "$PROJECT_ROOT/scripts/generate-catalog-docs.js"
+      echo "Catalog baseline was missing and has been generated."
+    fi
   fi
 
   echo

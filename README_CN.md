@@ -4,10 +4,10 @@
 
 *基于 [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) 移植 ❤️*
 
-> 为你的 Antigravity 代理注入 "Oh My" 生态系统的集体智慧 — **73 个专业技能** 和 **36 个自动化工作流**。
+> 为你的 Antigravity 代理注入 "Oh My" 生态系统的集体智慧 — **72 个专业技能** 和 **35 个自动化工作流**。
 
 **✅ 迁移状态**: 已完成 - 可直接用于 Antigravity ✅  
-**📊 兼容性**: 73/73 技能 ✅ | 36/36 工作流 ✅ | 0 问题  
+**📊 兼容性**: 72/72 技能 ✅ | 35/35 工作流 ✅ | 0 问题  
 **📖 查看**: [迁移状态报告](MIGRATION_STATUS.md) | [迁移计划](MIGRATION_TO_ANTIGRAVITY.md)
 
 ---
@@ -34,7 +34,7 @@ oh-my-antigravity 是一个全面的 AI 代理"人设"（技能）和自动化�
 
 ## 🚀 功能特性
 
-### 🧠 73 个专业技能
+### 🧠 72 个专业技能
 
 | 类别 | 技能 | 描述 |
 |------|------|------|
@@ -46,7 +46,7 @@ oh-my-antigravity 是一个全面的 AI 代理"人设"（技能）和自动化�
 | **UI/UX 设计** | `designer`、`frontend-ui-ux`、`vision` | 界面设计与视觉分析 |
 | **专项能力** | `git-master`、`writer`、`writer-memory`、`learner` | Git 操作、文档编写、记忆系统 |
 
-### ⚡️ 36 个工作流
+### ⚡️ 35 个工作流
 
 | 工作流 | 描述 |
 |--------|------|
@@ -67,6 +67,23 @@ oh-my-antigravity 是一个全面的 AI 代理"人设"（技能）和自动化�
 ---
 
 ## 📦 安装
+
+### 推荐方式（OMA CLI 风格）
+
+```bash
+# 全局安装面（~/.gemini/antigravity/*）
+node bin/oma.js setup --scope user
+
+# 项目级安装面（<project>/.agent/*）
+node bin/oma.js setup --scope project-local --target /path/to/your/project
+```
+
+诊断与验证：
+
+```bash
+node bin/oma.js doctor
+node bin/oma.js verify
+```
 
 ### 方式一：本地安装（单项目）
 

@@ -20,7 +20,8 @@ Governed objects:
 2. `.agent/workflows/*.md`
 3. `scripts/check-skill-governance.sh`
 4. `.governance/skill-lint.allowlist`
-5. Governance docs under `docs/`
+5. Catalog baseline files (`.governance/catalog-manifest.json`, `docs/generated/public-catalog.json`)
+6. Governance docs under `docs/`
 
 Out of scope (for now):
 
@@ -87,6 +88,8 @@ Run governance check:
 ```bash
 bash scripts/check-skill-governance.sh
 ```
+
+This includes catalog consistency verification when Node.js is available.
 
 Expected behavior:
 

@@ -9,7 +9,7 @@ Complete reference for oh-my-antigravity . For quick start, see the main [README
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Agents (32 Total)](#agents-32-total)
-- [Skills (73 Total)](#skills-73-total)
+- [Skills (72 Total)](#skills-72-total)
 - [Slash Commands](#slash-commands)
 - [Rules System](#rules-system)
 - [Magic Keywords](#magic-keywords)
@@ -22,6 +22,20 @@ Complete reference for oh-my-antigravity . For quick start, see the main [README
 ## Installation
 
 oh-my-antigravity installs via the provided scripts and uses Antigravity's standard paths.
+
+### OMA CLI (Recommended)
+
+```bash
+# Global
+node bin/oma.js setup --scope user
+
+# Project-local
+node bin/oma.js setup --scope project-local --target /path/to/project
+
+# Diagnostics / verification
+node bin/oma.js doctor
+node bin/oma.js verify
+```
 
 ### Local Installation (Per Project)
 
@@ -168,7 +182,7 @@ Always use `oh-my-antigravity :` prefix when calling via Task tool.
 
 ---
 
-## Skills (73 Total)
+## Skills (72 Total)
 
 ### Core Skills
 

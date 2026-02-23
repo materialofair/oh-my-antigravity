@@ -68,6 +68,23 @@ Think of it as:
 
 ## 📦 Installation
 
+### Recommended (OMA CLI Style)
+
+```bash
+# global install surfaces (~/.gemini/antigravity/*)
+node bin/oma.js setup --scope user
+
+# project-local install surfaces (<project>/.agent/*)
+node bin/oma.js setup --scope project-local --target /path/to/your/project
+```
+
+Diagnostics and verification:
+
+```bash
+node bin/oma.js doctor
+node bin/oma.js verify
+```
+
 ### Option 1: Local Installation (Per Project)
 
 Copy the `.agent` directory to your project:
@@ -96,6 +113,20 @@ This installs to:
 - Skills → `~/.gemini/antigravity/skills/`
 - Workflows (canonical) → `~/.gemini/antigravity/global_workflows/`
 - Workflows (compat discovery links) → `~/.agent/workflows/`, `~/.agents/workflows/`, `~/_agent/workflows/`, `~/_agents/workflows/`
+
+### Installation Validation
+
+Validate install and governance/sync baseline in one command:
+
+```bash
+node bin/oma.js verify
+```
+
+Quick diagnostics:
+
+```bash
+node bin/oma.js doctor
+```
 
 ---
 
@@ -163,6 +194,26 @@ Run governance check:
 
 ```bash
 bash scripts/check-skill-governance.sh
+```
+
+Generate and verify catalog baseline:
+
+```bash
+node scripts/generate-catalog-docs.js
+node scripts/generate-catalog-docs.js --verify
+```
+
+Sync and verify metadata/counts:
+
+```bash
+node scripts/sync-metadata.js
+node scripts/sync-metadata.js --verify
+```
+
+One-shot full verification:
+
+```bash
+bash scripts/verify-repo.sh
 ```
 
 ## 📌 Governance Status (2026-02-06)
