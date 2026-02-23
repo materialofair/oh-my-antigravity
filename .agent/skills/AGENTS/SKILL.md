@@ -1,9 +1,9 @@
 ---
 name: AGENTS
 description: Documentation for all 32 agent prompt templates in oh-my-antigravity
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 <!-- Parent: ../AGENTS.md -->

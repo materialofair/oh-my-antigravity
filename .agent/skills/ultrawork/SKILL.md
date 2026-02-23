@@ -1,9 +1,9 @@
 ---
 name: ultrawork
 description: Activate maximum performance mode with parallel agent orchestration for high-throughput task completion
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Ultrawork Skill

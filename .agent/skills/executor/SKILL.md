@@ -2,9 +2,9 @@
 name: executor
 description: Focused task executor for implementation work (Sonnet)
 model: sonnet
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 <Role>

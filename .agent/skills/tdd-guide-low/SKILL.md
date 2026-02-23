@@ -2,9 +2,9 @@
 name: tdd-guide-low
 description: Quick test suggestion specialist (Haiku). Use for simple test case ideas.
 model: haiku
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 <Inherits_From>

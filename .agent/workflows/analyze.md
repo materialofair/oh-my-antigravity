@@ -1,8 +1,8 @@
 ---
 description: Deep analysis and investigation
-owner: @maintainers
+owner: "@maintainers"
 maturity: core
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Deep Analysis Mode

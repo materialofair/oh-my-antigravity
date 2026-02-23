@@ -26,6 +26,21 @@ total_workflows=0
 valid_workflows=0
 issues_found=0
 
+validate_frontmatter_yaml() {
+    local markdown_file="$1"
+
+    ruby -ryaml -e '
+      path = ARGV[0]
+      text = File.read(path)
+      abort("missing frontmatter start") unless text.start_with?("---\n")
+      rest = text[4..]
+      idx = rest.index("\n---\n")
+      abort("missing frontmatter end") unless idx
+      frontmatter = rest[0...idx]
+      YAML.safe_load(frontmatter, permitted_classes: [], aliases: false)
+    ' "$markdown_file" >/dev/null 2>&1
+}
+
 # Check Skills
 echo "📋 Checking Skills..."
 echo "===================="
@@ -46,6 +61,13 @@ for skill_dir in "$SKILLS_DIR"/*; do
         # Check for YAML frontmatter
         if ! head -n 1 "$skill_file" | grep -q "^---$"; then
             echo -e "${RED}❌ $skill_name: Missing YAML frontmatter${NC}"
+            issues_found=$((issues_found + 1))
+            continue
+        fi
+
+        # Validate YAML syntax (strict parser)
+        if ! validate_frontmatter_yaml "$skill_file"; then
+            echo -e "${RED}❌ $skill_name: Invalid YAML frontmatter${NC}"
             issues_found=$((issues_found + 1))
             continue
         fi
@@ -87,6 +109,13 @@ for workflow_file in "$WORKFLOWS_DIR"/*.md; do
         # Check for YAML frontmatter
         if ! head -n 1 "$workflow_file" | grep -q "^---$"; then
             echo -e "${RED}❌ $workflow_name: Missing YAML frontmatter${NC}"
+            issues_found=$((issues_found + 1))
+            continue
+        fi
+
+        # Validate YAML syntax (strict parser)
+        if ! validate_frontmatter_yaml "$workflow_file"; then
+            echo -e "${RED}❌ $workflow_name: Invalid YAML frontmatter${NC}"
             issues_found=$((issues_found + 1))
             continue
         fi

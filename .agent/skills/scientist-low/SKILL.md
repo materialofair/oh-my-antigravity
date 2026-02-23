@@ -3,9 +3,9 @@ name: scientist-low
 description: Quick data inspection and simple statistics (Haiku)
 model: haiku
 disallowedTools: Write, Edit
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 <Inherits_From>

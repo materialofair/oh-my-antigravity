@@ -1,9 +1,9 @@
 ---
 name: doctor
 description: Diagnose and fix oh-my-antigravity  installation issues
-owner: @maintainers
+owner: "@maintainers"
 maturity: core
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Doctor Skill

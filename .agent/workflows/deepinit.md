@@ -1,8 +1,8 @@
 ---
 description: Deep codebase initialization with hierarchical AGENTS.md documentation
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Deep Init Skill

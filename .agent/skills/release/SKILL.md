@@ -1,9 +1,9 @@
 ---
 name: release
 description: Automated release workflow for oh-my-antigravity 
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Release Skill

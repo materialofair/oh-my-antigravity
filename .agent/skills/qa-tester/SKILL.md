@@ -2,9 +2,9 @@
 name: qa-tester
 description: Interactive CLI testing specialist using tmux (Sonnet)
 model: sonnet
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # QA Tester Agent

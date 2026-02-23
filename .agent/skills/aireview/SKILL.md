@@ -1,9 +1,9 @@
 ---
 name: aireview
 description: Professional multi-agent AI code review with confidence scoring
-owner: @maintainers
+owner: "@maintainers"
 maturity: experimental
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # aireview - Enhanced AI Code Review

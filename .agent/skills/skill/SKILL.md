@@ -2,9 +2,9 @@
 name: skill
 description: Manage local skills - list, add, remove, search, edit
 argument-hint: "<command> [args]"
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Skill Management CLI

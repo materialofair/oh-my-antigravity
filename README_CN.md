@@ -94,7 +94,8 @@ cd oh-my-antigravity
 
 安装路径：
 - 技能 → `~/.gemini/antigravity/skills/`
-- 工作流 → `~/.gemini/antigravity/global_workflows/`
+- 工作流（主目录）→ `~/.gemini/antigravity/global_workflows/`
+- 工作流（兼容发现链接）→ `~/.agent/workflows/`、`~/.agents/workflows/`、`~/_agent/workflows/`、`~/_agents/workflows/`
 
 ---
 

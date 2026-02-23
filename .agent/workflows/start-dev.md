@@ -1,8 +1,8 @@
 ---
 description: Intelligent adaptive workflow with automatic pattern library loading and codebase exploration
-owner: @maintainers
+owner: "@maintainers"
 maturity: experimental
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # start-dev - Intelligent Development Workflow

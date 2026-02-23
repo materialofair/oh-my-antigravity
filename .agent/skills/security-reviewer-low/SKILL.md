@@ -3,9 +3,9 @@ name: security-reviewer-low
 description: Quick security scan specialist (Haiku). Use for fast security checks on small code changes.
 model: haiku
 disallowedTools: Write, Edit
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 <Inherits_From>

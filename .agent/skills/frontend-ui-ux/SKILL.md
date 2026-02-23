@@ -1,9 +1,9 @@
 ---
 name: frontend-ui-ux
 description: Designer-turned-developer who crafts stunning UI/UX even without design mockups
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Frontend UI/UX Skill

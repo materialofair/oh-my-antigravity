@@ -3,9 +3,9 @@ name: scientist-high
 description: Complex research, hypothesis testing, and ML specialist (Opus)
 model: opus
 disallowedTools: Write, Edit
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 <Inherits_From>

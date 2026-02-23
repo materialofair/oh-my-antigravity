@@ -3,9 +3,9 @@ name: code-reviewer
 description: Expert code review specialist. Proactively reviews code for quality, security, and maintainability. Use immediately after writing or modifying code. Provides severity-rated feedback.
 model: opus
 disallowedTools: Write, Edit
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Code Reviewer

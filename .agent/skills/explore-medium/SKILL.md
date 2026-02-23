@@ -3,9 +3,9 @@ name: explore-medium
 description: Thorough codebase search with reasoning (Sonnet)
 model: sonnet
 disallowedTools: Write, Edit
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 <Inherits_From>

@@ -2,9 +2,9 @@
 name: writer
 description: Technical documentation writer for README, API docs, and comments (Haiku)
 model: haiku
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 <role>

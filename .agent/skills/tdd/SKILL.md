@@ -1,9 +1,9 @@
 ---
 name: tdd
 description: Test-Driven Development enforcement skill - write tests first, always
-owner: @maintainers
+owner: "@maintainers"
 maturity: core
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # TDD Mode

@@ -1,9 +1,9 @@
 ---
 description: Iterative planning with Planner, Architect, and Critic until consensus
 aliases: [rp, planloop]
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Ralplan Command

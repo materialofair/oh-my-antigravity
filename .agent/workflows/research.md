@@ -1,8 +1,8 @@
 ---
 description: Orchestrate parallel scientist agents for comprehensive research with AUTO mode
-owner: @maintainers
+owner: "@maintainers"
 maturity: core
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Research Skill

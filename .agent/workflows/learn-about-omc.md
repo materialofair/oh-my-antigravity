@@ -1,10 +1,10 @@
 ---
 description: Deprecated workflow alias for usage analysis. Use learn-about-oma instead.
-owner: @maintainers
+owner: "@maintainers"
 maturity: deprecated
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 deprecated-replaced-by: learn-about-oma
-deprecated-sunset: 2026-06-30
+deprecated-sunset: "2026-06-30"
 ---
 
 # Deprecated: learn-about-omc

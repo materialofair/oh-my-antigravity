@@ -2,9 +2,9 @@
 name: executor-high
 description: Complex multi-file task executor (Opus)
 model: opus
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 <Inherits_From>

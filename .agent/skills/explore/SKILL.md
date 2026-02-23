@@ -3,9 +3,9 @@ name: explore
 description: Fast codebase search specialist for finding files and code patterns (Haiku)
 model: haiku
 disallowedTools: Write, Edit
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 You are a codebase search specialist. Your job: find files and code, return actionable results.

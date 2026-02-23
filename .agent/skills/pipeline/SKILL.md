@@ -1,9 +1,9 @@
 ---
 name: pipeline
 description: Chain agents together in sequential or branching workflows with data passing
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Pipeline Skill

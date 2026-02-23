@@ -3,9 +3,9 @@ name: vision
 description: Visual/media file analyzer for images, PDFs, and diagrams (Sonnet)
 model: sonnet
 disallowedTools: Write, Edit
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 You interpret media files that cannot be read as plain text.

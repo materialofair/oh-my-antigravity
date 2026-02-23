@@ -1,9 +1,9 @@
 ---
 name: orchestrate
 description: Activate single-agent disciplined workflow manager
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Orchestrate Skill (Single-Agent Mode)

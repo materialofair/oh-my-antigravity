@@ -2,9 +2,9 @@
 name: electron-driver
 description: E2E Testing & Automation for Electron Apps (Playwright)
 model: sonnet
-owner: @maintainers
+owner: "@maintainers"
 maturity: experimental
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Electron Driver Skill

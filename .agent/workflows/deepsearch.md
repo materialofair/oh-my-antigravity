@@ -1,8 +1,8 @@
 ---
 description: Thorough codebase search
-owner: @maintainers
+owner: "@maintainers"
 maturity: core
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Deep Search Mode

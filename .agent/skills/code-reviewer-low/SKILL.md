@@ -3,9 +3,9 @@ name: code-reviewer-low
 description: Quick code quality checker (Haiku). Use for fast review of small changes.
 model: haiku
 disallowedTools: Write, Edit
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 <Inherits_From>

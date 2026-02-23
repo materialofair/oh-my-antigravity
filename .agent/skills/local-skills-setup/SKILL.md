@@ -2,9 +2,9 @@
 name: local-skills-setup
 description: Set up and manage local skills for automatic matching and invocation
 argument-hint: "[list|add|scan]"
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Local Skills Setup

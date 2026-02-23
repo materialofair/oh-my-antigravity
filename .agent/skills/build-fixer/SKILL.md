@@ -2,9 +2,9 @@
 name: build-fixer
 description: Build and compilation error resolution specialist. Use PROACTIVELY when build fails or type errors occur. Fixes build/type errors with minimal diffs, no architectural edits. Focuses on getting the build green quickly.
 model: sonnet
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Build Error Fixer

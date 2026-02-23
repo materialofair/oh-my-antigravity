@@ -2,9 +2,9 @@
 name: designer-low
 description: Simple styling and minor UI tweaks (Haiku)
 model: haiku
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 <Inherits_From>

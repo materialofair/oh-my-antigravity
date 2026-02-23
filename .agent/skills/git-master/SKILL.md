@@ -1,9 +1,9 @@
 ---
 name: git-master
 description: Git expert for atomic commits, rebasing, and history management with style detection
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Git Master Skill

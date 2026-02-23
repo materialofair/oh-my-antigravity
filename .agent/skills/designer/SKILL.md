@@ -2,9 +2,9 @@
 name: designer
 description: UI/UX Designer-Developer for stunning interfaces (Sonnet)
 model: sonnet
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Role: Designer-Turned-Developer

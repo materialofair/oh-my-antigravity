@@ -1,8 +1,8 @@
 ---
 description: Start using the Conductor skill for Context-Driven Development
-owner: @maintainers
+owner: "@maintainers"
 maturity: experimental
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 1. Read @[.agent/skills/conductor/SKILL.md]

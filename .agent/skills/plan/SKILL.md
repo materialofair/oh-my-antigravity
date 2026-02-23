@@ -1,9 +1,9 @@
 ---
 name: plan
 description: Strategic planning with optional interview workflow
-owner: @maintainers
+owner: "@maintainers"
 maturity: core
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Plan - Strategic Planning Skill

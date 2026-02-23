@@ -1,9 +1,9 @@
 ---
 name: help
 description: Guide on using oh-my-antigravity  plugin
-owner: @maintainers
+owner: "@maintainers"
 maturity: core
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # How OMA Works

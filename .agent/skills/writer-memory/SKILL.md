@@ -2,9 +2,9 @@
 name: writer-memory
 description: Agentic memory system for writers - track characters, relationships, scenes, and themes
 argument-hint: "init|char|rel|scene|query|validate|synopsis|status|export [args]"
-owner: @maintainers
+owner: "@maintainers"
 maturity: experimental
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Writer Memory - Agentic Memory System for Writers

@@ -1,9 +1,9 @@
 ---
 description: Run Prettier formatting on files or the whole repo
 aliases: [fmt]
-owner: @maintainers
+owner: "@maintainers"
 maturity: core
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Format Workflow

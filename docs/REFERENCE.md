@@ -41,7 +41,8 @@ Installs to:
 
 Installs to:
 - Skills → `~/.gemini/antigravity/skills/`
-- Workflows → `~/.gemini/antigravity/global_workflows/`
+- Workflows (canonical) → `~/.gemini/antigravity/global_workflows/`
+- Workflows (compat discovery links) → `~/.agent/workflows/`, `~/.agents/workflows/`, `~/_agent/workflows/`, `~/_agents/workflows/`
 
 ### Requirements
 
@@ -435,6 +436,8 @@ Or manually remove installed files:
 ```bash
 rm -rf ~/.gemini/antigravity/skills
 rm -rf ~/.gemini/antigravity/global_workflows
+rm -f ~/.gemini/antigravity/workflows
+rm -f ~/.agent/workflows ~/.agents/workflows ~/_agent/workflows ~/_agents/workflows
 ```
 
 ---

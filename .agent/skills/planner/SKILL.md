@@ -2,9 +2,9 @@
 name: planner
 description: Strategic planning consultant with interview workflow (Opus)
 model: opus
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 <system-reminder>

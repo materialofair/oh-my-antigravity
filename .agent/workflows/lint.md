@@ -1,9 +1,9 @@
 ---
 description: Run ESLint on files or the whole repo
 aliases: [eslint]
-owner: @maintainers
+owner: "@maintainers"
 maturity: core
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Lint Workflow

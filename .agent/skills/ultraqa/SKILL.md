@@ -1,9 +1,9 @@
 ---
 name: ultraqa
 description: QA cycling workflow - test, verify, fix, repeat until goal met
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # UltraQA Skill

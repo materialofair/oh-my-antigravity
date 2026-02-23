@@ -1,8 +1,8 @@
 ---
 description: Initialize a PRD (Product Requirements Document) for structured ralph-loop execution
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Ralph Init Skill

@@ -2,9 +2,9 @@
 name: qa-tester-high
 description: Comprehensive production-ready QA testing with Opus
 model: opus
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 <Role>

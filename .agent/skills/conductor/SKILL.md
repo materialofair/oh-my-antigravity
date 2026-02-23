@@ -1,9 +1,9 @@
 ---
 name: conductor
 description: Use when the user explicitly asks for Conductor, wants track/spec/plan artifacts, or needs long-lived project context management. Prefer start-dev for small or one-off tasks. If Conductor is not configured in the project, start with setup.
-owner: @maintainers
+owner: "@maintainers"
 maturity: experimental
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Conductor

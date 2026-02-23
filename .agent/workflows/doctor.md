@@ -1,8 +1,8 @@
 ---
 description: Diagnose current environment and verify required tools for Antigravity
-owner: @maintainers
+owner: "@maintainers"
 maturity: core
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Antigravity Doctor

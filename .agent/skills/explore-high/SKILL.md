@@ -3,9 +3,9 @@ name: explore-high
 description: Complex architectural search for deep system understanding (Opus)
 model: opus
 disallowedTools: Write, Edit
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 <Inherits_From>

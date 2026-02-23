@@ -94,7 +94,8 @@ Install globally so all projects can access the skills and workflows:
 
 This installs to:
 - Skills → `~/.gemini/antigravity/skills/`
-- Workflows → `~/.gemini/antigravity/global_workflows/`
+- Workflows (canonical) → `~/.gemini/antigravity/global_workflows/`
+- Workflows (compat discovery links) → `~/.agent/workflows/`, `~/.agents/workflows/`, `~/_agent/workflows/`, `~/_agents/workflows/`
 
 ---
 

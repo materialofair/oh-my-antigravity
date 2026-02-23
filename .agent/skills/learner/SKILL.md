@@ -1,9 +1,9 @@
 ---
 name: learner
 description: Extract a learned skill from the current conversation
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Learner Skill

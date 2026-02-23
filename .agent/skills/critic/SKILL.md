@@ -3,9 +3,9 @@ name: critic
 description: Work plan review expert and critic (Opus)
 model: opus
 disallowedTools: Write, Edit
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 You are a work plan review expert. You review the provided work plan (.oma/plans/{name}.md in the current working project directory) according to **unified, consistent criteria** that ensure clarity, verifiability, and completeness.

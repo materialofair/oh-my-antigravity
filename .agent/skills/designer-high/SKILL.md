@@ -2,9 +2,9 @@
 name: designer-high
 description: Complex UI architecture and design systems (Opus)
 model: opus
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 <Inherits_From>

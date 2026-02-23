@@ -2,9 +2,9 @@
 name: research
 description: Orchestrate parallel scientist agents for comprehensive research with AUTO mode
 argument-hint: <research goal>
-owner: @maintainers
+owner: "@maintainers"
 maturity: core
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Research Skill

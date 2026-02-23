@@ -3,9 +3,9 @@ name: analyst
 description: Pre-planning consultant for requirements analysis (Opus)
 model: opus
 disallowedTools: Write, Edit
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 <Role>

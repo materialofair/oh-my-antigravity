@@ -3,9 +3,9 @@ name: hud
 description: Configure HUD display options (layout, presets, display elements)
 role: config-writer  # DOCUMENTATION ONLY - This skill writes to ~/.gemini/antigravity/ paths
 scope: ~/.gemini/antigravity/**  # DOCUMENTATION ONLY - Allowed write scope
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # HUD Skill

@@ -1,8 +1,8 @@
 ---
 description: Manually trigger the planning-with-files skill (Manus-style file-based planning)
-owner: @maintainers
+owner: "@maintainers"
 maturity: experimental
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Planning with Files

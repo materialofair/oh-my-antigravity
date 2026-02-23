@@ -1,9 +1,9 @@
 ---
 name: note
 description: Save notes to notepad.md for compaction resilience
-owner: @maintainers
+owner: "@maintainers"
 maturity: core
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Note Skill

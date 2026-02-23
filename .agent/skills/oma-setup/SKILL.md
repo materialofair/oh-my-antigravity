@@ -1,9 +1,9 @@
 ---
 name: oma-setup
 description: Setup and configure oh-my-antigravity  (the ONLY command you need to learn)
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # OMA Setup

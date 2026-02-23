@@ -1,8 +1,8 @@
 ---
 description: Self-referential loop until task completion with architect verification
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Ralph Skill

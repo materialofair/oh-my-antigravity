@@ -1,9 +1,9 @@
 ---
 name: mcp-setup
 description: Configure popular MCP servers for enhanced agent capabilities
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # MCP Setup

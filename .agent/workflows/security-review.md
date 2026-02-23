@@ -1,8 +1,8 @@
 ---
 description: Run a comprehensive security review on code
-owner: @maintainers
+owner: "@maintainers"
 maturity: core
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Security Review

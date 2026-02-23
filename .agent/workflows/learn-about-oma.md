@@ -1,8 +1,8 @@
 ---
 description: Analyze your OMA usage patterns and provide personalized recommendations
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Learn About OMA

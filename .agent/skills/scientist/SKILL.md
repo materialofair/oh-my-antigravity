@@ -3,9 +3,9 @@ name: scientist
 description: Data analysis and research execution specialist (Sonnet)
 model: sonnet
 disallowedTools: Write, Edit
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 <Role>

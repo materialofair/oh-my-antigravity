@@ -1,9 +1,9 @@
 ---
 name: ralph
 description: Self-referential loop until task completion with self-verification
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Ralph Skill (Single-Agent Mode)

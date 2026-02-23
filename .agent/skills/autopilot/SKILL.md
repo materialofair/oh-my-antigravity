@@ -1,9 +1,9 @@
 ---
 name: autopilot
 description: Full autonomous execution from idea to working code
-owner: @maintainers
+owner: "@maintainers"
 maturity: domain
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Autopilot Skill

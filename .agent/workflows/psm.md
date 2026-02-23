@@ -1,9 +1,9 @@
 ---
 description: Project Session Manager - isolated dev environments with git worktrees and tmux
 aliases: [psm, worktree, session]
-owner: @maintainers
+owner: "@maintainers"
 maturity: experimental
-last-reviewed: 2026-02-06
+last-reviewed: "2026-02-06"
 ---
 
 # Project Session Manager (PSM)
