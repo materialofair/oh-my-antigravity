@@ -34,6 +34,14 @@ cp -R "$SOURCE_DIR/workflows/"* "$TARGET_AGENT_DIR/workflows/"
 echo "📜 Copying System Rules..."
 cp -R "$SOURCE_DIR/rules/"* "$TARGET_AGENT_DIR/rules/"
 
+# Create local compatibility symlink
+echo "🔗 Creating local compatibility symlink..."
+TARGET_ANTIGRAVITY_LINK="$TARGET_DIR/.antigravity"
+if [ ! -e "$TARGET_ANTIGRAVITY_LINK" ]; then
+    ln -s ".agent" "$TARGET_ANTIGRAVITY_LINK"
+    echo "   Created symlink: .antigravity -> .agent"
+fi
+
 echo "✅ Installation Complete!"
 echo ""
 echo "🎉 You can now use all oh-my-antigravity features in this project."
