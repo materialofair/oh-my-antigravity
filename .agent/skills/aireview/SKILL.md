@@ -92,7 +92,7 @@ aireview --diff --deep
     ↓
 Layer 1: Parallel Multi-Agent Review (Step 1-3 above)
     ↓
-Layer 2: Gemini Deep Analysis (via gemp)
+Layer 2: Claude Code Deep Analysis (via claude -p)
     - Architecture review (INTJ persona)
     - Security analysis
     - Performance implications
@@ -180,7 +180,7 @@ Return: {summary: "", diff_content: ""}
 If MODE == "quick":
   # Quick mode: Skip parallel agents, use single fast Gemini review
   
-  Execute quick review via gemp:
+  Execute quick review via Claude Code CLI:
   
   cat > /tmp/quick_review_prompt.txt << 'PROMPT_EOF'
   你是代码审查专家，快速审查以下远程分支变更:
@@ -213,7 +213,7 @@ If MODE == "quick":
   - [ ] 不建议合并
   PROMPT_EOF
   
-  cat /tmp/quick_review_prompt.txt | gemp 2>&1
+  cat /tmp/quick_review_prompt.txt | claude -p --output-format text --dangerously-skip-permissions 2>&1
   
   Skip to Step 6 (Generate Report)
 
@@ -283,11 +283,11 @@ Filter: 只保留置信度 >= 80 的问题
 ```markdown
 If MODE == "deep":
 
-  Layer 2 - Gemini Architecture Analysis:
+  Layer 2 - Claude Code Architecture Analysis:
     Use Skill tool with 'code-review' skill (standard mode)
     Or direct CLI:
 
-    cat > /tmp/gemini_prompt.txt << 'PROMPT_EOF'
+    cat > /tmp/claude_prompt.txt << 'PROMPT_EOF'
     你是 INTJ 架构师，进行深度架构分析。
 
     已发现的高置信度问题：
@@ -309,7 +309,7 @@ If MODE == "deep":
     - 总体架构评分 (1-10)
     PROMPT_EOF
 
-    cat /tmp/gemini_prompt.txt | node ~/.gemini/long_task_runner.js 2>&1
+    cat /tmp/claude_prompt.txt | claude -p --output-format text --dangerously-skip-permissions 2>&1
 
   Layer 3 - Codex Quality Audit:
     cat > /tmp/codex_prompt.txt << 'PROMPT_EOF'
@@ -318,8 +318,8 @@ If MODE == "deep":
     已发现的高置信度问题：
     {filtered_issues}
 
-    Gemini 的架构发现：
-    {gemini_findings}
+    Claude Code 的架构发现：
+    {claude_findings}
 
     代码变更：
     {diff_content}
@@ -400,8 +400,8 @@ Else:
 
     {if deep_mode}
     ### 深度分析
-    **Gemini 架构评分**: {gemini_score}/10
-    {gemini_highlights}
+    **Claude Code 架构评分**: {claude_score}/10
+    {claude_highlights}
 
     **Codex 质量评分**: {codex_score}/10
     {codex_highlights}
@@ -462,7 +462,7 @@ If --comment flag && pr_mode:
 
 ### From Original aireview
 - ✅ 直接 CLI 调用 (无超时)
-- ✅ gemp 优先 (20分钟超时)
+- ✅ claude -p 优先
 - ✅ MBTI 人格系统
 - ✅ Deep mode (多模型协作)
 - ✅ 中文输出
@@ -471,22 +471,22 @@ If --comment flag && pr_mode:
 - ✅ Git history 上下文分析
 - ✅ 相关 PR 分析
 - ✅ 代码注释合规性检查
-- ✅ 分层分析 (multi-agent → Gemini → Codex → synthesis)
+- ✅ 分层分析 (multi-agent → Claude Code → Codex → synthesis)
 - ✅ 详���的置信度评分标准
 
 ## CLI Implementation Templates
 
-### Gemini CLI (优先 gemp)
+### Claude Code CLI (优先)
 ```bash
-cat > /tmp/gemini_prompt.txt << 'PROMPT_EOF'
+cat > /tmp/claude_prompt.txt << 'PROMPT_EOF'
 {persona} 你的审查任务...
 PROMPT_EOF
-cat /tmp/gemini_prompt.txt | node ~/.gemini/long_task_runner.js 2>&1
+cat /tmp/claude_prompt.txt | claude -p --output-format text --dangerously-skip-permissions 2>&1
 ```
 
-### Gemini CLI (备用)
+### Claude Code CLI (备用)
 ```bash
-cat /tmp/gemini_prompt.txt | gemini --yolo 2>&1 | grep -v "STARTUP|YOLO|Load"
+cat /tmp/claude_prompt.txt | claude -p --output-format text 2>&1
 ```
 
 ### Codex CLI
@@ -499,7 +499,7 @@ cat /tmp/codex_prompt.txt | codex exec --dangerously-bypass-approvals-and-sandbo
 
 ## Requirements
 
-- Gemini CLI (gemp/long_task_runner.js) configured
+- Claude Code CLI (claude -p) configured
 - Codex CLI configured
 - GitHub CLI (`gh`) for PR mode
 
@@ -562,7 +562,7 @@ $ aireview origin/feature-cr
 
 ---
 
-**审查模型**: Gemini (gemp)
+**审查模型**: Claude Code (claude -p)
 **审查时间**: 2025-12-29 14:00
 **耗时**: < 30 秒
 
@@ -581,7 +581,7 @@ $ aireview origin/feature-payment --deep
 🔍 正在执行深度多模型审查...
 
 ✅ Layer 1: 多 agent 并行审查 (5 agents)
-✅ Layer 2: Gemini 架构分析 (INTJ)
+✅ Layer 2: Claude Code 架构分析 (INTJ)
 ✅ Layer 3: Codex 质量审计 (ISTJ)
 ✅ Layer 4: 综合分析
 
@@ -596,7 +596,7 @@ $ aireview --diff --deep
 🔍 正在执行深度多模型审查...
 
 ✅ Layer 1: 多 agent 并行审查 (5 agents)
-✅ Layer 2: Gemini 架构分析 (INTJ)
+✅ Layer 2: Claude Code 架构分析 (INTJ)
 ✅ Layer 3: Codex 质量审计 (ISTJ)
 ✅ Layer 4: 综合分析
 
