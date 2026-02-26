@@ -1,14 +1,20 @@
 {
-  "generatedAt": "2026-02-23T01:36:30.332Z",
+  "generatedAt": "2026-02-26T01:46:05.969Z",
   "counts": {
-    "skillCount": 72,
+    "skillCount": 73,
     "workflowCount": 35,
-    "activeSkillCount": 72,
+    "activeSkillCount": 73,
     "activeWorkflowCount": 35
   },
   "skills": [
     {
       "name": "AGENTS",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "ai-commenting",
       "category": "utility",
       "status": "active",
       "core": false

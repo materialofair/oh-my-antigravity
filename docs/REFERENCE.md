@@ -9,7 +9,7 @@ Complete reference for oh-my-antigravity . For quick start, see the main [README
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Agents (32 Total)](#agents-32-total)
-- [Skills (72 Total)](#skills-72-total)
+- [Skills (73 Total)](#skills-73-total)
 - [Slash Commands](#slash-commands)
 - [Rules System](#rules-system)
 - [Magic Keywords](#magic-keywords)
@@ -182,7 +182,7 @@ Always use `oh-my-antigravity :` prefix when calling via Task tool.
 
 ---
 
-## Skills (72 Total)
+## Skills (73 Total)
 
 ### Core Skills
 

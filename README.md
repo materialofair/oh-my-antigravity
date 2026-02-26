@@ -4,13 +4,13 @@
 
 *Ported from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) with ❤️*
 
-> Give your Antigravity agent the collective intelligence of the "Oh My" ecosystem with **72 specialized Skills** and **35 automated Workflows**.
+> Give your Antigravity agent the collective intelligence of the "Oh My" ecosystem with **73 specialized Skills** and **35 automated Workflows**.
 
 **📦 NPM Package**: `oh-my-oma`  
 **⚡ Quick Install**: `npm install -g oh-my-oma`
 
 **✅ Migration Status**: Complete - Antigravity-ready ✅  
-**📊 Compatibility**: 72/72 Skills ✅ | 35/35 Workflows ✅ | 0 Issues  
+**📊 Compatibility**: 73/73 Skills ✅ | 35/35 Workflows ✅ | 0 Issues  
 **📖 See**: [Migration Status Report](MIGRATION_STATUS.md) | [Migration Plan](MIGRATION_TO_ANTIGRAVITY.md)
 
 ---
@@ -37,7 +37,7 @@ Think of it as:
 
 ## 🚀 Features
 
-### 🧠 72 Specialized Skills
+### 🧠 73 Specialized Skills
 
 | Category | Skills | Description |
 |----------|--------|-------------|

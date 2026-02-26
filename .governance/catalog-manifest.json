@@ -1,9 +1,15 @@
 {
   "schemaVersion": 1,
-  "catalogVersion": "2026-02-23",
+  "catalogVersion": "2026-02-26",
   "skills": [
     {
       "name": "AGENTS",
+      "category": "utility",
+      "status": "active",
+      "core": false
+    },
+    {
+      "name": "ai-commenting",
       "category": "utility",
       "status": "active",
       "core": false

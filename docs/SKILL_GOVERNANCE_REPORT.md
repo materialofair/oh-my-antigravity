@@ -6,7 +6,7 @@ Runtime Target: Antigravity IDE
 
 ## Summary
 
-- Skills total: 72
+- Skills total: 73
 - Workflows total: 35
 - Governance check: PASS
 - Debt allowlist: 0 active entries
