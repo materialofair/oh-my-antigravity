@@ -140,7 +140,24 @@ This ensures clean state for future sessions. Stale state files with `active: fa
 
 Begin ULTRAQA cycling now. Parse the goal and start cycle 1.
 
-## Output
+## Constraints & Guardrails
 
-- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
-- Include key decisions, actions taken, and final status for Antigravity IDE visibility.
+- **DO NOT** exceed the `max_cycles` limit (default 5). If the goal is not met, exit gracefully and report the failure.
+- **DO NOT** leave stale state files. Always remove `.oma/state/ultraqa-state.json` upon completion or cancellation.
+- **LIMIT:** If the exact same failure occurs 3 times in a row, stop the loop immediately to prevent infinite cycling.
+
+## Expected Output Format
+
+After each cycle, and upon final completion or failure, output in this format:
+
+### UltraQA Status
+[E.g., Cycle 2/5 - Running Tests OR ULTRAQA COMPLETE]
+
+### Actions Taken
+- [e.g., Executed `npm test`, 3 tests failing]
+- [e.g., Architect diagnosed missing mock]
+- [e.g., Executor applied fix to `auth.test.ts`]
+
+### Next Steps / Conclusion
+[If continuing: stating the next cycle number and action]
+[If finished: Final verdict "Goal met" or "Max cycles reached. Diagnosis: ..."]

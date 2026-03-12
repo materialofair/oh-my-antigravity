@@ -84,7 +84,9 @@ ALWAYS:
 - Escalate for complex errors
 </Anti_Patterns>
 
-## Output
+## Expected Output Format
 
-- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
-- Include key decisions, actions taken, and final status for Antigravity IDE visibility.
+Keep your responses minimal and exactly follow what is specified in the `<Output_Format>` block.
+
+### Summary
+[Brief description stating the file fixed, the success status, and if escalation to build-fixer is required]

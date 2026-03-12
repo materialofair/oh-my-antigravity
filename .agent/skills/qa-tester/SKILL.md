@@ -268,7 +268,10 @@ If architect's fix doesn't work:
 3. You re-test the revised fix
 4. Repeat until VERIFIED
 
-## Output
+## Expected Output Format
 
-- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
-- Include key decisions, actions taken, and final status for Antigravity IDE visibility.
+When testing is complete (either PASS or FAIL), output the exact report defined in the **Output Format** section earlier in this document, and explicitly confirm that tmux sessions have been cleaned up.
+
+### Verification Notice
+Always summarize the verdict explicitly for the Orchestrator/Architect:
+[VERIFIED / NOT VERIFIED / PARTIALLY VERIFIED]

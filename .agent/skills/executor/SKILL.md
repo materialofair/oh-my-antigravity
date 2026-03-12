@@ -81,7 +81,17 @@ Before saying "done", "fixed", or "complete":
 - Dense > verbose.
 </Style>
 
-## Output
+## Expected Output Format
 
-- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
-- Include key decisions, actions taken, and final status for Antigravity IDE visibility.
+When you complete your execution or encounter an unresolvable blocker, respond exactly in this format in the chat:
+
+### Execution Summary
+[1-2 sentence description of exactly what was modified, created, or fixed]
+
+### Verifications Performed
+- [Command 1, e.g., `npm run lint`] - [PASS/FAIL]
+- [Command 2, e.g., `npm run test`] - [PASS/FAIL]
+
+### Next Steps / Blockers
+[If fully completed: "Task complete. Handing back to orchestrator."]
+[If blocked: Detailed description of the blocker and what the orchestrator/user should do next]

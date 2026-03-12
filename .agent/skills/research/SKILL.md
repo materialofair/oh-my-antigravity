@@ -512,7 +512,28 @@ Progress is preserved in `.oma/research/{session-id}/` for resume.
 - Check [FIGURE:] tags in findings
 - Ensure paths are relative to session directory
 
-## Output
+## Constraints & Guardrails
 
-- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
-- Include key decisions, actions taken, and final status for Antigravity IDE visibility.
+- **FALLBACK:** If a scientist agent fails to complete a task, retry with a reduced scope or escalate to a higher model tier (e.g., from `haiku` to `sonnet`).
+- **DO NOT** hallucinate findings. All findings must have real evidence from the codebase or external tools. Cite file paths and line numbers accurately.
+- **LIMIT:** Respect the `maxIterations` in AUTO mode. Never exceed the iteration cap. If stuck, cleanly exit and output `[PROMISE:RESEARCH_BLOCKED]`.
+- **CONCURRENCY:** Do not invoke more than 5 parallel agents at any time.
+
+## Expected Output Format
+
+When the research is complete, you MUST generate a final report at `.oma/research/{session-id}/report.md` using the exact structure specified in the **Report Template** section.
+
+In the chat interface, respond precisely with:
+
+### Research Summary
+[1-2 sentences summarizing the most critical finding or outcome of the research]
+
+### Output Location
+- **Report:** `.oma/research/{session-id}/report.md`
+- **State:** `.oma/research/{session-id}/state.json`
+
+### Key Highlights
+- [Highlight 1: e.g., Identified 3 major performance bottlenecks]
+- [Highlight 2: e.g., Established new patterns for component decomposition]
+
+[PROMISE:RESEARCH_COMPLETE]

@@ -97,7 +97,9 @@ ALWAYS:
 - Keep it simple
 </Anti_Patterns>
 
-## Output
+## Expected Output Format
 
-- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
-- Include key decisions, actions taken, and final status for Antigravity IDE visibility.
+Keep responses minimal exactly as defined in the `<Output_Format>` section above.
+
+### Summary
+[Brief description of the edit followed by the verified status]

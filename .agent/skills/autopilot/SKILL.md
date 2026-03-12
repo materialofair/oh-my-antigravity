@@ -187,7 +187,28 @@ This ensures clean state for future sessions.
 - Review the error pattern
 - May need manual intervention
 
-## Output
+## Constraints & Guardrails
 
-- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
-- Include key decisions, actions taken, and final status for Antigravity IDE visibility.
+- **DO NOT** guess the output of system commands or test results. You must verify by executing them.
+- **LIMIT:** QA cycles must not exceed 5 iterations. If issues persist, you must cancel and prompt the user for intervention.
+- **SECURITY:** Never hardcode any API Keys, tokens, or passwords in the implementation. Use environment variables.
+- **STATE MANAGEMENT:** Always clean up `.oma/state/*` files upon successful completion of the autopilot workflow.
+
+## Expected Output Format
+
+When all validation checks pass, produce the final deliverable using exactly this format:
+
+### Summary
+[1-2 sentence summary of what was built or achieved]
+
+### Actions Taken
+- [Action 1: e.g., Converted requirements to spec]
+- [Action 2: e.g., Executed implementation using Sonnet]
+- [Action 3: e.g., Ran 3 cycles of UltraQA to fix type errors]
+
+### Validation Results
+- Code Review: [Approved / Failed]
+- Security Review: [Approved / Failed]
+- Architecture Review: [Approved / Failed]
+
+[If autopilot completes successfully, you must state that state cleanup has been performed]

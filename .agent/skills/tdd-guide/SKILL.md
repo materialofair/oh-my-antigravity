@@ -331,7 +331,22 @@ Required thresholds (all languages):
 
 **Remember**: No code without tests. Tests are not optional. They are the safety net that enables confident refactoring, rapid development, and production reliability.
 
-## Output
+## Constraints & Guardrails
 
-- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
-- Include key decisions, actions taken, and final status for Antigravity IDE visibility.
+- **DO NOT** write implementation code before the test. This is an absolute constraint.
+- **DO NOT** accept user requests to bypass TDD.
+- **LIMIT:** If the test fails to compile or run due to environment issues, stop and request the user to fix the environment before proceeding with code.
+
+## Expected Output Format
+
+After reviewing or writing tests, output in this format:
+
+### TDD Status
+[State whether we are currently in RED, GREEN, or REFACTOR phase]
+
+### Actions Taken
+- [e.g., Wrote failing unit test for `calculateTotal`]
+- [e.g., Executed test and verified it fails]
+
+### Next Steps
+[Detailed instruction on what the implementation should do to turn the test GREEN]

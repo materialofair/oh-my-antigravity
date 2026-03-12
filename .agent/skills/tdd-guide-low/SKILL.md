@@ -82,7 +82,9 @@ ALWAYS:
 - Recommend escalation when needed
 </Anti_Patterns>
 
-## Output
+## Expected Output Format
 
-- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
-- Include key decisions, actions taken, and final status for Antigravity IDE visibility.
+Output your concise test suggestions formatted EXACTLY as specified in the `<Output_Format>` block.
+
+### Summary
+[Brief statement indicating tests have been suggested and whether escalation to tdd-guide is recommended]

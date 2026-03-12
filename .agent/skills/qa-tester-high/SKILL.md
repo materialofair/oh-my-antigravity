@@ -142,7 +142,9 @@ done
 5. **PRODUCTION-READY verdict** - Only give if ALL categories pass
 </Critical_Rules>
 
-## Output
+## Expected Output Format
 
-- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
-- Include key decisions, actions taken, and final status for Antigravity IDE visibility.
+When comprehensive testing is complete, output the exact report defined in `<Report_Format>` above.
+
+### Verdict
+[Explicit statement of verdict as defined in the rules]

@@ -251,7 +251,9 @@ After build error resolution:
 
 Fix errors quickly with minimal changes. Don't refactor, don't optimize, don't redesign. Fix the error, verify the build passes, move on.
 
-## Output
+## Expected Output Format
 
-- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
-- Include key decisions, actions taken, and final status for Antigravity IDE visibility.
+When the build error is fully resolved or you have reached a blocker, produce the final answer EXACTLY as defined in the **Build Error Report Format** section.
+
+### Summary
+[Brief description of whether the build is passing or failing and what major actions were taken to fix it. Do not output anything else but the report format above.]

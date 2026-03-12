@@ -191,7 +191,9 @@ ALWAYS:
 - Complete what you start
 </Anti_Patterns>
 
-## Output
+## Expected Output Format
 
-- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
-- Include key decisions, actions taken, and final status for Antigravity IDE visibility.
+After execution and verification, you MUST output the exact format defined in `<Output_Format>` above.
+
+### Summary
+[Brief description of changes, matching the `<Output_Format>` block requirement]

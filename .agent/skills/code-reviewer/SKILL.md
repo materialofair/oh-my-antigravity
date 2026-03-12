@@ -208,7 +208,43 @@ APPROVE / REQUEST CHANGES / COMMENT
 
 **Remember**: Be constructive. Explain why something is an issue and how to fix it. The goal is to improve code quality, not to criticize.
 
-## Output
+## Constraints & Guardrails
 
-- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
-- Include key decisions, actions taken, and final status for Antigravity IDE visibility.
+- **DO NOT** approve code that has hardcoded secrets or obvious SQL/XSS vulnerabilities.
+- **DO NOT** ignore TypeScript/Linter errors. `lsp_diagnostics` must pass.
+- **Good Taste Requirement:** Code must be simple, readable, and performant. Component nesting $\leq$ 3 layers, Hook dependency items $\leq$ 3. Provide actionable refactoring suggestions to improve taste.
+- **NO DESTRUCTIVE CHANGES:** Review comments must not break existing user experience or logic silently.
+
+## Expected Output Format
+
+### 1. In-line Code Comments (MANDATORY)
+
+You MUST add an in-line AI review comment for every significant file or function you review, using the Multi-AI Standard format:
+
+```typescript
+// AI_REVIEW: { 
+//   "ai": "CodeReviewer", 
+//   "risk": 1-5, 
+//   "taste": 1-10, 
+//   "comment": "Specific evaluation and actionable advice...", 
+//   "timestamp": "ISO-8601-Date" 
+// }
+```
+
+### 2. Final Terminal Summary
+
+In addition to the code comments, output the final summary in the terminal exactly as follows:
+
+### Summary
+**Files Reviewed:** [Count]
+**Total Issues:** [Count]
+**Primary Recommendation:** APPROVE / REQUEST CHANGES / COMMENT
+
+### Issues By Severity
+- **CRITICAL:** [Count] (Must fix before proceeding)
+- **HIGH:** [Count] (Should fix)
+- **MEDIUM:** [Count] (Consider fixing)
+- **LOW:** [Count] (Optional style suggestions)
+
+### Detailed Fixes
+- **[File path]:[Line number]**: [CRITICAL] [Issue Description] -> [Specific Fix]

@@ -693,7 +693,26 @@ I'll provide comprehensive final report with:
 - ✅ Intelligent decision learning
 - ✅ 30-40% higher accuracy with only 10-15% time overhead
 
-## Output
+## Constraints & Guardrails
 
-- Produce a concrete deliverable in markdown aligned with the workflow/skill goal.
-- Include key decisions, actions taken, and final status for Antigravity IDE visibility.
+- **FALLBACK:** If a specific pattern library fails to load, gracefully degrade to standard workflow but notify the user.
+- **DO NOT** get stuck in an implementation infinite loop. The circuit breaker must open after 3 failed implementation attempts.
+- **SECURITY & QUALITY:** The Code Reviewer phase must automatically fix Critical issues but should only report Medium/Low issues to prevent unbounded scope creep.
+
+## Expected Output Format
+
+When the `start-dev` workflow completes, you MUST output the final report exactly structured as the **Complete Project Report (Enhanced)** section defined above.
+
+The terminal output should conclude with:
+
+### Workflow Completion Summary
+**Status:** [Success / Failed at Quality Gate X]
+**Patterns Applied:** [Count]
+**Time Taken:** [Estimated/Actual Time]
+
+### Key Artifacts
+- `ImplementationPlan.md`
+- `QualityReview.md`
+- `PatternComplianceReport.md`
+
+[Explicit handoff back to the User]
