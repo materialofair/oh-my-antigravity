@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0] - 2026-05-25
+
+### Changed (BREAKING)
+
+- **Rebuilt on the oh-my-codex `src/` architecture.** New `src/` with `cli/`, `catalog/`, `router/`, `harness/`, `merge/`, `config/`, `team/`, `mcp/`, `notify/`, `testing/`. CLI is now `oma` (driven by `src/cli/index.js`); the old flat `scripts/oma-cli.js` is replaced.
+- **Skills relocated** from flat `.agent/skills/<name>/` to `.agent/skills/local/<name>/` (the install source); upstream packs go under `.agent/skills/upstream/`.
+- **Removed** parallel-execution skills (`swarm`, `ultrapilot`) and the `swarm` core requirement; orchestration is single-agent / persona-switching.
+- **Config** is now Antigravity-native: JSON `~/.gemini/config/mcp_config.json` + `GEMINI.md` (no TOML `config.toml`).
+
+### Fixed
+
+- **Antigravity 2.0 global-skill discovery.** Reverse-engineered from the 2.0.1 `language_server`: the agent prompt advertises `{.agents,.agent}/workflows` but not the global skills directory, so global skills were never surfaced. Now:
+  - Workspace installs write skills/workflows to **both** `.agents/` and `.agent/`.
+  - Every install injects a managed skills block (name + description + absolute `SKILL.md` path) into the relevant `GEMINI.md`.
+  - `oma doctor` reports exactly what Antigravity will discover.
+
+### Added
+
+- `oma` subcommands: `setup`, `doctor`, `route`, `harness`, `skill`, `source`, `team`, `test`, `notify`.
+- Skill catalog + index generation, task→skill router, harness compose-graph/layer-map/intent-registry covering all 73 skills (`oma harness lint`: 0 issues).
+- MCP servers (`oma_state`, `oma_memory`, `oma_trace`) registered into `mcp_config.json`.
+
 ## [3.8.14] - 2026-01-30
 
 ### Added

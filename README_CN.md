@@ -1,204 +1,116 @@
 # oh-my-antigravity
 
-**Google Gemini Antigravity 的终极 AI 代理工具包**
+**面向 Google Antigravity 的多智能体技能包与工作流编排层。**
 
-*基于 [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) 移植 ❤️*
+*架构对齐 [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex)；技能移植自 "Oh My" 生态。*
 
-> 为你的 Antigravity 代理注入 "Oh My" 生态系统的集体智慧 — **73 个专业技能** 和 **35 个自动化工作流**。
+> 为你的 Antigravity 代理提供 **73 个专业技能** 和 **35 个工作流**，外加一个负责安装、编目、路由、治理的 CLI —— 并绕过 Antigravity 2.0 的全局技能发现缺陷。
 
-**📦 NPM 包名**: `oh-my-oma`  
-**⚡ 快速安装**: `npm install -g oh-my-oma`
-
-**✅ 迁移状态**: 已完成 - 可直接用于 Antigravity ✅  
-**📊 兼容性**: 73/73 技能 ✅ | 35/35 工作流 ✅ | 0 问题  
-**📖 查看**: [迁移状态报告](MIGRATION_STATUS.md) | [迁移计划](MIGRATION_TO_ANTIGRAVITY.md)
+**📦 npm**：`oh-my-oma` · **CLI**：`oma` · **Node** ≥ 18
 
 ---
 
-## ✅ 迁移已完成
+## 为什么需要它（Antigravity 2.0 修复）
 
-本项目已完整迁移至 Google Antigravity：
+Antigravity **2.0.1** 不会可靠地把全局技能目录（`~/.gemini/antigravity/skills/`）注入到 agent 的 system prompt —— 所以你安装的全局技能经常**根本不会被发现**，即使文件就在正确的位置。（workflows 有显式的 `global_workflows` 路径，skills 没有。）
 
-- ✅ **技能与工作流**：内容已完成 Antigravity 兼容审查
-- ✅ **Hooks 替代**：旧 hooks 已转换为工作流 + `GEMINI.md` 规则
-- ✅ **安装脚本**：使用 `~/.gemini/antigravity/` 路径
+`oma` 用两种方式绕过这个问题：
 
----
+1. **优先按工作区安装（推荐）。** 技能同时写入 `.agents/skills/`（2.0 默认）**和** `.agent/skills/`（向后兼容），这两个目录 Antigravity 会按 `{.agents,.agent}/skills` 可靠扫描。
+2. **GEMINI.md 技能清单块。** 每次安装都会向对应的 `GEMINI.md`（始终会被加载的规则文件）注入一个受管理块，列出每个技能的名字、描述和 `SKILL.md` 绝对路径。这样即使全局目录没被通告，agent 也能找到并 `view_file` 它们。
 
-## ✨ 什么是 oh-my-antigravity？
-
-oh-my-antigravity 是一个全面的 AI 代理"人设"（技能）和自动化流程（工作流）集合，专为增强 Google Antigravity AI 编程助手的开发工作流而设计。
-
-可以这样理解：
-- 🧠 **技能 (Skills)** = 代理可以扮演的专家角色（架构师、安全审查员、科学家...）
-- ⚡️ **工作流 (Workflows)** = 触发自动化流程的斜杠命令（`/autopilot`、`/swarm`、`/ultrawork`...）
+运行 `oma doctor` 可查看 Antigravity 究竟能发现什么，包括 GEMINI.md 块是否就位。
 
 ---
 
-## 🚀 功能特性
+## 安装
 
-### 🧠 73 个专业技能
+### 工作区安装（推荐）
 
-| 类别 | 技能 | 描述 |
-|------|------|------|
-| **架构设计** | `architect`、`architect-medium`、`architect-low`、`planner`、`analyst` | 系统设计与战略规划 |
-| **代码执行** | `executor`、`executor-high`、`executor-low`、`autopilot`、`ultrapilot` | 代码实现与任务执行 |
-| **质量保证** | `critic`、`code-reviewer`、`security-reviewer`、`aireview` ⭐ | 代码审查与安全审计 |
-| **研究分析** | `scientist`、`researcher`、`deepsearch`、`explore`、`analyze` | 深度分析与调查 |
-| **测试驱动** | `tdd-guide`、`qa-tester`、`ultraqa`、`build-fixer` | 测试驱动开发与质量保证 |
-| **UI/UX 设计** | `designer`、`frontend-ui-ux`、`vision` | 界面设计与视觉分析 |
-| **专项能力** | `git-master`、`writer`、`writer-memory`、`learner` | Git 操作、文档编写、记忆系统 |
-
-### ⚡️ 35 个工作流
-
-| 工作流 | 描述 |
-|--------|------|
-| `/autopilot` | 从想法到可运行代码的全自动执行 |
-| `/ultrawork` | 并行代理编排的最大性能模式 |
-| `/swarm` | N 个协调代理在共享任务列表上原子认领任务 |
-| `/ultrapilot` | 带有文件所有权分区的并行自动驾驶 |
-| `/pipeline` | 带有阶段间数据传递的顺序代理链 |
-| `/aireview` ⭐ | 带有置信度评分的多代理 AI 代码审查 |
-| `/start-dev` ⭐ | 带有模式库加载的智能自适应工作流 |
-| `/ralph` | 自引用循环直到任务完成 |
-| `/research` | 编排并行科学家代理进行研究 |
-| `/tdd` | 测试驱动开发强制工作流 |
-| `/doctor` | 诊断环境并验证所需工具 |
-| `/mcp-setup` | 配置流行的 MCP 服务器以增强能力 |
-| `/help` | 使用 oh-my-antigravity 的指南 |
-
----
-
-## 📦 安装
-
-### 推荐方式（NPM 全局安装）
+在某个项目内（或传入目标目录）：
 
 ```bash
-# 全局安装 CLI
 npm install -g oh-my-oma
-
-# 将技能/工作流安装到用户级目录（~/.gemini/antigravity/*）
-oh-my-oma setup --scope user
-
-# 安装到指定项目（<project>/.agent/*）
-oh-my-oma setup --scope project-local --target /path/to/your/project
+cd /path/to/your/project
+oma setup --scope project-local
+# 或从仓库执行：./install.sh /path/to/project
 ```
 
-诊断与验证：
+写入：`.agents/skills` + `.agent/skills`、`.agents/workflows` + `.agent/workflows`、`.agent/rules`，以及 `<project>/GEMINI.md` 中的技能清单块。**安装后重启 Antigravity 的 agent 会话**让它重新扫描。
+
+### 全局安装（所有项目）
 
 ```bash
-oh-my-oma doctor
-oh-my-oma verify
+oma setup --scope user      # 或：./install_global.sh
 ```
 
-### 方式一：本地安装（单项目）
+写入：`~/.gemini/antigravity/skills`、`~/.gemini/antigravity/global_workflows`、`~/.gemini/config/rules`、MCP 服务器写入 `~/.gemini/config/mcp_config.json`，以及向 `~/.gemini/GEMINI.md` 注入技能清单块（发现修复）。
 
-将 `.agent` 目录复制到你的项目：
+### 验证
 
 ```bash
-# 克隆仓库
-git clone https://github.com/YourUsername/oh-my-antigravity.git
-
-# 进入仓库目录
-cd oh-my-antigravity
-
-# 可选：从本地仓库全局安装 CLI
-npm install -g .
-
-# 运行安装脚本（默认安装到当前目录）
-./install.sh /path/to/your/project
+oma doctor
 ```
 
-### 方式二：全局安装（所有项目）
+---
 
-全局安装使所有项目都可以访问技能和工作流：
+## CLI 命令
+
+```
+oma setup [--scope user|project-local|project] [--force] [--dry-run]
+          [--no-skills] [--no-workflows] [--no-rules] [--no-config] [--enable-context7]
+oma doctor                       # 仓库健康 + Antigravity 实际能发现什么
+oma route "<任务>" [--limit N]   # 为任务推荐技能（带评分）
+oma harness graph|intents|lint|chain <skill>
+oma skill list|prefer|conflicts
+oma source list|sync|status
+oma team start|status|advance|cancel|clear
+oma test ...                     # 技术栈检测 + 测试生成
+oma help
+```
+
+---
+
+## 架构
+
+```
+bin/oma.js              CLI 入口 → src/cli/index.js
+src/
+  cli/                  setup, doctor, route, harness, skill, source, team, test, notify
+  utils/paths.js        所有 Antigravity 目标路径的唯一收口点
+  config/generator.js   JSON mcp_config.json 合并 + GEMINI.md 技能注入
+  merge/                多源技能合并 + 冲突解决
+  catalog/              技能索引、清单、schema 校验
+  router/               任务 → 技能评分（boost + index + layer + intent）
+  harness/              组合图、layer-map、intent-registry
+  mcp/                  state / memory / trace MCP 服务器
+  team/, notify/, testing/
+.agent/skills/local/    73 个一方技能（安装来源）
+.agent/skills/upstream/ 可选的上游技能包
+.agent/workflows/       35 个工作流
+templates/, schemas/, prompts/, scripts/, .governance/
+```
+
+技能位于 `.agent/skills/local/<name>/SKILL.md`。catalog 与 skill-index 自动生成，router 与 harness 读取它们。
+
+> 注：并行执行类技能（`swarm`、`ultrapilot`）在 Antigravity 迁移时已移除；编排改为单代理 / 人设切换。
+
+---
+
+## 开发 / 测试
 
 ```bash
-# 运行全局安装脚本
-./install_global.sh
-```
-
-安装路径：
-- 技能 → `~/.gemini/antigravity/skills/`
-- 工作流（主目录）→ `~/.gemini/antigravity/global_workflows/`
-- 工作流（兼容发现链接）→ `~/.agent/workflows/`、`~/.agents/workflows/`、`~/_agent/workflows/`、`~/_agents/workflows/`
-
----
-
-## 🎮 使用方法
-
-### 使用技能
-
-只需自然地提问！技能会自动识别：
-
-```
-"扮演架构师，设计一个微服务系统。"
-"对这个文件进行安全审查。"
-"深度搜索这个 bug 的根本原因。"
-"以 frontend-ui-ux 专家身份改进这个组件。"
-```
-
-### 使用工作流
-
-使用斜杠命令触发工作流：
-
-```
-
-### 规则（GEMINI.md）
-
-项目规则放在 `GEMINI.md`，全局规则放在 `~/.gemini/antigravity/GEMINI.md`。
-/autopilot 构建一个用户认证的 REST API
-/ultrawork 并行实现所有待完成的功能
-/aireview 审查最近 5 次提交
-/doctor 检查我的环境是否正确设置
-/help 显示所有可用命令
+npm test                  # governance + catalog + skill-index + doctor
+npm run catalog:generate  # 从 .agent/skills 重新生成 catalog
+npm run governance:skills # 检查技能中是否混入外部运行时痕迹
+oma harness lint          # 校验组合图 / layer-map / intents
 ```
 
 ---
 
-## 📖 文档
+## 许可证与致谢
 
-| 文档 | 描述 |
-|------|------|
-| [FEATURES.md](docs/FEATURES.md) | 完整功能文档 |
-| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | 系统架构概览 |
-| [REFERENCE.md](docs/REFERENCE.md) | API 和命令参考 |
-| [COMPATIBILITY.md](docs/COMPATIBILITY.md) | 兼容性信息 |
+MIT，详见 [LICENSE](LICENSE)。
 
----
-
-## 🔧 环境要求
-
-- **Google Antigravity**（Gemini 驱动的 AI 编程助手）
-- **CLI 工具**（推荐，用于增强功能）：
-  - `fd` - 快速文件查找器
-  - `rg` (ripgrep) - 快速文本搜索
-  - `sg` (ast-grep) - 结构化代码搜索
-
-运行 `/doctor` 验证你的环境设置。
-
----
-
-## 🤝 贡献指南
-
-欢迎贡献！你可以：
-
-1. Fork 本仓库
-2. 创建功能分支
-3. 提交 Pull Request
-
----
-
-## 📄 许可证
-
-MIT 许可证 - 详见 [LICENSE](LICENSE)
-
----
-
-## 🙏 致谢
-
-特别感谢以下项目：
-
-- [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) - 本项目的原始启发来源
-- [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) - 同生态中的 OpenCode 脚手架适配版本
-- [everything-claude-code](https://github.com/affaan-m/everything-claude-code) - 旧版 Claude Code 资料（历史参考）
+- [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex) —— 本移植所遵循的架构
+- [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) —— 原始技能生态
