@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://oh-my-codex.dev/schemas/merge-config.json",
+  "title": "Merge Configuration Schema",
+  "description": "Configuration for multi-source skill merging",
+  "type": "object",
+  "required": ["merge_strategy", "auto_merge"],
+  "properties": {
+    "merge_strategy": {
+      "type": "string",
+      "description": "Default merge strategy",
+      "enum": ["version-priority", "fork-priority", "user-preference"]
+    },
+    "prefer_source": {
+      "type": ["string", "null"],
+      "description": "Preferred source for conflicts (null = use strategy)"
+    },
+    "allow_namespacing": {
+      "type": "boolean",
+      "description": "Allow namespacing when conflicts cannot be resolved",
+      "default": false
+    },
+    "auto_merge": {
+      "type": "boolean",
+      "description": "Automatically merge without prompting",
+      "default": true
+    },
+    "preferences": {
+      "type": "object",
+      "description": "Per-skill source preferences",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "description": "Source configurations",
+      "items": {
+        "type": "object",
+        "required": ["name", "enabled"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "priority": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

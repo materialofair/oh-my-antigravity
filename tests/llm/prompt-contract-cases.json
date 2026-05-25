@@ -1,0 +1,26 @@
+[
+  {
+    "id": "architect-prompt",
+    "promptFile": "prompts/architect.md",
+    "requiredFrontmatter": ["description", "argument-hint"],
+    "requiredSections": ["## Role", "## Success Criteria", "## Constraints", "## Output Format", "## Final Checklist"],
+    "requiredKeywords": ["read-only", "file:line", "trade-offs"],
+    "forbiddenKeywords": ["plugin-dir", "hud"]
+  },
+  {
+    "id": "planner-prompt",
+    "promptFile": "prompts/planner.md",
+    "requiredFrontmatter": ["description", "argument-hint"],
+    "requiredSections": ["## Role", "## Success Criteria", "## Constraints", "## Output Format", "## Final Checklist"],
+    "requiredKeywords": [".omcodex/plans/", "never implement", "3-6 actionable steps"],
+    "forbiddenKeywords": ["plugin-dir", "hud"]
+  },
+  {
+    "id": "executor-prompt",
+    "promptFile": "prompts/executor.md",
+    "requiredFrontmatter": ["description", "argument-hint"],
+    "requiredSections": ["## Role", "## Success Criteria", "## Hard Constraints", "## Output Format", "## Final Checklist"],
+    "requiredKeywords": ["smallest viable diff", "verification", "keep going until the task is fully resolved", "omcodex test changed"],
+    "forbiddenKeywords": ["plugin-dir", "hud"]
+  }
+]

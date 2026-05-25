@@ -1,0 +1,20 @@
+{
+  "$schema": "../schemas/merge-config.schema.json",
+  "merge_strategy": "version-priority",
+  "prefer_source": null,
+  "allow_namespacing": false,
+  "auto_merge": true,
+  "preferences": {},
+  "sources": [
+    {
+      "name": "fork",
+      "enabled": true,
+      "priority": 1
+    },
+    {
+      "name": "upstream",
+      "enabled": true,
+      "priority": 2
+    }
+  ]
+}

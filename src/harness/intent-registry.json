@@ -1,0 +1,149 @@
+{
+  "tdd": {
+    "canonical": "tdd",
+    "variants": {
+      "tdd-guide": { "source": "local", "role": "step-by-step TDD guidance" },
+      "tdd-guide-low": { "source": "local", "role": "lightweight TDD guidance" }
+    }
+  },
+  "planning": {
+    "canonical": "plan",
+    "variants": {
+      "planner": { "source": "local", "role": "structured planning agent" },
+      "planning-with-files": { "source": "local", "role": "file-based persistent planning" },
+      "ralplan": { "source": "local", "role": "consensus planning alias" }
+    }
+  },
+  "analysis": {
+    "canonical": "analyze",
+    "variants": {
+      "analyst": { "source": "local", "role": "deep evidence-driven investigation" },
+      "deepsearch": { "source": "local", "role": "codebase-wide structural search" }
+    }
+  },
+  "exploration": {
+    "canonical": "explore",
+    "variants": {
+      "explore-medium": { "source": "local", "role": "medium-depth exploration pass" },
+      "explore-high": { "source": "local", "role": "high-depth exhaustive exploration" }
+    }
+  },
+  "architecture": {
+    "canonical": "architect",
+    "variants": {
+      "architect-low": { "source": "local", "role": "lightweight architecture review" },
+      "architect-medium": { "source": "local", "role": "medium-depth architecture review" }
+    }
+  },
+  "build": {
+    "canonical": "build-fix",
+    "variants": {
+      "build-fixer": { "source": "local", "role": "automated build error resolution" },
+      "build-fixer-low": { "source": "local", "role": "lightweight build error resolution" }
+    }
+  },
+  "code-review": {
+    "canonical": "code-review",
+    "variants": {
+      "aireview": { "source": "local", "role": "multi-agent review with confidence scoring" },
+      "review": { "source": "local", "role": "reviewer-only pass" },
+      "code-reviewer": { "source": "local", "role": "structured code review agent" },
+      "code-reviewer-low": { "source": "local", "role": "lightweight code review agent" },
+      "critic": { "source": "local", "role": "adversarial critique pass" }
+    }
+  },
+  "execution": {
+    "canonical": "executor",
+    "variants": {
+      "executor-low": { "source": "local", "role": "lightweight execution agent" },
+      "executor-high": { "source": "local", "role": "high-effort execution agent" }
+    }
+  },
+  "orchestration": {
+    "canonical": "autopilot",
+    "variants": {
+      "ralph": { "source": "local", "role": "persistence loop with architect verification" },
+      "ralph-init": { "source": "local", "role": "ralph session initialization" },
+      "ultrawork": { "source": "local", "role": "parallel execution engine" },
+      "ultraqa": { "source": "local", "role": "quality-gated parallel execution" },
+      "pipeline": { "source": "local", "role": "configurable stage sequencer" },
+      "orchestrate": { "source": "local", "role": "general multi-agent orchestration" },
+      "conductor": { "source": "local", "role": "durable context-driven development" },
+      "start-dev": { "source": "local", "role": "adaptive workflow with pattern loading" }
+    }
+  },
+  "research": {
+    "canonical": "research",
+    "variants": {
+      "researcher": { "source": "local", "role": "research agent" },
+      "researcher-low": { "source": "local", "role": "lightweight research agent" }
+    }
+  },
+  "science": {
+    "canonical": "scientist",
+    "variants": {
+      "scientist-low": { "source": "local", "role": "lightweight scientific analysis" },
+      "scientist-high": { "source": "local", "role": "deep scientific analysis" },
+      "vision": { "source": "local", "role": "visual analysis and interpretation" }
+    }
+  },
+  "security": {
+    "canonical": "security-review",
+    "variants": {
+      "security-reviewer": { "source": "local", "role": "security review agent" },
+      "security-reviewer-low": { "source": "local", "role": "lightweight security review agent" }
+    }
+  },
+  "quality-assurance": {
+    "canonical": "qa-tester",
+    "variants": {
+      "qa-tester-high": { "source": "local", "role": "high-effort QA testing agent" }
+    }
+  },
+  "design": {
+    "canonical": "designer",
+    "variants": {
+      "designer-low": { "source": "local", "role": "lightweight design agent" },
+      "designer-high": { "source": "local", "role": "high-effort design agent" },
+      "frontend-ui-ux": { "source": "local", "role": "frontend UI/UX patterns" }
+    }
+  },
+  "writing": {
+    "canonical": "writer",
+    "variants": {
+      "writer-memory": { "source": "local", "role": "writer with persistent memory" }
+    }
+  },
+  "git": {
+    "canonical": "git-master",
+    "variants": {}
+  },
+  "project-management": {
+    "canonical": "project-session-manager",
+    "variants": {}
+  },
+  "tooling": {
+    "canonical": "electron-driver",
+    "variants": {
+      "mcp-setup": { "source": "local", "role": "MCP server configuration" },
+      "ai-commenting": { "source": "local", "role": "AI-assisted code commenting" }
+    }
+  },
+  "meta": {
+    "canonical": "skill",
+    "variants": {
+      "deepinit": { "source": "local", "role": "project deep initialization" },
+      "release": { "source": "local", "role": "release workflow" },
+      "learner": { "source": "local", "role": "learning and knowledge capture" },
+      "learn-about-oma": { "source": "local", "role": "learn about oh-my-antigravity" },
+      "doctor": { "source": "local", "role": "system health diagnostics" },
+      "help": { "source": "local", "role": "help and documentation" },
+      "cancel": { "source": "local", "role": "cancel active operations" },
+      "note": { "source": "local", "role": "quick note capture" },
+      "hud": { "source": "local", "role": "heads-up display overlay" },
+      "AGENTS": { "source": "local", "role": "agent catalog and routing" },
+      "local-skills-setup": { "source": "local", "role": "local skill installation" },
+      "oma-setup": { "source": "local", "role": "oh-my-antigravity setup" }
+    }
+  }
+}

@@ -1,168 +1,158 @@
 #!/usr/bin/env node
-
 /* eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
-const { validateCatalogManifest, summarizeCatalogCounts } = require('./catalog-schema');
+const { validateCatalogManifest, summarizeCatalogCounts } = require('../src/catalog/schema');
 
 const root = path.resolve(__dirname, '..');
-const skillsRoot = path.join(root, '.agent', 'skills');
-const workflowsRoot = path.join(root, '.agent', 'workflows');
+const localSkillsRoot = path.join(root, '.agent', 'skills', 'local');
+const upstreamSkillsRoot = path.join(root, '.agent', 'skills', 'upstream');
+// Legacy fallback
+const skillsRoot = fs.existsSync(localSkillsRoot)
+  ? localSkillsRoot
+  : fs.existsSync(path.join(root, '.agent', 'skills'))
+    ? path.join(root, '.agent', 'skills')
+    : path.join(root, '.codex', 'skills');
+const promptsRoot = path.join(root, 'prompts');
 
-const CATEGORY_MAP_SKILLS = new Map([
+const CATEGORY_MAP = new Map([
   ['autopilot', 'execution'],
-  ['ultrawork', 'execution'],
-  ['swarm', 'execution'],
-  ['pipeline', 'execution'],
   ['ralph', 'execution'],
+  ['team', 'execution'],
+  ['ultrawork', 'execution'],
+  ['ultraqa', 'execution'],
+  ['swarm', 'execution'],
+  ['ralplan', 'planning'],
   ['plan', 'planning'],
-  ['review', 'planning'],
-  ['analyze', 'analysis'],
-  ['research', 'analysis'],
-  ['security-review', 'quality'],
-  ['code-review', 'quality'],
-  ['tdd', 'quality'],
-  ['doctor', 'utility'],
-  ['help', 'utility'],
+  ['code-review', 'shortcut'],
+  ['security-review', 'shortcut'],
+  ['tdd', 'shortcut'],
+  ['build-fix', 'shortcut'],
 ]);
 
-const CATEGORY_MAP_WORKFLOWS = new Map([
-  ['autopilot', 'execution'],
-  ['ultrawork', 'execution'],
-  ['swarm', 'execution'],
-  ['pipeline', 'execution'],
-  ['ralph', 'execution'],
-  ['plan', 'planning'],
-  ['review', 'planning'],
-  ['analyze', 'analysis'],
-  ['research', 'analysis'],
-  ['security-review', 'quality'],
-  ['code-review', 'quality'],
-  ['tdd', 'quality'],
-  ['doctor', 'utility'],
-  ['help', 'utility'],
-]);
+const CORE = new Set(['autopilot', 'ralph', 'ultrawork', 'plan']);
 
-const CORE_SKILLS = new Set(['autopilot', 'ultrawork', 'pipeline', 'ralph', 'plan', 'doctor', 'help']);
-const CORE_WORKFLOWS = new Set(['autopilot', 'ultrawork', 'pipeline', 'ralph', 'plan', 'doctor', 'help']);
+function parseSkillMetadata(skillPath) {
+  const skillFile = path.join(skillPath, 'SKILL.md');
+  if (!fs.existsSync(skillFile)) return null;
 
-function parseArgs(argv) {
-  return {
-    verify: argv.includes('--verify'),
-    dryRun: argv.includes('--dry-run'),
-  };
+  try {
+    const content = fs.readFileSync(skillFile, 'utf8');
+    const match = content.match(/^---\n([\s\S]*?)\n---/);
+    if (!match) return null;
+
+    const frontmatterText = match[1];
+    const metadata = {};
+
+    frontmatterText.split('\n').forEach((line) => {
+      const colonIndex = line.indexOf(':');
+      if (colonIndex === -1) return;
+
+      const key = line.slice(0, colonIndex).trim();
+      const value = line.slice(colonIndex + 1).trim();
+      metadata[key] = value;
+    });
+
+    return metadata;
+  } catch (err) {
+    return null;
+  }
 }
 
 function detectSkills() {
-  if (!fs.existsSync(skillsRoot)) return [];
-  return fs.readdirSync(skillsRoot, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name)
-    .sort();
+  const seen = new Map();
+
+  // Load local skills (highest priority)
+  if (fs.existsSync(skillsRoot)) {
+    for (const entry of fs.readdirSync(skillsRoot, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      const metadata = parseSkillMetadata(path.join(skillsRoot, entry.name));
+      seen.set(entry.name, { name: entry.name, metadata, source: 'local' });
+    }
+  }
+
+  // Load upstream skills (lower priority, skip if local already has it)
+  if (fs.existsSync(upstreamSkillsRoot)) {
+    for (const srcDir of fs.readdirSync(upstreamSkillsRoot, { withFileTypes: true })) {
+      if (!srcDir.isDirectory()) continue;
+      const srcPath = path.join(upstreamSkillsRoot, srcDir.name);
+      for (const entry of fs.readdirSync(srcPath, { withFileTypes: true })) {
+        if (!entry.isDirectory()) continue;
+        if (seen.has(entry.name)) continue; // local wins
+        const metadata = parseSkillMetadata(path.join(srcPath, entry.name));
+        seen.set(entry.name, { name: entry.name, metadata, source: srcDir.name });
+      }
+    }
+  }
+
+  return Array.from(seen.values()).sort((a, b) => a.name.localeCompare(b.name));
 }
 
-function detectWorkflows() {
-  if (!fs.existsSync(workflowsRoot)) return [];
-  return fs.readdirSync(workflowsRoot, { withFileTypes: true })
+
+function detectPrompts() {
+  if (!fs.existsSync(promptsRoot)) return [];
+  return fs.readdirSync(promptsRoot, { withFileTypes: true })
     .filter((entry) => entry.isFile() && entry.name.endsWith('.md'))
     .map((entry) => entry.name.replace(/\.md$/i, ''))
     .sort();
 }
 
 function buildManifest() {
-  const skillNames = detectSkills();
-  const workflowNames = detectWorkflows();
+  const skillsData = detectSkills();
+  const promptNames = detectPrompts();
 
-  const skills = skillNames.map((name) => ({
-    name,
-    category: CATEGORY_MAP_SKILLS.get(name) || 'utility',
-    status: 'active',
-    core: CORE_SKILLS.has(name),
-  }));
+  const skills = skillsData.map((skillData) => {
+    const { name, metadata } = skillData;
+    return {
+      name,
+      category: CATEGORY_MAP.get(name) || 'utility',
+      status: 'active',
+      core: CORE.has(name),
+      source: metadata?.source || skillData.source || 'unknown',
+      version: metadata?.version || '0.1.0',
+      layer: metadata?.layer || null,
+      intent: metadata?.intent || null,
+      composes: metadata?.composes ? metadata.composes.replace(/[\[\]]/g, '').split(',').map((s) => s.trim()).filter(Boolean) : [],
+    };
+  });
 
-  const workflows = workflowNames.map((name) => ({
+  const agents = promptNames.map((name) => ({
     name,
-    category: CATEGORY_MAP_WORKFLOWS.get(name) || 'utility',
+    category: 'role',
     status: 'active',
-    core: CORE_WORKFLOWS.has(name),
+    core: ['architect', 'planner', 'executor'].includes(name),
   }));
 
   return {
     schemaVersion: 1,
     catalogVersion: new Date().toISOString().slice(0, 10),
     skills,
-    workflows,
+    agents,
   };
 }
 
-function writeOrVerify(filePath, content, verify) {
-  if (!verify) {
-    fs.mkdirSync(path.dirname(filePath), { recursive: true });
-    fs.writeFileSync(filePath, content, 'utf8');
-    return true;
-  }
-  if (!fs.existsSync(filePath)) return false;
-  const existing = fs.readFileSync(filePath, 'utf8');
-  return existing === content;
-}
-
-function stable(value) {
-  return JSON.stringify(value);
-}
 
 function main() {
-  const args = parseArgs(process.argv.slice(2));
   const manifest = validateCatalogManifest(buildManifest());
   const counts = summarizeCatalogCounts(manifest);
 
-  const manifestPath = path.join(root, '.governance', 'catalog-manifest.json');
-  const generatedPath = path.join(root, 'docs', 'generated', 'public-catalog.json');
+  const templatePath = path.join(root, 'templates', 'catalog-manifest.json');
+  const sourcePath = path.join(root, 'src', 'catalog', 'manifest.json');
+  const generatedPath = path.join(root, 'src', 'catalog', 'generated', 'public-catalog.json');
 
-  const manifestContent = `${JSON.stringify(manifest, null, 2)}\n`;
-  const generatedContent = `${JSON.stringify(
-    { generatedAt: new Date().toISOString(), counts, skills: manifest.skills, workflows: manifest.workflows },
-    null,
-    2,
-  )}\n`;
+  fs.mkdirSync(path.dirname(templatePath), { recursive: true });
+  fs.mkdirSync(path.dirname(sourcePath), { recursive: true });
+  fs.mkdirSync(path.dirname(generatedPath), { recursive: true });
 
-  if (args.dryRun) {
-    console.log(`Catalog preview: ${counts.skillCount} skills, ${counts.workflowCount} workflows`);
-    return;
-  }
+  fs.writeFileSync(templatePath, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
+  fs.writeFileSync(sourcePath, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
+  fs.writeFileSync(
+    generatedPath,
+    `${JSON.stringify({ generatedAt: new Date().toISOString(), counts, skills: manifest.skills, agents: manifest.agents }, null, 2)}\n`,
+    'utf8',
+  );
 
-  const manifestOk = writeOrVerify(manifestPath, manifestContent, args.verify);
-  let generatedOk;
-  if (!args.verify) {
-    generatedOk = writeOrVerify(generatedPath, generatedContent, false);
-  } else {
-    if (!fs.existsSync(generatedPath)) {
-      generatedOk = false;
-    } else {
-      const existing = JSON.parse(fs.readFileSync(generatedPath, 'utf8'));
-      const expected = {
-        counts,
-        skills: manifest.skills,
-        workflows: manifest.workflows,
-      };
-      const actual = {
-        counts: existing.counts,
-        skills: existing.skills,
-        workflows: existing.workflows,
-      };
-      generatedOk = stable(actual) === stable(expected);
-    }
-  }
-
-  if (args.verify) {
-    if (!manifestOk || !generatedOk) {
-      console.error('Catalog files are out of sync. Run: node scripts/generate-catalog-docs.js');
-      process.exit(1);
-    }
-    console.log(`Catalog verified: ${counts.skillCount} skills, ${counts.workflowCount} workflows`);
-    return;
-  }
-
-  console.log(`Catalog generated: ${counts.skillCount} skills, ${counts.workflowCount} workflows`);
+  console.log(`Catalog generated: ${counts.skillCount} skills, ${counts.promptCount} prompts`);
 }
 
 main();

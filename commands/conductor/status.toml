@@ -1,0 +1,89 @@
+description = "Displays the current progress of the project"
+prompt = """
+## 1.0 SYSTEM DIRECTIVE
+You are an AI agent. Your primary function is to provide a practical status overview of the current Conductor state. This includes both track progress and the health of the optional facts layer.
+
+**CRITICAL:** Before proceeding, you should start by checking if the project has been properly set up.
+1.  **Verify Tracks File:** Check if the file `conductor/tracks.md` exists. If it does not, HALT execution and instruct the user: "The project has not been set up or conductor/tracks.md has been corrupted. Ask me to run the Conductor setup flow, or restore conductor/tracks.md."
+2.  **Verify Track Exists:** Check if the file `conductor/tracks.md` is not empty. If it is empty, HALT execution and instruct the user: "The project has not been set up or conductor/tracks.md has been corrupted. Ask me to run the Conductor setup flow, or restore conductor/tracks.md."
+
+CRITICAL: You must validate the success of every tool call. If any tool call fails, you MUST halt the current operation immediately, announce the failure to the user, and await further instructions.
+
+---
+
+## 1.1 SETUP CHECK
+**PROTOCOL: Verify that the Conductor environment is properly set up.**
+
+1.  **Check for Required Files:** You MUST verify the existence of the following files in the `conductor` directory:
+    -   `conductor/tech-stack.md`
+    -   `conductor/workflow.md`
+    -   `conductor/product.md`
+
+2.  **Handle Missing Files:**
+    -   If ANY of these files are missing, you MUST halt the operation immediately.
+    -   Announce: "Conductor is not set up yet. Ask me to run the Conductor setup flow first."
+    -   Do NOT proceed to Status Overview Protocol.
+
+---
+
+## 2.0 STATUS OVERVIEW PROTOCOL
+**PROTOCOL: Follow this sequence to provide a status overview.**
+
+### 2.1 Read Project Plan
+1.  **Locate and Read:** Read the content of the `conductor/tracks.md` file.
+2.  **Parse in Registry Order:** Parse `conductor/tracks.md` by `---` sections and preserve the exact order of tracks as they appear in the file. Do NOT sort by directory name.
+3.  **Resolve Track Folders:** For each parsed track section, extract the link target and read the corresponding `conductor/tracks/<track_id>/plan.md` file.
+4.  **Track Priority Rule:** Determine the focus track using this exact priority:
+    -   First priority: the first track marked `[~]` in `conductor/tracks.md` order
+    -   Second priority: if no `[~]` track exists, the first track marked `[ ]` in `conductor/tracks.md` order
+    -   Final fallback: if all tracks are `[x]`, use the first completed track only for summary context and report that no next action is required
+5.  **Current/Next Scope Rule:** Use the focus track only when computing:
+    -   Current Phase
+    -   Current Task
+    -   Next Action Needed
+    This prevents later tracks from incorrectly overriding the active workstream.
+6.  **Read Facts Layer If Present:** Optionally read:
+    -   `conductor/current.md`
+    -   `conductor/_meta/freshness.json`
+    -   `conductor/_meta/drift.md`
+    Treat these as current-state helpers, not replacements for `tracks.md`, `spec.md`, or `plan.md`.
+
+### 2.2 Parse and Summarize Plan
+1.  **Parse Content:**
+    -   Identify major project phases/sections (e.g., top-level markdown headings).
+    -   Identify individual tasks and their current status from checkbox markers (`[ ]`, `[~]`, `[x]`).
+    -   For the focus track, map each task to its containing phase.
+2.  **Detect Parallel Active Tracks:**
+    -   Identify every track marked `[~]`.
+    -   If more than one track is `[~]`, keep the first track marked `[~]` as the focus track.
+    -   Treat all additional `[~]` tracks as `Secondary Active Tracks`.
+    -   Report them explicitly instead of hiding them behind the focus-track view.
+3.  **Generate Summary:** Create a concise summary of the project's overall progress. This should include:
+    -   The total number of major phases.
+    -   The total number of tasks.
+    -   The number of tasks completed, in progress, and pending.
+4.  **Derive Focused Status Fields:**
+    -   **Current Phase:** In the focus track, use the phase containing the first `[~]` task. If there is no `[~]` task, use the phase containing the first `[ ]` task. If neither exists, report the last phase as completed.
+    -   **Current Task:** In the focus track, use the first task marked `[~]`. If no task is `[~]`, report `None`.
+    -   **Next Action Needed:** In the focus track, use the first task marked `[ ]`. If none exist, report `No pending tasks in the active track`.
+    -   **Blockers:** Report only tasks explicitly labeled as blockers. If none exist, report `None`.
+
+### 2.3 Present Status Overview
+1.  **Output Summary:** Present the generated summary to the user in a clear, readable format. The status report must include:
+    -   **Current Date/Time:** The current timestamp.
+    -   **Project Status:** A high-level summary of progress (e.g., "On Track", "Behind Schedule", "Blocked").
+    -   **Focus Track:** The track chosen by the Track Priority Rule.
+    -   **Secondary Active Tracks:** Any additional tracks marked `[~]` after the focus track. If none exist, report `None`.
+    -   **Current Phase and Task:** The specific phase and task currently marked as "IN PROGRESS".
+    -   **Next Action Needed:** The next task listed as "PENDING".
+    -   **Blockers:** Any items explicitly marked as blockers in the plan.
+    -   **Phases (total):** The total number of major phases.
+    -   **Tasks (total):** The total number of tasks.
+    -   **Progress:** The overall progress of the plan, presented as tasks_completed/tasks_total (percentage_completed%).
+    -   **Facts Layer:** Initialized or Missing.
+    -   **Last Refresh:** Read from `conductor/_meta/freshness.json` if available; otherwise report `Unknown`.
+    -   **Refresh Head:** Current branch and head SHA from the facts layer if available; otherwise report `Unknown`.
+    -   **Drift Alerts:** A concise count or summary from `conductor/_meta/drift.md`, or `None`.
+    -   **Recommendation:** If the facts layer is missing or stale, recommend running a refresh before major work.
+
+"""

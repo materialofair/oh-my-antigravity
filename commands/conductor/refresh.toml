@@ -1,0 +1,130 @@
+description = "Refreshes the Conductor facts layer from the current codebase and git state"
+prompt = """
+## 1.0 SYSTEM DIRECTIVE
+You are an AI agent operating the Conductor facts layer. Your job is to refresh machine-maintained project facts without silently rewriting human-authored intent documents.
+
+CRITICAL: You must validate the success of every tool call. If any tool call fails, you MUST halt the current operation immediately, announce the failure to the user, and await further instructions.
+
+---
+
+## 1.1 SETUP CHECK
+1. Verify that `conductor/` exists.
+2. Verify that `conductor/tracks.md` exists.
+3. Verify that `conductor/workflow.md` exists.
+4. If any required file is missing, halt and tell the user: "Conductor is not set up yet. Ask me to run the Conductor setup flow first."
+
+---
+
+## 2.0 REFRESH SCOPE
+1. Default to a project-wide refresh unless `{{args}}` clearly narrows scope.
+2. Read `conductor/tracks.md` and preserve track order exactly as it appears in the file.
+3. Determine the focus track using this priority:
+   - first track marked `[~]` in `conductor/tracks.md` order
+   - otherwise the first track marked `[ ]` in `conductor/tracks.md` order
+   - otherwise the first track marked `[x]`
+4. Detect all tracks currently marked `[~]`.
+   - If more than one track is `[~]`, keep the first `[~]` track as the focus track.
+   - Treat every additional `[~]` track as `Secondary Active Tracks`.
+   - Carry them into the facts layer instead of hiding them.
+5. If a focus track exists, read:
+   - `conductor/tracks/<track_id>/spec.md`
+   - `conductor/tracks/<track_id>/plan.md`
+6. Optionally read existing facts files if present:
+   - `conductor/current.md`
+   - `conductor/_meta/freshness.json`
+   - `conductor/_meta/drift.md`
+
+---
+
+## 3.0 GATHER FACTS
+Gather current facts from the repository, preferring code and git over prose:
+
+1. Repo snapshot:
+   - current branch
+   - HEAD commit SHA
+   - whether the worktree is dirty
+   - current timestamp
+2. Current implementation surface:
+   - key manifests and lockfiles
+   - primary source directories
+   - test directories
+   - likely build, test, and run commands
+3. Recent change activity:
+   - changed files in the working tree
+   - recent commits
+   - recurring hotspots if they can be inferred cheaply
+4. Focus track status:
+   - current phase
+   - current task
+   - next action
+5. Secondary active track status:
+   - list every additional track marked `[~]`
+   - if none exist, record `None`
+6. Drift signals:
+   - `tech-stack.md` does not match manifests or dependencies
+   - `tracks.md` status disagrees with active track files
+   - `plan.md` appears stale relative to code or tests
+   - significant code changes landed without matching track updates
+
+Do NOT fabricate missing facts. If confidence is low, mark the item as uncertain.
+
+---
+
+## 4.0 WRITE FACTS LAYER
+You MUST update or create the following files:
+
+1. `conductor/current.md`
+2. `conductor/_meta/freshness.json`
+3. `conductor/_meta/drift.md`
+
+### 4.1 `conductor/current.md`
+Write a concise current-state summary with these sections:
+
+- `# Current Project Context`
+- `## Repo Snapshot`
+- `## Active Focus`
+- `## Secondary Active Tracks`
+- `## Architecture Snapshot`
+- `## Recent Change Hotspots`
+- `## Drift Alerts`
+- `## Recommended Read Set`
+
+Keep this file short. It is a preflight entry point, not a replacement for `spec.md` or `plan.md`.
+
+### 4.2 `conductor/_meta/freshness.json`
+Write machine-readable metadata that includes at least:
+
+- `refreshed_at`
+- `branch`
+- `head_sha`
+- `dirty`
+- `focus_track`
+- `drift_count`
+
+### 4.3 `conductor/_meta/drift.md`
+List only actionable mismatches between Conductor intent documents and the current codebase state.
+
+If no drift is detected, write an explicit "No drift detected" summary instead of leaving the file empty.
+
+---
+
+## 5.0 SAFETY RULES
+1. Never silently rewrite:
+   - `conductor/product.md`
+   - `conductor/product-guidelines.md`
+   - `conductor/tech-stack.md`
+   - any `spec.md`
+   - any `plan.md`
+2. If intent documents appear outdated, record the mismatch in `conductor/_meta/drift.md`.
+3. If the user asks to bring intent documents up to date, propose a reconcile flow rather than mutating them implicitly.
+
+---
+
+## 6.0 OUTPUT
+Report:
+- whether facts refresh succeeded
+- focus track
+- last refresh timestamp
+- drift count
+- whether you recommend a follow-up reconcile
+"""

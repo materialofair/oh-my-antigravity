@@ -1,0 +1,40 @@
+{
+  "foundation": [
+    "plan", "planner", "analyst", "analyze", "explore", "explore-medium", "explore-high",
+    "architect", "architect-low", "architect-medium",
+    "tdd", "tdd-guide", "tdd-guide-low",
+    "deepsearch", "build-fix", "build-fixer", "build-fixer-low",
+    "code-review", "review",
+    "executor", "executor-low", "executor-high"
+  ],
+  "orchestration": [
+    "autopilot", "ralph", "ralph-init", "ralplan",
+    "ultrawork", "ultraqa", "pipeline", "orchestrate",
+    "conductor", "start-dev"
+  ],
+  "quality": [
+    "aireview", "code-reviewer", "code-reviewer-low",
+    "critic", "security-review", "security-reviewer", "security-reviewer-low",
+    "qa-tester", "qa-tester-high"
+  ],
+  "research": [
+    "research", "researcher", "researcher-low",
+    "scientist", "scientist-low", "scientist-high",
+    "vision"
+  ],
+  "domain": [
+    "designer", "designer-low", "designer-high",
+    "frontend-ui-ux", "electron-driver",
+    "writer", "writer-memory",
+    "project-session-manager", "git-master", "planning-with-files"
+  ],
+  "meta": [
+    "skill", "deepinit", "release",
+    "learner", "learn-about-oma",
+    "doctor", "help", "cancel", "note", "hud",
+    "AGENTS", "local-skills-setup", "oma-setup"
+  ],
+  "utility": [
+    "ai-commenting", "mcp-setup"
+  ]
+}

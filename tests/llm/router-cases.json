@@ -1,0 +1,62 @@
+[
+  {
+    "id": "plan_api",
+    "query": "Plan a scalable API architecture for a new billing service",
+    "expectedTopSkill": "plan",
+    "expectedAnySkills": ["backend-patterns"],
+    "forbiddenSkills": ["frontend-ui-ux"],
+    "minConfidence": 0.4
+  },
+  {
+    "id": "review_pr",
+    "query": "Please review this pull request for regressions and risky changes",
+    "expectedTopSkill": "code-review",
+    "minConfidence": 0.3
+  },
+  {
+    "id": "conductor_setup",
+    "query": "Use conductor to initialize this project and create track/spec/plan artifacts",
+    "expectedTopSkill": "conductor",
+    "minConfidence": 0.4
+  },
+  {
+    "id": "de_ai_writing_cn",
+    "query": "给这篇中文文章去 AI 味，改得更像人写的，但不要改变原意",
+    "expectedTopSkill": "de-ai-writing",
+    "forbiddenSkills": ["frontend-ui-ux"],
+    "minConfidence": 0.3
+  },
+  {
+    "id": "fix_build",
+    "query": "Fix the build error, lint failures, and type errors in auth flow",
+    "expectedTopSkill": "build-fix",
+    "minConfidence": 0.4
+  },
+  {
+    "id": "implement_secure_feature",
+    "query": "Implement OAuth login with tests and verify the auth flow is safe",
+    "expectedAnySkills": ["security-review", "autopilot"],
+    "forbiddenSkills": ["frontend-ui-ux"],
+    "minConfidence": 0.4
+  },
+  {
+    "id": "de_ai_writing_zh",
+    "query": "帮我把这篇中文文章去AI味，改得像真人写的，但不要改掉原意",
+    "expectedTopSkill": "de-ai-writing",
+    "minConfidence": 0.4
+  },
+  {
+    "id": "de_ai_writing_tech_cn",
+    "query": "把这篇技术博客润色成自然中文，别那么像 ChatGPT，但代码块和配置项不能动",
+    "expectedTopSkill": "de-ai-writing",
+    "forbiddenSkills": ["frontend-ui-ux"],
+    "minConfidence": 0.3
+  },
+  {
+    "id": "de_ai_writing_sermon_cn",
+    "query": "把这篇讲道稿改得像真人讲出来的，保留经文和神学立场，不要有机器感",
+    "expectedTopSkill": "de-ai-writing",
+    "forbiddenSkills": ["frontend-ui-ux"],
+    "minConfidence": 0.3
+  }
+]

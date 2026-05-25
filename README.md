@@ -1,259 +1,144 @@
 # oh-my-antigravity
 
-**The Ultimate Agentic Toolkit for Google Gemini Antigravity.**
+**A multi-agent skill pack and workflow orchestration layer for Google Antigravity.**
 
-*Ported from [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) with ❤️*
+*Architecture aligned with [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex); skills ported from the "Oh My" ecosystem.*
 
-> Give your Antigravity agent the collective intelligence of the "Oh My" ecosystem with **73 specialized Skills** and **35 automated Workflows**.
+> Give your Antigravity agent **73 specialized skills** and **35 workflows**, plus a CLI that installs, catalogs, routes, and governs them — and that works around Antigravity 2.0's global-skill discovery quirk.
 
-**📦 NPM Package**: `oh-my-oma`  
-**⚡ Quick Install**: `npm install -g oh-my-oma`
-
-**✅ Migration Status**: Complete - Antigravity-ready ✅  
-**📊 Compatibility**: 73/73 Skills ✅ | 35/35 Workflows ✅ | 0 Issues  
-**📖 See**: [Migration Status Report](MIGRATION_STATUS.md) | [Migration Plan](MIGRATION_TO_ANTIGRAVITY.md)
+**📦 npm**: `oh-my-oma` · **CLI**: `oma` · **Node** ≥ 18
 
 ---
 
-## ✅ Migration Complete
+## Why this exists (Antigravity 2.0 fix)
 
-This project is fully migrated to Google Antigravity:
+Antigravity **2.0.1** does not reliably advertise the global skills directory
+(`~/.gemini/antigravity/skills/`) in the agent's system prompt — so global skills
+you install are often **never discovered**, even though the files are in the right
+place. (Workflows have an explicit `global_workflows` path; skills do not.)
 
-- ✅ **Skills & Workflows**: All content reviewed for Antigravity compatibility
-- ✅ **Hooks Replacement**: Legacy hooks converted to Workflows + `GEMINI.md` rules
-- ✅ **Installation Scripts**: Use `~/.gemini/antigravity/` paths
+`oma` works around this in two ways:
 
----
+1. **Workspace-first install (recommended).** Skills are written to **both**
+   `.agents/skills/` (the 2.0 default) **and** `.agent/skills/` (backward compat),
+   which Antigravity searches reliably as `{.agents,.agent}/skills`.
+2. **GEMINI.md skills block.** On every install, `oma` injects a managed block into
+   the relevant `GEMINI.md` (the rules file that *is* always loaded) listing every
+   skill's name, description, and absolute `SKILL.md` path. The agent can then find
+   and `view_file` them even when the global skills directory isn't advertised.
 
-## ✨ What is oh-my-antigravity?
-
-oh-my-antigravity is a comprehensive collection of AI agent "personas" (Skills) and automated procedures (Workflows) designed to supercharge your development workflow with Google's Antigravity AI coding assistant.
-
-Think of it as:
-- 🧠 **Skills** = Expert personas your agent can embody (architect, security-reviewer, scientist...)
-- ⚡️ **Workflows** = Slash commands that trigger automated procedures (`/autopilot`, `/swarm`, `/ultrawork`...)
-
----
-
-## 🚀 Features
-
-### 🧠 73 Specialized Skills
-
-| Category | Skills | Description |
-|----------|--------|-------------|
-| **Architecture** | `architect`, `architect-medium`, `architect-low`, `planner`, `analyst` | System design & strategic planning |
-| **Execution** | `executor`, `executor-high`, `executor-low`, `autopilot`, `ultrapilot` | Code implementation & task execution |
-| **Quality** | `critic`, `code-reviewer`, `security-reviewer`, `aireview` ⭐ | Code review & security auditing |
-| **Research** | `scientist`, `researcher`, `deepsearch`, `explore`, `analyze` | Deep analysis & investigation |
-| **Testing** | `tdd-guide`, `qa-tester`, `ultraqa`, `build-fixer` | Test-driven development & QA |
-| **Design** | `designer`, `frontend-ui-ux`, `vision` | UI/UX design & visual analysis |
-| **Specialized** | `git-master`, `writer`, `writer-memory`, `learner` | Git operations, documentation, memory |
-
-### ⚡️ 35 Workflows
-
-| Workflow | Description |
-|----------|-------------|
-| `/autopilot` | Full autonomous execution from idea to working code |
-| `/ultrawork` | Maximum performance mode with parallel agent orchestration |
-| `/swarm` | N coordinated agents on shared task list with atomic claiming |
-| `/ultrapilot` | Parallel autopilot with file ownership partitioning |
-| `/pipeline` | Sequential agent chaining with data passing between stages |
-| `/aireview` ⭐ | Multi-agent AI code review with confidence scoring |
-| `/start-dev` ⭐ | Intelligent adaptive workflow with pattern library loading |
-| `/ralph` | Self-referential loop until task completion |
-| `/research` | Orchestrate parallel scientist agents for research |
-| `/tdd` | Test-Driven Development enforcement workflow |
-| `/doctor` | Diagnose environment and verify required tools |
-| `/mcp-setup` | Configure popular MCP servers for enhanced capabilities |
-| `/help` | Guide on using oh-my-antigravity |
+Run `oma doctor` to see exactly what Antigravity will discover, including whether
+the GEMINI.md block is present.
 
 ---
 
-## 📦 Installation
+## Install
 
-### Recommended (NPM Global Install)
+### Workspace (recommended)
+
+From inside a project (or pass a target dir):
 
 ```bash
-# Install CLI globally
 npm install -g oh-my-oma
-
-# Install skills/workflows to user scope (~/.gemini/antigravity/*)
-oh-my-oma setup --scope user
-
-# Install to a specific project (<project>/.agent/*)
-oh-my-oma setup --scope project-local --target /path/to/your/project
+cd /path/to/your/project
+oma setup --scope project-local
+# or: oma setup --scope project-local   run from the repo: ./install.sh /path/to/project
 ```
 
-Diagnostics and verification:
+Writes: `.agents/skills` + `.agent/skills`, `.agents/workflows` + `.agent/workflows`,
+`.agent/rules`, and a skills block in `<project>/GEMINI.md`. **Restart the Antigravity
+agent session** so it re-scans.
+
+### Global (all projects)
 
 ```bash
-oh-my-oma doctor
-oh-my-oma verify
+oma setup --scope user      # or: ./install_global.sh
 ```
 
-### Option 1: Local Installation (Per Project)
+Writes: `~/.gemini/antigravity/skills`, `~/.gemini/antigravity/global_workflows`,
+`~/.gemini/config/rules`, MCP servers into `~/.gemini/config/mcp_config.json`, and a
+skills block into `~/.gemini/GEMINI.md` (the discovery fix).
 
-Copy the `.agent` directory to your project:
-
-```bash
-# Clone the repository
-git clone https://github.com/YourUsername/oh-my-antigravity.git
-
-# Navigate to the repository
-cd oh-my-antigravity
-
-# Optional: install CLI from local checkout
-npm install -g .
-
-# Run the installer (installs to current directory by default)
-./install.sh /path/to/your/project
-```
-
-### Option 2: Global Installation (All Projects)
-
-Install globally so all projects can access the skills and workflows:
+### Verify
 
 ```bash
-# Run the global installer
-./install_global.sh
-```
-
-This installs to:
-- Skills → `~/.gemini/antigravity/skills/`
-- Workflows (canonical) → `~/.gemini/antigravity/global_workflows/`
-- Workflows (compat discovery links) → `~/.agent/workflows/`, `~/.agents/workflows/`, `~/_agent/workflows/`, `~/_agents/workflows/`
-
-### Installation Validation
-
-Validate install and governance/sync baseline in one command:
-
-```bash
-oh-my-oma verify
-```
-
-Quick diagnostics:
-
-```bash
-oh-my-oma doctor
+oma doctor
 ```
 
 ---
 
-## 🎮 Usage
-
-### Using Skills
-
-Just ask naturally! Skills are automatically recognized:
+## CLI
 
 ```
-"Act as an architect and design a microservices system."
-"Run a security review on this file."
-"Deepsearch the root cause of this bug."
-"Be a frontend-ui-ux expert and improve this component."
-```
-
-### Using Workflows
-
-Trigger workflows with slash commands:
-
-```
-
-### Rules (GEMINI.md)
-
-Add project rules in `GEMINI.md` and global rules in `~/.gemini/antigravity/GEMINI.md`.
-/autopilot Build a REST API for user authentication
-/ultrawork Implement all pending features in parallel
-/aireview Review the last 5 commits
-/doctor Check if my environment is set up correctly
-/help Show me all available commands
+oma setup [--scope user|project-local|project] [--force] [--dry-run]
+          [--no-skills] [--no-workflows] [--no-rules] [--no-config] [--enable-context7]
+oma doctor                       # repo health + what Antigravity will discover
+oma route "<task>" [--limit N]   # recommend skills for a task (scored)
+oma harness graph|intents|lint|chain <skill>
+oma skill list|prefer|conflicts
+oma source list|sync|status
+oma team start|status|advance|cancel|clear
+oma test ...                     # stack detection + test generation
+oma help
 ```
 
 ---
 
-## 📖 Documentation
+## Architecture
 
-| Document | Description |
-|----------|-------------|
-| [FEATURES.md](docs/FEATURES.md) | Complete feature documentation |
-| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | System architecture overview |
-| [REFERENCE.md](docs/REFERENCE.md) | API and command reference |
-| [COMPATIBILITY.md](docs/COMPATIBILITY.md) | Compatibility information |
+```
+bin/oma.js              CLI entry → src/cli/index.js
+src/
+  cli/                  setup, doctor, route, harness, skill, source, team, test, notify
+  utils/paths.js        single choke point for all Antigravity targets
+  config/generator.js   JSON mcp_config.json merge + GEMINI.md skills injection
+  merge/                multi-source skill merge + conflict resolution
+  catalog/              skill index, manifest, schema validation
+  router/               task → skill scoring (boost + index + layer + intent)
+  harness/              compose graph, layer-map, intent-registry
+  mcp/                  state / memory / trace MCP servers
+  team/, notify/, testing/
+.agent/skills/local/    the 73 first-party skills (install source)
+.agent/skills/upstream/ vendored upstream skill packs (optional)
+.agent/workflows/       35 workflows
+templates/, schemas/, prompts/, scripts/, .governance/
+```
+
+Skills live in `.agent/skills/local/<name>/SKILL.md`. The catalog and skill-index
+are generated; the router and harness read them.
 
 ---
 
-## 🔧 Requirements
+## Skills & workflows
 
-- **Google Antigravity** (Gemini-powered AI coding assistant)
-- **CLI Tools** (recommended for enhanced functionality):
-  - `fd` - Fast file finder
-  - `rg` (ripgrep) - Fast text search
-  - `sg` (ast-grep) - Structural code search
+73 skills spanning planning (`plan`, `analyst`, `architect`), execution
+(`autopilot`, `ralph`, `ultrawork`), quality (`aireview`, `code-review`,
+`security-review`, `critic`), research (`scientist`, `deepsearch`, `explore`),
+testing (`tdd-guide`, `qa-tester`, `ultraqa`), design (`designer`,
+`frontend-ui-ux`, `vision`), and meta (`skill`, `release`, `learner`, `doctor`).
 
-Run `/doctor` to verify your environment setup.
+35 workflows are invoked as slash commands, e.g. `/autopilot`, `/ultrawork`,
+`/ralph`, `/aireview`, `/research`, `/tdd`, `/doctor`, `/help`.
 
-## 🛡️ Skill Governance
+> Note: parallel-execution skills (`swarm`, `ultrapilot`) were removed during the
+> Antigravity migration; orchestration is single-agent / persona-switching.
 
-This repository includes a governance policy and checker for Skills + Workflows in Antigravity IDE:
+---
 
-- Policy: `docs/SKILL_GOVERNANCE.md`
-- Checker: `scripts/check-skill-governance.sh`
-- Debt allowlist: `.governance/skill-lint.allowlist`
-
-Run governance check:
+## Develop / test
 
 ```bash
-bash scripts/check-skill-governance.sh
+npm test                  # governance + catalog + skill-index + doctor
+npm run catalog:generate  # regenerate catalog from .agent/skills
+npm run governance:skills # lint skills for foreign-runtime leakage
+oma harness lint          # validate the compose graph / layer-map / intents
 ```
-
-Generate and verify catalog baseline:
-
-```bash
-node scripts/generate-catalog-docs.js
-node scripts/generate-catalog-docs.js --verify
-```
-
-Sync and verify metadata/counts:
-
-```bash
-node scripts/sync-metadata.js
-node scripts/sync-metadata.js --verify
-```
-
-One-shot full verification:
-
-```bash
-bash scripts/verify-repo.sh
-```
-
-## 📌 Governance Status (2026-02-06)
-
-- Governance check result: `0 issues`, `0 allowlisted debt`
-- Runtime-incompatible task syntax removed from active skills/workflows
-- Deprecated migration in place:
-  - `learn-about-omc` (deprecated) -> `learn-about-oma` (canonical)
 
 ---
 
-## 🤝 Contributing
+## License & credits
 
-Contributions are welcome! Feel free to:
+MIT. See [LICENSE](LICENSE).
 
-1. Fork the repository
-2. Create a feature branch
-3. Submit a Pull Request
-
----
-
-## 📄 License
-
-MIT License - See [LICENSE](LICENSE) for details.
-
----
-
-## 🙏 Credits
-
-Special thanks to:
-
-- [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) - The original project that inspired this work
-- [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) - The OpenCode scaffold adaptation in the same ecosystem
-- [everything-claude-code](https://github.com/affaan-m/everything-claude-code) - Legacy Claude Code resources (historical reference)
+- [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex) — the architecture this port follows
+- [oh-my-claudecode](https://github.com/yeachan-heo/oh-my-claudecode) — original skill ecosystem

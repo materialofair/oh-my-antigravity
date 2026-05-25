@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://oh-my-codex.dev/schemas/skill-metadata.json",
+  "title": "Skill Metadata Schema",
+  "description": "Metadata schema for oh-my-codex skills",
+  "type": "object",
+  "required": ["name", "description", "version", "source", "checksum", "updated_at"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Unique skill identifier (kebab-case)",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of skill purpose",
+      "minLength": 10,
+      "maxLength": 500
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic version (semver)",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(-[a-zA-Z0-9.-]+)?(\\+[a-zA-Z0-9.-]+)?$"
+    },
+    "source": {
+      "type": "string",
+      "description": "Source repository identifier",
+      "enum": ["fork", "upstream", "local", "custom"]
+    },
+    "checksum": {
+      "type": "string",
+      "description": "SHA-256 hash of SKILL.md content",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "ISO 8601 timestamp of last update",
+      "format": "date-time"
+    },
+    "author": {
+      "type": "string",
+      "description": "Skill author or maintainer"
+    },
+    "tags": {
+      "type": "array",
+      "description": "Categorization tags",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "description": "Required skills or tools",
+      "items": {
+        "type": "string"
+      }
+    },
+    "intent": {
+      "type": "string",
+      "description": "Canonical intent ID for de-duplication (e.g., tdd, verification, planning)",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "layer": {
+      "type": "string",
+      "description": "Architectural layer classification",
+      "enum": ["foundation", "orchestration", "domain", "meta", "utility", "research", "quality"]
+    },
+    "composes": {
+      "type": "array",
+      "description": "Skills this skill delegates to or orchestrates",
+      "items": {
+        "type": "string"
+      }
+    },
+    "provides": {
+      "type": "array",
+      "description": "Capabilities this skill exposes to other skills",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
