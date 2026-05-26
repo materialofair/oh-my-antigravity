@@ -56,7 +56,7 @@ description: Analyzes financial ratios from statement data for investment decisi
 ### Problem 3: Skill Not Discovered
 **Symptom**: Claude Code says skill doesn't exist
 **Root Cause**: Wrong installation location or invalid SKILL.md
-**Check**: `~/.claude/skills/[name]/SKILL.md`, `.claude/skills/[name]/SKILL.md`, or `.agent/skills/[name]/SKILL.md`
+**Check**: `~/.gemini/antigravity/skills/[name]/SKILL.md`, `.agent/skills/local/[name]/SKILL.md`, or `.agent/skills/[name]/SKILL.md`
 
 ### Problem 4: Name Mismatch
 **Symptom**: Skill found but not loaded
@@ -93,7 +93,7 @@ Fix: Add specific keywords like "review", "code quality", "pull request"
 === Skill Debugging Report ===
 
 Skill: financial-analyzer
-Path: ~/.claude/skills/financial-analyzer/
+Path: ~/.gemini/antigravity/skills/financial-analyzer/
 Status: ⚠️ Rarely triggers
 
 Issues Found:
@@ -182,8 +182,8 @@ Claude Code will:
 When a skill isn't triggering, Claude Code will ask:
 
 1. **Installation Check**
-   - "Is the skill at `~/.claude/skills/[name]/SKILL.md`, `.claude/skills/[name]/SKILL.md`, or `.agent/skills/[name]/SKILL.md`?"
-   - "Does `ls ~/.claude/skills/` show your skill folder?"
+   - "Is the skill at `~/.gemini/antigravity/skills/[name]/SKILL.md`, `.agent/skills/local/[name]/SKILL.md`, or `.agent/skills/[name]/SKILL.md`?"
+   - "Does `ls ~/.gemini/antigravity/skills/` show your skill folder?"
 
 2. **YAML Validation**
    - "Is the YAML frontmatter properly formatted with `---` delimiters?"
@@ -257,10 +257,10 @@ If you have `data-analyzer` and `financial-analyzer`:
 ### Fix 5: Fix Name Mismatch
 Ensure folder name matches YAML name:
 ```
-Folder: ~/.claude/skills/code-review/
+Folder: ~/.gemini/antigravity/skills/code-review/
 YAML: name: code-review  ✅
 
-Folder: ~/.claude/skills/code-review/
+Folder: ~/.gemini/antigravity/skills/code-review/
 YAML: name: code_review  ❌ Mismatch!
 ```
 

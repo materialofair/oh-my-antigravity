@@ -36,7 +36,7 @@ To perform a high-quality analysis, follow this **Hybrid Workflow**:
 ## Input Requirements
 
 **Single Skill Analysis**:
-- Skill folder path (e.g., `~/.codex/skills/my-skill/`)
+- Skill folder path (e.g., `~/.gemini/antigravity/skills/my-skill/`)
 - Or SKILL.md file path directly
 
 **Batch Analysis**:
@@ -161,19 +161,19 @@ To perform a high-quality analysis, follow this **Hybrid Workflow**:
 **Basic Analysis**:
 ```
 "Analyze the quality of my skill-creator skill"
-"What's the quality score for ~/.codex/skills/code-review/"
+"What's the quality score for ~/.gemini/antigravity/skills/code-review/"
 "Run quality analysis on the aws-solution-architect skill"
 ```
 
 **Detailed Report**:
 ```
 "Generate a detailed quality report for skill-debugger"
-"Analyze ~/.codex/skills/prompt-factory/ and create improvement recommendations"
+"Analyze ~/.gemini/antigravity/skills/prompt-factory/ and create improvement recommendations"
 ```
 
 **Batch Analysis**:
 ```
-"Analyze all skills in ~/.codex/skills/ and rank them by quality"
+"Analyze all skills in ~/.gemini/antigravity/skills/ and rank them by quality"
 "Compare quality scores across all my custom skills"
 ```
 

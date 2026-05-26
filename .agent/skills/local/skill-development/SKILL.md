@@ -158,7 +158,7 @@ Example: When building a `big-query` skill to handle queries like "How many user
 1. Querying BigQuery requires re-discovering the table schemas and relationships each time
 2. A `references/schema.md` file documenting the table schemas would be helpful to store in the skill
 
-**For Codex CLI skills:** When building a hooks-related skill, the analysis shows:
+**For Antigravity skills:** When building a hooks-related skill, the analysis shows:
 1. Developers repeatedly need to validate hooks.json and test hook scripts
 2. `scripts/validate-hook-schema.sh` and `scripts/test-hook.sh` utilities would be helpful
 3. `references/patterns.md` for detailed hook patterns to avoid bloating SKILL.md
@@ -174,7 +174,7 @@ mkdir -p skill-name/{references,examples,scripts}
 touch skill-name/SKILL.md
 ```
 
-**Note:** Unlike the generic skill-creator which uses `init_skill.py`, Codex CLI skills are created directly in a skill directory and then placed under `~/.codex/skills/`, `<repo>/.codex/skills/`, or `<repo>/.agents/skills/`.
+**Note:** Unlike the generic skill-creator which uses `init_skill.py`, Antigravity skills are created directly in a skill directory and then placed under `~/.gemini/antigravity/skills/`, `<repo>/.codex/skills/`, or `<repo>/.agents/skills/`.
 
 ### Step 4: Edit the Skill
 
@@ -242,9 +242,9 @@ Working examples in `examples/`:
 
 ### Step 5: Validate and Test
 
-**For Codex CLI skills, validation is different from generic skills:**
+**For Antigravity skills, validation is different from generic skills:**
 
-1. **Check structure**: Skill directory in `~/.codex/skills/skill-name/`, `<repo>/.codex/skills/skill-name/`, or `<repo>/.agents/skills/skill-name/`
+1. **Check structure**: Skill directory in `~/.gemini/antigravity/skills/skill-name/`, `<repo>/.codex/skills/skill-name/`, or `<repo>/.agents/skills/skill-name/`
 2. **Validate SKILL.md**: Has frontmatter with name and description
 3. **Check trigger phrases**: Description includes specific user queries
 4. **Verify writing style**: Body uses imperative/infinitive form, not second person
@@ -284,7 +284,7 @@ After testing the skill, users may request improvements. Often this happens righ
 Skills for Codex CLI should live in one of these locations:
 
 ```
-~/.codex/skills/
+~/.gemini/antigravity/skills/
 └── my-skill/
     ├── SKILL.md
     ├── references/
@@ -310,7 +310,7 @@ Codex automatically discovers skills:
 
 ### No Packaging Needed
 
-Skills are plain directories. Install globally via `~/.codex/skills/` or keep project-local under `.codex/skills/` / `.agents/skills/`.
+Skills are plain directories. Install globally via `~/.gemini/antigravity/skills/` or keep project-local under `.agent/skills/local/` / `.agents/skills/`.
 
 ### Testing in Codex CLI
 

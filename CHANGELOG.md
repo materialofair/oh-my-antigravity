@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.1.0] - 2026-05-26
+
+### Added
+
+- **Upstream skill packs.** Imported two upstream packs into `.agent/skills/upstream/`:
+  - `superpowers` (14 skills) — process discipline: `brainstorming`, `writing-plans`, `executing-plans`, `using-git-worktrees`, `test-driven-development`, `systematic-debugging`, `verification-before-completion`, `requesting-code-review`, `receiving-code-review`, `finishing-a-development-branch`, `subagent-driven-development`, `dispatching-parallel-agents`, `writing-skills`, `using-superpowers`.
+  - `ecc` (35 skills) — engineering patterns from `everything-claude-code`: `api-design`, `mcp-server-patterns`, `claude-api`, `backend-patterns`, `frontend-{design,patterns,slides}`, `coding-standards`, `tdd-workflow`, `eval-harness`, `e2e-testing`, `prompt-optimizer`, `agent-{sort,introspection-debugging}`, `everything-claude-code`, `exa-search`, `deep-research`, `documentation-lookup`, `strategic-compact`, etc.
+- **22 local skill cherry-picks** from `oh-my-codex` to close P0–P4 gaps: `debug-analysis`, `verification-loop`, `verify`, `planning-methodology`, `tdd-generator`, `bdd-generator`, `test-coverage`, `test-gen`, `e2e`, `checkpoint`, `quality-check`, `quality-validation`, `refactor-clean`, `ai-slop-cleaner`, `skill-{create,development,tester,debugger,quality-analyzer,doc-generator}`, `update-{codemaps,docs}`, `deep-interview`, `iterative-retrieval`, `de-ai-writing`, `content-research-writer`.
+- **Catalog growth**: 73 → 148 active skills. `harness/layer-map.json` updated; `oma harness lint`: 0 issues. `oma doctor`: 3/3 repo-health passed.
+
+### Changed
+
+- `scripts/sync-upstream-skills.sh`: new `--from-path <dir>` flag for offline/mirror sync when `git fetch` is unavailable.
+- `scripts/validate_antigravity_compatibility.sh`: scan v4 layout (`local/<name>` + `upstream/<pack>/<name>`) instead of legacy flat layout; permit `Time`/`Date` classes in strict YAML so frontmatter timestamps no longer fail.
+- Cherry-picked skills rewritten to use Antigravity-native paths (`~/.gemini/antigravity/skills/`, `.agent/skills/local/`) instead of `~/.codex/...` / `~/.claude/...`.
+
+### Notes
+
+- `superpowers/subagent-driven-development` and `superpowers/dispatching-parallel-agents` fall back to single-session execution under Antigravity (no `Task`-tool equivalent in Gemini CLI, per superpowers' own `gemini-tools.md`).
+- 21 remaining body-level "Claude Code references" warnings from upstream skills are non-blocking; skills still load in Antigravity. Future doc rewrites can address them per-skill.
+
 ## [4.0.0] - 2026-05-25
 
 ### Changed (BREAKING)

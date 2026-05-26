@@ -223,7 +223,7 @@ Generating:
 ✅ sample_input.json - P/E ratio calculation example
 ✅ expected_output.json - Corresponding output with metrics
 
-All files created in ~/.codex/skills/financial-analyzer/
+All files created in ~/.gemini/antigravity/skills/financial-analyzer/
 
 Would you like me to review the generated docs?"
 ```
@@ -294,7 +294,7 @@ Generated docs are validated for:
 
 ### Issue 2: Missing Installation
 **Before**: No install instructions
-**After**: "cp -r financial-analyzer ~/.codex/skills/"
+**After**: "cp -r financial-analyzer ~/.gemini/antigravity/skills/"
 
 ### Issue 3: No Input/Output Clarification
 **Before**: "Takes data and returns results"
