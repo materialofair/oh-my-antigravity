@@ -4,9 +4,9 @@
 
 *架构对齐 [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex)；技能移植自 "Oh My" 生态。*
 
-> 为你的 Antigravity 代理提供 **73 个专业技能** 和 **35 个工作流**，外加一个负责安装、编目、路由、治理的 CLI —— 并绕过 Antigravity 2.0 的全局技能发现缺陷。
+> 为你的 Antigravity 代理提供 **148 个专业技能**（99 个一方 + 49 个上游打包）和 **35 个工作流**，外加一个负责安装、编目、路由、治理的 CLI —— 并绕过 Antigravity 2.0 的全局技能发现缺陷。
 
-**📦 npm**：`oh-my-oma` · **CLI**：`oma` · **Node** ≥ 18
+**📦 npm**：`oh-my-oma@4.1.0` · **CLI**：`oma` · **Node** ≥ 18
 
 ---
 
@@ -85,15 +85,43 @@ src/
   harness/              组合图、layer-map、intent-registry
   mcp/                  state / memory / trace MCP 服务器
   team/, notify/, testing/
-.agent/skills/local/    73 个一方技能（安装来源）
-.agent/skills/upstream/ 可选的上游技能包
+.agent/skills/local/    99 个一方技能（安装来源）
+.agent/skills/upstream/ 上游打包：superpowers (14)、ecc (35)
 .agent/workflows/       35 个工作流
 templates/, schemas/, prompts/, scripts/, .governance/
 ```
 
 技能位于 `.agent/skills/local/<name>/SKILL.md`。catalog 与 skill-index 自动生成，router 与 harness 读取它们。
 
-> 注：并行执行类技能（`swarm`、`ultrapilot`）在 Antigravity 迁移时已移除；编排改为单代理 / 人设切换。
+---
+
+## 技能与工作流
+
+**148 个技能** 覆盖：
+
+- **规划与发现** —— `plan`、`analyst`、`architect`、`explore`、`brainstorming`、`writing-plans`、`executing-plans`、`deep-interview`、`planning-methodology`
+- **执行** —— `autopilot`、`ralph`、`ultrawork`、`ultraqa`、`pipeline`、`start-dev`
+- **质量与评审** —— `aireview`、`code-review`、`security-review`、`critic`、`verification-before-completion`、`verification-loop`、`verify`、`debug-analysis`、`systematic-debugging`、`requesting-code-review`、`receiving-code-review`、`finishing-a-development-branch`
+- **测试** —— `tdd`、`tdd-guide`、`test-driven-development`、`tdd-workflow`、`tdd-generator`、`bdd-generator`、`test-coverage`、`test-gen`、`e2e`、`e2e-testing`、`eval-harness`、`qa-tester`、`checkpoint`
+- **工程模式** —— `api-design`、`mcp-server-patterns`、`claude-api`、`backend-patterns`、`frontend-design`、`frontend-patterns`、`coding-standards`、`refactor-clean`、`ai-slop-cleaner`
+- **研究** —— `scientist`、`deepsearch`、`research`、`deep-research`、`iterative-retrieval`、`documentation-lookup`、`exa-search`、`market-research`
+- **设计与写作** —— `designer`、`frontend-ui-ux`、`vision`、`de-ai-writing`、`article-writing`、`brand-voice`、`content-research-writer`
+- **元能力与 skill 自管理** —— `skill`、`skill-create`、`skill-development`、`skill-tester`、`skill-debugger`、`skill-quality-analyzer`、`skill-doc-generator`、`update-codemaps`、`update-docs`、`prompt-optimizer`、`learner`、`release`、`doctor`、`writing-skills`、`using-superpowers`
+
+35 个工作流通过 slash 命令调用，例如 `/autopilot`、`/ultrawork`、`/ralph`、`/aireview`、`/research`、`/tdd`、`/doctor`、`/help`。
+
+### 技能包
+
+| 包 | 数量 | 来源 | 说明 |
+|---|---|---|---|
+| `local`（一方） | 99 | 本仓库 | Antigravity 原生，外部 runtime 路径治理已过 |
+| `upstream/superpowers` | 14 | [obra/superpowers](https://github.com/obra/superpowers) | 流程纪律（TDD、brainstorming、planning、debugging、review） |
+| `upstream/ecc` | 35 | [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code) | 工程模式（api-design、mcp-server-patterns、claude-api 等） |
+
+> **注意事项**
+> - 并行执行类技能（`swarm`、`ultrapilot`）在 Antigravity 迁移时已移除；编排改为单代理 / 人设切换。
+> - `superpowers/subagent-driven-development` 与 `superpowers/dispatching-parallel-agents` 在 Antigravity 下会降级为单会话执行（Gemini CLI 无 `Task` 工具）。
+> - 2 个上游 ↔ 本地命名冲突（`security-review`、`verification-loop`）由合并器自动解决，安装后可看 `.oma/merge-report.json`。
 
 ---
 

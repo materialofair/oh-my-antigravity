@@ -4,9 +4,9 @@
 
 *Architecture aligned with [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex); skills ported from the "Oh My" ecosystem.*
 
-> Give your Antigravity agent **73 specialized skills** and **35 workflows**, plus a CLI that installs, catalogs, routes, and governs them — and that works around Antigravity 2.0's global-skill discovery quirk.
+> Give your Antigravity agent **148 specialized skills** (99 first-party + 49 vendored upstream) and **35 workflows**, plus a CLI that installs, catalogs, routes, and governs them — and that works around Antigravity 2.0's global-skill discovery quirk.
 
-**📦 npm**: `oh-my-oma` · **CLI**: `oma` · **Node** ≥ 18
+**📦 npm**: `oh-my-oma@4.1.0` · **CLI**: `oma` · **Node** ≥ 18
 
 ---
 
@@ -98,8 +98,8 @@ src/
   harness/              compose graph, layer-map, intent-registry
   mcp/                  state / memory / trace MCP servers
   team/, notify/, testing/
-.agent/skills/local/    the 73 first-party skills (install source)
-.agent/skills/upstream/ vendored upstream skill packs (optional)
+.agent/skills/local/    99 first-party skills (install source)
+.agent/skills/upstream/ vendored upstream packs: superpowers (14), ecc (35)
 .agent/workflows/       35 workflows
 templates/, schemas/, prompts/, scripts/, .governance/
 ```
@@ -111,17 +111,32 @@ are generated; the router and harness read them.
 
 ## Skills & workflows
 
-73 skills spanning planning (`plan`, `analyst`, `architect`), execution
-(`autopilot`, `ralph`, `ultrawork`), quality (`aireview`, `code-review`,
-`security-review`, `critic`), research (`scientist`, `deepsearch`, `explore`),
-testing (`tdd-guide`, `qa-tester`, `ultraqa`), design (`designer`,
-`frontend-ui-ux`, `vision`), and meta (`skill`, `release`, `learner`, `doctor`).
+**148 skills** spanning:
+
+- **Planning & discovery** — `plan`, `analyst`, `architect`, `explore`, `brainstorming`, `writing-plans`, `executing-plans`, `deep-interview`, `planning-methodology`
+- **Execution** — `autopilot`, `ralph`, `ultrawork`, `ultraqa`, `pipeline`, `start-dev`
+- **Quality & review** — `aireview`, `code-review`, `security-review`, `critic`, `verification-before-completion`, `verification-loop`, `verify`, `debug-analysis`, `systematic-debugging`, `requesting-code-review`, `receiving-code-review`, `finishing-a-development-branch`
+- **Testing** — `tdd`, `tdd-guide`, `test-driven-development`, `tdd-workflow`, `tdd-generator`, `bdd-generator`, `test-coverage`, `test-gen`, `e2e`, `e2e-testing`, `eval-harness`, `qa-tester`, `checkpoint`
+- **Engineering patterns** — `api-design`, `mcp-server-patterns`, `claude-api`, `backend-patterns`, `frontend-design`, `frontend-patterns`, `coding-standards`, `refactor-clean`, `ai-slop-cleaner`
+- **Research** — `scientist`, `deepsearch`, `research`, `deep-research`, `iterative-retrieval`, `documentation-lookup`, `exa-search`, `market-research`
+- **Design & writing** — `designer`, `frontend-ui-ux`, `vision`, `de-ai-writing`, `article-writing`, `brand-voice`, `content-research-writer`
+- **Meta & skill self-management** — `skill`, `skill-create`, `skill-development`, `skill-tester`, `skill-debugger`, `skill-quality-analyzer`, `skill-doc-generator`, `update-codemaps`, `update-docs`, `prompt-optimizer`, `learner`, `release`, `doctor`, `writing-skills`, `using-superpowers`
 
 35 workflows are invoked as slash commands, e.g. `/autopilot`, `/ultrawork`,
 `/ralph`, `/aireview`, `/research`, `/tdd`, `/doctor`, `/help`.
 
-> Note: parallel-execution skills (`swarm`, `ultrapilot`) were removed during the
-> Antigravity migration; orchestration is single-agent / persona-switching.
+### Skill packs
+
+| Pack | Skills | Source | Notes |
+|---|---|---|---|
+| `local` (first-party) | 99 | this repo | Antigravity-native; passes governance for foreign-runtime paths |
+| `upstream/superpowers` | 14 | [obra/superpowers](https://github.com/obra/superpowers) | Process discipline (TDD, brainstorming, planning, debugging, review) |
+| `upstream/ecc` | 35 | [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code) | Engineering patterns (api-design, mcp-server-patterns, claude-api, etc.) |
+
+> **Caveats**
+> - Parallel-execution skills (`swarm`, `ultrapilot`) were removed during the Antigravity migration; orchestration is single-agent / persona-switching.
+> - `superpowers/subagent-driven-development` and `superpowers/dispatching-parallel-agents` fall back to single-session execution under Antigravity (no `Task`-tool equivalent in Gemini CLI).
+> - 2 upstream-vs-local name collisions (`security-review`, `verification-loop`) are auto-resolved by the merger; see `.oma/merge-report.json` after install.
 
 ---
 
