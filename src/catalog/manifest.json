@@ -1,7 +1,51 @@
 {
   "schemaVersion": 1,
-  "catalogVersion": "2026-05-25",
+  "catalogVersion": "2026-05-26",
   "skills": [
+    {
+      "name": ".codex",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": ".omc-source",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "agent-introspection-debugging",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "agent-sort",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
     {
       "name": "AGENTS",
       "category": "utility",
@@ -15,6 +59,17 @@
     },
     {
       "name": "ai-commenting",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "local",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "ai-slop-cleaner",
       "category": "utility",
       "status": "active",
       "core": false,
@@ -58,6 +113,17 @@
       "composes": []
     },
     {
+      "name": "api-design",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "architect",
       "category": "utility",
       "status": "active",
@@ -91,11 +157,66 @@
       "composes": []
     },
     {
+      "name": "article-writing",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "autopilot",
       "category": "execution",
       "status": "active",
       "core": true,
       "source": "local",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "backend-patterns",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "bdd-generator",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "domain",
+      "intent": "testing",
+      "composes": []
+    },
+    {
+      "name": "brainstorming",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "superpowers",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "brand-voice",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
       "version": "0.1.0",
       "layer": null,
       "intent": null,
@@ -135,11 +256,44 @@
       "composes": []
     },
     {
+      "name": "bun-runtime",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "cancel",
       "category": "utility",
       "status": "active",
       "core": false,
       "source": "local",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "checkpoint",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "utility",
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "claude-api",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
       "version": "0.1.0",
       "layer": null,
       "intent": null,
@@ -179,6 +333,17 @@
       "composes": []
     },
     {
+      "name": "coding-standards",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "conductor",
       "category": "utility",
       "status": "active",
@@ -190,11 +355,88 @@
       "composes": []
     },
     {
+      "name": "content-engine",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "content-research-writer",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "domain",
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "critic",
       "category": "utility",
       "status": "active",
       "core": false,
       "source": "local",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "crosspost",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "de-ai-writing",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.2.0",
+      "layer": "domain",
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "debug-analysis",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "research",
+      "intent": "debugging",
+      "composes": []
+    },
+    {
+      "name": "deep-interview",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "local",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "deep-research",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
       "version": "0.1.0",
       "layer": null,
       "intent": null,
@@ -256,6 +498,28 @@
       "composes": []
     },
     {
+      "name": "dispatching-parallel-agents",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "superpowers",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "dmux-workflows",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "doctor",
       "category": "utility",
       "status": "active",
@@ -267,11 +531,88 @@
       "composes": []
     },
     {
+      "name": "documentation-lookup",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "e2e",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "domain",
+      "intent": "testing",
+      "composes": []
+    },
+    {
+      "name": "e2e-testing",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "electron-driver",
       "category": "utility",
       "status": "active",
       "core": false,
       "source": "local",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "eval-harness",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "everything-claude-code",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "exa-search",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "executing-plans",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "superpowers",
       "version": "0.1.0",
       "layer": null,
       "intent": null,
@@ -344,6 +685,61 @@
       "composes": []
     },
     {
+      "name": "fal-ai-media",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "finishing-a-development-branch",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "superpowers",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "frontend-design",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "frontend-patterns",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "frontend-slides",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "frontend-ui-ux",
       "category": "utility",
       "status": "active",
@@ -388,6 +784,39 @@
       "composes": []
     },
     {
+      "name": "investor-materials",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "investor-outreach",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "iterative-retrieval",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "utility",
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "learn-about-oma",
       "category": "utility",
       "status": "active",
@@ -421,11 +850,44 @@
       "composes": []
     },
     {
+      "name": "market-research",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "mcp-server-patterns",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "mcp-setup",
       "category": "utility",
       "status": "active",
       "core": false,
       "source": "local",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "nextjs-turbopack",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
       "version": "0.1.0",
       "layer": null,
       "intent": null,
@@ -498,11 +960,33 @@
       "composes": []
     },
     {
+      "name": "planning-methodology",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "planning-with-files",
       "category": "utility",
       "status": "active",
       "core": false,
       "source": "local",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "product-capability",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
       "version": "0.1.0",
       "layer": null,
       "intent": null,
@@ -515,6 +999,17 @@
       "core": false,
       "source": "local",
       "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "prompt-optimizer",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "\"1.0.0\"",
       "layer": null,
       "intent": null,
       "composes": []
@@ -538,6 +1033,28 @@
       "source": "local",
       "version": "0.1.0",
       "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "quality-check",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "quality",
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "quality-validation",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "quality",
       "intent": null,
       "composes": []
     },
@@ -575,11 +1092,44 @@
       "composes": []
     },
     {
+      "name": "receiving-code-review",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "superpowers",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "refactor-clean",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "quality",
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "release",
       "category": "utility",
       "status": "active",
       "core": false,
       "source": "local",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "requesting-code-review",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "superpowers",
       "version": "0.1.0",
       "layer": null,
       "intent": null,
@@ -707,11 +1257,110 @@
       "composes": []
     },
     {
+      "name": "skill-create",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "meta",
+      "intent": "skill-management",
+      "composes": []
+    },
+    {
+      "name": "skill-debugger",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "meta",
+      "intent": "skill-management",
+      "composes": []
+    },
+    {
+      "name": "skill-development",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "meta",
+      "intent": "skill-management",
+      "composes": []
+    },
+    {
+      "name": "skill-doc-generator",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "meta",
+      "intent": "skill-management",
+      "composes": []
+    },
+    {
+      "name": "skill-quality-analyzer",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "meta",
+      "intent": "skill-management",
+      "composes": []
+    },
+    {
+      "name": "skill-tester",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "meta",
+      "intent": "skill-management",
+      "composes": []
+    },
+    {
       "name": "start-dev",
       "category": "utility",
       "status": "active",
       "core": false,
       "source": "local",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "strategic-compact",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "subagent-driven-development",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "superpowers",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "systematic-debugging",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "superpowers",
       "version": "0.1.0",
       "layer": null,
       "intent": null,
@@ -726,6 +1375,17 @@
       "version": "0.1.0",
       "layer": null,
       "intent": null,
+      "composes": []
+    },
+    {
+      "name": "tdd-generator",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "quality",
+      "intent": "tdd",
       "composes": []
     },
     {
@@ -751,6 +1411,50 @@
       "composes": []
     },
     {
+      "name": "tdd-workflow",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "test-coverage",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "quality",
+      "intent": "testing",
+      "composes": []
+    },
+    {
+      "name": "test-driven-development",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "superpowers",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "test-gen",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.3.0",
+      "layer": "quality",
+      "intent": "testing",
+      "composes": []
+    },
+    {
       "name": "ultraqa",
       "category": "execution",
       "status": "active",
@@ -767,6 +1471,94 @@
       "status": "active",
       "core": true,
       "source": "local",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "update-codemaps",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "utility",
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "update-docs",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.1.0",
+      "layer": "utility",
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "using-git-worktrees",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "superpowers",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "using-superpowers",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "superpowers",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "verification-before-completion",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "superpowers",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "verification-loop",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.3.0",
+      "layer": "quality",
+      "intent": "verification",
+      "composes": []
+    },
+    {
+      "name": "verify",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "fork",
+      "version": "0.3.0",
+      "layer": "foundation",
+      "intent": "verification",
+      "composes": []
+    },
+    {
+      "name": "video-editing",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
       "version": "0.1.0",
       "layer": null,
       "intent": null,
@@ -800,6 +1592,39 @@
       "status": "active",
       "core": false,
       "source": "local",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "writing-plans",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "superpowers",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "writing-skills",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "superpowers",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "x-api",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "ecc",
       "version": "0.1.0",
       "layer": null,
       "intent": null,

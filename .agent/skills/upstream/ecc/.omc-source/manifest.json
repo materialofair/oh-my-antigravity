@@ -1,0 +1,19 @@
+{
+  "sourceName": "ecc",
+  "remote": "https://github.com/affaan-m/everything-claude-code.git",
+  "ref": "main",
+  "license": "MIT",
+  "harnesses": [
+    "codex"
+  ],
+  "kind": "distribution-repo",
+  "syncedAt": "2026-04-27T12:12:56Z",
+  "skillsPath": ".",
+  "selectionFile": "/.agent/curation/ecc-codex-selection.json",
+  "codexAssets": {
+    "agentsDir": ".codex/agents",
+    "configToml": ".codex/config.toml",
+    "agentsSupplement": ".codex/AGENTS.md"
+  },
+  "notes": "ECC ships first-class Codex support (.codex/ + .agents/skills/). Skills already flattened from .agents/skills/* to source root for the standard loader. Use selectionFile to scope which skills install to ~/.codex/skills/."
+}

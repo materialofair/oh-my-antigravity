@@ -1,0 +1,81 @@
+{
+  "skill_name": "example-skill",
+  "skill_path": "~/.claude/skills/example-skill/",
+  "overall_score": 85,
+  "quality_level": "Good",
+  "dimensions": {
+    "clarity": {
+      "score": 90,
+      "weight": 20,
+      "issues": [],
+      "recommendations": ["Consider adding more specific capability descriptions"],
+      "details": {
+        "description_length": 78,
+        "vague_words_count": 0,
+        "capabilities_count": 5
+      }
+    },
+    "structure": {
+      "score": 85,
+      "weight": 20,
+      "issues": ["Section ordering could be improved"],
+      "recommendations": ["Reorder sections to match Anthropic guidelines"],
+      "details": {
+        "missing_sections": [],
+        "section_order_similarity": 0.8
+      }
+    },
+    "examples": {
+      "score": 80,
+      "weight": 15,
+      "issues": ["Missing expected_output file"],
+      "recommendations": ["Add expected_output.json showing example output"],
+      "details": {
+        "usage_examples_count": 4,
+        "has_sample_input": true,
+        "has_expected_output": false
+      }
+    },
+    "trigger_detection": {
+      "score": 90,
+      "weight": 15,
+      "issues": [],
+      "recommendations": [],
+      "details": {
+        "trigger_indicators": 5,
+        "description_has_use_case": true
+      }
+    },
+    "best_practices": {
+      "score": 80,
+      "weight": 15,
+      "issues": ["Missing HOW_TO_USE.md"],
+      "recommendations": ["Add HOW_TO_USE.md with detailed usage examples"],
+      "details": {
+        "has_readme": true,
+        "has_how_to_use": false,
+        "backup_files_count": 0,
+        "has_pycache": false,
+        "python_files_count": 2
+      }
+    },
+    "maintainability": {
+      "score": 85,
+      "weight": 15,
+      "issues": ["No version information found"],
+      "recommendations": ["Add version number to README.md or SKILL.md"],
+      "details": {
+        "total_files": 8,
+        "has_version_info": false,
+        "has_scripts_documentation": true
+      }
+    }
+  },
+  "critical_issues": [],
+  "high_priority_recommendations": [
+    "Add expected_output.json showing example output",
+    "Add HOW_TO_USE.md with detailed usage examples",
+    "Add version number to README.md or SKILL.md"
+  ],
+  "comparison_notes": "Skill follows most Anthropic best practices. Minor improvements needed for examples and documentation."
+}

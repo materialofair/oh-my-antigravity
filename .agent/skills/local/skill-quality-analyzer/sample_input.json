@@ -1,0 +1,9 @@
+{
+  "skill_path": "~/.claude/skills/example-skill/",
+  "analysis_type": "detailed",
+  "options": {
+    "include_recommendations": true,
+    "compare_with_best_practices": true,
+    "generate_markdown_report": true
+  }
+}

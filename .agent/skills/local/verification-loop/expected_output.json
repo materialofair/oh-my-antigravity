@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "promise": "[PROMISE:VERIFICATION_LOOP_COMPLETE]",
+  "cycles_used": 2,
+  "gate_results": {
+    "build": "pass",
+    "typecheck": "pass",
+    "lint": "pass",
+    "tests": "pass",
+    "security": "pass"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "goal": "pre-pr",
+  "scope": ["src/auth", "tests/auth"],
+  "max_cycles": 5,
+  "max_same_failure": 3,
+  "strict_security": true
+}

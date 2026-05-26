@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "promise": "[PROMISE:TEST_GEN_COMPLETE]",
+  "generated_tests": ["tests/router/skill-router.spec.ts"],
+  "coverage": {
+    "acceptance_items": 6,
+    "regression_items": 4
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "target": "src/router/skill-router.js",
+  "intent": "bugfix",
+  "risk_level": "medium",
+  "verify_mode": "targeted"
+}
