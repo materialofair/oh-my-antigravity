@@ -4,6 +4,7 @@ set -eo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SKIP_FETCH="false"
 SOURCE="all"
+FROM_PATH=""
 
 # Upstream source definitions (parallel arrays for bash 3 compat)
 UPSTREAM_NAMES=("oh-my-codex" "superpowers")
@@ -18,9 +19,10 @@ Usage: ./scripts/sync-upstream-skills.sh [options]
 Sync upstream skills into .agent/skills/upstream/<source>/ for local merge/governance.
 
 Options:
-  --source <name>   Upstream source to sync: oh-my-codex | superpowers | all (default: all)
-  --skip-fetch      Skip git fetch
-  --help            Show this help
+  --source <name>      Upstream source to sync: oh-my-codex | superpowers | all (default: all)
+  --skip-fetch         Skip git fetch
+  --from-path <dir>    Sync from a local directory mirror (offline; expects <dir>/<source>/<skill>/SKILL.md)
+  --help               Show this help
 
 Sources:
   oh-my-codex    https://github.com/Yeachan-Heo/oh-my-codex (remote: upstream)
@@ -37,6 +39,10 @@ while [[ $# -gt 0 ]]; do
     --skip-fetch)
       SKIP_FETCH="true"
       shift
+      ;;
+    --from-path)
+      FROM_PATH="$2"
+      shift 2
       ;;
     --help)
       usage
@@ -90,6 +96,22 @@ sync_source() {
   local target_dir="$ROOT_DIR/.agent/skills/upstream/$name"
 
   echo "Syncing $name..."
+
+  # Offline mirror mode: copy from a local directory instead of git fetch
+  if [[ -n "$FROM_PATH" ]]; then
+    local src_dir="$FROM_PATH/$name"
+    if [[ ! -d "$src_dir" ]]; then
+      echo "  Mirror source not found: $src_dir" >&2
+      return 1
+    fi
+    rm -rf "$target_dir"
+    mkdir -p "$target_dir"
+    cp -R "$src_dir"/* "$target_dir/"
+    local count
+    count=$(ls -d "$target_dir"/*/ 2>/dev/null | wc -l | tr -d ' ')
+    echo "  Synced $count skills from mirror $src_dir -> $target_dir"
+    return 0
+  fi
 
   # Ensure remote exists
   if ! git remote get-url "$remote" >/dev/null 2>&1; then

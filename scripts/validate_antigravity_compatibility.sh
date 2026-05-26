@@ -29,7 +29,7 @@ issues_found=0
 validate_frontmatter_yaml() {
     local markdown_file="$1"
 
-    ruby -ryaml -e '
+    ruby -ryaml -rdate -e '
       path = ARGV[0]
       text = File.read(path)
       abort("missing frontmatter start") unless text.start_with?("---\n")
@@ -37,7 +37,7 @@ validate_frontmatter_yaml() {
       idx = rest.index("\n---\n")
       abort("missing frontmatter end") unless idx
       frontmatter = rest[0...idx]
-      YAML.safe_load(frontmatter, permitted_classes: [], aliases: false)
+      YAML.safe_load(frontmatter, permitted_classes: [Time, Date], aliases: false)
     ' "$markdown_file" >/dev/null 2>&1
 }
 
@@ -45,7 +45,25 @@ validate_frontmatter_yaml() {
 echo "📋 Checking Skills..."
 echo "===================="
 
-for skill_dir in "$SKILLS_DIR"/*; do
+# v4 layout: skills live in .agent/skills/local/<name>/ and .agent/skills/upstream/<pack>/<name>/
+# Legacy fallback: .agent/skills/<name>/
+collect_skill_dirs() {
+    if [ -d "$SKILLS_DIR/local" ] || [ -d "$SKILLS_DIR/upstream" ]; then
+        # v4 layout
+        [ -d "$SKILLS_DIR/local" ] && find "$SKILLS_DIR/local" -maxdepth 1 -mindepth 1 -type d
+        if [ -d "$SKILLS_DIR/upstream" ]; then
+            for pack_dir in "$SKILLS_DIR/upstream"/*; do
+                [ -d "$pack_dir" ] || continue
+                find "$pack_dir" -maxdepth 1 -mindepth 1 -type d ! -name '.*'
+            done
+        fi
+    else
+        # legacy flat layout
+        find "$SKILLS_DIR" -maxdepth 1 -mindepth 1 -type d
+    fi
+}
+
+while IFS= read -r skill_dir; do
     if [ -d "$skill_dir" ]; then
         skill_name=$(basename "$skill_dir")
         skill_file="$skill_dir/SKILL.md"
@@ -94,7 +112,7 @@ for skill_dir in "$SKILLS_DIR"/*; do
         valid_skills=$((valid_skills + 1))
         echo -e "${GREEN}✅ $skill_name${NC}"
     fi
-done
+done < <(collect_skill_dirs)
 
 echo ""
 echo "📋 Checking Workflows..."
