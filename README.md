@@ -6,7 +6,7 @@
 
 > Give your Antigravity agent **148 specialized skills** (99 first-party + 49 vendored upstream) and **35 workflows**, plus a CLI that installs, catalogs, routes, and governs them — and that works around Antigravity 2.0's global-skill discovery quirk.
 
-**📦 npm**: `oh-my-oma@4.1.0` · **CLI**: `oma` · **Node** ≥ 18
+**📦 npm**: `oh-my-oma@4.1.1` · **CLI**: `oma` · **Node** ≥ 18
 
 ---
 

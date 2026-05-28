@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.1.1] - 2026-05-28
+
+### Fixed
+
+- **Stability & Defense**: Wrapped JSON parsing and file reading in MCP state and memory servers with defensive `try-catch` blocks to prevent crashes on malformed data.
+- **Chinese Similarity Detection**: Enhanced Jaccard similarity split logic in `skill-merger` to support Chinese characters properly.
+- **Cross-Platform doctor.js**: Bound `/Applications/Antigravity.app` detection only to macOS platforms.
+- **Git Pollution Cleanup**: Used exit trap in `sync-upstream-skills.sh` to automatically clean up temporary git remotes.
+
+### Added
+
+- **Unit Testing**: Added zero-dependency unit testing suite `tests/unit-tests.js` based on Node `assert` and integrated with `npm run test`.
+
 ## [4.1.0] - 2026-05-26
 
 ### Added

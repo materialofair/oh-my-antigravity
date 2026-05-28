@@ -168,11 +168,66 @@
       "composes": []
     },
     {
+      "name": "ask",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "ask-claude",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "ask-gemini",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "autopilot",
       "category": "execution",
       "status": "active",
       "core": true,
       "source": "local",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "autoresearch",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "autoresearch-goal",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
       "version": "0.1.0",
       "layer": null,
       "intent": null,
@@ -198,6 +253,17 @@
       "version": "0.1.0",
       "layer": "domain",
       "intent": "testing",
+      "composes": []
+    },
+    {
+      "name": "best-practice-research",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
       "composes": []
     },
     {
@@ -355,6 +421,17 @@
       "composes": []
     },
     {
+      "name": "configure-notifications",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "content-engine",
       "category": "utility",
       "status": "active",
@@ -465,6 +542,17 @@
       "composes": []
     },
     {
+      "name": "design",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "designer",
       "category": "utility",
       "status": "active",
@@ -558,6 +646,17 @@
       "status": "active",
       "core": false,
       "source": "ecc",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "ecomode",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
       "version": "0.1.0",
       "layer": null,
       "intent": null,
@@ -916,11 +1015,33 @@
       "composes": []
     },
     {
+      "name": "omx-setup",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "orchestrate",
       "category": "utility",
       "status": "active",
       "core": false,
       "source": "local",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "performance-goal",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
       "version": "0.1.0",
       "layer": null,
       "intent": null,
@@ -998,6 +1119,17 @@
       "status": "active",
       "core": false,
       "source": "local",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "prometheus-strict",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
       "version": "0.1.0",
       "layer": null,
       "intent": null,
@@ -1356,6 +1488,17 @@
       "composes": []
     },
     {
+      "name": "swarm",
+      "category": "execution",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "systematic-debugging",
       "category": "utility",
       "status": "active",
@@ -1422,6 +1565,17 @@
       "composes": []
     },
     {
+      "name": "team",
+      "category": "execution",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
       "name": "test-coverage",
       "category": "utility",
       "status": "active",
@@ -1452,6 +1606,28 @@
       "version": "0.3.0",
       "layer": "quality",
       "intent": "testing",
+      "composes": []
+    },
+    {
+      "name": "trace",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "ultragoal",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
       "composes": []
     },
     {
@@ -1570,6 +1746,61 @@
       "status": "active",
       "core": false,
       "source": "local",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "visual-ralph",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "visual-verdict",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "web-clone",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "wiki",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
+      "version": "0.1.0",
+      "layer": null,
+      "intent": null,
+      "composes": []
+    },
+    {
+      "name": "worker",
+      "category": "utility",
+      "status": "active",
+      "core": false,
+      "source": "oh-my-codex",
       "version": "0.1.0",
       "layer": null,
       "intent": null,
