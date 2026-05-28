@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+// AI_REVIEW: {
+//   "ai": "Gemini",
+//   "risk": 1,
+//   "taste": 9,
+//   "comment": "MCP 记忆服务器。已为 project_memory_read 和 notepad_read 增加 try-catch 防崩保护并提供标准错误响应。",
+//   "timestamp": "2026-05-28T18:47:00Z"
+// }
 const { Server } = require('@modelcontextprotocol/sdk/server');
 const { StdioServerTransport } = require('@modelcontextprotocol/sdk/server/stdio.js');
 const { ListToolsRequestSchema, CallToolRequestSchema } = require('@modelcontextprotocol/sdk/types.js');
@@ -190,8 +197,16 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   if (name === 'project_memory_read') {
     const file = memoryPath(wd);
     if (!fs.existsSync(file)) return text({ exists: false });
-    const content = JSON.parse(await fsp.readFile(file, 'utf8'));
-    return text({ exists: true, memory: content });
+    try {
+      const raw = await fsp.readFile(file, 'utf8');
+      const content = JSON.parse(raw);
+      return text({ exists: true, memory: content });
+    } catch (err) {
+      return {
+        content: [{ type: 'text', text: `Failed to read or parse memory file: ${err.message}` }],
+        isError: true,
+      };
+    }
   }
 
   if (name === 'project_memory_write') {
@@ -204,8 +219,15 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   if (name === 'notepad_read') {
     const file = notepadPath(wd);
     if (!fs.existsSync(file)) return text({ exists: false, content: '' });
-    const content = await fsp.readFile(file, 'utf8');
-    return text({ exists: true, content });
+    try {
+      const content = await fsp.readFile(file, 'utf8');
+      return text({ exists: true, content });
+    } catch (err) {
+      return {
+        content: [{ type: 'text', text: `Failed to read notepad file: ${err.message}` }],
+        isError: true,
+      };
+    }
   }
 
   if (name === 'notepad_write') {

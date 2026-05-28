@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-26T11:25:42.050Z",
+  "generatedAt": "2026-05-28T10:45:49.435Z",
   "counts": {
     "skillCount": 148,
     "promptCount": 3,
@@ -1013,10 +1013,10 @@
       "category": "utility",
       "status": "active",
       "core": false,
-      "source": "ecc",
-      "version": "\"1.0.0\"",
-      "layer": null,
-      "intent": null,
+      "source": "ported-from-claudecode-omc",
+      "version": "1.0.0",
+      "layer": "meta",
+      "intent": "prompt-engineering",
       "composes": []
     },
     {

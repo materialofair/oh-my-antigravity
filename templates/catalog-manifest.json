@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "catalogVersion": "2026-05-26",
+  "catalogVersion": "2026-05-28",
   "skills": [
     {
       "name": ".codex",
@@ -1008,10 +1008,10 @@
       "category": "utility",
       "status": "active",
       "core": false,
-      "source": "ecc",
-      "version": "\"1.0.0\"",
-      "layer": null,
-      "intent": null,
+      "source": "ported-from-claudecode-omc",
+      "version": "1.0.0",
+      "layer": "meta",
+      "intent": "prompt-engineering",
       "composes": []
     },
     {

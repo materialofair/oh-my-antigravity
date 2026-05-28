@@ -10,3 +10,7 @@ dist/
 # Windows reserved names (prevent accidental creation)
 nul
 NUL
+
+# AI client memory and caches
+.claude_memory/
+.gemini/

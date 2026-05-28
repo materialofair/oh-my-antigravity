@@ -1,5 +1,13 @@
 /* eslint-disable no-console */
 
+// AI_REVIEW: {
+//   "ai": "Gemini",
+//   "risk": 1,
+//   "taste": 9,
+//   "comment": "冲突解决核心模块。重构 calculateDescriptionSimilarity 以基于字符分词支持中文，解决中文相似度匹配失效问题。",
+//   "timestamp": "2026-05-28T18:48:00Z"
+// }
+
 /**
  * Skill Merger Module
  *
@@ -151,14 +159,30 @@ function loadSkillsFromSource(sourceDir, sourceName) {
 }
 
 /**
+ * Tokenize description for similarity comparison.
+ * Supports character spacing for Chinese text so Jaccard works properly.
+ */
+function tokenizeForSimilarity(text) {
+  if (!text) return new Set();
+  const lower = text.toLowerCase();
+  const hasChinese = /[\u4e00-\u9fa5]/.test(lower);
+  if (hasChinese) {
+    // Spacer Chinese characters out so they become single-character tokens
+    const spaced = lower.replace(/([\u4e00-\u9fa5])/g, ' $1 ');
+    return new Set(spaced.split(/\s+/).filter(w => w.length >= 1));
+  } else {
+    return new Set(lower.split(/\s+/).filter(w => w.length > 2));
+  }
+}
+
+/**
  * Calculate Jaccard similarity between two descriptions
  */
 function calculateDescriptionSimilarity(desc1, desc2) {
   if (!desc1 || !desc2) return 0;
 
-  // Normalize and tokenize
-  const words1 = new Set(desc1.toLowerCase().split(/\s+/).filter(w => w.length > 2));
-  const words2 = new Set(desc2.toLowerCase().split(/\s+/).filter(w => w.length > 2));
+  const words1 = tokenizeForSimilarity(desc1);
+  const words2 = tokenizeForSimilarity(desc2);
 
   if (words1.size === 0 || words2.size === 0) return 0;
 
@@ -524,6 +548,8 @@ module.exports = {
   resolveConflicts,
   applyResolutions,
   generateReport,
+  compareVersions,
+  calculateDescriptionSimilarity,
 };
 
 

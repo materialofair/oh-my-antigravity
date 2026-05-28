@@ -57,7 +57,9 @@ async function doctor() {
 
   // --- Install / environment status (informational, never gates) -----------
   const info = [];
-  info.push({ name: 'Antigravity', msg: (fs.existsSync('/Applications/Antigravity.app') || fs.existsSync(ANTIGRAVITY_HOME)) ? `found (${ANTIGRAVITY_HOME})` : 'not detected' });
+  const isMac = process.platform === 'darwin';
+  const hasAntigravity = (isMac && fs.existsSync('/Applications/Antigravity.app')) || fs.existsSync(ANTIGRAVITY_HOME);
+  info.push({ name: 'Antigravity', msg: hasAntigravity ? `found (${ANTIGRAVITY_HOME})` : 'not detected' });
   info.push({ name: 'Upstream skills', msg: fs.existsSync(src.upstreamDir) && fs.readdirSync(src.upstreamDir).length ? fs.readdirSync(src.upstreamDir).join(', ') : 'none (npm run source:skills:sync)' });
 
   const gSkills = globalSkillsDir();

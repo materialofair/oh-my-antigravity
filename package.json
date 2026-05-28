@@ -35,7 +35,7 @@
     "governance:skills": "bash scripts/check-skill-governance.sh",
     "harness:lint": "node bin/oma.js harness lint",
     "source:skills:sync": "bash scripts/sync-upstream-skills.sh --source all",
-    "test": "npm run governance:skills && npm run catalog:generate && npm run catalog:skill-index && node bin/oma.js doctor",
+    "test": "node tests/unit-tests.js && npm run governance:skills && npm run catalog:generate && npm run catalog:skill-index && node bin/oma.js doctor",
     "pack:dry-run": "npm pack --dry-run"
   },
   "engines": {

@@ -1,6 +1,19 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
+TEMPORARY_REMOTES=()
+
+cleanup_remotes() {
+  for r in "${TEMPORARY_REMOTES[@]}"; do
+    if git remote get-url "$r" >/dev/null 2>&1; then
+      echo "  Cleaning up temporary remote '$r' on exit..."
+      git remote remove "$r"
+    fi
+  done
+}
+
+trap cleanup_remotes EXIT
+
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SKIP_FETCH="false"
 SOURCE="all"
@@ -117,6 +130,7 @@ sync_source() {
   if ! git remote get-url "$remote" >/dev/null 2>&1; then
     echo "  Adding remote '$remote' -> $url"
     git remote add "$remote" "$url"
+    TEMPORARY_REMOTES+=("$remote")
   fi
 
   # Fetch

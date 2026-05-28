@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+// AI_REVIEW: {
+//   "ai": "Gemini",
+//   "risk": 1,
+//   "taste": 9,
+//   "comment": "MCP 状态服务器。已添加防崩溃 try-catch 保护，并在出错时提供 clean 报错响应。",
+//   "timestamp": "2026-05-28T18:46:00Z"
+// }
 const { Server } = require('@modelcontextprotocol/sdk/server');
 const { StdioServerTransport } = require('@modelcontextprotocol/sdk/server/stdio.js');
 const { ListToolsRequestSchema, CallToolRequestSchema } = require('@modelcontextprotocol/sdk/types.js');
@@ -67,8 +74,16 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   if (name === 'state_read') {
     const file = statePath(wd, a.mode);
     if (!fs.existsSync(file)) return text({ exists: false });
-    const state = JSON.parse(await fsp.readFile(file, 'utf8'));
-    return text({ exists: true, state });
+    try {
+      const raw = await fsp.readFile(file, 'utf8');
+      const state = JSON.parse(raw);
+      return text({ exists: true, state });
+    } catch (err) {
+      return {
+        content: [{ type: 'text', text: `Failed to read or parse state file: ${err.message}` }],
+        isError: true,
+      };
+    }
   }
 
   if (name === 'state_write') {
